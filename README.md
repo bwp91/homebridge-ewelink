@@ -1,11 +1,13 @@
 # homebridge-ewelink
-Homebridge plugin to control Sonoff relays with OEM firmware
+Homebridge plugin to control Sonoff relays with OEM firmware. It uses the same API as the iOS app to communicate with your devices.
 
 ## Shortcomings
 
 The plugin uses the same credentials as the eWeLink app. In order to obtain the authenticationToken, you'll need to use Charles to inspect the traffic and grab the value from the Authorization header. To do: document this.
 
 Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
+
+It has only been tested with one device assosiated with my account. YMMV.
 
 ## Sample config.json
 
