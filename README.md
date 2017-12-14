@@ -5,6 +5,8 @@ Homebridge plugin to control Sonoff relays with OEM firmware
 
 The plugin uses the same credentials as the eWeLink app. In order to obtain the authenticationToken, you'll need to use Charles to inspect the traffic and grab the value from the Authorization header. To do: document this.
 
+Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
+
 ## Sample config.json
 
 ```
