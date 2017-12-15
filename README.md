@@ -37,6 +37,43 @@ It has only been tested with one device assosiated with my account. YMMV.
 }
 ```
 
+## Obtaining the Authentication Token and API URL using Charles
+
+[Charles](https://www.charlesproxy.com/) allows us to watch the data being exchanged between the eWeLink iOS app (Android is untested) and the server endpoint.
+
+1) Download and install the eWeLink app to your device
+2) Ensure your Sonoff devices are registered and working with the native app
+3) Ensure the app is logged in to your account
+4) Return back to your device's home screen
+
+With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depening on your region):
+
+```
+https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getTags=1&imei=XXXX&lang=en&model=XXXX&os=ios&romVersion=X.X.X&version=X
+
+https://us-ota.coolkit.cc:8080/otaother/app
+```
+
+In both of these requests, look at the request header
+
+![Viewing HTTPS Authorization Header in Charles](https://i.imgur.com/88PlK6Eh.png)
+
+```
+Bearer abcdefghijklnmopqrstuvwxyz
+```
+
+The abcdefghijklnmopqrstuvwxyz is what you'd put as the configuration file's authenticationToken value.
+
+API URLs are also shown in this request. You need to use the URL in webSocketApi and apiHost
+
+### A note on the authenticationToken
+
+The authentication token is generated every time your device's app logs in to the eWeLink service. Based on my limited testing, the session seems to persist for quite some time.
+
+You can only have one authentication token per user account. 
+
+If you logout and login to the app again, you'll need to perform the above steps to get things working again.
+
 ## Sample logging
 
 ```
