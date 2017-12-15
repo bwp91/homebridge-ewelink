@@ -114,3 +114,7 @@ The plugin will also listen for announcements via a persistent web socket. This 
 [12/13/2017, 9:41:50 PM] [eWeLink] Setting power state to [on] for device [Fan]
 [12/13/2017, 9:41:50 PM] [eWeLink] WebSocket messge received:  {"error":0,"deviceid":"XXXXXXX","apikey":"XXXXXXX","sequence":"1513219310003"}
 ```
+## Credits
+
+https://github.com/websockets/ws/wiki/Websocket-client-implementation-for-auto-reconnect
+
