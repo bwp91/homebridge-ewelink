@@ -52,7 +52,6 @@ function eWeLink(log, config, api) {
 
 
         this.api.on('didFinishLaunching', function() {
-            platform.log('removing');
 
             platform.log("A total of [%s] accessories were loaded from the local cache", platform.accessories.size);
 
