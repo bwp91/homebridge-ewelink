@@ -144,6 +144,7 @@ function eWeLink(log, config, api) {
 
                         switch(deviceInformationFromWebApi.extra.extra.model) {
                             case 'PSF-B04-GL' :
+                            case 'PSB-B04-GL' :    
                                 switchesAmount = 2;
                                 break;
                         }
@@ -166,6 +167,7 @@ function eWeLink(log, config, api) {
 
                         switch(deviceToAdd.extra.extra.model) {
                             case 'PSF-B04-GL' :
+                            case 'PSB-B04-GL' : 
                                 switchesAmount = 2;
                                 break;
                         }
