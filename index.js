@@ -144,7 +144,7 @@ function eWeLink(log, config, api) {
 
                         switch(deviceInformationFromWebApi.extra.extra.model) {
                             case 'PSF-B04-GL' :
-                            case 'PSB-B04-GL' :    
+                            case 'PSB-B04-GL' :
                                 switchesAmount = 2;
                                 break;
                         }
@@ -167,7 +167,7 @@ function eWeLink(log, config, api) {
 
                         switch(deviceToAdd.extra.extra.model) {
                             case 'PSF-B04-GL' :
-                            case 'PSB-B04-GL' : 
+                            case 'PSB-B04-GL' :
                                 switchesAmount = 2;
                                 break;
                         }
@@ -347,6 +347,7 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
 
     switch(device.extra.extra.model) {
         case 'PSF-B04-GL' :
+        case 'PSB-B04-GL' :
             accessory.context.switches = 2;
             break;
     }
@@ -476,7 +477,7 @@ eWeLink.prototype.getPowerState = function(accessory, callback) {
             }
 
         } else if (filteredResponse.length > 1) {
-            // More than one device matches our Device ID. This should not happen.      
+            // More than one device matches our Device ID. This should not happen.
             platform.log("ERROR: The response contained more than one device with Device ID [%s]. Filtered response follows.", device.deviceid);
             platform.log(filteredResponse);
             callback("The response contained more than one device with Device ID " + device.deviceid);
@@ -531,7 +532,7 @@ eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
     // platform.log( string );
 
     if (platform.isSocketOpen) {
-        
+
         platform.wsc.send(string);
 
         // TODO Here we need to wait for the response to the socket
