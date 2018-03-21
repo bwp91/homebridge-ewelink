@@ -68,15 +68,17 @@ function eWeLink(log, config, api) {
             this.webClient.headers['Authorization'] = 'Bearer ' + this.authenticationToken;
             this.webClient.get('/api/user/device', function(err, res, body) {
 
-                if (body.hasOwnProperty('error')) {
+                if (err){
+                    platform.log("An error was encountered while requesting a list of devices. Error was [%s]", err);
+                    return;
+                } else if (!body || body.hasOwnProperty('error')) {
 
                     let response = JSON.stringify(body);
 
                     platform.log("An error was encountered while requesting a list of devices. Response was [%s]", response);
 
-                    if (body.error === '401') {
+                    if (body && body.error === '401') {
                         platform.log("Verify that you have the correct authenticationToken specified in your configuration. The currently-configured token is [%s]", platform.authenticationToken);
-
                     }
 
                     return;
@@ -399,7 +401,10 @@ eWeLink.prototype.getPowerState = function(accessory, callback) {
 
     this.webClient.get('/api/user/device', function(err, res, body) {
 
-        if (body.hasOwnProperty('error')) {
+        if (err){
+            platform.log("An error was encountered while requesting a list of devices while interrogating power status. Verify your configuration options. Error was [%s]", err);
+            return;
+        } else if (!body || body.hasOwnProperty('error')) {
             platform.log("An error was encountered while requesting a list of devices while interrogating power status. Verify your configuration options. Response was [%s]", JSON.stringify(body));
             callback('An error was encountered while requesting a list of devices to interrogate power status for your device');
             return;
