@@ -149,6 +149,9 @@ function eWeLink(log, config, api) {
                             case 'PSB-B04-GL' :
                                 switchesAmount = 2;
                                 break;
+                            case 'PSF-A04-GL' :
+                                switchesAmount = 4;
+                                break;
                         }
 
                         if(switchesAmount > 1) {
@@ -171,6 +174,9 @@ function eWeLink(log, config, api) {
                             case 'PSF-B04-GL' :
                             case 'PSB-B04-GL' :
                                 switchesAmount = 2;
+                                break;
+                            case 'PSF-A04-GL' :
+                                switchesAmount = 4;
                                 break;
                         }
 
@@ -351,6 +357,9 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
         case 'PSF-B04-GL' :
         case 'PSB-B04-GL' :
             accessory.context.switches = 2;
+            break;
+        case 'PSF-A04-GL' :
+            accessory.context.switches = 4;
             break;
     }
 
