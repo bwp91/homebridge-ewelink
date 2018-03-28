@@ -321,8 +321,8 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
         channel = id[1];
     }
 
-    this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name + (channel ? ' CH ' + channel : ''), device.productModel, channel ? device.params.switches[channel].switch : device.params.switch, device.online, device.apikey);
-
+    const status = channel && device.params.switches && device.params.switches[channel-1] ? device.params.switches[channel-1].switch : device.params.switch || "off"
+    this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name + (channel ? ' CH ' + channel : ''), device.productModel, status, device.online, device.apikey);
     const accessory = new Accessory(device.name + (channel ? ' CH ' + channel : ''), UUIDGen.generate((deviceId ? deviceId : device.deviceid).toString()));
 
     accessory.context.deviceId = deviceId ? deviceId : device.deviceid;
