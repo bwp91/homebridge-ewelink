@@ -32,6 +32,11 @@ module.exports = function(homebridge) {
 // Platform constructor
 function eWeLink(log, config, api) {
 
+    if(!config || !config['authenticationToken']){
+        log("Initialization skipped. Missing configuration data.");
+        return;
+    }
+
     log("Intialising eWeLink");
 
     let platform = this;
