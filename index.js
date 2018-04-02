@@ -32,6 +32,11 @@ module.exports = function(homebridge) {
 // Platform constructor
 function eWeLink(log, config, api) {
 
+    if(!config || !config['authenticationToken']){
+        log("Initialization skipped. Missing configuration data.");
+        return;
+    }
+
     log("Intialising eWeLink");
 
     let platform = this;
@@ -149,6 +154,9 @@ function eWeLink(log, config, api) {
                             case 'PSB-B04-GL' :
                                 switchesAmount = 2;
                                 break;
+                            case 'PSF-A04-GL' :
+                                switchesAmount = 4;
+                                break;
                         }
 
                         if(switchesAmount > 1) {
@@ -171,6 +179,9 @@ function eWeLink(log, config, api) {
                             case 'PSF-B04-GL' :
                             case 'PSB-B04-GL' :
                                 switchesAmount = 2;
+                                break;
+                            case 'PSF-A04-GL' :
+                                switchesAmount = 4;
                                 break;
                         }
 
@@ -315,8 +326,8 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
         channel = id[1];
     }
 
-    this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name + (channel ? ' CH ' + channel : ''), device.productModel, channel ? device.params.switches[channel].switch : device.params.switch, device.online, device.apikey);
-
+    const status = channel && device.params.switches && device.params.switches[channel-1] ? device.params.switches[channel-1].switch : device.params.switch || "off"
+    this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name + (channel ? ' CH ' + channel : ''), device.productModel, status, device.online, device.apikey);
     const accessory = new Accessory(device.name + (channel ? ' CH ' + channel : ''), UUIDGen.generate((deviceId ? deviceId : device.deviceid).toString()));
 
     accessory.context.deviceId = deviceId ? deviceId : device.deviceid;
@@ -351,6 +362,9 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
         case 'PSF-B04-GL' :
         case 'PSB-B04-GL' :
             accessory.context.switches = 2;
+            break;
+        case 'PSF-A04-GL' :
+            accessory.context.switches = 4;
             break;
     }
 
