@@ -9,7 +9,7 @@ It has been tested with the [Sonoff basic](http://sonoff.itead.cc/en/products/so
 
 The plugin will only support one eWeLink account.
 
-It is possible to continute to use the OEM functionality (eWeLink app, Google Home integration); this plugin requires no modification to the relay's firmware.
+It is possible to continue to use the OEM functionality (eWeLink app, Google Home integration); this plugin requires no modification to the relay's firmware.
 
 ## Shortcomings
 
@@ -26,7 +26,14 @@ Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel f
 sudo npm -g install homebridge-ewelink
 ```
 
-2) Add to the platforms[] section of config.json. Steps for obtaining the values for authenticationToken, apiHost, and webSocketApi can be found below.
+2) Add to the platforms[] section of config.json. Steps for obtaining the values for apiHost and webSocketApi can be found below.
+
+  * `phoneNumber` - The login phone number of your ewelink account
+  * `email` - The login email of your ewelink account
+  * `password` - Your ewelink account login password
+  * `imei` - This can be any valid UUID (or maybe any random string will do)
+  * `apiHost` - The ewelink api host (different depends on your region)
+  * `webSocketApi` - The ewelink WebSocket api host (different depends on your region)
 
 3) Restart Homebridge
 
@@ -50,7 +57,9 @@ sudo npm -g install homebridge-ewelink
         {
         "platform" : "eWeLink",
         "name" : "eWeLink",
-        "authenticationToken" : "obtain-with-Charles",
+        "phoneNumber" : "+12345678901",
+        "password" : "your-login-password",
+        "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF",
         "apiHost" : "us-api.coolkit.cc:8080",
         "webSocketApi" : "us-long.coolkit.cc"
         }
@@ -58,7 +67,7 @@ sudo npm -g install homebridge-ewelink
 }
 ```
 
-### Obtaining the Authentication Token and API URL using Charles
+### Obtaining the API URL using Charles
 
 [Charles](https://www.charlesproxy.com/) allows us to watch the data being exchanged between the eWeLink iOS app (Android is untested) and the server endpoint.
 
@@ -67,7 +76,7 @@ sudo npm -g install homebridge-ewelink
 3) Ensure the app is logged in to your account
 4) Return back to your device's home screen
 
-With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depening on your region):
+With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depending on your region):
 
 ```
 https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getTags=1&imei=XXXX&lang=en&model=XXXX&os=ios&romVersion=X.X.X&version=X
@@ -75,25 +84,15 @@ https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getT
 https://us-ota.coolkit.cc:8080/otaother/app
 ```
 
-In both of these requests, look at the request header
+API URLs are shown in this request. You need to use the URL in webSocketApi and apiHost
 
-![Viewing HTTPS Authorization Header in Charles](https://i.imgur.com/88PlK6Eh.png)
+### A note on login session
 
-```
-Bearer abcdefghijklnmopqrstuvwxyz
-```
-
-The abcdefghijklnmopqrstuvwxyz is what you'd put as the configuration file's authenticationToken value.
-
-API URLs are also shown in this request. You need to use the URL in webSocketApi and apiHost
-
-### A note on the authenticationToken
-
-The authentication token is generated every time your device's app logs in to the eWeLink service. Based on my limited testing, the session seems to persist for quite some time.
+An authentication token is generated every time your device's app logs in to the eWeLink service. Based on my limited testing, the session seems to persist for quite some time.
 
 You can only have one authentication token per user account. 
 
-If you logout and login to the app again, you'll need to perform the above steps to get things working again.
+If you login with the app, you'll need to restart homebridge to get a new authentication token for it to work.
 
 ## Troubleshooting
 
