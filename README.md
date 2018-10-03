@@ -1,6 +1,5 @@
-## This project is not being actively updated. Please feel free to create a fork and develop extra functionality!
+# homebridge-ewelink-max
 
-# homebridge-ewelink
 Homebridge plugin to control Sonoff relays with OEM firmware. It uses the same API as the iOS app to communicate with your devices.
 
 The platform will dynamically add/remove devices based on what is configured in your eWeLink account.
@@ -11,9 +10,18 @@ The plugin will only support one eWeLink account.
 
 It is possible to continue to use the OEM functionality (eWeLink app, Google Home integration); this plugin requires no modification to the relay's firmware.
 
+## Why max?
+
+This is a fork of [homebridge-ewelink](https://github.com/gbro115/homebridge-ewelink), which is not being actively updated. There is another package named [homebridge-ewelin-plus](https://www.npmjs.com/package/homebridge-ewelink-plus) which is not updated for 6 months at the time of writing. The name is inspired by Apple's naming convention.
+
+This fork have the following notable changes / improvements:
+
+* Support login with phone number / email and password, which save your time from obtaining the authentication token with Charles once in a while.
+* Support sending heartbeat on the WebSocket connection, which greatly reduce the interval of reconnects, hence better stability.
+
 ## Shortcomings
 
-The plugin uses the same credentials as the eWeLink app. In order to obtain the authenticationToken, you'll need to use Charles to inspect the traffic and grab the value from the Authorization header. See below for information on how to obtain this value.
+The plugin uses the same credentials as the eWeLink app. In order to obtain the API URLs, you'll need to use Charles to inspect the traffic and grab the value from the API response. See below for information on how to obtain these value.
 
 Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
 
@@ -23,7 +31,7 @@ Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel f
 
 1) Install the plugin
 ```
-sudo npm -g install homebridge-ewelink
+sudo npm -g install homebridge-ewelink-max
 ```
 
 2) Add to the platforms[] section of config.json. Steps for obtaining the values for apiHost and webSocketApi can be found below.
