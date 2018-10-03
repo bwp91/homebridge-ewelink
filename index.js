@@ -222,9 +222,19 @@ function eWeLink(log, config, api) {
 
                     platform.wsc.onmessage = function(message) {
 
-                        //platform.log("WebSocket messge received: ", message);
+                        // Heartbeat response can be safely ignored
+                        if (message == 'pong') {
+                            return;
+                        }
 
-                        let json = JSON.parse(message);
+                        platform.log("WebSocket messge received: ", message);
+
+                        let json;
+                        try {
+                            json = JSON.parse(message);
+                        } catch (e) {
+                            return;
+                        }
 
                         if (json.hasOwnProperty("action")) {
 
@@ -238,6 +248,12 @@ function eWeLink(log, config, api) {
 
                             }
 
+                        } else if (json.hasOwnProperty('config') && json.config.hb && json.config.hbInterval) {
+                            if (!platform.hbInterval) {
+                                platform.hbInterval = setInterval(function () {
+                                    platform.wsc.send('ping');
+                                }, json.config.hbInterval * 1000);
+                            }
                         }
 
                     };
@@ -277,6 +293,9 @@ function eWeLink(log, config, api) {
                     platform.wsc.onclose = function(e) {
                         platform.log("WebSocket was closed. Reason [%s]", e);
                         platform.isSocketOpen = false;
+                        if (platform.hbInterval) {
+                            clearInterval(platform.hbInterval);
+                        }
                     }
 
                 }); // End WebSocket
