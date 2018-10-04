@@ -673,10 +673,12 @@ eWeLink.prototype.relogin = function (callback) {
     let platform = this;
     platform.login(function () {
         // Reconnect websocket
-        platform.wsc.instance.terminate();
-        platform.wsc.onclose();
-        platform.wsc.reconnect();
-        callback();
+        if (platform.isSocketOpen) {
+            platform.wsc.instance.terminate();
+            platform.wsc.onclose();
+            platform.wsc.reconnect();
+        }
+        callback && callback();
     });
 };
 
@@ -685,6 +687,7 @@ eWeLink.prototype.relogin = function (callback) {
 function WebSocketClient() {
     this.number = 0; // Message number
     this.autoReconnectInterval = 5 * 1000; // ms
+    this.pendingReconnect = false;
 }
 WebSocketClient.prototype.open = function(url) {
     this.url = url;
@@ -730,10 +733,14 @@ WebSocketClient.prototype.send = function(data, option) {
 WebSocketClient.prototype.reconnect = function(e) {
     // console.log(`WebSocketClient: retry in ${this.autoReconnectInterval}ms`, e);
 
+    if (this.pendingReconnect) return;
+    this.pendingReconnect = true;
+
     this.instance.removeAllListeners();
 
     let platform = this;
     setTimeout(function() {
+        platform.pendingReconnect = false;
         console.log("WebSocketClient: reconnecting...");
         platform.open(platform.url);
     }, this.autoReconnectInterval);
