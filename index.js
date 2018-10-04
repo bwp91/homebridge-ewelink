@@ -295,6 +295,7 @@ function eWeLink(log, config, api) {
                         platform.isSocketOpen = false;
                         if (platform.hbInterval) {
                             clearInterval(platform.hbInterval);
+                            platform.hbInterval = null;
                         }
                     }
 
