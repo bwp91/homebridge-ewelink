@@ -1,3 +1,4 @@
+/* jshint -W030, -W069, esversion: 6 */
 let WebSocket = require('ws');
 let http = require('http');
 let url = require('url');
@@ -46,6 +47,13 @@ function eWeLink(log, config, api) {
     this.accessories = new Map();
     this.authenticationToken = config['authenticationToken'];
     this.devicesFromApi = new Map();
+
+    if (!config['apiHost']) {
+        config['apiHost'] = 'us-api.coolkit.cc:8080';
+    }
+    if (!config['webSocketApi']) {
+        config['webSocketApi'] = 'us-pconnect3.coolkit.cc';
+    }
 
     if (api) {
         // Save the API object as plugin needs to register new accessory via this object
@@ -297,7 +305,7 @@ function eWeLink(log, config, api) {
                             clearInterval(platform.hbInterval);
                             platform.hbInterval = null;
                         }
-                    }
+                    };
 
                 }); // End WebSocket
 
@@ -338,7 +346,7 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
     // Here we need to check if it is currently there
     if (this.accessories.get(deviceId ? deviceId : device.deviceid)) {
         this.log("Not adding [%s] as it already exists in the cache", deviceId ? deviceId : device.deviceid);
-        return
+        return;
     }
 
     let platform = this;
@@ -354,7 +362,7 @@ eWeLink.prototype.addAccessory = function(device, deviceId = null) {
         channel = id[1];
     }
 
-    const status = channel && device.params.switches && device.params.switches[channel-1] ? device.params.switches[channel-1].switch : device.params.switch || "off"
+    const status = channel && device.params.switches && device.params.switches[channel-1] ? device.params.switches[channel-1].switch : device.params.switch || "off";
     this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name + (channel ? ' CH ' + channel : ''), device.productModel, status, device.online, device.apikey);
     const accessory = new Accessory(device.name + (channel ? ' CH ' + channel : ''), UUIDGen.generate((deviceId ? deviceId : device.deviceid).toString()));
 
@@ -450,7 +458,7 @@ eWeLink.prototype.getPowerState = function(accessory, callback) {
             return;
         } else if (!body || body.hasOwnProperty('error')) {
             platform.log("An error was encountered while requesting a list of devices while interrogating power status. Verify your configuration options. Response was [%s]", JSON.stringify(body));
-            if (body.error == '401') {
+            if (body.hasOwnProperty('error') && [401, 402].indexOf(parseInt(body.error)) !== -1) {
                 platform.relogin();
             }
             callback('An error was encountered while requesting a list of devices to interrogate power status for your device');
@@ -645,13 +653,31 @@ eWeLink.prototype.login = function(callback) {
     
     let webClient = request.createClient('https://' + this.config.apiHost);
     webClient.headers['Authorization'] = 'Sign ' + sign;
-    webClient.headers['Content-Type'] = 'application/json';
+    webClient.headers['Content-Type'] = 'application/json;charset=UTF-8';
     webClient.post('/api/user/login', data , function(err, res, body) {
         if (err) {
             this.log("An error was encountered while logging in. Error was [%s]", err);
             callback();
             return;
         }
+        
+        // If we receive 301 error, switch to new region and try again
+        if (body.hasOwnProperty('error') && body.error == 301 && body.hasOwnProperty('region')) {
+            let idx = this.config.apiHost.indexOf('-');
+            if (idx == -1) {
+                this.log("Received new region [%s]. However we cannot construct the new API host url.", body.region);
+                callback();
+                return;
+            }
+            let newApiHost = body.region + this.config.apiHost.substring(idx);
+            if (this.config.apiHost != newApiHost) {
+                this.log("Received new region [%s], updating API host to [%s].", body.region, newApiHost);
+                this.config.apiHost = newApiHost;
+                this.login(callback);
+                return;
+            }
+        }
+        
         if (!body.at) {
             let response = JSON.stringify(body);
             this.log("Server did not response with an authentication token. Response was [%s]", response);
@@ -662,10 +688,51 @@ eWeLink.prototype.login = function(callback) {
         this.log('Authentication token received [%s]', body.at);
         this.authenticationToken = body.at;
         this.config.authenticationToken = body.at;
-        if (this.webClient) {
-            this.webClient.headers['Authorization'] = 'Bearer ' + body.at;
+        this.webClient = request.createClient('https://' + this.config['apiHost']);
+        this.webClient.headers['Authorization'] = 'Bearer ' + body.at;
+        
+        this.getWebSocketHost(function () {
+            callback(body.at);
+        }.bind(this));
+    }.bind(this));
+};
+
+eWeLink.prototype.getWebSocketHost = function (callback) {
+    var data = {};
+    data.accept = 'mqtt,ws';
+    data.version = '6';
+    data.ts = '' + Math.floor(new Date().getTime() / 1000);
+    data.nonce = '' + nonce();
+    data.appid = 'oeVkj2lYFGnJu5XUtWisfW4utiN4u9Mq';
+    data.imei = this.config.imei;
+    data.os = 'iOS';
+    data.model = 'iPhone10,6';
+    data.romVersion = '11.1.2';
+    data.appVersion = '3.5.3';
+    
+    let webClient = request.createClient('https://' + this.config.apiHost.replace('-api', '-disp'));
+    webClient.headers['Authorization'] = 'Bearer ' + this.authenticationToken;
+    webClient.headers['Content-Type'] = 'application/json;charset=UTF-8';
+    webClient.post('/dispatch/app', data , function(err, res, body) {
+        if (err) {
+            this.log("An error was encountered while getting websocket host. Error was [%s]", err);
+            callback();
+            return;
         }
-        callback(body.at);
+        
+        if (!body.domain) {
+            let response = JSON.stringify(body);
+            this.log("Server did not response with a websocket host. Response was [%s]", response);
+            callback();
+            return;
+        }
+        
+        this.log('WebSocket host received [%s]', body.domain);
+        this.config['webSocketApi'] = body.domain;
+        if (this.wsc) {
+            this.wsc.url = 'wss://' + body.domain + ':8080/api/ws';
+        }
+        callback(body.domain);
     }.bind(this));
 };
 

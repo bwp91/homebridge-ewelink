@@ -18,12 +18,11 @@ This fork have the following notable changes / improvements:
 
 * Support login with phone number / email and password, which save your time from obtaining the authentication token with Charles once in a while.
 * Support sending heartbeat on the WebSocket connection, which greatly reduce the interval of reconnects, hence better stability.
+* Support obtaining the correct API / WebSocket API host automatically, so you don't need to obtain these information with Charles.
 
 ## Shortcomings
 
-The plugin uses the same credentials as the eWeLink app. In order to obtain the API URLs, you'll need to use Charles to inspect the traffic and grab the value from the API response. See below for information on how to obtain these value.
-
-Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
+The code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
 
 ## Steps to install / configure
 
@@ -34,14 +33,12 @@ Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel f
 sudo npm -g install homebridge-ewelink-max
 ```
 
-2) Add to the platforms[] section of config.json. Steps for obtaining the values for apiHost and webSocketApi can be found below.
+2) Add to the platforms[] section of config.json.
 
   * `phoneNumber` - The login phone number of your ewelink account
   * `email` - The login email of your ewelink account
   * `password` - Your ewelink account login password
   * `imei` - This can be any valid UUID (or maybe any random string will do)
-  * `apiHost` - The ewelink api host (different depends on your region)
-  * `webSocketApi` - The ewelink WebSocket api host (different depends on your region)
 
 3) Restart Homebridge
 
@@ -63,44 +60,23 @@ sudo npm -g install homebridge-ewelink-max
 
     "platforms": [
         {
-        "platform" : "eWeLink",
-        "name" : "eWeLink",
-        "phoneNumber" : "+12345678901",
-        "password" : "your-login-password",
-        "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF",
-        "apiHost" : "us-api.coolkit.cc:8080",
-        "webSocketApi" : "us-long.coolkit.cc"
+            "platform" : "eWeLink",
+            "name" : "eWeLink",
+            "phoneNumber" : "+12345678901",
+            "password" : "your-login-password",
+            "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF"
         }
     ]
 }
 ```
 
-### Obtaining the API URL using Charles
-
-[Charles](https://www.charlesproxy.com/) allows us to watch the data being exchanged between the eWeLink iOS app (Android is untested) and the server endpoint.
-
-1) Download and install the eWeLink app to your device
-2) Ensure your Sonoff devices are registered and working with the native app
-3) Ensure the app is logged in to your account
-4) Return back to your device's home screen
-
-With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depending on your region):
-
-```
-https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getTags=1&imei=XXXX&lang=en&model=XXXX&os=ios&romVersion=X.X.X&version=X
-
-https://us-ota.coolkit.cc:8080/otaother/app
-```
-
-API URLs are shown in this request. You need to use the URL in webSocketApi and apiHost
-
 ### A note on login session
 
-An authentication token is generated every time your device's app logs in to the eWeLink service. Based on my limited testing, the session seems to persist for quite some time.
+An authentication token is generated every time your device's app logs in to the eWeLink service.
 
-You can only have one authentication token per user account. 
+You can only have one authentication token per user account.
 
-If you login with the app, you'll need to restart homebridge to get a new authentication token for it to work.
+Therefore if you use the HomeKit app and eWeLink app at the same time, they will fight each other for the login session. They should both work individually. You can leave homebridge running when using the eWeLink app.
 
 ## Troubleshooting
 
