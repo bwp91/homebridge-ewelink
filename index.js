@@ -38,6 +38,13 @@ function eWeLink(log, config, api) {
         return;
     }
 
+    if (!config['apiHost']) {
+        config['apiHost'] = 'us-api.coolkit.cc:8080';
+    }
+    if (!config['webSocketApi']) {
+        config['webSocketApi'] = 'us-pconnect3.coolkit.cc';
+    }
+
     log("Intialising eWeLink");
 
     let platform = this;
@@ -47,13 +54,6 @@ function eWeLink(log, config, api) {
     this.accessories = new Map();
     this.authenticationToken = config['authenticationToken'];
     this.devicesFromApi = new Map();
-
-    if (!config['apiHost']) {
-        config['apiHost'] = 'us-api.coolkit.cc:8080';
-    }
-    if (!config['webSocketApi']) {
-        config['webSocketApi'] = 'us-pconnect3.coolkit.cc';
-    }
 
     if (api) {
         // Save the API object as plugin needs to register new accessory via this object
