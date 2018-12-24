@@ -593,11 +593,13 @@ eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
 
     if (platform.isSocketOpen) {
 
-        platform.wsc.send(string);
+        setTimeout(function() {
+            platform.wsc.send(string);
 
-        // TODO Here we need to wait for the response to the socket
+            // TODO Here we need to wait for the response to the socket
 
-        callback();
+            callback();
+        }, 1);
 
     } else {
         callback('Socket was closed. It will reconnect automatically; please retry your command');
