@@ -35,10 +35,10 @@ sudo npm -g install homebridge-ewelink-max
 
 2) Add to the platforms[] section of config.json.
 
-  * `phoneNumber` - The login phone number of your ewelink account
-  * `email` - The login email of your ewelink account
+  * `phoneNumber` - The login phone number of your ewelink account, do not include this if you login with email
+  * `email` - The login email of your ewelink account, do not include this if you login with phone number
   * `password` - Your ewelink account login password
-  * `imei` - This can be any valid UUID (or maybe any random string will do)
+  * `imei` - This can be any valid UUID, get one with an [online generator](https://www.famkruithof.net/uuid/uuidgen?numReq=1&typeReq=4&uppercaseReq=true)
 
 3) Restart Homebridge
 
@@ -68,6 +68,18 @@ sudo npm -g install homebridge-ewelink-max
         }
     ]
 }
+```
+
+If you use email login, the platform section should look like this:
+
+```
+        {
+            "platform" : "eWeLink",
+            "name" : "eWeLink",
+            "email" : "your-email@example.com",
+            "password" : "your-login-password",
+            "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
 ```
 
 ### A note on login session
