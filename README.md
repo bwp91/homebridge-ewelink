@@ -1,6 +1,5 @@
-## This project is not being actively updated. Please feel free to create a fork and develop extra functionality!
+# homebridge-ewelink-max
 
-# homebridge-ewelink
 Homebridge plugin to control Sonoff relays with OEM firmware. It uses the same API as the iOS app to communicate with your devices.
 
 The platform will dynamically add/remove devices based on what is configured in your eWeLink account.
@@ -9,13 +8,21 @@ It has been tested with the [Sonoff basic](http://sonoff.itead.cc/en/products/so
 
 The plugin will only support one eWeLink account.
 
-It is possible to continute to use the OEM functionality (eWeLink app, Google Home integration); this plugin requires no modification to the relay's firmware.
+It is possible to continue to use the OEM functionality (eWeLink app, Google Home integration); this plugin requires no modification to the relay's firmware.
+
+## Why max?
+
+This is a fork of [homebridge-ewelink](https://github.com/gbro115/homebridge-ewelink), which is not being actively updated. There is another package named [homebridge-ewelin-plus](https://www.npmjs.com/package/homebridge-ewelink-plus) which is not updated for 6 months at the time of writing. The name is inspired by Apple's naming convention.
+
+This fork have the following notable changes / improvements:
+
+* Support login with phone number / email and password, which save your time from obtaining the authentication token with Charles once in a while.
+* Support sending heartbeat on the WebSocket connection, which greatly reduce the interval of reconnects, hence better stability.
+* Support obtaining the correct API / WebSocket API host automatically, so you don't need to obtain these information with Charles.
 
 ## Shortcomings
 
-The plugin uses the same credentials as the eWeLink app. In order to obtain the authenticationToken, you'll need to use Charles to inspect the traffic and grab the value from the Authorization header. See below for information on how to obtain this value.
-
-Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
+The code is of suboptimal quality. It was a quick-and-dirty plugin; feel free to contribute & improve.
 
 ## Steps to install / configure
 
@@ -23,10 +30,15 @@ Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel f
 
 1) Install the plugin
 ```
-sudo npm -g install homebridge-ewelink
+sudo npm -g install homebridge-ewelink-max
 ```
 
-2) Add to the platforms[] section of config.json. Steps for obtaining the values for authenticationToken, apiHost, and webSocketApi can be found below.
+2) Add to the platforms[] section of config.json.
+
+  * `phoneNumber` - The login phone number of your ewelink account, do not include this if you login with email
+  * `email` - The login email of your ewelink account, do not include this if you login with phone number
+  * `password` - Your ewelink account login password
+  * `imei` - This can be any valid UUID, get one with an [online generator](https://www.famkruithof.net/uuid/uuidgen?numReq=1&typeReq=4&uppercaseReq=true)
 
 3) Restart Homebridge
 
@@ -48,52 +60,35 @@ sudo npm -g install homebridge-ewelink
 
     "platforms": [
         {
-        "platform" : "eWeLink",
-        "name" : "eWeLink",
-        "authenticationToken" : "obtain-with-Charles",
-        "apiHost" : "us-api.coolkit.cc:8080",
-        "webSocketApi" : "us-long.coolkit.cc"
+            "platform" : "eWeLink",
+            "name" : "eWeLink",
+            "phoneNumber" : "+12345678901",
+            "password" : "your-login-password",
+            "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF"
         }
     ]
 }
 ```
 
-### Obtaining the Authentication Token and API URL using Charles
-
-[Charles](https://www.charlesproxy.com/) allows us to watch the data being exchanged between the eWeLink iOS app (Android is untested) and the server endpoint.
-
-1) Download and install the eWeLink app to your device
-2) Ensure your Sonoff devices are registered and working with the native app
-3) Ensure the app is logged in to your account
-4) Return back to your device's home screen
-
-With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depening on your region):
+If you use email login, the platform section should look like this:
 
 ```
-https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getTags=1&imei=XXXX&lang=en&model=XXXX&os=ios&romVersion=X.X.X&version=X
-
-https://us-ota.coolkit.cc:8080/otaother/app
+        {
+            "platform" : "eWeLink",
+            "name" : "eWeLink",
+            "email" : "your-email@example.com",
+            "password" : "your-login-password",
+            "imei" : "01234567-89AB-CDEF-0123-456789ABCDEF"
+        }
 ```
 
-In both of these requests, look at the request header
+### A note on login session
 
-![Viewing HTTPS Authorization Header in Charles](https://i.imgur.com/88PlK6Eh.png)
+An authentication token is generated every time your device's app logs in to the eWeLink service.
 
-```
-Bearer abcdefghijklnmopqrstuvwxyz
-```
+You can only have one authentication token per user account.
 
-The abcdefghijklnmopqrstuvwxyz is what you'd put as the configuration file's authenticationToken value.
-
-API URLs are also shown in this request. You need to use the URL in webSocketApi and apiHost
-
-### A note on the authenticationToken
-
-The authentication token is generated every time your device's app logs in to the eWeLink service. Based on my limited testing, the session seems to persist for quite some time.
-
-You can only have one authentication token per user account. 
-
-If you logout and login to the app again, you'll need to perform the above steps to get things working again.
+Therefore if you use the HomeKit app and eWeLink app at the same time, they will fight each other for the login session. They should both work individually. You can leave homebridge running when using the eWeLink app.
 
 ## Troubleshooting
 
