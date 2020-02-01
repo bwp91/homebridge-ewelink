@@ -2,7 +2,7 @@ var WebSocket = require('ws');
 var http = require('http');
 var url = require('url');
 var request = require('request-json');
-const ewelink = require('ewelink-api');
+const ewelinkapi = require('ewelink-api');
 
 var nonce = require('nonce')();
 
@@ -66,7 +66,7 @@ function eWeLink(log, config, api) {
 			// New devices will be added, and devices that exist in the cache but not in the web list
 			// will be removed from Homebridge.
 
-			const connection = new ewelink({
+			const connection = new ewelinkapi({
 				email: this.phoneNumberOrEmail,
 				password: this.accountPassword
 			});
