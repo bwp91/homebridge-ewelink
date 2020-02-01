@@ -162,7 +162,7 @@ function eWeLink(log, config, api) {
 
 				platform.wsc = new WebSocketClient();
 
-				platform.wsc.open(url);
+				//platform.wsc.open(url);
 
 				platform.wsc.onmessage = function(message) {
 
@@ -345,10 +345,10 @@ eWeLink.prototype.getPowerState = function(accessory, callback) {
 	platform.log("Requesting power state for [%s]", accessory.displayName);
 	
 	(async() => {
-		const status = await connection.getDevicePowerState(accessory.deviceid);
+		const status = await platform.connection.getDevicePowerState(accessory.deviceid);
+		return status;
 	})();
 
-	return status;
 }
 
 eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
@@ -361,7 +361,8 @@ eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
 	
 	platform.log("Setting power state to [%s] for device [%s]", targetState, accessory.displayName);
 	(async() => {
-		const status = await connection.setDevicePowerState(accessory.deviceid, targetState);
+		const status = await platform.connection.setDevicePowerState(accessory.deviceid, targetState);
+		return status;
 	})();
 }
 
