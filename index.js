@@ -72,7 +72,7 @@ function eWeLink(log, config, api) {
 					email: this.phoneNumberOrEmail,
 					password: this.accountPassword
 				});
-				this.authenticationToken = connection.getCredentialsMixin();
+				this.authenticationToken = connection.getCredentials();
 
 				/* get all devices */
 				platform.log("Requesting a list of devices from eWeLink HTTPS API at [%s]", url);
