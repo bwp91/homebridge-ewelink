@@ -14,6 +14,7 @@ var apiKey = 'UNCONFIGURED';
 var authenticationToken = 'UNCONFIGURED';
 var phoneNumberOrEmail = '';
 var accountPassword = '';
+var connection = 0;
 var Accessory, Service, Characteristic, UUIDGen;
 
 module.exports = function(homebridge) {
@@ -72,7 +73,9 @@ function eWeLink(log, config, api) {
 					email: this.phoneNumberOrEmail,
 					password: this.accountPassword
 				});
-				this.authenticationToken = connection.getCredentials();
+				this.connection = connection;
+				this.authenticationToken = await connection.getCredentials();
+				platform.log("authenticationToken %s", JSON.stringify(this.authenticationToken));
 
 				/* get all devices */
 				platform.log("Requesting a list of devices from eWeLink HTTPS API");
@@ -200,7 +203,7 @@ function eWeLink(log, config, api) {
 					payload.nonce = '' + nonce();
 					payload.apkVesrion = "1.8";
 					payload.os = 'ios';
-					payload.at = config.authenticationToken;
+					payload.at = config.authenticationToken.at;
 					payload.apikey = platform.apiKey;
 					payload.ts = '' + ts;
 					payload.model = 'iPhone10,6';
@@ -340,114 +343,26 @@ eWeLink.prototype.getPowerState = function(accessory, callback) {
 	var platform = this;
 
 	platform.log("Requesting power state for [%s]", accessory.displayName);
+	
+	(async() => {
+		const status = await connection.getDevicePowerState(accessory.deviceid);
+	})();
 
-	this.webClient.get('/api/user/device', function(err, res, body) {
-
-		if (body.hasOwnProperty('error')) {
-			platform.log("An error was encountered while requesting a list of devices while interrogating power status. Verify your configuration options. Response was [%s]", JSON.stringify(body));
-			callback('An error was encountered while requesting a list of devices to interrogate power status for your device');
-			return;
-		}
-
-		var size = Object.keys(body).length;
-
-		if (body.length < 1) {
-			callback('An error was encountered while requesting a list of devices to interrogate power status for your device');
-			accessory.reachable = false;
-			return;
-		}
-
-		var filteredResponse = body.filter(device => (device.deviceid == accessory.context.deviceId));
-
-		if (filteredResponse.length == 1) {
-
-			var device = filteredResponse[0];
-
-			if (device.deviceid == accessory.context.deviceId) {
-
-				if (device.online != true) {
-					accessory.reachable = false;
-					platform.log("Device [%s] was reported to be offline by the API", accessory.displayName);
-					callback('API reported that [%s] is not online', device.name);
-					return;
-				}
-
-				if (device.params.switch == 'on') {
-					accessory.reachable = true;
-					platform.log('API reported that [%s] is On', device.name);
-					callback(null, 1);
-					return;
-				} else if (device.params.switch == 'off') {
-					accessory.reachable = true;
-					platform.log('API reported that [%s] is Off', device.name);
-					callback(null, 0);
-					return;
-				} else {
-					accessory.reachable = false;
-					platform.log('API reported an unknown status for device [%s]', accessory.displayName);
-					callback('API returned an unknown status for device ' + accessory.displayName);
-					return;
-				}
-
-			}
-
-		} else if (filteredResponse.length > 1) {
-			// More than one device matches our Device ID. This should not happen.      
-			platform.log("ERROR: The response contained more than one device with Device ID [%s]. Filtered response follows.", device.deviceid);
-			platform.log(filteredResponse);
-			callback("The response contained more than one device with Device ID " + device.deviceid);
-
-		} else if (filteredResponse.length < 1) {
-
-			// The device is no longer registered
-
-			platform.log("Device [%s] did not exist in the response. It will be removed", accessory.displayName);
-			platform.removeAccessory(accessory);
-
-		}
-
-	});
-
-
+	return status;
 }
 
 eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
 	var platform = this;
-	var options = {};
-	options.protocolVersion = 13;
-
 	var targetState = 'off';
 
 	if (isOn) {
 		targetState = 'on';
 	}
-
+	
 	platform.log("Setting power state to [%s] for device [%s]", targetState, accessory.displayName);
-
-	var payload = {};
-	payload.action = 'update';
-	payload.userAgent = 'app';
-	payload.apikey = '' + accessory.context.apiKey;
-	payload.deviceid = '' + accessory.context.deviceId;
-	payload.params = {};
-	payload.params.switch = targetState;
-	payload.sequence = platform.getSequence();
-
-	var string = JSON.stringify(payload);
-	// platform.log( string );
-
-	if (platform.isSocketOpen) {
-
-		platform.wsc.send(string);
-
-		// TODO Here we need to wait for the response to the socket
-
-		callback();
-
-	} else {
-		callback('Socket was closed. It will reconnect automatically; please retry your command');
-	}
-
+	(async() => {
+		const status = await connection.setDevicePowerState(accessory.deviceid, targetState);
+	})();
 }
 
 
