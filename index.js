@@ -2,6 +2,8 @@ var WebSocket = require('ws');
 var http = require('http');
 var url = require('url');
 var request = require('request-json');
+const ewelink = require('ewelink-api');
+
 var nonce = require('nonce')();
 
 var wsc;
@@ -10,6 +12,8 @@ var sequence = 0;
 var webClient = '';
 var apiKey = 'UNCONFIGURED';
 var authenticationToken = 'UNCONFIGURED';
+var phoneNumberOrEmail = '';
+var accountPassword = '';
 var Accessory, Service, Characteristic, UUIDGen;
 
 module.exports = function(homebridge) {
@@ -39,7 +43,10 @@ function eWeLink(log, config, api) {
     this.log = log;
     this.config = config;
     this.accessories = new Map();
-    this.authenticationToken = config['authenticationToken'];
+	this.authenticationToken = 'UNCONFIGURED';
+	this.phoneNumberOrEmail = config['phoneNumberOrEmail'];
+	this.accountPassword = config['accountPassword'];
+	
 
     if (api) {
 
@@ -59,30 +66,19 @@ function eWeLink(log, config, api) {
             // New devices will be added, and devices that exist in the cache but not in the web list
             // will be removed from Homebridge.
 
-            var url = 'https://' + this.config['apiHost'];
+			  const connection = new ewelink({
+			    email: this.phoneNumberOrEmail,
+			    password: this.accountPassword
+			  });
+			  
+			  this.authenticationToken = connection.getCredentialsMixin();
 
-            platform.log("Requesting a list of devices from eWeLink HTTPS API at [%s]", url);
+			  /* get all devices */
+              platform.log("Requesting a list of devices from eWeLink HTTPS API at [%s]", url);
+			  const devices = connection.getDevices();
+			  console.log(devices);
 
-            this.webClient = request.createClient(url);
-
-            this.webClient.headers['Authorization'] = 'Bearer ' + this.authenticationToken;
-            this.webClient.get('/api/user/device', function(err, res, body) {
-
-                if (body.hasOwnProperty('error')) {
-
-                    var response = JSON.stringify(body);
-
-                    platform.log("An error was encountered while requesting a list of devices. Response was [%s]", response);
-
-                    if (body.error == '401') {
-                        platform.log("Verify that you have the correct authenticationToken specified in your configuration. The currently-configured token is [%s]", platform.authenticationToken);
-
-                    }
-
-                    return;
-                }
-
-                var size = Object.keys(body).length;
+                var size = devices.length;
                 platform.log("eWeLink HTTPS API reports that there are a total of [%s] devices registered", size);
 
                 if (size == 0) {
@@ -95,7 +91,7 @@ function eWeLink(log, config, api) {
                 var devicesFromApi = new Map();
                 var newDevicesToAdd = new Map();
 
-                body.forEach((device) => {
+                devices.forEach((device) => {
                     platform.apiKey = device.apikey;
                     devicesFromApi.set(device.deviceid, device);
                 })
