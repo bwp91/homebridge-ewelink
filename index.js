@@ -72,14 +72,6 @@ function eWeLink(log, config, api) {
 					email: this.phoneNumberOrEmail,
 					password: this.accountPassword
 				});
-
-				/* get all devices */
-				const devices = await connection.getDevices();
-				console.log(devices);
-
-
-
-
 				this.authenticationToken = connection.getCredentialsMixin();
 
 				/* get all devices */
