@@ -75,8 +75,8 @@ function eWeLink(log, config, api) {
 				this.authenticationToken = connection.getCredentials();
 
 				/* get all devices */
-				platform.log("Requesting a list of devices from eWeLink HTTPS API at [%s]", url);
-				const devices = connection.getDevices();
+				platform.log("Requesting a list of devices from eWeLink HTTPS API");
+				const devices = await connection.getDevices();
 				console.log(devices);
 
 				var size = devices.length;
