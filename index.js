@@ -16,6 +16,7 @@ var phoneNumberOrEmail = '';
 var accountPassword = '';
 var connection = 0;
 var Accessory, Service, Characteristic, UUIDGen;
+var debug = false;
 
 module.exports = function(homebridge) {
 	console.log("homebridge API version: " + homebridge.version);
@@ -47,6 +48,7 @@ function eWeLink(log, config, api) {
 	this.authenticationToken = 'UNCONFIGURED';
 	this.phoneNumberOrEmail = config['phoneNumberOrEmail'];
 	this.accountPassword = config['accountPassword'];
+	this.debug = (config['debug'] == 'true') ? true : false;
 
 
 	if (api) {
@@ -75,12 +77,12 @@ function eWeLink(log, config, api) {
 				});
 				this.connection = connection;
 				this.authenticationToken = await connection.getCredentials();
-				platform.log("authenticationToken %s", JSON.stringify(this.authenticationToken));
+				if(this.debug) platform.log("authenticationToken %s", JSON.stringify(this.authenticationToken));
 
 				/* get all devices */
 				platform.log("Requesting a list of devices from eWeLink HTTPS API");
 				const devices = await connection.getDevices();
-				console.log(devices);
+				//				console.log(JSON.stringify(devices));
 
 				var size = devices.length;
 				platform.log("eWeLink HTTPS API reports that there are a total of [%s] devices registered", size);
@@ -134,10 +136,24 @@ function eWeLink(log, config, api) {
 
 						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Name, deviceInformationFromWebApi.name);
 						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.SerialNumber, deviceInformationFromWebApi.extra.extra.mac);
-						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Manufacturer, deviceInformationFromWebApi.productModel);
-						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Model, deviceInformationFromWebApi.extra.extra.model);
+						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Manufacturer, deviceInformationFromWebApi.brandName);
+						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Model, deviceInformationFromWebApi.productModel);
 						accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.FirmwareRevision, deviceInformationFromWebApi.params.fwVersion);
-						platform.updatePowerStateCharacteristic(deviceId, deviceInformationFromWebApi.params.switch);
+						if ((deviceInformationFromWebApi !== undefined) && (deviceInformationFromWebApi["productModel"])) {
+							switch (deviceInformationFromWebApi.productModel) {
+								case 'B1':
+									powerState = deviceInformationFromWebApi.params.state;
+									break;
+								case 'iFan02':
+									powerState = deviceInformationFromWebApi.params.switches[0].switch;
+									break;
+								case 'AD500--X':
+									powerState = deviceInformationFromWebApi.params.switch;
+							};
+						}
+						if(this.debug) platform.log("::checkIfDeviceIsAlreadyConfigured() " + deviceInformationFromWebApi.name + " is " + powerState);
+
+						platform.updatePowerStateCharacteristic(deviceId, powerState);
 
 
 					} else {
@@ -152,77 +168,12 @@ function eWeLink(log, config, api) {
 					devicesFromApi.forEach(checkIfDeviceIsAlreadyConfigured);
 				}
 
-				platform.log("API key retrieved from web service is [%s]", platform.apiKey);
+				if(this.debug) platform.log("API key retrieved from web service is [%s]", platform.apiKey);
 
-				// We have our devices, now open a connection to the WebSocket API
 
-				var url = 'wss://' + platform.config['webSocketApi'] + ':8080/api/ws';
-
-				platform.log("Connecting to the WebSocket API at [%s]", url);
-
-				platform.wsc = new WebSocketClient();
-
-				//platform.wsc.open(url);
-
-				platform.wsc.onmessage = function(message) {
-
-					platform.log("WebSocket messge received: ", message);
-
-					var json = JSON.parse(message);
-
-					if (json.hasOwnProperty("action")) {
-
-						if (json.action == 'update') {
-
-							platform.log("Update message received for device [%s]", json.deviceid);
-
-							if (json.hasOwnProperty("params") && json.params.hasOwnProperty("switch")) {
-								platform.updatePowerStateCharacteristic(json.deviceid, json.params.switch);
-							}
-
-						}
-
-					}
-
-				}
-
-				platform.wsc.onopen = function(e) {
-
-					platform.isSocketOpen = true;
-
-					// We need to authenticate upon opening the connection
-
-					var time_stamp = new Date() / 1000;
-					var ts = Math.floor(time_stamp);
-
-					// Here's the eWeLink payload as discovered via Charles
-					var payload = {};
-					payload.action = "userOnline";
-					payload.userAgent = 'app';
-					payload.version = 6;
-					payload.nonce = '' + nonce();
-					payload.apkVesrion = "1.8";
-					payload.os = 'ios';
-					payload.at = config.authenticationToken.at;
-					payload.apikey = platform.apiKey;
-					payload.ts = '' + ts;
-					payload.model = 'iPhone10,6';
-					payload.romVersion = '11.1.2';
-					payload.sequence = platform.getSequence();
-
-					var string = JSON.stringify(payload);
-
-					platform.log('Sending login request [%s]', string);
-
-					platform.wsc.send(string);
-
-				}
-
-				platform.wsc.onclose = function(e) {
-					platform.log("WebSocket was closed. Reason [%s]", e);
-					platform.isSocketOpen = false;
-				}
-			})();
+			})().catch(function(error) {
+				platform.log("Error in intialization");
+			});
 		}.bind(this));
 	}
 }
@@ -235,22 +186,49 @@ eWeLink.prototype.configureAccessory = function(accessory) {
 	this.log(accessory.displayName, "Configure Accessory");
 
 	var platform = this;
+	accessory.reachable = true;
+	
+	accessory.on('identify', function(paired, callback) {
+	    platform.log(accessory.displayName, "Identify!!!");
+	    callback();
+	  });
 
 	if (accessory.getService(Service.Switch)) {
 
-		accessory.getService(Service.Switch)
-			.getCharacteristic(Characteristic.On)
+		accessory.getService(Service.Switch).getCharacteristic(Characteristic.On)
 			.on('set', function(value, callback) {
-				platform.setPowerState(accessory, value, callback);
+				platform.setPowerState(accessory, value);
+				callback();
 			})
 			.on('get', function(callback) {
-				platform.getPowerState(accessory, callback);
+				platform.getPowerState(accessory);
+				callback();
 			});
 
 	}
 
 	this.accessories.set(accessory.context.deviceId, accessory);
 
+}
+
+eWeLink.prototype.getStateFromDevice = function(device) {
+	if(this.debug) this.log("getStateFromDevice:: ENTER");
+	var powerState = 'on';
+	if ((device !== undefined) && (device["productModel"])) {
+		switch (device.productModel) {
+			case 'B1':
+				powerState = device.params.state;
+				break;
+			case 'iFan02':
+				powerState = device.params.switches[0].switch;
+				break;
+			case 'AD500--X':
+				powerState = device.params.switch;
+		};
+	}
+	if(this.debug) this.log("getStateFromDevice:: " + device.name + " is " + powerState);
+	if(this.debug) this.log("getStateFromDevice:: EXIT");
+	return powerState;
 }
 
 // Sample function to show how developer can add accessory dynamically from outside event
@@ -269,27 +247,29 @@ eWeLink.prototype.addAccessory = function(device) {
 		return;
 	}
 
-	this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name, device.productModel, device.params.switch, device.online, device.apikey);
+	this.log("Found Accessory with Name : [%s], Manufacturer : [%s], Status : [%s], Is Online : [%s], API Key: [%s] ", device.name, device.productModel, this.getStateFromDevice(device), device.online, device.apikey);
 
 	const accessory = new Accessory(device.name, UUIDGen.generate(device.deviceid.toString()))
 
 	accessory.context.deviceId = device.deviceid
 	accessory.context.apiKey = device.apikey;
 
-	if (device.online == 'true') {
+	// if (device.online == 'true') {
 		accessory.reachable = true;
-	} else {
-		accessory.reachable = false;
-	}
+	// } else {
+	// 	accessory.reachable = false;
+	// }
 
 	var platform = this;
 	accessory.addService(Service.Switch, device.name)
 		.getCharacteristic(Characteristic.On)
 		.on('set', function(value, callback) {
-			platform.setPowerState(accessory, value, callback);
+			platform.setPowerState(accessory, value);
+			callback();
 		})
 		.on('get', function(callback) {
-			platform.getPowerState(accessory, callback);
+			platform.getPowerState(accessory);
+			callback();
 		});
 
 
@@ -298,7 +278,7 @@ eWeLink.prototype.addAccessory = function(device) {
 		callback();
 	});
 
-	accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.SerialNumber, device.extra.extra.mac);
+	accessory.getService(Service.AccessoryInformation).Characteristic(Characteristic.SerialNumber, device.extra.extra.mac);
 	accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Manufacturer, device.productModel);
 	accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Model, device.extra.extra.model);
 	accessory.getService(Service.AccessoryInformation).setCharacteristic(Characteristic.Identify, false);
@@ -318,133 +298,83 @@ eWeLink.prototype.getSequence = function() {
 }
 
 eWeLink.prototype.updatePowerStateCharacteristic = function(deviceId, state) {
-
-	// Used when we receive an update from an external source
-
 	var platform = this;
-
+	if (platform.debug) platform.log("::updatePowerStateCharacteristic() : ENTER with (deviceId='"+deviceId+"',state='"+state+"')");
+	
+	// Used when we receive an update from an external source
 	var isOn = false;
-
 	var accessory = platform.accessories.get(deviceId);
-
 	if (state == 'on') {
 		isOn = true;
 	}
+	//if (platform.debug) platform.log("::updatePowerStateCharacteristic() : accessory before update: "+JSON.stringify(accessory));
 
-	platform.log("Updating recorded Characteristic.On for [%s] to [%s]. No request will be sent to the device.", accessory.displayName, isOn);
-
-	accessory.getService(Service.Switch)
-		.setCharacteristic(Characteristic.On, isOn);
-
+	if (platform.debug) platform.log("::updatePowerStateCharacteristic() : Updating recorded Characteristic.On for [%s] to [%s]. No request will be sent to the device.", accessory.context.deviceId, isOn);
+	accessory.getService(Service.Switch).setCharacteristic(Characteristic.On, isOn);
+	//if (platform.debug) platform.log("::updatePowerStateCharacteristic() : accessory after update: "+JSON.stringify(accessory));
+	//platform.updatePowerStateCharacteristic(deviceId, powerState);
+	if (platform.debug) platform.log("::updatePowerStateCharacteristic() : EXIT");
 }
 
 
 eWeLink.prototype.getPowerState = function(accessory, callback) {
 	var platform = this;
 
-	platform.log("Requesting power state for [%s]", accessory.displayName);
-	
-	(async() => {
-		const status = await platform.connection.getDevicePowerState(accessory.deviceid);
-		return status;
-	})();
+	if (this.debug) platform.log("::getPowerState() : ENTER Requesting power state for [%s].", accessory.displayName); //, JSON.stringify(accessory));
 
+	(async() => {
+		//		const device = await platform.connection.getDevice(accessory.context.deviceId);
+		var interestedDevice = null;
+/////////////
+		const devices = await platform.connection.getDevices();
+		//if (platform.debug) platform.log("::getPowerState() : retrieved all devices, found "+devices.length+" devices");
+
+		//if (platform.debug) platform.log("::getPowerState() : Looking for interested device");
+		devices.forEach((device) => {
+//			if (platform.debug) platform.log("::getPowerState() : Found : "+JSON.stringify(device));
+			//if (platform.debug) platform.log("::getPowerState() : Looking for " + accessory.context.deviceId + ", but found "+device.deviceid);
+			if(accessory.context.deviceId==device.deviceid) {
+				//if (platform.debug) platform.log("::getPowerState() : found what I was looking for");
+				interestedDevice = device; 
+			}
+		})
+/////////////
+		powerState = platform.getStateFromDevice(interestedDevice)
+		if (platform.debug) platform.log("::getPowerState() : power state for [%s] is %s", accessory.displayName, powerState);
+		this.updatePowerStateCharacteristic(accessory.context.deviceId, powerState);
+		if (this.debug) platform.log("::getPowerState() : EXIT");
+	})()
+	.catch(function(error) {
+		platform.log("::getPowerState() : Error in retrieving device\n"+JSON.stringify(error));
+	});
 }
 
 eWeLink.prototype.setPowerState = function(accessory, isOn, callback) {
 	var platform = this;
-	var targetState = 'off';
+	if(platform.debug) platform.log("::setPowerState() : ENTER");
 
-	if (isOn) {
+	var targetState = 'off';
+	
+	if (isOn==true || isOn=='on') {
 		targetState = 'on';
 	}
-	
-	platform.log("Setting power state to [%s] for device [%s]", targetState, accessory.displayName);
+
+	if (this.debug) platform.log("::setPowerState() : Setting power state to [%s] for device [%s]", targetState, accessory.displayName);
 	(async() => {
-		const status = await platform.connection.setDevicePowerState(accessory.deviceid, targetState);
-		return status;
-	})();
+		const status = await platform.connection.setDevicePowerState(accessory.context.deviceId, targetState);
+		if (this.debug) platform.log("::setPowerState() : power state for [%s] is %s", accessory.displayName, JSON.stringify(status));
+		//this.updatePowerStateCharacteristic(accessory.context.deviceId, targetState);
+		if(platform.debug) platform.log("::setPowerState() : EXIT");
+	})().catch(function(error) {
+		platform.log("::setPowerState() : Error in retrieving device\n"+JSON.stringify(error));
+	});
 }
 
 
 // Sample function to show how developer can remove accessory dynamically from outside event
 eWeLink.prototype.removeAccessory = function(accessory) {
 
-	this.log('Removing accessory [%s]', accessory.displayName)
-
-	this.accessories.delete(accessory.context.deviceId)
-
-	this.api.unregisterPlatformAccessories('homebridge-eWeLink',
-		'eWeLink', [accessory])
-}
-
-/* WEB SOCKET STUFF */
-
-function WebSocketClient() {
-	this.number = 0; // Message number
-	this.autoReconnectInterval = 5 * 1000; // ms
-}
-WebSocketClient.prototype.open = function(url) {
-	this.url = url;
-	this.instance = new WebSocket(this.url);
-	this.instance.on('open', () => {
-		this.onopen();
-	});
-
-	this.instance.on('message', (data, flags) => {
-		this.number++;
-		this.onmessage(data, flags, this.number);
-	});
-
-	this.instance.on('close', (e) => {
-		switch (e) {
-			case 1000: // CLOSE_NORMAL
-				// console.log("WebSocket: closed");
-				break;
-			default: // Abnormal closure
-				this.reconnect(e);
-				break;
-		}
-		this.onclose(e);
-	});
-	this.instance.on('error', (e) => {
-		switch (e.code) {
-			case 'ECONNREFUSED':
-				this.reconnect(e);
-				break;
-			default:
-				this.onerror(e);
-				break;
-		}
-	});
-}
-WebSocketClient.prototype.send = function(data, option) {
-	try {
-		this.instance.send(data, option);
-	} catch (e) {
-		this.instance.emit('error', e);
-	}
-}
-WebSocketClient.prototype.reconnect = function(e) {
-	console.log(`WebSocketClient: retry in ${this.autoReconnectInterval}ms`, e);
-
-	this.instance.removeAllListeners();
-
-	var platform = this;
-	setTimeout(function() {
-		console.log("WebSocketClient: reconnecting...");
-		platform.open(platform.url);
-	}, this.autoReconnectInterval);
-}
-WebSocketClient.prototype.onopen = function(e) {
-	console.log("WebSocketClient: open", arguments);
-}
-WebSocketClient.prototype.onmessage = function(data, flags, number) {
-	console.log("WebSocketClient: message", arguments);
-}
-WebSocketClient.prototype.onerror = function(e) {
-	console.log("WebSocketClient: error", arguments);
-}
-WebSocketClient.prototype.onclose = function(e) {
-	console.log("WebSocketClient: closed", arguments);
+	this.log('Removing accessory [%s]', accessory.displayName);
+	this.accessories.delete(accessory.context.deviceId);
+	this.api.unregisterPlatformAccessories('homebridge-eWeLink', 'eWeLink', [accessory]);
 }
