@@ -142,6 +142,7 @@ function eWeLink(log, config, api) {
 						if ((deviceInformationFromWebApi !== undefined) && (deviceInformationFromWebApi["productModel"])) {
 							switch (deviceInformationFromWebApi.productModel) {
 								case 'B1':
+								case 'MINI':
 									powerState = deviceInformationFromWebApi.params.state;
 									break;
 								case 'iFan02':
@@ -217,6 +218,7 @@ eWeLink.prototype.getStateFromDevice = function(device) {
 	if ((device !== undefined) && (device["productModel"])) {
 		switch (device.productModel) {
 			case 'B1':
+			case "MINI":
 				powerState = device.params.state;
 				break;
 			case 'iFan02':
