@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-ewelink",
-  "version": "0.1.2",
-  "description": "homebridge-eWeLink is a Homebrige plugin to control Sonoff relays running OEM firmware",
+  "name": "homebridge-ewelink-complete",
+  "version": "0.1.76",
+  "description": "Fork of homebridge-eWeLink is a Homebrige plugin to control Sonoff relays running OEM firmware",
   "license": "MIT",
   "keywords": [
     "homebridge-plugin",
@@ -13,10 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gbro115/homebridge-ewelink"
+    "url": "https://github.com/ronnieroberts/homebridge-ewelink.git"
   },
   "dependencies": {
+    "ewelink-api": "^2.0.0",
     "nonce": "^1.0.4",
+    "npmrc": "^1.1.1",
     "request-json": "^0.6.2",
     "ws": "^3.3.2"
   }

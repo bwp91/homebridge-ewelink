@@ -1,8 +1,8 @@
-## This project is not being actively updated. Please feel free to create a fork and develop extra functionality!
+## This is a fork of homebridge-ewelink
 
-Check out homebridge-eWeLink-plus
+The largest change here is to use evelink-api for all API needs rather than rewrite
 
-# homebridge-ewelink
+# homebridge-ewelink-complete
 Homebridge plugin to control Sonoff relays with OEM firmware. It uses the same API as the iOS app to communicate with your devices.
 
 The platform will dynamically add/remove devices based on what is configured in your eWeLink account.
@@ -25,7 +25,7 @@ Also, the code is of suboptimal quality. It was a quick-and-dirty plugin; feel f
 
 1) Install the plugin
 ```
-sudo npm -g install homebridge-ewelink
+sudo npm -g install homebridge-ewelink-complete
 ```
 
 2) Add to the platforms[] section of config.json. Steps for obtaining the values for authenticationToken, apiHost, and webSocketApi can be found below.
@@ -49,45 +49,17 @@ sudo npm -g install homebridge-ewelink
     ],
 
     "platforms": [
-        {
-        "platform" : "eWeLink",
-        "name" : "eWeLink",
-        "authenticationToken" : "obtain-with-Charles",
-        "apiHost" : "us-api.coolkit.cc:8080",
-        "webSocketApi" : "us-long.coolkit.cc"
-        }
-    ]
+ {
+            "platform": "eWeLink",
+            "name": "eWeLink",
+            "phoneNumberOrEmail": "YOUR_ACCOUNT_EMAIL_OR_PHONE",
+            "accountPassword": "YOUR_ACCOUNT_PASSWORD",
+            "apiHost": "us-api.coolkit.cc:8080",
+            "webSocketApi": "us-long.coolkit.cc",
+            "debug": "true"
+        }    ]
 }
 ```
-
-### Obtaining the Authentication Token and API URL using Charles
-
-[Charles](https://www.charlesproxy.com/) allows us to watch the data being exchanged between the eWeLink iOS app (Android is untested) and the server endpoint.
-
-1) Download and install the eWeLink app to your device
-2) Ensure your Sonoff devices are registered and working with the native app
-3) Ensure the app is logged in to your account
-4) Return back to your device's home screen
-
-With Charles configured and listening for connections from your iOS device, open up the eWeLink app from the home screen. As part of the loading of the app, you'll see requests to the following URLs (or similar, depening on your region):
-
-```
-https://us-api.coolkit.cc:8080/api/user/device?apiKey=XXXX&appVersion=X.X.X&getTags=1&imei=XXXX&lang=en&model=XXXX&os=ios&romVersion=X.X.X&version=X
-
-https://us-ota.coolkit.cc:8080/otaother/app
-```
-
-In both of these requests, look at the request header
-
-![Viewing HTTPS Authorization Header in Charles](https://i.imgur.com/88PlK6Eh.png)
-
-```
-Bearer abcdefghijklnmopqrstuvwxyz
-```
-
-The abcdefghijklnmopqrstuvwxyz is what you'd put as the configuration file's authenticationToken value.
-
-API URLs are also shown in this request. You need to use the URL in webSocketApi and apiHost
 
 ### A note on the authenticationToken
 
@@ -99,7 +71,7 @@ If you logout and login to the app again, you'll need to perform the above steps
 
 ## Troubleshooting
 
-I've attempted to make the logging as useful as possible. If you have any suggestions, please open an issue on GitHub.
+I've attempted to make the logging as useful as possible. If you have any suggestions, please open an issue on GitHub.  I've also hidden most logging behind the debug parameter, please set to true or false accordingly
 
 ## Sample logging
 
@@ -139,5 +111,5 @@ The plugin will also listen for announcements via a persistent web socket. This 
 ```
 ## Credits
 
-https://github.com/websockets/ws/wiki/Websocket-client-implementation-for-auto-reconnect
+So many... needs updated.  This is a fork of homebridge-ewelink
 
