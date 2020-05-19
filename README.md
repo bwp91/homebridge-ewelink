@@ -1,4 +1,4 @@
-# Changes from homebridge-ewelink-complete have been merged into the master
+### Changes from homebridge-ewelink-complete have been merged into the master
 
 The largest change here is to use evelink-api for all API needs rather than rewrite
 
