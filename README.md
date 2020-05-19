@@ -1,8 +1,9 @@
-## This is a fork of homebridge-ewelink
+# Changes from homebridge-ewelink-complete have been merged into the master
 
 The largest change here is to use evelink-api for all API needs rather than rewrite
 
-# homebridge-ewelink-complete
+# About
+
 Homebridge plugin to control Sonoff relays with OEM firmware. It uses the same API as the iOS app to communicate with your devices.
 
 The platform will dynamically add/remove devices based on what is configured in your eWeLink account.
