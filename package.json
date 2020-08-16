@@ -13,13 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gbro115/homebridge-ewelink.git"
+    "url": "https://github.com/bwp91/homebridge-ewelink.git"
   },
   "dependencies": {
-    "ewelink-api": "^2.0.0",
-    "nonce": "^1.0.4",
-    "npmrc": "^1.1.1",
-    "request-json": "^0.6.2",
-    "ws": "^3.3.2"
+    "ewelink-api": "^2.0.0"
   }
 }
