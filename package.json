@@ -16,6 +16,6 @@
     "url": "https://github.com/bwp91/homebridge-ewelink.git"
   },
   "dependencies": {
-    "ewelink-api": "^2.0.0"
+    "ewelink-api": "^3.0.0"
   }
 }
