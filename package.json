@@ -1,21 +1,57 @@
 {
-  "name": "homebridge-ewelink",
-  "version": "0.1.76",
-  "description": "homebridge-eWeLink is a Homebrige plugin to control Sonoff relays running OEM firmware",
-  "license": "MIT",
-  "keywords": [
-    "homebridge-plugin",
-    "sonoff"
-  ],
-  "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bwp91/homebridge-ewelink.git"
-  },
-  "dependencies": {
-    "ewelink-api": "^3.0.0"
-  }
+   "name": "homebridge-ewelink",
+   "version": "2.19.1",
+   "author": "bwp91",
+   "contributors": [
+      "gbro115",
+      "MrTomAsh",
+      "howanghk",
+      "LeJeko",
+      "aremishevsky-chegg",
+      "samkni",
+      "robsonfj",
+      "ramsesz",
+      "metarutaiga",
+      "janbuecker",
+      "jacopofranza",
+      "donavanbecker",
+      "dhutchison",
+      "danielk117",
+      "bassrock",
+      "VictorKrasnov",
+      "JuniorGenius",
+      "BobbySlope"
+   ],
+   "description": "homebridge-ewelink-sonoff is a Homebrige plugin to control Sonoff devices running OEM firmware.",
+   "license": "MIT",
+   "keywords": [
+      "homebridge",
+      "homebridge-plugin",
+      "sonoff",
+      "ewelink"
+   ],
+   "engines": {
+      "node": ">=6.0.0",
+      "homebridge": ">=0.2.0"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/bwp91/homebridge-ewelink"
+   },
+   "dependencies": {
+      "axios": "0.19.2",
+      "color-convert": "2.0.1",
+      "node-dns-sd": "0.4.1",
+      "ws": "7.3.1"
+   },
+   "funding": [
+      {
+         "type": "patreon",
+         "url": "https://www.patreon.com/bwp91"
+      },
+      {
+         "type": "paypal",
+         "url": "https://www.paypal.me/BenPotter"
+      }
+   ]
 }
