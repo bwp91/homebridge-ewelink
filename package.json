@@ -22,7 +22,7 @@
       "JuniorGenius",
       "BobbySlope"
    ],
-   "description": "homebridge-ewelink-sonoff is a Homebrige plugin to control Sonoff devices running OEM firmware.",
+   "description": "Homebridge plugin to control eWeLink devices with original firmware.",
    "license": "MIT",
    "keywords": [
       "homebridge",
