@@ -3,11 +3,18 @@
 </p>
 <span align="center">
   
-# homebridge-ewelink
+# homebridge-ewelink 
 
+ [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+ [![Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=discord)](https://discord.com/channels/432663330281226270/742733745743855627)
+ [![npm](https://img.shields.io/npm/dt/homebridge-ewelink-sonoff)](https://www.npmjs.com/package/homebridge-ewelink)   
+ [![npm](https://img.shields.io/npm/v/homebridge-ewelink-sonoff?label=release)](https://www.npmjs.com/package/homebridge-ewelink)
+ [![npm](https://img.shields.io/npm/v/homebridge-ewelink-beta?label=beta)](https://www.npmjs.com/package/homebridge-ewelink-beta)
+ 
 </span>
 
-This package will soon become the new home of [homebridge-ewelink-sonoff](https://github.com/bwp91/homebridge-ewelink-sonoff)!
+## Documentation
+Please refer to the [wiki](https://github.com/bwp91/homebridge-ewelink-sonoff/wiki) for documentation.
 
-### Credit
-To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can!
+## Credit
+To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
