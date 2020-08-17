@@ -7,4 +7,7 @@
 
 </span>
 
-Plugin update coming soon.
+This package will soon become the new home of [homebridge-ewelink-sonoff](https://github.com/bwp91/homebridge-ewelink-sonoff)!
+
+### Credit
+To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can!
