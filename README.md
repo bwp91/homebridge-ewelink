@@ -3,7 +3,7 @@
 </p>
 <span align="center">
   
-# homebridge-ewelink-sonoff 
+# homebridge-ewelink
 
 </span>
 
