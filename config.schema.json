@@ -196,12 +196,6 @@
                      "description":"Select the type of sensor you would like to expose this as in Homebridge.",
                      "oneOf":[
                         {
-                           "title":"Button",
-                           "enum":[
-                              "button"
-                           ]
-                        },
-                        {
                            "title":"Motion",
                            "enum":[
                               "motion"
@@ -303,9 +297,9 @@
       },
       {
          "key":"bridgeSensors",
-         "title":"RF Bridge Devices",
+         "title":"RF Bridge Sensors",
          "expandable":true,
-         "add":"Add Another Device",
+         "add":"Add Another Sensor",
          "type":"array",
          "items":[
             {
