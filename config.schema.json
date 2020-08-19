@@ -44,7 +44,7 @@
             "type":"string",
             "title":"Connection Mode",
             "required":true,
-            "default":"ws",
+            "default":"lan",
             "description":"Preferred method of updating devices. Devices that don't support LAN mode will use web socket.",
             "oneOf":[
                {
