@@ -40,27 +40,6 @@
             "description":"If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
             "default":false
          },
-         "mode":{
-            "type":"string",
-            "title":"Connection Mode",
-            "required":true,
-            "default":"lan",
-            "description":"Preferred method of updating devices. Devices that don't support LAN mode will use web socket.",
-            "oneOf":[
-               {
-                  "title":"LAN Mode (Recommended)",
-                  "enum":[
-                     "lan"
-                  ]
-               },
-               {
-                  "title":"Web Socket",
-                  "enum":[
-                     "ws"
-                  ]
-               }
-            ]
-         },
          "hideDevFromHB":{
             "type":"string",
             "title":"Hide Devices",
@@ -266,7 +245,6 @@
          "items":[
             "debug",
             "debugReqRes",
-            "mode",
             "hideDevFromHB",
             "hideFromHB",
             "sensorTimeLength",
