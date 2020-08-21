@@ -17,5 +17,6 @@
 ## Documentation
 Please refer to the [wiki](https://github.com/bwp91/homebridge-ewelink/wiki) for documentation.
 
-## Credit
-To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
+## Credits
+- To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
+- More credits in the [wiki](https://github.com/bwp91/homebridge-ewelink/wiki/Credits).
