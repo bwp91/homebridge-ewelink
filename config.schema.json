@@ -73,6 +73,12 @@
             "default":"20",
             "maximum":999
          },
+         "hideTHSwitch":{
+            "title":"Hide TH10/TH16 Switch",
+            "type":"boolean",
+            "description":"If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
+            "default":false
+         },
          "hideZBLDPress":{
             "title":"Hide Double/Long Press",
             "type":"boolean",
