@@ -15,8 +15,18 @@
 
 </span>
 
-### Documentation
-Please refer to the [wiki](https://github.com/bwp91/homebridge-ewelink/wiki) for documentation.
-
-### Credit
-To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
+### Setup
+* [Installation](https://github.com/bwp91/homebridge-ewelink/wiki/Installation)
+* [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
+* [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
+### Features
+* [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
+* [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
+### How-to Guides
+* [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
+* [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
+* [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
+### About
+* [Support Request](https://github.com/bwp91/homebridge-ewelink/issues)
+* [Roadmap](https://github.com/bwp91/homebridge-ewelink/wiki/Roadmap)
+* [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
