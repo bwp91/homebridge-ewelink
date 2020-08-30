@@ -14,9 +14,8 @@
  
 </span>
 
-## Documentation
+### Documentation
 Please refer to the [wiki](https://github.com/bwp91/homebridge-ewelink/wiki) for documentation.
 
-## Credits
-- To the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
-- More credits in the [wiki](https://github.com/bwp91/homebridge-ewelink/wiki/Credits).
+### Credit
+Thank you to the original owner of this package @gbro115 for letting me take over. I will look after it as best as I can :)
