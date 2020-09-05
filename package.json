@@ -39,7 +39,7 @@
       "url": "https://github.com/bwp91/homebridge-ewelink"
    },
    "dependencies": {
-      "axios": "0.19.2",
+      "axios": "0.20.0",
       "color-convert": "2.0.1",
       "node-dns-sd": "0.4.1",
       "ws": "7.3.1"
