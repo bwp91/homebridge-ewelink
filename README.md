@@ -16,7 +16,8 @@
 </span>
 
 ### Setup
-* [Installation](https://github.com/bwp91/homebridge-ewelink/wiki/Installation)
+* [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
+* [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
 * [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
 * [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 ### Features
