@@ -46,6 +46,10 @@
    },
    "funding": [
       {
+         "type": "kofi",
+         "url": "https://ko-fi.com/bwp91"
+      },
+      {
          "type": "patreon",
          "url": "https://www.patreon.com/bwp91"
       },
