@@ -143,12 +143,6 @@
                      "description":"Total time in deciseconds to fully open/close the blind/door. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
                      "default":100
                   },
-                  "inched":{
-                     "title":"Device Inching",
-                     "type":"boolean",
-                     "description":"If device inching is already setup in your eWeLink account then set this to true. Otherwise this plugin will send an 'off' command after half a second to mimic the inching behaviour.",
-                     "default":true
-                  },
                   "sensorId":{
                      "type":"string",
                      "title":"Sensor",
@@ -274,7 +268,6 @@
                   "groups[].deviceId",
                   "groups[].setup",
                   "groups[].operationTime",
-                  "groups[].inched",
                   "groups[].sensorId"
                ]
             }
