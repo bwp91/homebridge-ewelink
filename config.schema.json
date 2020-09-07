@@ -88,7 +88,7 @@
          "groups":{
             "type":"array",
             "title":"Custom Groups",
-            "description":"You can group channels of Sonoff devices to simulate another HomeKit accessory instead of having each switch separately. Currently only blinds and garage doors are supported.",
+            "description":"You can group channels of Sonoff devices to simulate another HomeKit accessory instead of having each switch separately. Currently only blinds, garage doors and locks are supported.",
             "items":{
                "type":"object",
                "properties":{
@@ -108,6 +108,12 @@
                            "title":"Garage Door",
                            "enum":[
                               "garage"
+                           ]
+                        },
+                        {
+                           "title":"Lock",
+                           "enum":[
+                              "lock"
                            ]
                         }
                      ]
