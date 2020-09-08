@@ -87,16 +87,21 @@
          },
          "groups":{
             "type":"array",
-            "title":"Custom Groups",
-            "description":"You can group channels of Sonoff devices to simulate another HomeKit accessory instead of having each switch separately. Currently only blinds, garage doors and locks are supported.",
+            "title":"Custom Device Types",
+            "description":"You can use this setting to set up custom device types within Homebridge. Currently only blinds, garage doors and locks are supported.",
             "items":{
                "type":"object",
                "properties":{
+                  "deviceId":{
+                     "type":"string",
+                     "title":"Device ID",
+                     "description":"Device ID from your eWeLink app (ten digits normally in the format 1000******)."
+                  },
                   "type":{
                      "type":"string",
                      "title":"Type",
                      "default":"null",
-                     "description":"A description of this group.",
+                     "description":"The new type for this device.",
                      "oneOf":[
                         {
                            "title":"Blind",
@@ -118,16 +123,11 @@
                         }
                      ]
                   },
-                  "deviceId":{
-                     "type":"string",
-                     "title":"Device ID",
-                     "description":"Device ID from your eWeLink app (ten digits normally in the format 1000******)."
-                  },
                   "setup":{
                      "type":"string",
                      "title":"Device Setup",
                      "default":"null",
-                     "description":"The device setup.",
+                     "description":"The device setup. Please ignore this setting for locks",
                      "oneOf":[
                         {
                            "title":"One Switch - for up and down",
@@ -146,13 +146,13 @@
                   "operationTime":{
                      "type":"number",
                      "title":"Operation Time",
-                     "description":"Total time in deciseconds to fully open/close the blind/door. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
+                     "description":"For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
                      "default":100
                   },
                   "sensorId":{
                      "type":"string",
                      "title":"Sensor",
-                     "description":"A Sonoff DW2 sensor can be used for a 'one switch' setup. This is to determine the current open/closed state of this device. Please enter the 10 digit device ID. Otherwise leave this blank."
+                     "description":"A Sonoff DW2 sensor can optionally be used for blinds and garage doors. This is to determine the current open/closed state of the device. Please enter the 10 digit device ID. Otherwise leave this blank."
                   }
                }
             }
@@ -263,15 +263,15 @@
       {
          "key":"groups",
          "expandable":true,
-         "title":"Custom Groups",
-         "add":"Add Another Group",
+         "title":"Custom Device Types",
+         "add":"Add Another Type",
          "type":"array",
          "items":[
             {
                "type":"fieldset",
                "items":[
-                  "groups[].type",
                   "groups[].deviceId",
+                  "groups[].type",
                   "groups[].setup",
                   "groups[].operationTime",
                   "groups[].sensorId"
