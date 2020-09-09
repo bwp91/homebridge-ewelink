@@ -38,6 +38,9 @@
       "type": "git",
       "url": "https://github.com/bwp91/homebridge-ewelink"
    },
+   "bugs": {
+      "url": "https://github.com/bwp91/homebridge-ewelink/issues"
+   },
    "dependencies": {
       "axios": "0.20.0",
       "color-convert": "2.0.1",
