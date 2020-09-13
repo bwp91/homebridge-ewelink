@@ -24,10 +24,11 @@
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 ### How-to Guides
-* [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
-* [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
 * [How to set up Sonoff Camera (GK-200MP2-B)](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera)
+* [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
+* [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
+* [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
 ### About
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues)
 * [Roadmap](https://github.com/bwp91/homebridge-ewelink/wiki/Roadmap)
