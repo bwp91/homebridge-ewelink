@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: I have an idea for the package!
+about: I have an idea for the package or have a device that isn't supported.
 title: ''
 labels: ''
 assignees: ''
