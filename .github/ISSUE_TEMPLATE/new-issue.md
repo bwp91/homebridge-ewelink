@@ -1,6 +1,6 @@
 ---
 name: New Issue
-about: I have a problem with the package!
+about: I have a problem with the package or it's showing an error.
 title: ''
 labels: ''
 assignees: ''
