@@ -56,22 +56,25 @@
             "type":"integer",
             "title":"Sensor Length",
             "description":"The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something.",
-            "default":"2",
-            "maximum":999
+            "default":60,
+            "minimum":1,
+            "maximum":120
          },
          "sensorTimeDifference":{
             "type":"integer",
             "title":"Sensor Lag",
             "description":"An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification.",
-            "default":"120",
-            "maximum":999
+            "default":120,
+            "minimum":10,
+            "maximum":300
          },
          "valveTimeLength":{
             "type":"integer",
             "title":"Valve Duration",
             "description":"The default number of seconds that irrigation valves will run for.",
-            "default":"20",
-            "maximum":999
+            "default":20,
+            "minimum": 10,
+            "maximum":1800
          },
          "hideTHSwitch":{
             "title":"Hide TH10/TH16 Switch",
@@ -147,7 +150,9 @@
                      "type":"number",
                      "title":"Operation Time",
                      "description":"For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
-                     "default":100
+                     "default":100,
+                     "minimum":10,
+                     "maximum":600
                   },
                   "sensorId":{
                      "type":"string",
