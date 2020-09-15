@@ -12,7 +12,8 @@
  [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)   
  [![npm](https://img.shields.io/npm/dt/homebridge-ewelink)](https://www.npmjs.com/package/homebridge-ewelink)
  [![npm](https://img.shields.io/npm/v/homebridge-ewelink/latest?label=release)](https://www.npmjs.com/package/homebridge-ewelink)
- [![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://www.npmjs.com/package/homebridge-ewelink)
+ [![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://www.npmjs.com/package/homebridge-ewelink)   
+ [![Contribute](https://img.shields.io/badge/contribute-a%20drink-yellow)](https://ko-fi.com/bwp91)
 
 </span>
 
