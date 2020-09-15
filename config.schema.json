@@ -98,7 +98,7 @@
                   "deviceId":{
                      "type":"string",
                      "title":"Device ID",
-                     "description":"Device ID from your eWeLink app (ten digits normally in the format 1000******)."
+                     "description":"Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
                   },
                   "type":{
                      "type":"string",
@@ -157,7 +157,7 @@
                   "sensorId":{
                      "type":"string",
                      "title":"Sensor",
-                     "description":"A Sonoff DW2 sensor can optionally be used for blinds and garage doors. This is to determine the current open/closed state of the device. Please enter the 10 digit device ID. Otherwise leave this blank."
+                     "description":"A Sonoff DW2 sensor can optionally be used for blinds and garage doors. This is to determine the current open/closed state of the device. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank."
                   }
                }
             }
