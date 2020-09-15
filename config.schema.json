@@ -147,7 +147,7 @@
                      ]
                   },
                   "operationTime":{
-                     "type":"number",
+                     "type":"integer",
                      "title":"Operation Time",
                      "description":"For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
                      "default":100,
