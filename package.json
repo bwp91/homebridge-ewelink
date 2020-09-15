@@ -1,68 +1,71 @@
 {
-   "name": "homebridge-ewelink",
-   "version": "2.26.2",
-   "author": "bwp91",
-   "contributors": [
-      "gbro115",
-      "MrTomAsh",
-      "howanghk",
-      "LeJeko",
-      "aremishevsky-chegg",
-      "samkni",
-      "robsonfj",
-      "ramsesz",
-      "metarutaiga",
-      "janbuecker",
-      "jacopofranza",
-      "donavanbecker",
-      "dhutchison",
-      "danielk117",
-      "bassrock",
-      "VictorKrasnov",
-      "JuniorGenius",
-      "BobbySlope"
-   ],
-   "description": "Homebridge plugin to control eWeLink devices with original firmware.",
-   "license": "MIT",
-   "keywords": [
-      "homebridge",
-      "homebridge-plugin",
-      "homekit",
-      "sonoff",
-      "ewelink"
-   ],
-   "engines": {
-      "node": ">=6.0.0",
-      "homebridge": ">=0.2.0"
-   },
-   "repository": {
-      "type": "git",
-      "url": "https://github.com/bwp91/homebridge-ewelink"
-   },
-   "bugs": {
-      "url": "https://github.com/bwp91/homebridge-ewelink/issues"
-   },
-   "dependencies": {
-      "axios": "0.20.0",
-      "color-convert": "2.0.1",
-      "correcting-interval": "2.0.0",
-      "fakegato-history": "0.5.6",
-      "homebridge-lib": "4.7.14",
-      "node-dns-sd": "0.4.1",
-      "ws": "7.3.1"
-   },
-   "funding": [
-      {
-         "type": "kofi",
-         "url": "https://ko-fi.com/bwp91"
-      },
-      {
-         "type": "patreon",
-         "url": "https://www.patreon.com/bwp91"
-      },
-      {
-         "type": "paypal",
-         "url": "https://www.paypal.me/BenPotter"
-      }
-   ]
+  "name": "homebridge-ewelink",
+  "version": "2.26.2",
+  "author": "bwp91",
+  "contributors": [
+    "gbro115",
+    "MrTomAsh",
+    "howanghk",
+    "LeJeko",
+    "aremishevsky-chegg",
+    "samkni",
+    "robsonfj",
+    "ramsesz",
+    "metarutaiga",
+    "janbuecker",
+    "jacopofranza",
+    "donavanbecker",
+    "dhutchison",
+    "danielk117",
+    "bassrock",
+    "VictorKrasnov",
+    "JuniorGenius",
+    "BobbySlope"
+  ],
+  "description": "Homebridge plugin to control eWeLink devices with original firmware.",
+  "license": "MIT",
+  "keywords": [
+    "homebridge",
+    "homebridge-plugin",
+    "homekit",
+    "sonoff",
+    "ewelink"
+  ],
+  "engines": {
+    "node": ">=6.0.0",
+    "homebridge": ">=0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bwp91/homebridge-ewelink"
+  },
+  "bugs": {
+    "url": "https://github.com/bwp91/homebridge-ewelink/issues"
+  },
+  "funding": [
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/bwp91"
+    },
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/bwp91"
+    },
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.me/BenPotter"
+    }
+  ],
+  "dependencies": {
+    "axios": "0.20.0",
+    "color-convert": "2.0.1",
+    "correcting-interval": "2.0.0",
+    "fakegato-history": "0.5.6",
+    "homebridge-lib": "4.7.14",
+    "node-dns-sd": "0.4.1",
+    "ws": "7.3.1"
+  },
+  "devDependencies": {
+    "prettier": "2.1.1"
+  }
 }

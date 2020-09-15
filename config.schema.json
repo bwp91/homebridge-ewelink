@@ -1,305 +1,269 @@
 {
-   "pluginAlias":"eWeLink",
-   "pluginType":"platform",
-   "singular":true,
-   "headerDisplay":"Homebridge plugin to control eWeLink devices with original firmware.",
-   "footerDisplay":"For help and support please visit our [GitHub Wiki](https://github.com/bwp91/homebridge-ewelink/wiki).",
-   "schema":{
-      "type":"object",
-      "properties":{
-         "name":{
-            "type":"string",
-            "default":"eWeLink"
-         },
-         "countryCode":{
-            "type":"string",
-            "title":"Country Code",
-            "description":"The telephone country code linked to your eWeLink account (without the +)."
-         },
-         "username":{
-            "type":"string",
-            "title":"Username",
-            "description":"The phone number or email address linked to your eWeLink account. If you use a phone number please enter the country code (with the +), for example +8613185260282."
-         },
-         "password":{
-            "type":"string",
-            "title":"Password",
-            "description":"The password for your eWeLink account."
-         },
-         "debug":{
-            "title":"Debug Logging",
-            "type":"boolean",
-            "required":true,
-            "description":"If enabled, more information will be added to the Homebridge log.",
-            "default":false
-         },
-         "debugReqRes":{
-            "title":"Request & Response Logging",
-            "type":"boolean",
-            "required":true,
-            "description":"If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
-            "default":false
-         },
-         "hideDevFromHB":{
-            "type":"string",
-            "title":"Hide Devices",
-            "description":"A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple devices separated with a comma '10009553c8,10009553c9'.",
-            "default":""
-         },
-         "hideFromHB":{
-            "type":"string",
-            "title":"Hide Device Channels",
-            "description":"A list of device channels to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches, lights and irrigation valves can be hidden.",
-            "default":""
-         },
-         "sensorTimeLength":{
-            "type":"integer",
-            "title":"Sensor Length",
-            "description":"The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something.",
-            "default":60,
-            "minimum":1,
-            "maximum":120
-         },
-         "sensorTimeDifference":{
-            "type":"integer",
-            "title":"Sensor Lag",
-            "description":"An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification.",
-            "default":120,
-            "minimum":10,
-            "maximum":300
-         },
-         "valveTimeLength":{
-            "type":"integer",
-            "title":"Valve Duration",
-            "description":"The default number of seconds that irrigation valves will run for.",
-            "default":20,
-            "minimum": 10,
-            "maximum":1800
-         },
-         "hideTHSwitch":{
-            "title":"Hide TH10/TH16 Switch",
-            "type":"boolean",
-            "description":"If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
-            "default":false
-         },
-         "hideZBLDPress":{
-            "title":"Hide Double/Long Press",
-            "type":"boolean",
-            "description":"If enabled, double and long press options will be hidden for the ZigBee button.",
-            "default":false
-         },
-         "groups":{
-            "type":"array",
-            "title":"Custom Device Types",
-            "description":"You can use this setting to set up custom device types within Homebridge. Currently only blinds, garage doors and locks are supported.",
-            "items":{
-               "type":"object",
-               "properties":{
-                  "deviceId":{
-                     "type":"string",
-                     "title":"Device ID",
-                     "description":"Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
-                  },
-                  "type":{
-                     "type":"string",
-                     "title":"Type",
-                     "default":"null",
-                     "description":"The new type for this device.",
-                     "oneOf":[
-                        {
-                           "title":"Blind",
-                           "enum":[
-                              "blind"
-                           ]
-                        },
-                        {
-                           "title":"Garage Door",
-                           "enum":[
-                              "garage"
-                           ]
-                        },
-                        {
-                           "title":"Lock",
-                           "enum":[
-                              "lock"
-                           ]
-                        }
-                     ]
-                  },
-                  "setup":{
-                     "type":"string",
-                     "title":"Device Setup",
-                     "default":"null",
-                     "description":"The device setup. Please ignore this setting for locks",
-                     "oneOf":[
-                        {
-                           "title":"One Switch - for up and down",
-                           "enum":[
-                              "oneSwitch"
-                           ]
-                        },
-                        {
-                           "title":"Two Switches - one for up and one for down",
-                           "enum":[
-                              "twoSwitch"
-                           ]
-                        }
-                     ]
-                  },
-                  "operationTime":{
-                     "type":"integer",
-                     "title":"Operation Time",
-                     "description":"For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
-                     "default":100,
-                     "minimum":10,
-                     "maximum":600
-                  },
-                  "sensorId":{
-                     "type":"string",
-                     "title":"Sensor",
-                     "description":"A Sonoff DW2 sensor can optionally be used for blinds and garage doors. This is to determine the current open/closed state of the device. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank."
-                  }
-               }
-            }
-         },
-         "bridgeSensors":{
-            "type":"array",
-            "title":"Sensors",
-            "description":"You can expose different types of sensors connected to your RF Bridge in HomeKit.",
-            "items":{
-               "type":"object",
-               "properties":{
-                  "deviceId":{
-                     "type":"string",
-                     "title":"RF Bridge Device ID",
-                     "description":"Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000******)."
-                  },
-                  "fullDeviceId":{
-                     "type":"string",
-                     "title":"Sensor Device ID",
-                     "description":"Device ID of the sensor from Homebridge (13 digits normally in the format 1000******SW*)."
-                  },
-                  "type":{
-                     "type":"string",
-                     "title":"Sensor Type",
-                     "default":"motion",
-                     "description":"Select the type of sensor you would like to expose this as in Homebridge.",
-                     "oneOf":[
-                        {
-                           "title":"Motion",
-                           "enum":[
-                              "motion"
-                           ]
-                        },
-                        {
-                           "title":"Smoke/Fire",
-                           "enum":[
-                              "smoke"
-                           ]
-                        },
-                        {
-                           "title":"Water/Leak",
-                           "enum":[
-                              "water"
-                           ]
-                        },
-                        {
-                           "title":"Carbon Monoxide",
-                           "enum":[
-                              "co"
-                           ]
-                        },
-                        {
-                           "title":"Carbon Dioxide",
-                           "enum":[
-                              "co2"
-                           ]
-                        },
-                        {
-                           "title":"Occupancy",
-                           "enum":[
-                              "occupancy"
-                           ]
-                        },
-                        {
-                           "title":"Contact",
-                           "enum":[
-                              "contact"
-                           ]
-                        }
-                     ]
-                  }
-               }
-            }
-         }
+  "pluginAlias": "eWeLink",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Homebridge plugin to control eWeLink devices with original firmware.",
+  "footerDisplay": "For help and support please visit our [GitHub Wiki](https://github.com/bwp91/homebridge-ewelink/wiki).",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "default": "eWeLink"
       },
-      "required":[
-         "countryCode",
-         "username",
-         "password"
-      ]
-   },
-   "layout":[
-      {
-         "type":"fieldset",
-         "items":[
-            "countryCode",
-            "username",
-            "password"
-         ]
+      "countryCode": {
+        "type": "string",
+        "title": "Country Code",
+        "description": "The telephone country code linked to your eWeLink account (without the +)."
       },
-      {
-         "type":"fieldset",
-         "title":"Optional",
-         "description":"Only adjust these settings if you know what you are doing.",
-         "expandable":true,
-         "items":[
-            "debug",
-            "debugReqRes",
-            "hideDevFromHB",
-            "hideFromHB",
-            "sensorTimeLength",
-            "sensorTimeDifference",
-            "valveTimeLength",
-            "hideTHSwitch",
-            "hideZBLDPress"
-         ]
+      "username": {
+        "type": "string",
+        "title": "Username",
+        "description": "The phone number or email address linked to your eWeLink account. If you use a phone number please enter the country code (with the +), for example +8613185260282."
       },
-      {
-         "key":"groups",
-         "expandable":true,
-         "title":"Custom Device Types",
-         "add":"Add Another Type",
-         "type":"array",
-         "items":[
-            {
-               "type":"fieldset",
-               "items":[
-                  "groups[].deviceId",
-                  "groups[].type",
-                  "groups[].setup",
-                  "groups[].operationTime",
-                  "groups[].sensorId"
-               ]
+      "password": {
+        "type": "string",
+        "title": "Password",
+        "description": "The password for your eWeLink account."
+      },
+      "debug": {
+        "title": "Debug Logging",
+        "type": "boolean",
+        "required": true,
+        "description": "If enabled, more information will be added to the Homebridge log.",
+        "default": false
+      },
+      "debugReqRes": {
+        "title": "Request & Response Logging",
+        "type": "boolean",
+        "required": true,
+        "description": "If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
+        "default": false
+      },
+      "hideDevFromHB": {
+        "type": "string",
+        "title": "Hide Devices",
+        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple devices separated with a comma '10009553c8,10009553c9'.",
+        "default": ""
+      },
+      "hideFromHB": {
+        "type": "string",
+        "title": "Hide Device Channels",
+        "description": "A list of device channels to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches, lights and irrigation valves can be hidden.",
+        "default": ""
+      },
+      "sensorTimeLength": {
+        "type": "integer",
+        "title": "Sensor Length",
+        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something.",
+        "default": 60,
+        "minimum": 1,
+        "maximum": 120
+      },
+      "sensorTimeDifference": {
+        "type": "integer",
+        "title": "Sensor Lag",
+        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification.",
+        "default": 120,
+        "minimum": 10,
+        "maximum": 300
+      },
+      "valveTimeLength": {
+        "type": "integer",
+        "title": "Valve Duration",
+        "description": "The default number of seconds that irrigation valves will run for.",
+        "default": 20,
+        "minimum": 10,
+        "maximum": 1800
+      },
+      "hideTHSwitch": {
+        "title": "Hide TH10/TH16 Switch",
+        "type": "boolean",
+        "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
+        "default": false
+      },
+      "hideZBLDPress": {
+        "title": "Hide Double/Long Press",
+        "type": "boolean",
+        "description": "If enabled, double and long press options will be hidden for the ZigBee button.",
+        "default": false
+      },
+      "groups": {
+        "type": "array",
+        "title": "Custom Device Types",
+        "description": "You can use this setting to set up custom device types within Homebridge. Currently only blinds, garage doors and locks are supported.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID",
+              "description": "Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
+            },
+            "type": {
+              "type": "string",
+              "title": "Type",
+              "default": "null",
+              "description": "The new type for this device.",
+              "oneOf": [
+                {
+                  "title": "Blind",
+                  "enum": ["blind"]
+                },
+                {
+                  "title": "Garage Door",
+                  "enum": ["garage"]
+                },
+                {
+                  "title": "Lock",
+                  "enum": ["lock"]
+                }
+              ]
+            },
+            "setup": {
+              "type": "string",
+              "title": "Device Setup",
+              "default": "null",
+              "description": "The device setup. Please ignore this setting for locks",
+              "oneOf": [
+                {
+                  "title": "One Switch - for up and down",
+                  "enum": ["oneSwitch"]
+                },
+                {
+                  "title": "Two Switches - one for up and one for down",
+                  "enum": ["twoSwitch"]
+                }
+              ]
+            },
+            "operationTime": {
+              "type": "integer",
+              "title": "Operation Time",
+              "description": "For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
+              "default": 100,
+              "minimum": 10,
+              "maximum": 600
+            },
+            "sensorId": {
+              "type": "string",
+              "title": "Sensor",
+              "description": "A Sonoff DW2 sensor can optionally be used for blinds and garage doors. This is to determine the current open/closed state of the device. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank."
             }
-         ]
+          }
+        }
       },
-      {
-         "key":"bridgeSensors",
-         "title":"RF Bridge Sensors",
-         "expandable":true,
-         "add":"Add Another Sensor",
-         "type":"array",
-         "items":[
-            {
-               "type":"fieldset",
-               "items":[
-                  "bridgeSensors[].deviceId",
-                  "bridgeSensors[].fullDeviceId",
-                  "bridgeSensors[].type"
-               ]
+      "bridgeSensors": {
+        "type": "array",
+        "title": "Sensors",
+        "description": "You can expose different types of sensors connected to your RF Bridge in HomeKit.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "RF Bridge Device ID",
+              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000******)."
+            },
+            "fullDeviceId": {
+              "type": "string",
+              "title": "Sensor Device ID",
+              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000******SW*)."
+            },
+            "type": {
+              "type": "string",
+              "title": "Sensor Type",
+              "default": "motion",
+              "description": "Select the type of sensor you would like to expose this as in Homebridge.",
+              "oneOf": [
+                {
+                  "title": "Motion",
+                  "enum": ["motion"]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": ["smoke"]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": ["water"]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": ["co"]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": ["co2"]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": ["occupancy"]
+                },
+                {
+                  "title": "Contact",
+                  "enum": ["contact"]
+                }
+              ]
             }
-         ]
+          }
+        }
       }
-   ]
+    },
+    "required": ["countryCode", "username", "password"]
+  },
+  "layout": [
+    {
+      "type": "fieldset",
+      "items": ["countryCode", "username", "password"]
+    },
+    {
+      "type": "fieldset",
+      "title": "Optional",
+      "description": "Only adjust these settings if you know what you are doing.",
+      "expandable": true,
+      "items": [
+        "debug",
+        "debugReqRes",
+        "hideDevFromHB",
+        "hideFromHB",
+        "sensorTimeLength",
+        "sensorTimeDifference",
+        "valveTimeLength",
+        "hideTHSwitch",
+        "hideZBLDPress"
+      ]
+    },
+    {
+      "key": "groups",
+      "expandable": true,
+      "title": "Custom Device Types",
+      "add": "Add Another Type",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "groups[].deviceId",
+            "groups[].type",
+            "groups[].setup",
+            "groups[].operationTime",
+            "groups[].sensorId"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "bridgeSensors",
+      "title": "RF Bridge Sensors",
+      "expandable": true,
+      "add": "Add Another Sensor",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": ["bridgeSensors[].deviceId", "bridgeSensors[].fullDeviceId", "bridgeSensors[].type"]
+        }
+      ]
+    }
+  ]
 }
