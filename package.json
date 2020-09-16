@@ -66,6 +66,6 @@
     "ws": "7.3.1"
   },
   "devDependencies": {
-    "prettier": "2.1.1"
+    "prettier": "2.1.2"
   }
 }
