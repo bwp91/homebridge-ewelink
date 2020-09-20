@@ -58,6 +58,14 @@
         "description": "A list of device channels to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches, lights and irrigation valves can be hidden.",
         "default": ""
       },
+      "lowBattThreshold": {
+        "type": "integer",
+        "title": "Low Battery Threshold",
+        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
+        "default": 25,
+        "minimum": 5,
+        "maximum": 50
+      },
       "sensorTimeLength": {
         "type": "integer",
         "title": "Sensor Length",
@@ -233,6 +241,7 @@
         "hideDevFromHB",
         "hideMasters",
         "hideFromHB",
+        "lowBattThreshold",
         "sensorTimeLength",
         "sensorTimeDifference",
         "valveTimeLength",
