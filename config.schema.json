@@ -46,6 +46,12 @@
         "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple devices separated with a comma '10009553c8,10009553c9'.",
         "default": ""
       },
+      "hideMasters": {
+        "type": "boolean",
+        "title": "Hide Master Switches",
+        "description": "If enabled, the 'SW0' accessory of multi-channel light and switch devices will be hidden from Homebridge.",
+        "default": false
+      },
       "hideFromHB": {
         "type": "string",
         "title": "Hide Device Channels",
@@ -225,6 +231,7 @@
         "debug",
         "debugReqRes",
         "hideDevFromHB",
+        "hideMasters",
         "hideFromHB",
         "sensorTimeLength",
         "sensorTimeDifference",
@@ -261,7 +268,11 @@
       "items": [
         {
           "type": "fieldset",
-          "items": ["bridgeSensors[].deviceId", "bridgeSensors[].fullDeviceId", "bridgeSensors[].type"]
+          "items": [
+            "bridgeSensors[].deviceId",
+            "bridgeSensors[].fullDeviceId",
+            "bridgeSensors[].type"
+          ]
         }
       ]
     }

@@ -59,6 +59,7 @@
   "dependencies": {
     "axios": "0.20.0",
     "color-convert": "2.0.1",
+    "color-temp": "0.0.2",
     "correcting-interval": "2.0.0",
     "fakegato-history": "0.5.6",
     "homebridge-lib": "4.7.14",
