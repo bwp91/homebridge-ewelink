@@ -32,8 +32,8 @@
     "ewelink"
   ],
   "engines": {
-    "node": ">=6.0.0",
-    "homebridge": ">=0.2.0"
+    "node": ">=10.0.0",
+    "homebridge": ">=1.0.0"
   },
   "repository": {
     "type": "git",
