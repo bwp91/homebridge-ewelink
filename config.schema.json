@@ -55,8 +55,14 @@
       "hideFromHB": {
         "type": "string",
         "title": "Hide Device Channels",
-        "description": "A list of device channels to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches, lights and irrigation valves can be hidden.",
+        "description": "A list of SW1, SW2, SW3 and SW4 to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches and lights can be hidden. This setting cannot be used to hide master devices (SW0).",
         "default": ""
+      },
+      "disableHTTPRefresh": {
+        "type": "boolean",
+        "title": "Disable Initial Device Refresh",
+        "description": "If enabled, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
+        "default": false
       },
       "lowBattThreshold": {
         "type": "integer",
@@ -90,14 +96,22 @@
         "minimum": 10,
         "maximum": 1800
       },
+      "inUsePowerThreshold": {
+        "type": "integer",
+        "title": "Outlet 'In Use' Threshold",
+        "description": "Homebridge will set the 'In Use' status of outlet devices to true when the wattage is above this number.",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 100
+      },
       "hideTHSwitch": {
-        "title": "Hide TH10/TH16 Switch",
+        "title": "TH10/TH16 Hide Switch",
         "type": "boolean",
         "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
         "default": false
       },
       "hideZBLDPress": {
-        "title": "Hide Double/Long Press",
+        "title": "Zigbee Button Hide Double/Long Press",
         "type": "boolean",
         "description": "If enabled, double and long press options will be hidden for the ZigBee button.",
         "default": false
@@ -228,12 +242,14 @@
   "layout": [
     {
       "type": "fieldset",
+      "title": "Required Settings",
+      "description": "These are the basic settings that are required for this plugin to work.",
       "items": ["countryCode", "username", "password"]
     },
     {
       "type": "fieldset",
-      "title": "Optional",
-      "description": "Only adjust these settings if you know what you are doing.",
+      "title": "Optional Settings (General)",
+      "description": "A variety of optional settings for general use of this plugin.",
       "expandable": true,
       "items": [
         "debug",
@@ -241,7 +257,17 @@
         "hideDevFromHB",
         "hideMasters",
         "hideFromHB",
+        "disableHTTPRefresh"
+      ]
+    },
+    {
+      "type": "fieldset",
+      "title": "Optional Settings (Device Specific)",
+      "description": "A variety of optional settings for specific device types.",
+      "expandable": true,
+      "items": [
         "lowBattThreshold",
+        "inUsePowerThreshold",
         "sensorTimeLength",
         "sensorTimeDifference",
         "valveTimeLength",
