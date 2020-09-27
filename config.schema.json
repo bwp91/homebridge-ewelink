@@ -88,14 +88,6 @@
         "minimum": 10,
         "maximum": 300
       },
-      "valveTimeLength": {
-        "type": "integer",
-        "title": "Valve Duration",
-        "description": "The default number of seconds that irrigation valves will run for.",
-        "default": 20,
-        "minimum": 10,
-        "maximum": 1800
-      },
       "inUsePowerThreshold": {
         "type": "integer",
         "title": "Outlet 'In Use' Threshold",
@@ -151,6 +143,12 @@
                   "enum": [
                     "lock"
                   ]
+                },
+                {
+                  "title": "Irrigation",
+                  "enum": [
+                    "valve"
+                  ]
                 }
               ]
             },
@@ -158,7 +156,7 @@
               "type": "string",
               "title": "Device Setup",
               "default": "null",
-              "description": "The device setup. Blinds must be set up with two switches. Please ignore this setting for locks.",
+              "description": "The device setup. Blinds must be set up with two switches. Please ignore this setting for locks and irrigation.",
               "oneOf": [
                 {
                   "title": "One Switch - for up and down",
@@ -176,8 +174,8 @@
             },
             "operationTime": {
               "type": "integer",
-              "title": "Operation Time",
-              "description": "For blinds and garage doors this is the total time in deciseconds to fully open/close the device. For locks this is the time to show the Home app tile as unlocked. Count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
+              "title": "Operation Time (Deciseconds)",
+              "description": "Blinds/garage doors: the time to fully open/close the device. Locks: the time to show as unlocked. Irrigation: the time the valves will open for. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
               "default": 100,
               "minimum": 10,
               "maximum": 600
