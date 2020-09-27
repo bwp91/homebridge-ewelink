@@ -136,15 +136,21 @@
               "oneOf": [
                 {
                   "title": "Blind",
-                  "enum": ["blind"]
+                  "enum": [
+                    "blind"
+                  ]
                 },
                 {
                   "title": "Garage Door",
-                  "enum": ["garage"]
+                  "enum": [
+                    "garage"
+                  ]
                 },
                 {
                   "title": "Lock",
-                  "enum": ["lock"]
+                  "enum": [
+                    "lock"
+                  ]
                 }
               ]
             },
@@ -156,11 +162,15 @@
               "oneOf": [
                 {
                   "title": "One Switch - for up and down",
-                  "enum": ["oneSwitch"]
+                  "enum": [
+                    "oneSwitch"
+                  ]
                 },
                 {
                   "title": "Two Switches - one for up and one for down",
-                  "enum": ["twoSwitch"]
+                  "enum": [
+                    "twoSwitch"
+                  ]
                 }
               ]
             },
@@ -205,31 +215,45 @@
               "oneOf": [
                 {
                   "title": "Motion",
-                  "enum": ["motion"]
+                  "enum": [
+                    "motion"
+                  ]
                 },
                 {
                   "title": "Smoke/Fire",
-                  "enum": ["smoke"]
+                  "enum": [
+                    "smoke"
+                  ]
                 },
                 {
                   "title": "Water/Leak",
-                  "enum": ["water"]
+                  "enum": [
+                    "water"
+                  ]
                 },
                 {
                   "title": "Carbon Monoxide",
-                  "enum": ["co"]
+                  "enum": [
+                    "co"
+                  ]
                 },
                 {
                   "title": "Carbon Dioxide",
-                  "enum": ["co2"]
+                  "enum": [
+                    "co2"
+                  ]
                 },
                 {
                   "title": "Occupancy",
-                  "enum": ["occupancy"]
+                  "enum": [
+                    "occupancy"
+                  ]
                 },
                 {
                   "title": "Contact",
-                  "enum": ["contact"]
+                  "enum": [
+                    "contact"
+                  ]
                 }
               ]
             }
@@ -237,14 +261,22 @@
         }
       }
     },
-    "required": ["countryCode", "username", "password"]
+    "required": [
+      "countryCode",
+      "username",
+      "password"
+    ]
   },
   "layout": [
     {
       "type": "fieldset",
       "title": "Required Settings",
       "description": "These are the basic settings that are required for this plugin to work.",
-      "items": ["countryCode", "username", "password"]
+      "items": [
+        "countryCode",
+        "username",
+        "password"
+      ]
     },
     {
       "type": "fieldset",
