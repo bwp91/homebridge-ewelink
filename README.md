@@ -7,12 +7,12 @@
 
  Homebridge plugin to control eWeLink devices with original firmware.
  
- [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
- [![Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=discord)](https://discord.com/channels/432663330281226270/742733745743855627)
- [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)   
+ [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)   
  [![npm](https://img.shields.io/npm/v/homebridge-ewelink/latest?label=release)](https://www.npmjs.com/package/homebridge-ewelink)
  [![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://www.npmjs.com/package/homebridge-ewelink)   
  [![npm](https://img.shields.io/npm/dt/homebridge-ewelink)](https://www.npmjs.com/package/homebridge-ewelink)
+ [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+ [![Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=discord)](https://discord.com/channels/432663330281226270/742733745743855627)
  [![Contribute](https://img.shields.io/badge/contribute-a%20drink-yellow)](https://ko-fi.com/bwp91)
 
 </span>
