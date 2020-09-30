@@ -139,6 +139,12 @@
                   ]
                 },
                 {
+                  "title": "Garage Door (Eachen)",
+                  "enum": [
+                    "garage_eachen"
+                  ]
+                },
+                {
                   "title": "Lock",
                   "enum": [
                     "lock"
