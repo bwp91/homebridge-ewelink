@@ -127,31 +127,31 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "Blind",
+                  "title": "Blind (Generic Setup)",
                   "enum": [
                     "blind"
                   ]
                 },
                 {
-                  "title": "Garage Door",
+                  "title": "Garage Door (Generic Setup)",
                   "enum": [
                     "garage"
                   ]
                 },
                 {
-                  "title": "Garage Door (Eachen)",
+                  "title": "Garage Door (Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
                   ]
                 },
                 {
-                  "title": "Lock",
+                  "title": "Lock (Generic Setup)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "Irrigation",
+                  "title": "Irrigation (Generic Setup)",
                   "enum": [
                     "valve"
                   ]
@@ -162,7 +162,10 @@
               "type": "string",
               "title": "Device Setup",
               "default": "null",
-              "description": "The device setup. Blinds must be set up with two switches. Please ignore this setting for locks and irrigation.",
+              "description": "The setup for your garage doors.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+              },
               "oneOf": [
                 {
                   "title": "One Switch - for up and down",
@@ -189,7 +192,10 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A Sonoff DW2 sensor can optionally be used for garage doors. This is to determine the current open/closed state of the garage door. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank."
+              "description": "A Sonoff DW2 sensor can optionally be used for garage doors. This is to determine the current open/closed state of the garage door. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+              }
             }
           }
         }
