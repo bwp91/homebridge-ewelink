@@ -24,7 +24,7 @@
 * [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 ### Features
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
-* [Custom Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Custom-Accessory-Simulations)
+* [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 ### How-to Guides
 * [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
