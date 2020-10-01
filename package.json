@@ -27,9 +27,13 @@
   "keywords": [
     "homebridge",
     "homebridge-plugin",
-    "homekit",
     "sonoff",
-    "ewelink"
+    "homekit",
+    "siri",
+    "ewelink",
+    "homebridge-ewelink",
+    "hoobs",
+    "eachen"
   ],
   "engines": {
     "node": ">=10.0.0",
