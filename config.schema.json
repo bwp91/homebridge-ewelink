@@ -312,7 +312,6 @@
         "inUsePowerThreshold",
         "sensorTimeLength",
         "sensorTimeDifference",
-        "valveTimeLength",
         "hideTHSwitch",
         "hideZBLDPress"
       ]
@@ -320,7 +319,7 @@
     {
       "key": "groups",
       "expandable": true,
-      "title": "Custom Device Simulations",
+      "title": "Custom Accessory Simulations",
       "add": "Add Another Type",
       "type": "array",
       "items": [
