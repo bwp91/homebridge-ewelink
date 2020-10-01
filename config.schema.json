@@ -110,7 +110,7 @@
       },
       "groups": {
         "type": "array",
-        "title": "Custom Device Types",
+        "title": "Accessory Simulations",
         "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device.",
         "items": {
           "type": "object",
@@ -319,7 +319,7 @@
     {
       "key": "groups",
       "expandable": true,
-      "title": "Custom Accessory Simulations",
+      "title": "Accessory Simulations",
       "add": "Add Another Type",
       "type": "array",
       "items": [
