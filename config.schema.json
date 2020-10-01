@@ -111,7 +111,7 @@
       "groups": {
         "type": "array",
         "title": "Custom Device Types",
-        "description": "You can use this setting to set up custom device types within Homebridge. Currently only blinds, garage doors and locks are supported.",
+        "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device.",
         "items": {
           "type": "object",
           "properties": {
@@ -127,31 +127,31 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "Blind (Generic Setup)",
+                  "title": "Blind (using channel 0 for 'UP' and channel 1 for 'DOWN' of a multi-channel device)",
                   "enum": [
                     "blind"
                   ]
                 },
                 {
-                  "title": "Garage Door (Generic Setup)",
+                  "title": "Garage Door (using a single/multi-channel device)",
                   "enum": [
                     "garage"
                   ]
                 },
                 {
-                  "title": "Garage Door (Eachen GD-DC5)",
+                  "title": "Garage Door (using the Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
                   ]
                 },
                 {
-                  "title": "Lock (Generic Setup)",
+                  "title": "Lock (using a single channel device)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "Irrigation (Generic Setup)",
+                  "title": "Irrigation (using channels 0 and 1 of a multi-channel device)",
                   "enum": [
                     "valve"
                   ]
@@ -320,7 +320,7 @@
     {
       "key": "groups",
       "expandable": true,
-      "title": "Custom Device Types",
+      "title": "Custom Device Simulations",
       "add": "Add Another Type",
       "type": "array",
       "items": [
