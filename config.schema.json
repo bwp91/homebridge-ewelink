@@ -55,7 +55,7 @@
       "hideFromHB": {
         "type": "string",
         "title": "Hide Device Channels",
-        "description": "A list of SW1, SW2, SW3 and SW4 to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from switches and lights can be hidden. This setting cannot be used to hide master devices (SW0).",
+        "description": "A list of SW1, SW2, SW3 and SW4 to hide from Homebridge. For example '10009553c8SW1' or multiple channels separated with a comma '10009553c8SW1,10009553c9SW2'. Only channels from lights and switches can be hidden.",
         "default": ""
       },
       "disableHTTPRefresh": {
