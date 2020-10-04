@@ -33,6 +33,7 @@
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
 ### About
+* [About Me](https://github.com/sponsors/bwp91)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
 * [Roadmap](https://github.com/bwp91/homebridge-ewelink/wiki/Roadmap)
 * [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
