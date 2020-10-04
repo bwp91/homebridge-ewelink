@@ -111,7 +111,7 @@
       "groups": {
         "type": "array",
         "title": "Accessory Simulations",
-        "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device.",
+        "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device. For more information please see the wiki.",
         "items": {
           "type": "object",
           "properties": {
@@ -127,31 +127,31 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "Blind (using channel 0 for 'UP' and channel 1 for 'DOWN' of a multi-channel device)",
-                  "enum": [
-                    "blind"
-                  ]
-                },
-                {
-                  "title": "Garage Door (using a single/multi-channel device)",
-                  "enum": [
-                    "garage"
-                  ]
-                },
-                {
-                  "title": "Garage Door (using the Eachen GD-DC5)",
+                  "title": "Garage Door (using Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
                   ]
                 },
                 {
-                  "title": "Lock (using a single channel device)",
+                  "title": "Garage Door (using single/multi-channel device)",
+                  "enum": [
+                    "garage"
+                  ]
+                },
+                {
+                  "title": "Window Blind (using multi-channel device)",
+                  "enum": [
+                    "blind"
+                  ]
+                },
+                {
+                  "title": "Lock (using single channel device)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "Irrigation (using channels 0 and 1 of a multi-channel device)",
+                  "title": "Irrigation/Sprinkler (using multi-channel device)",
                   "enum": [
                     "valve"
                   ]
