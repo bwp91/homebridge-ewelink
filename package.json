@@ -36,8 +36,8 @@
     "eachen"
   ],
   "engines": {
-    "node": ">=10.0.0",
-    "homebridge": ">=1.0.0"
+    "homebridge": "^1.1.0",
+    "node": "^12.19.0"
   },
   "repository": {
     "type": "git",
@@ -70,7 +70,7 @@
     "color-temp": "0.0.2",
     "correcting-interval": "2.0.0",
     "fakegato-history": "0.5.6",
-    "homebridge-lib": "4.7.15",
+    "homebridge-lib": "4.7.16",
     "interval-promise": "1.4.0",
     "node-dns-sd": "0.4.2",
     "websocket-as-promised": "1.0.1",
