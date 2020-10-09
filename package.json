@@ -36,8 +36,8 @@
     "eachen"
   ],
   "engines": {
-    "homebridge": "^1.1.0",
-    "node": "^12.19.0"
+    "homebridge": ">=1.1.0",
+    "node": ">=12.19.0"
   },
   "repository": {
     "type": "git",
