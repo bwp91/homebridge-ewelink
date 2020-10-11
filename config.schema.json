@@ -121,15 +121,21 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "Garage Door (using Eachen GD-DC5)",
+                  "title": "1 Garage Door (using single/multi-channel device)",
                   "enum": [
-                    "garage_eachen"
+                    "garage"
                   ]
                 },
                 {
-                  "title": "Garage Door (using single/multi-channel device)",
+                  "title": "2 Garage Doors (using multi-channel device)",
                   "enum": [
-                    "garage"
+                    "garage_two"
+                  ]
+                },
+                {
+                  "title": "Garage Door (using Eachen GD-DC5)",
+                  "enum": [
+                    "garage_eachen"
                   ]
                 },
                 {
