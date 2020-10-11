@@ -46,17 +46,11 @@
         "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'.",
         "default": ""
       },
-      "hideMasters": {
+      "hideChanFromHB": {
         "type": "string",
-        "title": "Hide Master Lights/Switches",
-        "description": "A list of SW0 lights/switches to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'.",
+        "title": "Hide Light/Switch Channels",
+        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'.",
         "default": false
-      },
-      "hideFromHB": {
-        "type": "string",
-        "title": "Hide Device Channels",
-        "description": "A list of SW1, SW2, SW3 and SW4 channels to hide from Homebridge. For example '10009553c8SW1' or multiple separated with a comma '10009553c8SW1,10009553c9SW2'.",
-        "default": ""
       },
       "disableHTTPRefresh": {
         "type": "boolean",
@@ -297,8 +291,6 @@
         "debug",
         "debugReqRes",
         "hideDevFromHB",
-        "hideMasters",
-        "hideFromHB",
         "disableHTTPRefresh"
       ]
     },
@@ -308,6 +300,7 @@
       "description": "A variety of optional settings for specific device types.",
       "expandable": true,
       "items": [
+        "hideChanFromHB",
         "lowBattThreshold",
         "inUsePowerThreshold",
         "sensorTimeLength",
