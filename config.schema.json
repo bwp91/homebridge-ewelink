@@ -58,30 +58,6 @@
         "description": "If enabled, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
         "default": false
       },
-      "lowBattThreshold": {
-        "type": "integer",
-        "title": "Low Battery Threshold",
-        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
-        "default": 25,
-        "minimum": 5,
-        "maximum": 50
-      },
-      "sensorTimeLength": {
-        "type": "integer",
-        "title": "Sensor Length",
-        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something.",
-        "default": 60,
-        "minimum": 1,
-        "maximum": 120
-      },
-      "sensorTimeDifference": {
-        "type": "integer",
-        "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification.",
-        "default": 120,
-        "minimum": 10,
-        "maximum": 300
-      },
       "inUsePowerThreshold": {
         "type": "integer",
         "title": "Outlet 'In Use' Threshold",
@@ -95,6 +71,30 @@
         "type": "boolean",
         "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
         "default": false
+      },
+      "lowBattThreshold": {
+        "type": "integer",
+        "title": "Low Battery Threshold",
+        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
+        "default": 25,
+        "minimum": 5,
+        "maximum": 50
+      },
+      "sensorTimeLength": {
+        "type": "integer",
+        "title": "Sensor Length",
+        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "default": 60,
+        "minimum": 1,
+        "maximum": 120
+      },
+      "sensorTimeDifference": {
+        "type": "integer",
+        "title": "Sensor Lag",
+        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "default": 120,
+        "minimum": 10,
+        "maximum": 300
       },
       "hideZBLDPress": {
         "title": "Zigbee Button Hide Double/Long Press",
@@ -204,12 +204,12 @@
             "deviceId": {
               "type": "string",
               "title": "RF Bridge Device ID",
-              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000******)."
+              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000ab23cd)."
             },
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
-              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000******SW*)."
+              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000ab23cdSW2)."
             },
             "type": {
               "type": "string",
@@ -290,8 +290,8 @@
       "items": [
         "debug",
         "debugReqRes",
-        "hideDevFromHB",
-        "disableHTTPRefresh"
+        "disableHTTPRefresh",
+        "hideDevFromHB"
       ]
     },
     {
@@ -301,11 +301,11 @@
       "expandable": true,
       "items": [
         "hideChanFromHB",
-        "lowBattThreshold",
         "inUsePowerThreshold",
+        "hideTHSwitch",
+        "lowBattThreshold",
         "sensorTimeLength",
         "sensorTimeDifference",
-        "hideTHSwitch",
         "hideZBLDPress"
       ]
     },
