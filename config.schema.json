@@ -133,7 +133,7 @@
                   ]
                 },
                 {
-                  "title": "Garage Door (using Eachen GD-DC5)",
+                  "title": "1 Garage Door (using Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
                   ]
@@ -194,7 +194,7 @@
               "title": "Sensor",
               "description": "A Sonoff DW2 sensor can optionally be used for garage doors. This is to determine the current open/closed state of the garage door. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+                "functionBody": "return (model.groups[arrayIndices] && (model.groups[arrayIndices].type==='garage' || model.groups[arrayIndices].type==='garage_two'))"
               }
             }
           }
