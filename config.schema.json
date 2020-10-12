@@ -108,6 +108,34 @@
         "description": "If enabled, double and long press options will be hidden for the ZigBee button.",
         "default": false
       },
+      "nameOverride": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fullDeviceId": {
+              "type": "string"
+            },
+            "deviceName": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ipOverride": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string"
+            },
+            "deviceIP": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "groups": {
         "type": "array",
         "title": "Accessory Simulations",
