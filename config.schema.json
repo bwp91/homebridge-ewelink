@@ -58,6 +58,12 @@
         "description": "If enabled, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
         "default": false
       },
+      "disableEveLogging": {
+        "type": "boolean",
+        "title": "Disable Eve Logging",
+        "description": "If enabled, switch, thermostat and power readings will not be logged to the Eve App.",
+        "default": false
+      },
       "inUsePowerThreshold": {
         "type": "integer",
         "title": "Outlet 'In Use' Threshold",
@@ -307,6 +313,7 @@
       "expandable": true,
       "items": [
         "hideChanFromHB",
+        "disableEveLogging",
         "inUsePowerThreshold",
         "hideTHSwitch",
         "lowBattThreshold",
