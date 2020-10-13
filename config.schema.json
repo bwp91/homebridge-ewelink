@@ -50,7 +50,7 @@
         "type": "string",
         "title": "Hide Light/Switch Channels",
         "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'.",
-        "default": false
+        "default": ""
       },
       "disableHTTPRefresh": {
         "type": "boolean",
