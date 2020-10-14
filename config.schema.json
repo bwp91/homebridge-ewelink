@@ -14,49 +14,42 @@
       "countryCode": {
         "type": "string",
         "title": "Country Code",
+        "required": true,
         "description": "The telephone country code linked to your eWeLink account (without the +)."
       },
       "username": {
         "type": "string",
         "title": "Username",
+        "required": true,
         "description": "The phone number or email address linked to your eWeLink account. If you use a phone number please enter the country code (with the +), for example +8613185260282."
       },
       "password": {
         "type": "string",
         "title": "Password",
+        "required": true,
         "description": "The password for your eWeLink account."
       },
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "required": true,
         "description": "If enabled, more information will be added to the Homebridge log.",
         "default": false
       },
       "debugReqRes": {
         "title": "Request & Response Logging",
         "type": "boolean",
-        "required": true,
         "description": "If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
         "default": false
       },
       "hideDevFromHB": {
         "type": "string",
         "title": "Hide Devices",
-        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'.",
-        "default": ""
+        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
-      "hideMasters": {
+      "hideChanFromHB": {
         "type": "string",
-        "title": "Hide Master Lights/Switches",
-        "description": "A list of SW0 lights/switches to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'.",
-        "default": false
-      },
-      "hideFromHB": {
-        "type": "string",
-        "title": "Hide Device Channels",
-        "description": "A list of SW1, SW2, SW3 and SW4 channels to hide from Homebridge. For example '10009553c8SW1' or multiple separated with a comma '10009553c8SW1,10009553c9SW2'.",
-        "default": ""
+        "title": "Hide Light/Switch Channels",
+        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'."
       },
       "disableHTTPRefresh": {
         "type": "boolean",
@@ -64,29 +57,11 @@
         "description": "If enabled, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
         "default": false
       },
-      "lowBattThreshold": {
-        "type": "integer",
-        "title": "Low Battery Threshold",
-        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
-        "default": 25,
-        "minimum": 5,
-        "maximum": 50
-      },
-      "sensorTimeLength": {
-        "type": "integer",
-        "title": "Sensor Length",
-        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something.",
-        "default": 60,
-        "minimum": 1,
-        "maximum": 120
-      },
-      "sensorTimeDifference": {
-        "type": "integer",
-        "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification.",
-        "default": 120,
-        "minimum": 10,
-        "maximum": 300
+      "disableEveLogging": {
+        "type": "boolean",
+        "title": "Disable Eve Logging",
+        "description": "If enabled, switch, thermostat and power readings will not be logged to the Eve App.",
+        "default": false
       },
       "inUsePowerThreshold": {
         "type": "integer",
@@ -102,11 +77,66 @@
         "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
         "default": false
       },
+      "lowBattThreshold": {
+        "type": "integer",
+        "title": "Low Battery Threshold",
+        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
+        "default": 25,
+        "minimum": 5,
+        "maximum": 50
+      },
+      "sensorTimeLength": {
+        "type": "integer",
+        "title": "Sensor Length",
+        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "default": 60,
+        "minimum": 1,
+        "maximum": 120
+      },
+      "sensorTimeDifference": {
+        "type": "integer",
+        "title": "Sensor Lag",
+        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "default": 120,
+        "minimum": 10,
+        "maximum": 300
+      },
       "hideZBLDPress": {
         "title": "Zigbee Button Hide Double/Long Press",
         "type": "boolean",
         "description": "If enabled, double and long press options will be hidden for the ZigBee button.",
         "default": false
+      },
+      "nameOverride": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fullDeviceId": {
+              "type": "string"
+            },
+            "deviceName": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ipOverride": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string"
+            },
+            "deviceIP": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "disablePlugin": {
+        "type": "boolean"
       },
       "groups": {
         "type": "array",
@@ -123,19 +153,24 @@
             "type": {
               "type": "string",
               "title": "Type",
-              "default": "null",
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "Garage Door (using Eachen GD-DC5)",
+                  "title": "1 Garage Door (using single/multi-channel device)",
                   "enum": [
-                    "garage_eachen"
+                    "garage"
                   ]
                 },
                 {
-                  "title": "Garage Door (using single/multi-channel device)",
+                  "title": "2 Garage Doors (using multi-channel device)",
                   "enum": [
-                    "garage"
+                    "garage_two"
+                  ]
+                },
+                {
+                  "title": "1 Garage Door (using Eachen GD-DC5)",
+                  "enum": [
+                    "garage_eachen"
                   ]
                 },
                 {
@@ -161,7 +196,6 @@
             "setup": {
               "type": "string",
               "title": "Device Setup",
-              "default": "null",
               "description": "The setup for your garage doors.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
@@ -194,7 +228,7 @@
               "title": "Sensor",
               "description": "A Sonoff DW2 sensor can optionally be used for garage doors. This is to determine the current open/closed state of the garage door. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+                "functionBody": "return (model.groups[arrayIndices] && (model.groups[arrayIndices].type==='garage' || model.groups[arrayIndices].type==='garage_two'))"
               }
             }
           }
@@ -210,17 +244,16 @@
             "deviceId": {
               "type": "string",
               "title": "RF Bridge Device ID",
-              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000******)."
+              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000ab23cd)."
             },
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
-              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000******SW*)."
+              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000ab23cdSW2)."
             },
             "type": {
               "type": "string",
               "title": "Sensor Type",
-              "default": "motion",
               "description": "Select the type of sensor you would like to expose this as in Homebridge.",
               "oneOf": [
                 {
@@ -270,12 +303,7 @@
           }
         }
       }
-    },
-    "required": [
-      "countryCode",
-      "username",
-      "password"
-    ]
+    }
   },
   "layout": [
     {
@@ -296,10 +324,8 @@
       "items": [
         "debug",
         "debugReqRes",
-        "hideDevFromHB",
-        "hideMasters",
-        "hideFromHB",
-        "disableHTTPRefresh"
+        "disableHTTPRefresh",
+        "hideDevFromHB"
       ]
     },
     {
@@ -308,11 +334,13 @@
       "description": "A variety of optional settings for specific device types.",
       "expandable": true,
       "items": [
-        "lowBattThreshold",
+        "hideChanFromHB",
+        "disableEveLogging",
         "inUsePowerThreshold",
+        "hideTHSwitch",
+        "lowBattThreshold",
         "sensorTimeLength",
         "sensorTimeDifference",
-        "hideTHSwitch",
         "hideZBLDPress"
       ]
     },
