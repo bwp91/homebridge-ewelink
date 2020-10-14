@@ -16,6 +16,9 @@ Homebridge plugin to control eWeLink devices with original firmware.
 
 </span>
 
+### Homebridge
+To use this plugin, you will need to already have Homebridge installed. Please refer to the [Homebridge website](https://homebridge.io) for more information and installation instructions.
+
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
 * [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
