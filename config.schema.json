@@ -14,43 +14,42 @@
       "countryCode": {
         "type": "string",
         "title": "Country Code",
+        "required": true,
         "description": "The telephone country code linked to your eWeLink account (without the +)."
       },
       "username": {
         "type": "string",
         "title": "Username",
+        "required": true,
         "description": "The phone number or email address linked to your eWeLink account. If you use a phone number please enter the country code (with the +), for example +8613185260282."
       },
       "password": {
         "type": "string",
         "title": "Password",
+        "required": true,
         "description": "The password for your eWeLink account."
       },
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "required": true,
         "description": "If enabled, more information will be added to the Homebridge log.",
         "default": false
       },
       "debugReqRes": {
         "title": "Request & Response Logging",
         "type": "boolean",
-        "required": true,
         "description": "If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
         "default": false
       },
       "hideDevFromHB": {
         "type": "string",
         "title": "Hide Devices",
-        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'.",
-        "default": ""
+        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
       "hideChanFromHB": {
         "type": "string",
         "title": "Hide Light/Switch Channels",
-        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'.",
-        "default": ""
+        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'."
       },
       "disableHTTPRefresh": {
         "type": "boolean",
@@ -136,6 +135,9 @@
           }
         }
       },
+      "disablePlugin": {
+        "type": "boolean"
+      },
       "groups": {
         "type": "array",
         "title": "Accessory Simulations",
@@ -151,7 +153,6 @@
             "type": {
               "type": "string",
               "title": "Type",
-              "default": "null",
               "description": "The new type for this device.",
               "oneOf": [
                 {
@@ -195,7 +196,6 @@
             "setup": {
               "type": "string",
               "title": "Device Setup",
-              "default": "null",
               "description": "The setup for your garage doors.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
@@ -254,7 +254,6 @@
             "type": {
               "type": "string",
               "title": "Sensor Type",
-              "default": "motion",
               "description": "Select the type of sensor you would like to expose this as in Homebridge.",
               "oneOf": [
                 {
@@ -304,12 +303,7 @@
           }
         }
       }
-    },
-    "required": [
-      "countryCode",
-      "username",
-      "password"
-    ]
+    }
   },
   "layout": [
     {
