@@ -37,7 +37,6 @@ To use this plugin, you will need to already have Homebridge installed. Please r
 ### About
 * [About Me](https://github.com/sponsors/bwp91)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
-* [Roadmap](https://github.com/bwp91/homebridge-ewelink/wiki/Roadmap)
 * [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
 ### Disclaimer
 I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
