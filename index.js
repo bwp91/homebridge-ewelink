@@ -2,6 +2,4 @@
 /* eslint-disable new-cap */
 'use strict'
 const eWeLinkPlatform = require('./lib/ewelink-platform.js')
-module.exports = (hb) => {
-  hb.registerPlatform('homebridge-ewelink', 'eWeLink', eWeLinkPlatform, true)
-}
+module.exports = hb => hb.registerPlatform('eWeLink', eWeLinkPlatform)
