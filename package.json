@@ -72,7 +72,7 @@
     "homebridge-lib": "4.7.16",
     "interval-promise": "1.4.0",
     "node-dns-sd": "0.4.2",
-    "websocket-as-promised": "1.0.1",
+    "websocket-as-promised": "1.1.0",
     "ws": "7.3.1"
   }
 }
