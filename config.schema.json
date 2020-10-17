@@ -168,6 +168,12 @@
                   ]
                 },
                 {
+                  "title": "4 Garage Doors (using multi-channel device)",
+                  "enum": [
+                    "garage_four"
+                  ]
+                },
+                {
                   "title": "1 Garage Door (using Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
