@@ -77,6 +77,11 @@
         "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
         "default": false
       },
+      "hideLightFromFan": {
+        "type": "string",
+        "title": "Hide Fan Lights",
+        "description": "A list of eWeLink iFan devices for which the light will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
+      },
       "lowBattThreshold": {
         "type": "integer",
         "title": "Low Battery Threshold",
@@ -341,6 +346,7 @@
       "expandable": true,
       "items": [
         "hideChanFromHB",
+        "hideLightFromFan",
         "disableEveLogging",
         "inUsePowerThreshold",
         "hideTHSwitch",
