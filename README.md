@@ -1,13 +1,14 @@
 <p align="center">
-   <a href="https://github.com/homebridge/verified/blob/master/verified-plugins.json"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/90361629-9af86200-e056-11ea-8553-4e4e5c4b5a54.png" width="600px"></a>
+   <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/90361629-9af86200-e056-11ea-8553-4e4e5c4b5a54.png" width="600px"></a>
 </p>
 <span align="center">
   
 # homebridge-ewelink 
 
-Homebridge plugin to control eWeLink devices with original firmware.
+Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 
-[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)   
+[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+[![hoobs-certified](https://badgen.net/badge/HOOBS/Certified/yellow)](https://plugins.hoobs.org/plugin/homebridge-ewelink)   
 [![npm](https://img.shields.io/npm/v/homebridge-ewelink/latest?label=latest)](https://www.npmjs.com/package/homebridge-ewelink)
 [![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)   
 [![npm](https://img.shields.io/npm/dt/homebridge-ewelink)](https://www.npmjs.com/package/homebridge-ewelink)
@@ -16,8 +17,8 @@ Homebridge plugin to control eWeLink devices with original firmware.
 
 </span>
 
-### Homebridge
-To use this plugin, you will need to already have Homebridge installed. Please refer to the [Homebridge website](https://homebridge.io) for more information and installation instructions.
+### Prerequisites
+To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
 
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
