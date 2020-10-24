@@ -22,7 +22,7 @@
     "JuniorGenius",
     "BobbySlope"
   ],
-  "description": "Homebridge plugin to control eWeLink devices with original firmware.",
+  "description": "Homebridge/HOOBS plugin to control eWeLink devices with original firmware.",
   "license": "MIT",
   "keywords": [
     "homebridge",
