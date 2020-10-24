@@ -27,12 +27,12 @@
   "keywords": [
     "homebridge",
     "homebridge-plugin",
-    "sonoff",
+    "homebridge-ewelink",
+    "hoobs",
     "homekit",
     "siri",
     "ewelink",
-    "homebridge-ewelink",
-    "hoobs",
+    "sonoff",
     "eachen"
   ],
   "engines": {
