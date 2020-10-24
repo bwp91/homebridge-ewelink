@@ -2,7 +2,7 @@
   "pluginAlias": "eWeLink",
   "pluginType": "platform",
   "singular": true,
-  "headerDisplay": "Homebridge plugin to control eWeLink devices with original firmware.",
+  "headerDisplay": "Homebridge/HOOBS plugin to control eWeLink devices with original firmware.",
   "footerDisplay": "For help and support please visit our [GitHub Wiki](https://github.com/bwp91/homebridge-ewelink/wiki).",
   "schema": {
     "type": "object",

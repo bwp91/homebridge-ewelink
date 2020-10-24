@@ -65,7 +65,7 @@
     }
   ],
   "dependencies": {
-    "axios": "0.20.0",
+    "axios": "0.21.0",
     "color-convert": "2.0.1",
     "correcting-interval": "2.0.0",
     "fakegato-history": "0.5.6",
