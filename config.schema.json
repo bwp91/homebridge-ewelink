@@ -32,13 +32,13 @@
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "description": "If enabled, more information will be added to the Homebridge log.",
+        "description": "If checked, more information will be added to the Homebridge log.",
         "default": false
       },
       "debugReqRes": {
         "title": "Request & Response Logging",
         "type": "boolean",
-        "description": "If enabled, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
+        "description": "If checked, HTTP, web socket and LAN mode messages will be added to the log. Not recommended for long-term use.",
         "default": false
       },
       "hideDevFromHB": {
@@ -54,13 +54,13 @@
       "disableHTTPRefresh": {
         "type": "boolean",
         "title": "Disable Initial Device Refresh",
-        "description": "If enabled, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
+        "description": "If checked, devices will not be refreshed with their most recent status from eWeLink when Homebridge starts. This setting can be useful for users who block their devices from accessing the internet.",
         "default": false
       },
       "disableEveLogging": {
         "type": "boolean",
         "title": "Disable Eve Logging",
-        "description": "If enabled, switch, thermostat and power readings will not be logged to the Eve App.",
+        "description": "If checked, switch, thermostat and power readings will not be logged to the Eve App.",
         "default": false
       },
       "inUsePowerThreshold": {
@@ -72,9 +72,9 @@
         "maximum": 100
       },
       "hideTHSwitch": {
-        "title": "TH10/TH16 Hide Switch",
+        "title": "Hide TH10/TH16 Switch",
         "type": "boolean",
-        "description": "If enabled, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
+        "description": "If checked, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
         "default": false
       },
       "hideLightFromFan": {
@@ -109,7 +109,7 @@
       "hideZBLDPress": {
         "title": "Zigbee Button Hide Double/Long Press",
         "type": "boolean",
-        "description": "If enabled, double and long press options will be hidden for the ZigBee button.",
+        "description": "If checked, double and long press options will be hidden for the ZigBee button.",
         "default": false
       },
       "nameOverride": {
