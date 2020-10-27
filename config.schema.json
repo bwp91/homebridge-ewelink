@@ -85,18 +85,10 @@
       "lowBattThreshold": {
         "type": "integer",
         "title": "Low Battery Threshold",
-        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this pecentage level.",
+        "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this percentage level.",
         "default": 25,
         "minimum": 5,
         "maximum": 50
-      },
-      "sensorTimeLength": {
-        "type": "integer",
-        "title": "Sensor Length",
-        "description": "The number of seconds which the sensor tile in the Home app will light up for if a sensor detects something. This setting applies to sensors connected to RF/Zigbee Bridges.",
-        "default": 60,
-        "minimum": 1,
-        "maximum": 300
       },
       "sensorTimeDifference": {
         "type": "integer",
@@ -142,6 +134,9 @@
       },
       "disablePlugin": {
         "type": "boolean"
+      },
+      "sensorTimeLength": {
+        "type": "integer"
       },
       "groups": {
         "type": "array",
@@ -314,7 +309,7 @@
             "sensorTimeLength": {
               "type": "integer",
               "title": "Sensor Time Length",
-              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor detects something. This setting will override the global time length set above for this sensor.",
+              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated.",
               "default": 60,
               "minimum": 1,
               "maximum": 300
@@ -359,7 +354,6 @@
         "inUsePowerThreshold",
         "hideTHSwitch",
         "lowBattThreshold",
-        "sensorTimeLength",
         "sensorTimeDifference",
         "hideZBLDPress"
       ]
