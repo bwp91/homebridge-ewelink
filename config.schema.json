@@ -314,7 +314,7 @@
             "sensorTimeLength": {
               "type": "integer",
               "title": "Sensor Time Length",
-              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor detects something. This setting will override the global time length set abov for this sensor.",
+              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor detects something. This setting will override the global time length set above for this sensor.",
               "default": 60,
               "minimum": 1,
               "maximum": 300
