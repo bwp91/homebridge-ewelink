@@ -104,37 +104,6 @@
         "description": "If checked, double and long press options will be hidden for the ZigBee button.",
         "default": false
       },
-      "nameOverride": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "fullDeviceId": {
-              "type": "string"
-            },
-            "deviceName": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "ipOverride": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string"
-            },
-            "deviceIP": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "disablePlugin": {
-        "type": "boolean"
-      },
       "sensorTimeLength": {
         "type": "integer"
       },
@@ -316,6 +285,52 @@
             }
           }
         }
+      },
+      "nameOverride": {
+        "type": "array",
+        "title": "Accessory Name Overrides",
+        "description": "You can override the default name given to a device when it is added to Homebridge.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fullDeviceId": {
+              "title": "Device ID",
+              "type": "string",
+              "description": "Full device ID of the device from Homebridge (13 digits normally in the format 1000ab23cdSW2)."
+            },
+            "deviceName": {
+              "title": "Name",
+              "type": "string",
+              "description": "The name for the accessory for when it is added to Homebridge."
+            }
+          }
+        }
+      },
+      "ipOverride": {
+        "type": "array",
+        "title": "IP Overrides",
+        "description": "You can override the IP for a device in Homebridge.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "title": "Device ID",
+              "type": "string",
+              "description": "Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
+            },
+            "deviceIP": {
+              "title": "IP Address",
+              "type": "string",
+              "description": "The IP address of this device which will be used by the plugin."
+            }
+          }
+        }
+      },
+      "disablePlugin": {
+        "type": "boolean"
+      },
+      "resetRFBridge": {
+        "type": "boolean"
       }
     }
   },
@@ -391,6 +406,38 @@
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "nameOverride",
+      "title": "Accessory Name Overrides",
+      "expandable": true,
+      "add": "Add Another Name Override",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "nameOverride[].fullDeviceId",
+            "nameOverride[].deviceName"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ipOverride",
+      "title": "IP Overrides",
+      "expandable": true,
+      "add": "Add Another IP Override",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "ipOverride[].deviceId",
+            "ipOverride[].deviceIP"
           ]
         }
       ]
