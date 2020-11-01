@@ -325,10 +325,10 @@
           }
         }
       },
-      "disablePlugin": {
+      "resetRFBridge": {
         "type": "boolean"
       },
-      "resetRFBridge": {
+      "disablePlugin": {
         "type": "boolean"
       }
     }
