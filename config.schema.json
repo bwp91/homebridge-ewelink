@@ -63,9 +63,14 @@
         "title": "Hide Light/Switch Channels",
         "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'."
       },
+      "lightAsSwitch": {
+        "type": "string",
+        "title": "Light As Switch (beta)",
+        "description": "A list of eWeLink light switch devices to show as switches in Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
+      },
       "outletAsSwitch": {
         "type": "string",
-        "title": "Outlets As Switch",
+        "title": "Outlet As Switch",
         "description": "A list of eWeLink outlet devices to show as switches in Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
       },
       "inUsePowerThreshold": {
@@ -367,6 +372,7 @@
       "items": [
         "hideDevFromHB",
         "hideChanFromHB",
+        "lightAsSwitch",
         "outletAsSwitch",
         "inUsePowerThreshold",
         "hideLightFromFan",
