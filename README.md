@@ -27,6 +27,7 @@ To use this plugin, you will need to already have [Homebridge](https://homebridg
 * [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 ### Features
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
+* [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 ### How-to Guides
