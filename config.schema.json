@@ -169,6 +169,12 @@
                   ]
                 },
                 {
+                  "title": "1 Irrigation Valve (using single-channel device)",
+                  "enum": [
+                    "valve"
+                  ]
+                },
+                {
                   "title": "2 Irrigation Valves (using multi-channel device)",
                   "enum": [
                     "valve_two"
