@@ -157,19 +157,19 @@
                   ]
                 },
                 {
-                  "title": "Window Blind (using multi-channel device)",
+                  "title": "1 Window Blind (using multi-channel device)",
                   "enum": [
                     "blind"
                   ]
                 },
                 {
-                  "title": "Lock (using single channel device)",
+                  "title": "1 Lock (using single channel device)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "Irrigation/Sprinkler (using multi-channel device)",
+                  "title": "2 Irrigation Valves (using multi-channel device)",
                   "enum": [
                     "valve"
                   ]
