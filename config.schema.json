@@ -201,7 +201,7 @@
             "operationTime": {
               "type": "integer",
               "title": "Operation Time (Deciseconds)",
-              "description": "Blinds/garage doors: the time to fully open/close the device. Locks: the time to show as unlocked. Irrigation: the time the valves will open for. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
+              "description": "Blinds/garage doors: the time to fully open/close the device. Locks: the time to show as unlocked. Irrigation: an initial default time for HomeKit. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
               "default": 100,
               "minimum": 10,
               "maximum": 600
