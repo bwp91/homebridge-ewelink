@@ -118,7 +118,7 @@
       "groups": {
         "type": "array",
         "title": "Accessory Simulations",
-        "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device. For more information please see the wiki.",
+        "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device. Please see <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">this wiki article</a> for more information.",
         "items": {
           "type": "object",
           "properties": {
@@ -226,7 +226,7 @@
       "bridgeSensors": {
         "type": "array",
         "title": "Sensors",
-        "description": "You can expose different types of sensors connected to your RF Bridge in HomeKit.",
+        "description": "You can expose different types of sensors connected to your RF Bridge in HomeKit. Please see <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">this wiki article</a> for more information.",
         "items": {
           "type": "object",
           "properties": {
