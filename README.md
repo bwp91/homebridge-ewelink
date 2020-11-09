@@ -36,6 +36,7 @@ To use this plugin, you will need to already have [Homebridge](https://homebridg
 * [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
+* [How to update node](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node)
 ### About
 * [About Me](https://github.com/sponsors/bwp91)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
