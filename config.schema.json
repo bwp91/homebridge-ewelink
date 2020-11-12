@@ -78,13 +78,12 @@
       "hideLightFromFan": {
         "type": "string",
         "title": "Hide Fan Lights",
-        "description": "A list of eWeLink iFan devices for which the light will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
+        "description": "A list of eWeLink iFan devices for which the light will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
-      "hideTHSwitch": {
-        "title": "Hide TH10/TH16 Switch",
-        "type": "boolean",
-        "description": "If checked, the switch for the TH10/TH16 devices will be hidden from Homebridge.",
-        "default": false
+      "hideSwitchFromTH": {
+        "type": "string",
+        "title": "Hide Fan Lights",
+        "description": "A list of TH10/TH16 devices for which the switch will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
       "lowBattThreshold": {
         "type": "integer",
@@ -375,7 +374,7 @@
         "outletAsSwitch",
         "inUsePowerThreshold",
         "hideLightFromFan",
-        "hideTHSwitch",
+        "hideSwitchFromTH",
         "lowBattThreshold",
         "sensorTimeDifference",
         "hideZBLDPress",
