@@ -85,6 +85,11 @@
         "title": "Hide Fan Lights",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
+      "resetRFBridge": {
+        "title": "Reset RF Bridges",
+        "type": "string",
+        "description": "If checked, the plugin will remove and re-add these RF Bridges on Homebridge restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
+      },
       "lowBattThreshold": {
         "type": "integer",
         "title": "Low Battery Threshold",
@@ -105,12 +110,6 @@
         "title": "Zigbee Button Hide Double/Long Press",
         "type": "boolean",
         "description": "If checked, double and long press options will be hidden for the ZigBee button.",
-        "default": false
-      },
-      "resetRFBridge": {
-        "title": "Reset RF Bridges",
-        "type": "boolean",
-        "description": "If checked, the plugin will remove and re-add all RF Bridges on Homebridge restart. This is needed when adding/removed sub-devices from the RF Bridge.",
         "default": false
       },
       "groups": {
@@ -375,10 +374,10 @@
         "inUsePowerThreshold",
         "hideLightFromFan",
         "hideSwitchFromTH",
+        "resetRFBridge",
         "lowBattThreshold",
         "sensorTimeDifference",
-        "hideZBLDPress",
-        "resetRFBridge"
+        "hideZBLDPress"
       ]
     },
     {
