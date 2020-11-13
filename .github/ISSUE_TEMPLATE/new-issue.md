@@ -1,6 +1,6 @@
 ---
-name: New Issue
-about: I have a problem with the package or it's showing an error.
+name: Problem/Bug Alert
+about: The plugin isn't working as you'd expect it to, or it showing an error.
 title: ''
 labels: ''
 assignees: ''
