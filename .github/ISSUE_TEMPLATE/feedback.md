@@ -1,6 +1,6 @@
 ---
-name: Feedback
-about: Give feedback that I might have asked for.
+name: Information/Feedback
+about: General information request or plugin feedback
 title: ''
 labels: ''
 assignees: ''
