@@ -44,6 +44,7 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 
 ### About
 * [About Me](https://github.com/sponsors/bwp91)
+* [Changelog](https://github.com/bwp91/homebridge-ewelink/releases)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
 * [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
 
