@@ -1,6 +1,6 @@
 ---
-name: Information/Feedback
-about: General information request or plugin feedback
+name: Information Request/Feedback
+about: Ask general information about this plugin or give valuable feedback
 title: ''
 labels: ''
 assignees: ''
