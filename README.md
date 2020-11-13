@@ -18,18 +18,22 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 </span>
 
 ### Prerequisites
-To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
+* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
+
+### Plugin Information
 
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
 * [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
 * [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
 * [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
+
 ### Features
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
+
 ### How-to Guides
 * [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
 * [How to set up Sonoff Camera (GK-200MP2-B)](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera)
@@ -37,9 +41,11 @@ To use this plugin, you will need to already have [Homebridge](https://homebridg
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
 * [How to update node](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node)
+
 ### About
 * [About Me](https://github.com/sponsors/bwp91)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
 * [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
+
 ### Disclaimer
-I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
+* I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
