@@ -1,5 +1,5 @@
 ---
-name: Feature Request
+name: Device/Feature Request
 about: I have an idea for the package or a device that isn't supported.
 title: ''
 labels: ''
