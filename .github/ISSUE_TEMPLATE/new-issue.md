@@ -7,18 +7,11 @@ assignees: ''
 
 ---
 
-<!--
-   PLEASE READ BEFORE POSTING A NEW ISSUE
+<!-- PLEASE READ BEFORE POSTING A NEW ISSUE
    * Please use this template as well as you can, in a lot of cases I will probably ask for things you might skip anyway.
-   * Are you using a second eWeLink account for Homebridge? Please try using your main eWeLink account instead.
-   * This is not the place for issues with the homebridge-ewelink-max plugin. I am not the owner of homebridge-ewelink-max
--->
+   * This is not the place for issues with the homebridge-ewelink-max plugin. I am not the owner of homebridge-ewelink-max -->
+
 ### What issue do you have? Please be as thorough and explicit as possible.
-<!--
-   Please also state any changes may be leading to this error, examples include:
-   * Has this error started since updating this plugin? Which version were you using before when it worked?
-   * Have you tried clearing the device from the Homebridge cache to see if this solves problems?
--->
 
 
 
@@ -31,11 +24,15 @@ assignees: ''
 
 
 
-* Which version of this plugin (homebridge-ewelink) do you have?
+* Which version of this plugin (homebridge-ewelink) do you have? Has the issue started since upgrading from a previous version?
 
 
 
 * Which eWeLink devices do you have that are causing issues?
+
+
+
+* Do you use your main eWeLink credentials or do you use a secondary eWeLink account for Homebridge?
 
 
 
