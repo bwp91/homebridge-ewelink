@@ -13,10 +13,7 @@ assignees: ''
    * Are you using a second eWeLink account for Homebridge? Please try using your main eWeLink account instead.
    * This is not the place for issues with the homebridge-ewelink-max plugin. I am not the owner of homebridge-ewelink-max
 -->
-
-
-
-**What issue do you have? Please be as thorough and explicit as possible.**
+### What issue do you have? Please be as thorough and explicit as possible.
 <!--
    Please also state any changes may be leading to this error, examples include:
    * Has this error started since updating this plugin? Which version were you using before when it worked?
@@ -25,7 +22,7 @@ assignees: ''
 
 
 
-**Details of your setup.**
+### Details of your setup.
 * Do you use Homebridge (with config-ui?) or HOOBS? 
 
 
@@ -42,7 +39,7 @@ assignees: ''
 
 
 
-**Please paste any relevant logs below.**
+### Please paste any relevant logs below.
 <!--
    It helps if you can turn on 'Debug Logging' and 'Request & Response Logging' in the package settings for more thorough logging.
    If you are posting an error then it is helpful for me to also see the previous few lines as this can show the cause of the error.
