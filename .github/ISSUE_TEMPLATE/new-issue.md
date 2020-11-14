@@ -14,12 +14,15 @@ assignees: ''
    * This is not the place for issues with the homebridge-ewelink-max plugin. I am not the owner of homebridge-ewelink-max
 -->
 
+
+
 **What issue do you have? Please be as thorough and explicit as possible.**
 <!--
    Please also state any changes may be leading to this error, examples include:
    * Has this error started since updating this plugin? Which version were you using before when it worked?
    * Have you tried clearing the device from the Homebridge cache to see if this solves problems?
 -->
+
 
 
 **Details of your setup.**
