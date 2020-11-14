@@ -21,6 +21,9 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 * To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
 
 ### Plugin Information
+* This plugin uses your eWeLink credentials to obtain and control your devices
+* This plugin uses a web socket for real-time device control and updates
+* This plugin also allows LAN control for devices that support it
 
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
