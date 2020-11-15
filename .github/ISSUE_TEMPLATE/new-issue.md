@@ -38,7 +38,7 @@ assignees: ''
 
 ### Please paste any relevant logs below.
 <!--
-   It helps if you can turn on 'Debug Logging' and 'Request & Response Logging' in the package settings for more thorough logging.
+   It helps if you can turn on 'Debug Logging' and 'Request & Response Logging' in the plugin settings for more thorough logging.
    If you are posting an error then it is helpful for me to also see the previous few lines as this can show the cause of the error.
    Please enter the logs between the two ``` lines below so that the logs are formatted in a way which is easier to read
 -->
