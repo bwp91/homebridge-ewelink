@@ -82,7 +82,7 @@
       },
       "hideSwitchFromTH": {
         "type": "string",
-        "title": "Hide Fan Lights",
+        "title": "Hide TH10/16 Switches",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
       "resetRFBridge": {
