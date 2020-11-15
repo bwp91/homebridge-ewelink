@@ -28,7 +28,7 @@ assignees: ''
 
 
 
-* Which eWeLink devices do you have that are causing issues?
+* Which eWeLink devices do you have that are causing issues? Please include product models if applicable.
 
 
 
