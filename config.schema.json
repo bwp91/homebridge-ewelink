@@ -176,6 +176,12 @@
                   "enum": [
                     "valve_two"
                   ]
+                },
+                {
+                  "title": "1 Switch & 1 Valve (using multi-channel device)",
+                  "enum": [
+                    "switch_valve"
+                  ]
                 }
               ]
             },
