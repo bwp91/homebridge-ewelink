@@ -36,8 +36,8 @@
     "eachen"
   ],
   "engines": {
-    "homebridge": ">=1.0.0",
-    "node": ">=12.0.0"
+    "homebridge": "^1.1.0",
+    "node": "^14.15.1"
   },
   "repository": {
     "type": "git",
@@ -65,12 +65,12 @@
     }
   ],
   "dependencies": {
-    "axios": "0.21.0",
-    "color-convert": "2.0.1",
-    "interval-promise": "1.4.0",
-    "node-dns-sd": "0.4.2",
-    "websocket-as-promised": "1.1.0",
-    "ws": "7.4.0"
+    "axios": "^0.21.0",
+    "color-convert": "^2.0.1",
+    "interval-promise": "^1.4.0",
+    "node-dns-sd": "^0.4.2",
+    "websocket-as-promised": "^1.1.0",
+    "ws": "^7.4.0"
   },
   "standard": {
     "ignore": [
