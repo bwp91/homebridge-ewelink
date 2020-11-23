@@ -49,7 +49,7 @@
           <td id="eweBrandName"></td>
         </tr>
         <tr>
-          <th scope="row">Model</th>
+          <th scope="row">Model (UIID)</th>
           <td id="eweModel"></td>
         </tr>
         <tr>
@@ -94,6 +94,7 @@
 <script>
   (async () => {
     try {
+      const currentConfig = await homebridge.getPluginConfig()
       showIntro = () => {
         const introContinue = document.getElementById('introContinue')
         introContinue.addEventListener('click', () => {
@@ -136,11 +137,11 @@
             : 'Offline'
           document.getElementById('reachableLAN').innerHTML = selectedAccessory.context.reachableLAN
             ? 'Online'
-            : document.getElementById('reachableLAN').innerHTML = 'Offline'
+            : 'Offline'
           document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
           document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
-          document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel
+          document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
             ? 'Yes (' + selectedAccessory.context.eweShared + ')'
             : 'No'
@@ -187,7 +188,6 @@
       menuHome.addEventListener('click', () => showSupport())
       menuDevices.addEventListener('click', () => showDevices())
       menuSettings.addEventListener('click', () => showSettings())
-      const currentConfig = await homebridge.getPluginConfig()
       if (currentConfig.length) {
         document.getElementById('menuWrapper').style.display = 'inline-flex'
         showSettings()
