@@ -3,6 +3,7 @@
   "pluginType": "platform",
   "singular": true,
   "customUi": true,
+  "customUiPath": "./lib/homebridge-ui",
   "headerDisplay": "<p align=\"center\"><img width=\"75%\" src=\"https://user-images.githubusercontent.com/43026681/98988978-5e86b600-2520-11eb-875b-0703f4575e97.png\"></p><p align=\"center\">For help and support please visit our <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki\">GitHub Wiki</a>. We hope you find this plugin useful!</p>",
   "schema": {
     "type": "object",
