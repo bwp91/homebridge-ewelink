@@ -29,13 +29,13 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
 * [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
 * [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
-* [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 
 ### Features
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
+* [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 
 ### How-to Guides
 * [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
