@@ -1,0 +1,169 @@
+<p align="center">
+  <img width="60%" src="https://user-images.githubusercontent.com/43026681/98988978-5e86b600-2520-11eb-875b-0703f4575e97.png">
+</p>
+<div class="btn-group w-100 mb-3" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary ml-0" id="menuSettings">Settings</button>
+  <button type="button" class="btn btn-primary" id="menuDevices">My Devices</button>
+  <button type="button" class="btn btn-primary mr-0" id="menuHome">Support</button>
+</div>
+<div id="pageAbout" style="display: none;">
+  <div class="card card-body">
+    <p align="center">Thank you for using homebridge-ewelink. We hope you find it useful!</p>
+    <p align="center">The links below will take you to our GitHub wiki.</p>
+    <h4>Features</h4>
+    <ul>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices" target="_blank">Supported Devices</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices" target="_blank">Multi Channel Devices</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations" target="_blank">Accessory Simulations</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods" target="_blank">Connection Methods</a></li>
+    </ul>
+    <h4>How-to Guides</h4>
+    <ul>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors" target="_blank">How to set up RF Bridge sensors</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera" target="_blank">How to set up Sonoff Camera (GK-200MP2-B)</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs" target="_blank">How to copy Homebridge logs</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging" target="_blank">How to enable/disable plugin extended logging</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache" target="_blank">How to remove an accessory from the cache</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node" target="_blank">How to update node</a></li>
+    </ul>
+    <h4>About</h4>
+    <ul>
+    <li><a href="https://github.com/sponsors/bwp91" target="_blank">About Me</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/releases" target="_blank">Changelog</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/issues/new/choose" target="_blank">Support Request</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Credits" target="_blank">Credits</a></li>
+    </ul>
+    <h4>Disclaimer</h4>
+    <p>I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.</p>
+  </div>
+</div>
+<div id="pageDevices" style="display: none;">
+  <div class="card card-body" id="deviceInfo">
+    <form>
+      <div class="form-group">
+        <select class="form-control" id="deviceSelect"></select>
+      </div>
+    </form>
+    <table class="table w-100" id="deviceTable">
+      <thead>
+        <tr class="table-active">
+          <th scope="col" style="width: 40%;">Device Name</th>
+          <th scope="col" style="width: 60%;" id="displayName"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Cloud Status</th>
+          <td id="reachableWAN"></td>
+        </tr>
+        <tr>
+          <th scope="row">LAN Status</th>
+          <td id="reachableLAN"></td>
+        </tr>
+        <tr>
+          <th scope="row">Homebridge ID</th>
+          <td id="hbDeviceId"></td>
+        </tr>
+        <tr>
+          <th scope="row">eWeLink ID</th>
+          <td id="eweDeviceId"></td>
+        </tr>
+        <tr>
+          <th scope="row">Model</th>
+          <td id="eweModel"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  (async () => {
+    try {
+      showHome = () => {
+        homebridge.showSpinner()
+        homebridge.hideSchemaForm()
+        document.getElementById('menuHome').classList.add('btn-primary-outline')
+        document.getElementById('menuHome').classList.remove('btn-primary')
+        document.getElementById('menuDevices').classList.remove('btn-primary-outline')
+        document.getElementById('menuDevices').classList.add('btn-primary')
+        document.getElementById('menuSettings').classList.remove('btn-primary-outline')
+        document.getElementById('menuSettings').classList.add('btn-primary')
+        document.getElementById('pageAbout').style.display = 'block'
+        document.getElementById('pageDevices').style.display = 'none'
+        homebridge.hideSpinner()
+      }
+      showDevices = async () => {
+        homebridge.showSpinner()
+        homebridge.hideSchemaForm()
+        document.getElementById('menuHome').classList.remove('btn-primary-outline')
+        document.getElementById('menuHome').classList.add('btn-primary')
+        document.getElementById('menuDevices').classList.add('btn-primary-outline')
+        document.getElementById('menuDevices').classList.remove('btn-primary')
+        document.getElementById('menuSettings').classList.remove('btn-primary-outline')
+        document.getElementById('menuSettings').classList.add('btn-primary')
+        document.getElementById('pageAbout').style.display = 'none'
+        document.getElementById('pageDevices').style.display = 'block'
+        const cachedAccessories = await homebridge.request('/getCachedAccessories')
+        const deviceSelect = document.getElementById('deviceSelect')
+        deviceSelect.innerHTML = ''
+        cachedAccessories.forEach(a => {
+          const option = document.createElement('option')
+          option.text = a.displayName
+          option.value = a.context.hbDeviceId
+          deviceSelect.add(option)
+        })
+        showDeviceInfo = async hbDeviceId => {
+          homebridge.showSpinner()
+          const selectedAccessory = cachedAccessories.find(x => x.context.hbDeviceId === hbDeviceId)
+          document.getElementById('displayName').innerHTML = selectedAccessory.displayName
+          if (selectedAccessory.context.reachableWAN) {
+            document.getElementById('reachableWAN').innerHTML = 'Online'
+          } else {
+            document.getElementById('reachableWAN').innerHTML = 'Offline'
+          }
+          if (selectedAccessory.context.reachableLAN) {
+            document.getElementById('reachableLAN').innerHTML = 'Online'
+          } else {
+            document.getElementById('reachableLAN').innerHTML = 'Offline'
+          }
+          document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
+          document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
+          document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel
+          document.getElementById('deviceTable').style.display = 'inline-table'
+          homebridge.hideSpinner()
+        }
+        deviceSelect.addEventListener('change', event => showDeviceInfo(event.target.value))
+        if (Object.keys(cachedAccessories).length > 0) {
+          showDeviceInfo(cachedAccessories[0].context.hbDeviceId)
+        } else {
+          const option = document.createElement('option')
+          option.text = 'No Devices'
+          deviceSelect.add(option)
+          deviceSelect.disabled = true
+        }
+        homebridge.hideSpinner()
+      }
+      showSettings = () => {
+        homebridge.showSpinner()
+        document.getElementById('menuHome').classList.remove('btn-primary-outline')
+        document.getElementById('menuHome').classList.add('btn-primary')
+        document.getElementById('menuDevices').classList.remove('btn-primary-outline')
+        document.getElementById('menuDevices').classList.add('btn-primary')
+        document.getElementById('menuSettings').classList.add('btn-primary-outline')
+        document.getElementById('menuSettings').classList.remove('btn-primary')
+        document.getElementById('pageAbout').style.display = 'none'
+        document.getElementById('pageDevices').style.display = 'none'
+        homebridge.showSchemaForm()
+        homebridge.hideSpinner()
+      }
+      menuHome.addEventListener('click', () => showHome())
+      menuDevices.addEventListener('click', () => showDevices())
+      menuSettings.addEventListener('click', () => showSettings())
+      showSettings()
+    } catch (err) {
+      homebridge.toast.error(err.message, 'Error')
+    } finally {
+      homebridge.hideSpinner()
+    }
+  })()
+</script>
