@@ -18,7 +18,7 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 </span>
 
 ### Prerequisites
-* To use this plugin, you will need to already have <a href="https://homebridge.io" target="_blank">Homebridge</a> or <a href="https://hoobs.org" target="_blank">HOOBS</a> installed. Please refer to the links for more information and installation instructions.
+* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
 
 ### Plugin Information
 * This plugin uses your eWeLink credentials to obtain and control your devices through Homebridge.
@@ -51,10 +51,10 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
 
 ### Credits
-* To the original plugin maintainer: <a href="https://github.com/gbro115" target="_blank">@gbro115</a>
-* To successive contributors: <a href="https://github.com/MrTomAsh" target="_blank">@MrTomAsh</a> and <a href="https://github.com/howanghk" target="_blank">@howanghk</a> for <a href="https://github.com/howanghk/homebridge-ewelink" target="_blank">homebridge-ewelink-max</a>
-* To the creators/contributors of <a href="https://homebridge.io" target="_blank">Homebridge</a> who make this plugin possible
-* To the creators/contributors of <a href="https://github.com/simont77/fakegato-history" target="_blank">Fakegato</a>: <a href="https://github.com/simont77" target="_blank">@simont77</a> and <a href="https://github.com/NorthernMan54" target="_blank">@NorthernMan54</a>
+* To the original plugin maintainer: [@gbro115](https://github.com/gbro115)
+* To successive contributors: [@MrTomAsh](https://github.com/MrTomAsh) and [@howanghk](https://github.com/howanghk) for [homebridge-ewelink-max](https://github.com/howanghk/homebridge-ewelink)</a>
+* To the creators/contributors of [Homebridge](https://homebridge.io) who make this plugin possible
+* To the creators/contributors of [Fakegato](https://github.com/simont77/fakegato-history): [@simont77](https://github.com/simont77) and [@NorthernMan54](https://github.com/NorthernMan54)
 * To all users who have shared their devices to enable functionality
 
 ### Disclaimer
