@@ -143,7 +143,7 @@
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
           document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
-            ? 'Yes (' + selectedAccessory.context.eweShared + ')'
+            ? 'Yes (by ' + selectedAccessory.context.eweShared + ')'
             : 'No'
           document.getElementById('deviceTable').style.display = 'inline-table'
           homebridge.hideSpinner()
