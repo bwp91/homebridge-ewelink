@@ -149,7 +149,7 @@
           homebridge.hideSpinner()
         }
         deviceSelect.addEventListener('change', event => showDeviceInfo(event.target.value))
-        if (Object.keys(cachedAccessories).length > 0) {
+        if (cachedAccessories.length > 0) {
           showDeviceInfo(cachedAccessories[0].context.hbDeviceId)
         } else {
           const option = document.createElement('option')
