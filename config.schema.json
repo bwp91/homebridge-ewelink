@@ -57,17 +57,17 @@
       "hideDevFromHB": {
         "type": "string",
         "title": "Hide Devices",
-        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
+        "description": "A list of eWeLink devices to hide from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "hideChanFromHB": {
         "type": "string",
         "title": "Hide Light/Switch Channels",
-        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2'."
+        "description": "A list of light/switch channels to hide from Homebridge. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2' (without the quotes)."
       },
       "outletAsSwitch": {
         "type": "string",
         "title": "Outlet As Switch",
-        "description": "A list of eWeLink outlet devices to show as switches in Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
+        "description": "A list of eWeLink outlet devices to show as switches in Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "inUsePowerThreshold": {
         "type": "number",
@@ -80,17 +80,17 @@
       "hideLightFromFan": {
         "type": "string",
         "title": "Hide Fan Lights",
-        "description": "A list of eWeLink iFan devices for which the light will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
+        "description": "A list of eWeLink iFan devices for which the light will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "hideSwitchFromTH": {
         "type": "string",
         "title": "Hide TH10/16 Switches",
-        "description": "A list of TH10/TH16 devices for which the switch will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
+        "description": "A list of TH10/TH16 devices for which the switch will be hidden from Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
-        "description": "If checked, the plugin will remove and re-add these RF Bridges on Homebridge restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
+        "description": "If checked, the plugin will remove and re-add these RF Bridges on Homebridge restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "lowBattThreshold": {
         "type": "number",
