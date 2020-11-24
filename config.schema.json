@@ -103,7 +103,7 @@
       "sensorTimeDifference": {
         "type": "number",
         "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
         "default": 120,
         "minimum": 10,
         "maximum": 300
@@ -243,12 +243,12 @@
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
-              "description": "Device ID of the sensor from Homebridge (13 digits normally in the format 1000ab23cdSW2)."
+              "description": "Device ID of the sensor in Homebridge/HOOBS (13 digits normally in the format 1000ab23cdSW2)."
             },
             "type": {
               "type": "string",
               "title": "Sensor Type",
-              "description": "Select the type of sensor you would like to expose this as in Homebridge.",
+              "description": "Select the type of sensor you would like to expose this as.",
               "oneOf": [
                 {
                   "title": "Motion",
@@ -315,7 +315,7 @@
             "fullDeviceId": {
               "title": "Device ID",
               "type": "string",
-              "description": "Full device ID of the device from Homebridge (13 digits normally in the format 1000ab23cdSW2)."
+              "description": "Full device ID of the device in Homebridge/HOOBS (13 digits normally in the format 1000ab23cdSW2)."
             },
             "deviceName": {
               "title": "Name",
