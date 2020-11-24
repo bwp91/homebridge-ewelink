@@ -70,7 +70,7 @@
         "description": "A list of eWeLink outlet devices to show as switches in Homebridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'"
       },
       "inUsePowerThreshold": {
-        "type": "integer",
+        "type": "number",
         "title": "Outlet 'In Use' Threshold",
         "description": "Homebridge will set the 'In Use' status of outlet devices to true when the wattage is above this number.",
         "default": 0,
@@ -93,7 +93,7 @@
         "description": "If checked, the plugin will remove and re-add these RF Bridges on Homebridge restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9'."
       },
       "lowBattThreshold": {
-        "type": "integer",
+        "type": "number",
         "title": "Low Battery Threshold",
         "description": "Homebridge will set the low battery status for supported devices when the device battery reaches this percentage level.",
         "default": 25,
@@ -101,7 +101,7 @@
         "maximum": 50
       },
       "sensorTimeDifference": {
-        "type": "integer",
+        "type": "number",
         "title": "Sensor Lag",
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and Homebridge receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
         "default": 120,
@@ -210,7 +210,7 @@
               ]
             },
             "operationTime": {
-              "type": "integer",
+              "type": "number",
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to fully open/close the device. Locks: the time to show as unlocked. Irrigation: an initial default time for HomeKit. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
               "default": 100,
@@ -295,7 +295,7 @@
               ]
             },
             "sensorTimeLength": {
-              "type": "integer",
+              "type": "number",
               "title": "Sensor Time Length",
               "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated.",
               "default": 60,
