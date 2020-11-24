@@ -49,7 +49,13 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 * [About Me](https://github.com/sponsors/bwp91)
 * [Changelog](https://github.com/bwp91/homebridge-ewelink/releases)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
-* [Credits](https://github.com/bwp91/homebridge-ewelink/wiki/Credits)
+
+### Credits
+* To the original plugin maintainer: <a href="https://github.com/gbro115" target="_blank">@gbro115</a>
+* To successive contributors: <a href="https://github.com/MrTomAsh" target="_blank">@MrTomAsh</a> and <a href="https://github.com/howanghk" target="_blank">@howanghk</a> for <a href="https://github.com/howanghk/homebridge-ewelink" target="_blank">homebridge-ewelink-max</a>
+* To the creators/contributors of <a href="https://homebridge.io" target="_blank">Homebridge</a> who make this plugin possible
+* To the creators/contributors of <a href="https://github.com/simont77/fakegato-history" target="_blank">Fakegato</a>: <a href="https://github.com/simont77" target="_blank">@simont77</a> and <a href="https://github.com/NorthernMan54" target="_blank">@NorthernMan54</a>
+* To all users who have shared their devices to enable functionality
 
 ### Disclaimer
 * I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
