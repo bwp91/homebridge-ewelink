@@ -1,11 +1,11 @@
 <p align="center">
-   <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/98988978-5e86b600-2520-11eb-875b-0703f4575e97.png" width="600px"></a>
+   <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/100062842-2e94b800-2e28-11eb-83d4-f8490b6bb804.png" width="600px"></a>
 </p>
 <span align="center">
   
 # homebridge-ewelink 
 
-Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
+Homebridge/HOOBS plugin to control eWeLink devices with original firmware
 
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![hoobs-certified](https://badgen.net/badge/HOOBS/Certified/yellow)](https://plugins.hoobs.org/plugin/homebridge-ewelink)   
@@ -51,11 +51,11 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware.
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
 
 ### Credits
-* To the original plugin maintainer: [@gbro115](https://github.com/gbro115)
-* To successive contributors: [@MrTomAsh](https://github.com/MrTomAsh) and [@howanghk](https://github.com/howanghk) for [homebridge-ewelink-max](https://github.com/howanghk/homebridge-ewelink)
-* To the creators/contributors of [Homebridge](https://homebridge.io) who make this plugin possible
-* To the creators/contributors of [Fakegato](https://github.com/simont77/fakegato-history): [@simont77](https://github.com/simont77) and [@NorthernMan54](https://github.com/NorthernMan54)
-* To all users who have shared their devices to enable functionality
+* To the original plugin maintainer: [@gbro115](https://github.com/gbro115).
+* To successive contributors: [@MrTomAsh](https://github.com/MrTomAsh) and [@howanghk](https://github.com/howanghk) for [homebridge-ewelink-max](https://github.com/howanghk/homebridge-ewelink).
+* To the creators/contributors of [Homebridge](https://homebridge.io) who make this plugin possible.
+* To the creators/contributors of [Fakegato](https://github.com/simont77/fakegato-history): [@simont77](https://github.com/simont77) and [@NorthernMan54](https://github.com/NorthernMan54).
+* To all users who have shared their devices to enable functionality.
 
 ### Disclaimer
 * I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
