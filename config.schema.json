@@ -87,6 +87,11 @@
         "title": "Hide TH10/16 Switches",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
+      "thAsThermostat": {
+        "type": "string",
+        "title": "TH As Thermostat",
+        "description": "A list of TH10/TH16 devices to show as thermostats. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+      },
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
@@ -382,6 +387,7 @@
         "inUsePowerThreshold",
         "hideLightFromFan",
         "hideSwitchFromTH",
+        "thAsThermostat",
         "resetRFBridge",
         "lowBattThreshold",
         "sensorTimeDifference",
