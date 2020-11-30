@@ -48,6 +48,12 @@
         "description": "If checked, devices will not be refreshed with their most recent status from eWeLink on startup. This setting can be useful for users who block their devices from accessing the internet.",
         "default": false
       },
+      "disableLANMode": {
+        "type": "boolean",
+        "title": "Disable LAN Mode",
+        "description": "If checked, all device updates will be sent straight to the cloud.",
+        "default": false
+      },
       "disablePlugin": {
         "title": "Disable Plugin",
         "type": "boolean",
@@ -372,6 +378,7 @@
         "debug",
         "debugReqRes",
         "disableHTTPRefresh",
+        "disableLANMode",
         "disablePlugin"
       ]
     },
