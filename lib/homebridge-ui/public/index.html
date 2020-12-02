@@ -38,6 +38,10 @@
           <td id="reachableLAN"></td>
         </tr>
         <tr>
+          <th scope="row">LAN IP</th>
+          <td id="lanIP"></td>
+        </tr>
+        <tr>
           <th scope="row">Homebridge ID</th>
           <td id="hbDeviceId"></td>
         </tr>
@@ -147,6 +151,9 @@
           document.getElementById('reachableLAN').innerHTML = selectedAccessory.context.reachableLAN
             ? 'Online'
             : 'Offline'
+          document.getElementById('lanIP').innerHTML = selectedAccessory.context.ip
+            ? selectedAccessory.context.ip
+            : 'N/A'
           document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
           document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
