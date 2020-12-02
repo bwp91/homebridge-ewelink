@@ -2,26 +2,6 @@
   "name": "homebridge-ewelink",
   "version": "3.16.0",
   "author": "bwp91",
-  "contributors": [
-    "gbro115",
-    "MrTomAsh",
-    "howanghk",
-    "LeJeko",
-    "aremishevsky-chegg",
-    "samkni",
-    "robsonfj",
-    "ramsesz",
-    "metarutaiga",
-    "janbuecker",
-    "jacopofranza",
-    "donavanbecker",
-    "dhutchison",
-    "danielk117",
-    "bassrock",
-    "VictorKrasnov",
-    "JuniorGenius",
-    "BobbySlope"
-  ],
   "description": "Homebridge/HOOBS plugin to control eWeLink devices with original firmware.",
   "license": "MIT",
   "keywords": [
@@ -35,6 +15,7 @@
     "sonoff",
     "eachen"
   ],
+  "main": "lib/index.js",
   "engines": {
     "homebridge": "^1.1.0",
     "node": "^14.15.1"
