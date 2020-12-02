@@ -48,8 +48,6 @@
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.17",
     "axios": "^0.21.0",
-    "color-convert": "^2.0.1",
-    "interval-promise": "^1.4.0",
     "node-dns-sd": "^0.4.2",
     "websocket-as-promised": "^1.1.0",
     "ws": "^7.4.0"
