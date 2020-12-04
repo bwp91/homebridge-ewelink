@@ -98,6 +98,10 @@
         "title": "TH As Thermostat",
         "description": "A list of TH10/TH16 devices to show as thermostats. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
+      "thOffsetTwo": {
+        "type": "string",
+        "default": ""
+      },
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
