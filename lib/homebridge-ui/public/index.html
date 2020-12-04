@@ -61,6 +61,9 @@
           <th scope="row">Shared Device</th>
           <td id="eweShared"></td>
         </tr>
+        <tr>
+          <td colspan="2" style="text-align: center" id="imgIcon"></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -161,6 +164,9 @@
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
             ? 'Yes (by ' + selectedAccessory.context.eweShared + ')'
             : 'No'
+          document.getElementById('imgIcon').innerHTML = selectedAccessory.context.eweBrandLogo
+            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 100px;">'
+            : ''
           document.getElementById('deviceTable').style.display = 'inline-table'
           homebridge.hideSpinner()
         }
