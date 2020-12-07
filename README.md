@@ -1,5 +1,5 @@
 <p align="center">
-   <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/100062842-2e94b800-2e28-11eb-83d4-f8490b6bb804.png" width="600px"></a>
+   <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/101325266-63126600-3863-11eb-9382-4a2924f0e540.png" width="600px"></a>
 </p>
 <span align="center">
   
@@ -55,6 +55,7 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware
 * To successive contributors: [@MrTomAsh](https://github.com/MrTomAsh) and [@howanghk](https://github.com/howanghk) for [homebridge-ewelink-max](https://github.com/howanghk/homebridge-ewelink).
 * To the creators/contributors of [Homebridge](https://homebridge.io) who make this plugin possible.
 * To the creators/contributors of [Fakegato](https://github.com/simont77/fakegato-history): [@simont77](https://github.com/simont77) and [@NorthernMan54](https://github.com/NorthernMan54).
+* To the creator of the awesome plugin header logo: [Keryan Belahcene](https://www.instagram.com/keryan.me).
 * To all users who have shared their devices to enable functionality.
 
 ### Disclaimer
