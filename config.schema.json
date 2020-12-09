@@ -110,7 +110,7 @@
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
-        "description": "If checked, the plugin will remove and re-add these RF Bridges on restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of RF Bridges to remove and re-add on restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
       },
       "lowBattThreshold": {
         "type": "number",
