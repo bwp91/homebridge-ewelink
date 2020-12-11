@@ -229,7 +229,10 @@
             "operationTime": {
               "type": "number",
               "title": "Operation Time (Deciseconds)",
-              "description": "Blinds/garage doors: the time to fully open/close the device. Locks: the time to show as unlocked. Irrigation: an initial default time for HomeKit. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 100 for 10 seconds or 75 for 7.5 seconds.",
+              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && !['valve', 'valve_two', 'switch_valve'].includes(model.groups[arrayIndices].type))"
+              },
               "placeholder": 100,
               "minimum": 10,
               "maximum": 600
@@ -237,7 +240,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A Sonoff DW2 sensor can optionally be used for garage doors. This is to determine the current open/closed state of the garage door. Please enter the 10 digit device ID (normally in the format 1000ab23cd). Otherwise leave this blank.",
+              "description": "A DW2 sensor can be used for garage doors to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && (model.groups[arrayIndices].type==='garage' || model.groups[arrayIndices].type==='garage_two'))"
               }
