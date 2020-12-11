@@ -250,15 +250,10 @@
         "items": {
           "type": "object",
           "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "RF Bridge Device ID",
-              "description": "Device ID of your RF Bridge from your eWeLink app (10 digits normally in the format 1000ab23cd)."
-            },
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
-              "description": "Device ID of the sensor in Homebridge/HOOBS (13 digits normally in the format 1000ab23cdSW2)."
+              "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
             },
             "type": {
               "type": "string",
@@ -429,7 +424,6 @@
         {
           "type": "fieldset",
           "items": [
-            "bridgeSensors[].deviceId",
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength"
