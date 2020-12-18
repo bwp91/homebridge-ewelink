@@ -43,7 +43,12 @@
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "description": "If checked, more information will be added to the log."
+        "description": "If checked, debug information will be added to the log."
+      },
+      "debugDevice": {
+        "title": "Device Logging",
+        "type": "boolean",
+        "description": "If checked, device activity received from eWeLink will be added to the log."
       },
       "debugReqRes": {
         "title": "Request & Response Logging",
@@ -373,6 +378,7 @@
         "disableHTTPRefresh",
         "disableLANMode",
         "debug",
+        "debugDevice",
         "debugReqRes",
         "disablePlugin"
       ]
