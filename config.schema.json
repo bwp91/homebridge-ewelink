@@ -133,6 +133,9 @@
         "type": "boolean",
         "description": "If checked, double and long press options will be hidden for the ZigBee button."
       },
+      "ZBDWBatt": {
+        "type": "boolean"
+      },
       "groups": {
         "type": "array",
         "items": {
