@@ -330,7 +330,7 @@
               "type": "string"
             },
             "deviceName": {
-              "type": "string",
+              "type": "string"
             }
           }
         }
@@ -387,8 +387,7 @@
         "thAsThermostat",
         "resetRFBridge",
         "lowBattThreshold",
-        "sensorTimeDifference",
-        "hideZBLDPress"
+        "sensorTimeDifference"
       ]
     },
     {
