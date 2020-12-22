@@ -327,14 +327,10 @@
           "type": "object",
           "properties": {
             "fullDeviceId": {
-              "title": "Device ID",
-              "type": "string",
-              "description": "Full device ID of the device in Homebridge/HOOBS (13 digits normally in the format 1000ab23cdSW2)."
+              "type": "string"
             },
             "deviceName": {
-              "title": "Name",
               "type": "string",
-              "description": "The name for the accessory for when it is added."
             }
           }
         }
@@ -345,14 +341,10 @@
           "type": "object",
           "properties": {
             "deviceId": {
-              "title": "Device ID",
-              "type": "string",
-              "description": "Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
+              "type": "string"
             },
             "deviceIP": {
-              "title": "IP Address",
-              "type": "string",
-              "description": "The IP address of this device which will be used by the plugin."
+              "type": "string"
             }
           }
         }
@@ -433,40 +425,6 @@
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "nameOverride",
-      "title": "Accessory Name Overrides",
-      "description": "You can override the default name given to a device when it is added.",
-      "expandable": true,
-      "add": "Add Another Name Override",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "nameOverride[].fullDeviceId",
-            "nameOverride[].deviceName"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "ipOverride",
-      "title": "IP Overrides",
-      "description": "You can override the IP for a device.",
-      "expandable": true,
-      "add": "Add Another IP Override",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "ipOverride[].deviceId",
-            "ipOverride[].deviceIP"
           ]
         }
       ]
