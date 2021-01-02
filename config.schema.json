@@ -243,7 +243,7 @@
               "title": "Sensor",
               "description": "A DW2 sensor can be used for garage doors to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && (model.groups[arrayIndices].type==='garage' || model.groups[arrayIndices].type==='garage_two'))"
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
               }
             }
           }
