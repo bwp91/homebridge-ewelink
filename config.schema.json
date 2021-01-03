@@ -30,15 +30,31 @@
         "required": true,
         "description": "The password for your eWeLink account."
       },
-      "disableHTTPRefresh": {
-        "type": "boolean",
-        "title": "Disable Initial Device Refresh",
-        "description": "If checked, devices will not be refreshed with their most recent status from eWeLink on startup. This setting can be useful for users who block their devices from accessing the internet."
-      },
-      "disableLANMode": {
-        "type": "boolean",
-        "title": "Disable LAN Mode",
-        "description": "If checked, all device updates will be sent straight to the cloud."
+      "mode": {
+        "type": "string",
+        "title": "Connection Mode",
+        "description": "This setting defines how the plugin communicates with your devices.",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Auto (Recommended)",
+            "enum": [
+              "auto"
+            ]
+          },
+          {
+            "title": "Cloud Only",
+            "enum": [
+              "wan"
+            ]
+          },
+          {
+            "title": "LAN Only",
+            "enum": [
+              "lan"
+            ]
+          }
+        ]
       },
       "debug": {
         "title": "Debug Logging",
@@ -363,8 +379,7 @@
       "type": "fieldset",
       "title": "Optional Settings",
       "items": [
-        "disableHTTPRefresh",
-        "disableLANMode",
+        "mode",
         "debug",
         "disablePlugin"
       ]
