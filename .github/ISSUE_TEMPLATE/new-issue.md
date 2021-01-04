@@ -25,7 +25,7 @@ assignees: ''
 
 
 
-* Which platform do you run Homebridge/HOOBS on? (e.g. Raspberry Pi/Windows/HOOBS Box) Please also mention your version of Node.js/NPM if known.
+* Which platform do you run Homebridge/HOOBS on (e.g. Raspberry Pi/Windows/HOOBS Box)? Please also mention your version of Node.js/NPM if known.
 
 
 
