@@ -2,7 +2,7 @@
   "name": "homebridge-ewelink",
   "version": "4.0.0",
   "author": "bwp91",
-  "description": "Homebridge/HOOBS plugin to control eWeLink devices with original firmware.",
+  "description": "Homebridge plugin to control eWeLink devices with original firmware.",
   "license": "MIT",
   "keywords": [
     "homebridge",
