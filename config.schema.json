@@ -147,6 +147,9 @@
       "ZBDWBatt": {
         "type": "boolean"
       },
+      "bulbB02BA60": {
+        "type": "string"
+      },
       "bulbB02FST64": {
         "type": "string"
       },
