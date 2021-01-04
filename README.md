@@ -5,7 +5,7 @@
   
 # homebridge-ewelink 
 
-Homebridge/HOOBS plugin to control eWeLink devices with original firmware
+Homebridge plugin to control eWeLink devices with original firmware
 
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![hoobs-certified](https://badgen.net/badge/HOOBS/Certified/yellow)](https://plugins.hoobs.org/plugin/homebridge-ewelink)   
@@ -18,13 +18,15 @@ Homebridge/HOOBS plugin to control eWeLink devices with original firmware
 
 </span>
 
-### Prerequisites
-* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
 
 ### Plugin Information
-* This plugin uses your eWeLink credentials to obtain and control your devices through Homebridge.
-* This plugin uses a web socket for real-time device control and updates.
-* This plugin also supports LAN control for certain devices that support it.
+* This plugin allows you to view and control your eWeLink devices within HomeKit. The plugin:
+  * requires your eWeLink credentials to function
+  * supports LAN control for certain devices
+  * uses a web socket for real-time device control and updates
+
+### Prerequisites
+* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
 
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
