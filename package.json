@@ -48,13 +48,13 @@
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.17",
     "axios": "^0.21.1",
-    "node-dns-sd": "^0.4.2",
     "websocket-as-promised": "^1.1.0",
     "ws": "^7.4.2"
   },
   "standard": {
     "ignore": [
-      "/lib/fakegato/"
+      "/lib/fakegato/",
+      "/lib/node-dns-sd/"
     ]
   }
 }
