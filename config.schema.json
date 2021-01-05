@@ -210,6 +210,12 @@
                   ]
                 },
                 {
+                  "title": "1 Tap/Faucet (using single channel device)",
+                  "enum": [
+                    "tap"
+                  ]
+                },
+                {
                   "title": "1 Irrigation Valve (using single-channel device)",
                   "enum": [
                     "valve"
@@ -256,7 +262,7 @@
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && !['valve', 'valve_two', 'switch_valve'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && !['tap_one', 'valve', 'valve_two', 'switch_valve'].includes(model.groups[arrayIndices].type))"
               },
               "placeholder": 100,
               "minimum": 10,
