@@ -76,6 +76,11 @@
         "title": "Hide Light/Switch Channels",
         "description": "A list of light/switch channels to hide. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2' (without the quotes)."
       },
+      "switchAsOutlet": {
+        "type": "string",
+        "title": "Switch As Outlet",
+        "description": "A list of switch devices to show as outlets. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+      },
       "outletAsSwitch": {
         "type": "string",
         "title": "Outlet As Switch",
@@ -395,6 +400,7 @@
       "items": [
         "hideDevFromHB",
         "hideChanFromHB",
+        "switchAsOutlet",
         "outletAsSwitch",
         "inUsePowerThreshold",
         "hideLightFromFan",
