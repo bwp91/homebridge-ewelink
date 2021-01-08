@@ -1,6 +1,6 @@
 {
   "name": "homebridge-ewelink",
-  "version": "4.2.1",
+  "version": "4.2.2",
   "author": "bwp91",
   "description": "Homebridge plugin to control eWeLink devices with original firmware.",
   "license": "MIT",
