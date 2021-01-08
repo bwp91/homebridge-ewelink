@@ -260,7 +260,7 @@
             "operationTime": {
               "type": "number",
               "title": "Operation Time (Deciseconds)",
-              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be between 10 and 600.",
+              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be between 20 and 600.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && !['tap_one', 'valve', 'valve_two', 'switch_valve'].includes(model.groups[arrayIndices].type))"
               },
