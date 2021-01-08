@@ -89,7 +89,7 @@
       "inUsePowerThreshold": {
         "type": "number",
         "title": "Outlet 'In Use' Threshold",
-        "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number.",
+        "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be between 0 and 100.",
         "placeholder": 0,
         "minimum": 0,
         "maximum": 100
@@ -131,7 +131,7 @@
       "lowBattThreshold": {
         "type": "number",
         "title": "Low Battery Threshold",
-        "description": "HomeKit will set the low battery status for supported devices when the device battery reaches this percentage level.",
+        "description": "HomeKit will set the low battery status for supported devices when the device battery reaches this percentage level. Must be between 5 and 50.",
         "placeholder": 25,
         "minimum": 5,
         "maximum": 50
@@ -139,7 +139,7 @@
       "sensorTimeDifference": {
         "type": "number",
         "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges.",
+        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be between 10 and 300.",
         "placeholder": 120,
         "minimum": 10,
         "maximum": 300
@@ -260,7 +260,7 @@
             "operationTime": {
               "type": "number",
               "title": "Operation Time (Deciseconds)",
-              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds.",
+              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be between 10 and 600.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && !['tap_one', 'valve', 'valve_two', 'switch_valve'].includes(model.groups[arrayIndices].type))"
               },
@@ -341,7 +341,7 @@
             "sensorTimeLength": {
               "type": "number",
               "title": "Sensor Time Length",
-              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated.",
+              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be between 1 and 300.",
               "placeholder": 60,
               "minimum": 1,
               "maximum": 300
