@@ -68,23 +68,23 @@
       },
       "hideDevFromHB": {
         "type": "string",
-        "title": "Hide Devices",
-        "description": "A list of devices to ignore. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "title": "Ignored Devices",
+        "description": "A list of devices to ignore by device id. For example 10009553c8 or multiple separated by a comma."
       },
       "hideChanFromHB": {
         "type": "string",
         "title": "Hide Light/Switch Channels",
-        "description": "A list of light/switch channels to hide. For example '10009553c8SW0' or multiple separated with a comma '10009553c8SW0,10009553c9SW2' (without the quotes)."
+        "description": "A list of light/switch channels to hide. For example 10009553c8SW0 or multiple separated by a comma."
       },
       "switchAsOutlet": {
         "type": "string",
         "title": "Switch As Outlet",
-        "description": "A list of switch devices to show as outlets. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of switch devices to show as outlets. For example 10009553c8 or multiple separated by a comma."
       },
       "outletAsSwitch": {
         "type": "string",
         "title": "Outlet As Switch",
-        "description": "A list of outlet devices to show as switches. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of outlet devices to show as switches. For example 10009553c8 or multiple separated by a comma."
       },
       "inUsePowerThreshold": {
         "type": "number",
@@ -97,17 +97,17 @@
       "hideLightFromFan": {
         "type": "string",
         "title": "Hide Fan Lights",
-        "description": "A list of iFan devices for which the light will be hidden. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of iFan devices for which the light will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
       "hideSwitchFromTH": {
         "type": "string",
         "title": "Hide TH10/16 Switches",
-        "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
       "thAsThermostat": {
         "type": "string",
         "title": "TH As Thermostat",
-        "description": "A list of TH10/TH16 devices to show as thermostats. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of TH10/TH16 devices to show as thermostats. For example 10009553c8 or multiple separated by a comma."
       },
       "thTempOffset": {
         "type": "array",
@@ -126,7 +126,7 @@
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
-        "description": "A list of RF Bridges to remove and re-add on restart. This is needed when adding/removed sub-devices from the RF Bridge. For example '10009553c8' or multiple separated with a comma '10009553c8,10009553c9' (without the quotes)."
+        "description": "A list of RF Bridges to remove and re-add on restart. This is needed when adding/removed sub-devices from the RF Bridge. For example 10009553c8 or multiple separated by a comma."
       },
       "lowBattThreshold": {
         "type": "number",
