@@ -63,3 +63,4 @@ Homebridge plugin to control eWeLink devices with original firmware
 
 ### Disclaimer
 * I am in no way affiliated with eWeLink nor any of the device brands (like Sonoff) and this plugin is a personal project that I maintain in my free time.
+* Use this plugin entirely at your own risk - please see licence for more information.
