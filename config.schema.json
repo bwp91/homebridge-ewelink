@@ -66,7 +66,7 @@
         "type": "boolean",
         "description": "If checked, the plugin will remove all accessories and not load the plugin on restart."
       },
-      "hideDevFromHB": {
+      "ignoredDevices": {
         "type": "string",
         "title": "Ignored Devices",
         "description": "A list of devices to ignore by device id. For example 10009553c8 or multiple separated by a comma."
@@ -404,7 +404,7 @@
       "description": "Further optional settings for specific devices.",
       "expandable": true,
       "items": [
-        "hideDevFromHB",
+        "ignoredDevices",
         "hideChanFromHB",
         "switchAsOutlet",
         "outletAsSwitch",
