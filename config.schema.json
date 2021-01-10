@@ -13,22 +13,21 @@
         "default": "eWeLink"
       },
       "countryCode": {
-        "type": "string",
+        "type": "number",
         "title": "Country Code",
-        "required": true,
-        "description": "The telephone country code linked to your eWeLink account (without the +)."
+        "placeholder": "Enter without the +",
+        "required": true
       },
       "username": {
         "type": "string",
         "title": "Username",
         "required": true,
-        "description": "The phone number or email address linked to your eWeLink account. If you use a phone number then enter the country code (with the +), for example +8613185260282."
+        "placeholder": "Email or full phone (e.g. +8613185260282)"
       },
       "password": {
         "type": "string",
         "title": "Password",
-        "required": true,
-        "description": "The password for your eWeLink account."
+        "required": true
       },
       "mode": {
         "type": "string",
@@ -398,6 +397,7 @@
     {
       "type": "fieldset",
       "title": "Optional Settings",
+      "expandable": true,
       "items": [
         "mode",
         "debug",
@@ -406,8 +406,7 @@
     },
     {
       "type": "fieldset",
-      "title": "Device Specific Settings",
-      "description": "Further optional settings for specific devices.",
+      "title": "Device Settings",
       "expandable": true,
       "items": [
         "ignoredDevices",
@@ -427,7 +426,7 @@
       "key": "groups",
       "expandable": true,
       "title": "Accessory Simulations",
-      "description": "You can use this setting to set up custom simulated HomeKit accessories from a generic single/multi-switch device. Please see <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">this wiki article</a> for more information.",
+      "description": "Set up custom simulated accessories generic devices - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>.",
       "add": "Add Another Type",
       "type": "array",
       "items": [
@@ -446,7 +445,7 @@
     {
       "key": "bridgeSensors",
       "title": "RF Bridge Sensors",
-      "description": "You can expose different types of sensors connected to your RF Bridge. Please see <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">this wiki article</a> for more information.",
+      "description": "Expose different types of sensors linked to your RF Bridge - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>.",
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
