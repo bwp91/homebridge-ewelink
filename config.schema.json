@@ -211,7 +211,7 @@
                 {
                   "title": "1 Tap/Faucet (using single channel device)",
                   "enum": [
-                    "tap_one"
+                    "tap"
                   ]
                 },
                 {
