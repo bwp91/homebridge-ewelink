@@ -158,9 +158,6 @@
       "bulbB02FST64": {
         "type": "string"
       },
-      "hideDevFromHB": {
-        "type": "string"
-      },
       "groups": {
         "type": "array",
         "items": {
