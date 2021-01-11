@@ -208,15 +208,21 @@
                   ]
                 },
                 {
-                  "title": "1 Lock (using single channel device)",
+                  "title": "1 Lock (using single-channel device)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "1 Tap/Faucet (using single channel device)",
+                  "title": "1 Tap/Faucet (using single-channel device)",
                   "enum": [
                     "tap"
+                  ]
+                },
+                {
+                  "title": "2 Taps/Faucets (using multi-channel device)",
+                  "enum": [
+                    "tap_two"
                   ]
                 },
                 {
@@ -272,7 +278,7 @@
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be between 20 and 600.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && !['tap_one', 'valve', 'valve_two', 'valve_four', 'switch_valve'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && !['tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'switch_valve'].includes(model.groups[arrayIndices].type))"
               },
               "placeholder": 100,
               "minimum": 10,
