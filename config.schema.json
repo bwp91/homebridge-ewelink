@@ -55,6 +55,11 @@
           }
         ]
       },
+      "disableDeviceLogging": {
+        "type": "boolean",
+        "title": "Disable Device Logging",
+        "description": "If checked, device updates will not be added to the log."
+      },
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
@@ -401,6 +406,7 @@
       "items": [
         "mode",
         "debug",
+        "disableDeviceLogging",
         "disablePlugin"
       ]
     },
