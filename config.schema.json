@@ -405,8 +405,8 @@
       "expandable": true,
       "items": [
         "mode",
-        "debug",
         "disableDeviceLogging",
+        "debug",
         "disablePlugin"
       ]
     },
