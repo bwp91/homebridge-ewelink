@@ -10,12 +10,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * 1 Lock
   * 1 Tap/Faucet
   * 1 Valve
-* you will need to update your configuration with the Device Setup field (via Homebridge UI) or adding the line `"setup": oneSwitch"` directly to your configuration file in the groups section
+* you will need to update your configuration with the Device Setup field (via Homebridge UI) or adding the line `"setup": "oneSwitch"` directly to your configuration file in the groups section
 
 ### New
 
-* Single Accessory Simulations for multi-channel devices
-* `operationTime` for Accessory Simulations will now be validated and increased to 20 if less than 20
+* Single Accessory Simulations for multi-channel devices (e.g. 1 valve using a Sonoff 4CH)
+* `operationTime` for Accessory Simulations will now be validated and increased to 20 if less than 20 or an invalid number
 
 ### Changes
 
