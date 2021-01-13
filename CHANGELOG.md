@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Changes to plugin now in CHANGELOG.md
+* Removed `Obstruction Detected` tests
+
 ## 4.3.0 (2021-01-12)
 
 ### ⚠️ Breaking Changes
