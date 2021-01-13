@@ -175,9 +175,15 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "1 Garage Door (using single/multi-channel device)",
+                  "title": "1 Garage Door",
                   "enum": [
                     "garage"
+                  ]
+                },
+                {
+                  "title": "1 Garage Door (using Eachen GD-DC5)",
+                  "enum": [
+                    "garage_eachen"
                   ]
                 },
                 {
@@ -193,25 +199,19 @@
                   ]
                 },
                 {
-                  "title": "1 Garage Door (using Eachen GD-DC5)",
-                  "enum": [
-                    "garage_eachen"
-                  ]
-                },
-                {
                   "title": "1 Window Blind (using multi-channel device)",
                   "enum": [
                     "blind"
                   ]
                 },
                 {
-                  "title": "1 Lock (using single-channel device)",
+                  "title": "1 Lock",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "1 Tap/Faucet (using single-channel device)",
+                  "title": "1 Tap/Faucet",
                   "enum": [
                     "tap"
                   ]
@@ -223,7 +223,7 @@
                   ]
                 },
                 {
-                  "title": "1 Irrigation Valve (using single-channel device)",
+                  "title": "1 Irrigation Valve",
                   "enum": [
                     "valve"
                   ]
@@ -251,19 +251,19 @@
             "setup": {
               "type": "string",
               "title": "Device Setup",
-              "description": "The setup for your garage doors.",
+              "description": "The type of generic device being used.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type))"
               },
               "oneOf": [
                 {
-                  "title": "One Switch - for up and down",
+                  "title": "Single-Channel",
                   "enum": [
                     "oneSwitch"
                   ]
                 },
                 {
-                  "title": "Two Switches - one for up and one for down",
+                  "title": "Multi-Channel",
                   "enum": [
                     "twoSwitch"
                   ]
@@ -275,7 +275,7 @@
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && !['tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'switch_valve'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'lock'].includes(model.groups[arrayIndices].type))"
               },
               "placeholder": 100,
               "minimum": 20
@@ -283,7 +283,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A DW2 sensor can be used for garage doors to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "description": "A DW2 sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
               }
