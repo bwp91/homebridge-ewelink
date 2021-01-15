@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+## Changes
+
+* Fakegato debugging will now appear with plugin `debug` on rather then Homebridge `debug` on
+* Fakegato (Eve History Service Library) code formatting to StandardJS
+
 ## 4.4.0 (2021-01-14)
 
 ### ⚠️ Breaking Changes
