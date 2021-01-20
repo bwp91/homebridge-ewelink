@@ -2,11 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 4.4.2 (2021-01-20)
 
 ### Changes
 
-* Minimum Homebridge beta needed for Adaptive Lighting bumped to beta-46.
+* Fixes an issue when adding new RF bridge devices
+* Minimum Homebridge beta needed for Adaptive Lighting bumped to beta-46
 
 ## 4.4.1 (2021-01-20)
 
