@@ -4,7 +4,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 4.4.1 (2021-01-20)
 
-## Changes
+### Changes
 
 * Fakegato logging disabled in Homebridge `debug` mode, can be explicitly enabled with `debugFakegato`
 
