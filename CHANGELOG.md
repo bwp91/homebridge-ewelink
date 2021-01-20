@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 4.4.3 (2021-01-20)
+
+### Changes
+
+* Fixes an issue where RF sensors would not use a custom defined type
+
 ## 4.4.2 (2021-01-20)
 
 ### Changes
