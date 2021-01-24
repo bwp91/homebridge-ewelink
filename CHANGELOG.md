@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Fix for TH10/16 devices when the HomeKit switch would show the state of 'auto' mode
+
 ## 4.4.5 (2021-01-24)
 
 ### Changes
