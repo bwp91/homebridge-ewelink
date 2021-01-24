@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Fix where the battery for DW2 device would not update
+
 ## 4.4.4 (2021-01-24)
 
 ### Changes
