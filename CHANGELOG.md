@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 4.4.4 (2021-01-24)
+
+### Changes
+
+* Backend - better handling of errors
+
 ## 4.4.3 (2021-01-20)
 
 ### Changes
