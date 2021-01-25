@@ -11,6 +11,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Fix for TH10/16 devices when the HomeKit switch would show the state of 'auto' mode
+* Fix for the display of watts/amps/volts for outlets that support this
 
 ## 4.4.5 (2021-01-24)
 
