@@ -4,6 +4,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+## New
+
+* **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
+
 ### Changes
 
 * Fix for TH10/16 devices when the HomeKit switch would show the state of 'auto' mode
