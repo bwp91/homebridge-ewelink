@@ -287,6 +287,14 @@
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
               }
+            },
+            "obstructId": {
+              "type": "string",
+              "title": "Obstruction Switch",
+              "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type))"
+              }
             }
           }
         }
@@ -444,7 +452,8 @@
             "groups[].type",
             "groups[].setup",
             "groups[].operationTime",
-            "groups[].sensorId"
+            "groups[].sensorId",
+            "groups[].obstructId"
           ]
         }
       ]
