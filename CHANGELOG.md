@@ -11,6 +11,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Only show the line in error logs if it exists (no more `[line undefined]`)
+* Fixes an issue where RF sensors would not use a custom defined type (again!)
 
 ## 4.5.0 (2021-01-28)
 
