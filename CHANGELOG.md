@@ -10,6 +10,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Set the switch as the primary service of a TH10/16 device
 * Only show the line in error logs if it exists (no more `[line undefined]`)
 * Fixes an issue where RF sensors would not use a custom defined type (again!)
 
