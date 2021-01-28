@@ -2,16 +2,21 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+### BETA
 
 ## New
 
 * **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
+
+## 4.5.0 (2021-01-28)
+
+## New
 * **[Experimental]** Use a switch to control the `Obstruction Detected` feature of a garage door
 
 ### Changes
 
 * Fix for TH10/16 devices when the HomeKit switch would show the state of 'auto' mode
+* Fix for TH10/16 devices (shown as thermostat) where the plugin would not show the current state of the device
 * Fix for the display of watts/amps/volts for outlets that support this
 * More consistent and clearer error logging
 
