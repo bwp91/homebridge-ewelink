@@ -2,15 +2,15 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-### BETA
+## BETA
 
-## New
+### New
 
 * **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
 
 ## 4.5.0 (2021-01-28)
 
-## New
+### New
 * **[Experimental]** Use a switch to control the `Obstruction Detected` feature of a garage door
 
 ### Changes
