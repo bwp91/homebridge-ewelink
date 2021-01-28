@@ -8,6 +8,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
 
+### Changes
+
+* Only show the line in error logs if it exists (no more `[line undefined]`)
+
 ## 4.5.0 (2021-01-28)
 
 ### New
