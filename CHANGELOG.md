@@ -8,6 +8,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
 
+### Changes
+
+* Updated plugin-ui-utils dep and use new method to get cached accessories
+
 ## 4.5.1 (2021-01-28)
 
 ### Changes
