@@ -138,6 +138,15 @@
         const cachedAccessories = typeof homebridge.getCachedAccessories === 'function'
           ? await homebridge.getCachedAccessories()
           : await homebridge.request('/getCachedAccessories')
+        if (cachedAccessories.length > 0) {
+          cachedAccessories.sort((a, b) => {
+            return a.displayName.toLowerCase() > b.displayName.toLowerCase()
+              ? 1
+              : b.displayName.toLowerCase() > a.displayName.toLowerCase()
+                ? -1
+                : 0
+          })
+        }
         const deviceSelect = document.getElementById('deviceSelect')
         deviceSelect.innerHTML = ''
         cachedAccessories.forEach(a => {
