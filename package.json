@@ -47,7 +47,7 @@
     }
   ],
   "dependencies": {
-    "@homebridge/plugin-ui-utils": "^0.0.17",
+    "@homebridge/plugin-ui-utils": "^0.0.18",
     "axios": "^0.21.1",
     "node-dns-sd": "^0.4.2",
     "websocket-as-promised": "^1.1.0",
