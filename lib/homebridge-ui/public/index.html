@@ -135,7 +135,9 @@
         document.getElementById('menuSettings').classList.add('btn-primary')
         document.getElementById('pageSupport').style.display = 'none'
         document.getElementById('pageDevices').style.display = 'block'
-        const cachedAccessories = await homebridge.request('/getCachedAccessories')
+        const cachedAccessories = typeof homebridge.getCachedAccessories === 'function'
+          ? await homebridge.getCachedAccessories()
+          : await homebridge.request('/getCachedAccessories')
         const deviceSelect = document.getElementById('deviceSelect')
         deviceSelect.innerHTML = ''
         cachedAccessories.forEach(a => {
