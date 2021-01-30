@@ -107,11 +107,6 @@
         "title": "Hide TH10/16 Switches",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
-      "thAsThermostat": {
-        "type": "string",
-        "title": "TH As Thermostat",
-        "description": "A list of TH10/TH16 devices to show as thermostats. For example 10009553c8 or multiple separated by a comma."
-      },
       "thTempOffset": {
         "type": "array",
         "items": {
@@ -174,6 +169,12 @@
               "title": "Type",
               "description": "The new type for this device.",
               "oneOf": [
+                {
+                  "title": "1 Thermostat (using TH10/16)",
+                  "enum": [
+                    "thermostat"
+                  ]
+                },
                 {
                   "title": "1 Garage Door",
                   "enum": [
@@ -431,7 +432,6 @@
         "inUsePowerThreshold",
         "hideLightFromFan",
         "hideSwitchFromTH",
-        "thAsThermostat",
         "resetRFBridge",
         "lowBattThreshold",
         "sensorTimeDifference"
