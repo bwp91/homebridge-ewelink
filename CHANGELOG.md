@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## 4.6.0
+## 4.6.0 (2021-01-30)
 
 ### New
 
@@ -26,7 +26,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ## 4.5.0 (2021-01-28)
 
 ### New
-* **[Experimental]** Use a switch to control the `Obstruction Detected` feature of a garage door
+
+* Use a switch to control the `Obstruction Detected` feature of a garage door
 
 ### Changes
 
