@@ -7,7 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### New
 
 * Support for the Zigbee type white bulb
-* **[Experimental]** Expose a TH10/16 device as a fully working thermostat accessory
+* **[Experimental]** Use a TH10/16 device as a thermostat using an Accessory Simulation
 
 ### Changes
 
