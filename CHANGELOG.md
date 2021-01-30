@@ -12,6 +12,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Updated plugin-ui-utils dep and use new method to get cached accessories
+* Increase the timeout for LAN control to 10 seconds for LAN only settings
+* Show LAN update errors in the log
 
 ## 4.5.1 (2021-01-28)
 
