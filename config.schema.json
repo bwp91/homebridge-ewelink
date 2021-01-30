@@ -170,79 +170,79 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "1 Thermostat (using TH10/16)",
+                  "title": "1 Thermostat (w/ TH10/16)",
                   "enum": [
                     "thermostat"
                   ]
                 },
                 {
-                  "title": "1 Garage Door",
+                  "title": "1 Garage Door (w/ single or multi-channel device)",
                   "enum": [
                     "garage"
                   ]
                 },
                 {
-                  "title": "1 Garage Door (using Eachen GD-DC5)",
+                  "title": "1 Garage Door (w/ Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
                   ]
                 },
                 {
-                  "title": "2 Garage Doors (using multi-channel device)",
+                  "title": "2 Garage Doors (w/ multi-channel device)",
                   "enum": [
                     "garage_two"
                   ]
                 },
                 {
-                  "title": "4 Garage Doors (using multi-channel device)",
+                  "title": "4 Garage Doors (w/ multi-channel device)",
                   "enum": [
                     "garage_four"
                   ]
                 },
                 {
-                  "title": "1 Window Blind (using multi-channel device)",
+                  "title": "1 Window Blind (w/ multi-channel device)",
                   "enum": [
                     "blind"
                   ]
                 },
                 {
-                  "title": "1 Lock",
+                  "title": "1 Lock (w/ single or multi-channel device)",
                   "enum": [
                     "lock"
                   ]
                 },
                 {
-                  "title": "1 Tap/Faucet",
+                  "title": "1 Tap/Faucet (w/ single or multi-channel device)",
                   "enum": [
                     "tap"
                   ]
                 },
                 {
-                  "title": "2 Taps/Faucets (using multi-channel device)",
+                  "title": "2 Taps/Faucets (w/ multi-channel device)",
                   "enum": [
                     "tap_two"
                   ]
                 },
                 {
-                  "title": "1 Irrigation Valve",
+                  "title": "1 Irrigation Valve (w/ single or multi-channel device)",
                   "enum": [
                     "valve"
                   ]
                 },
                 {
-                  "title": "2 Irrigation Valves (using multi-channel device)",
+                  "title": "2 Irrigation Valves (w/ multi-channel device)",
                   "enum": [
                     "valve_two"
                   ]
                 },
                 {
-                  "title": "4 Irrigation Valves (using multi-channel device)",
+                  "title": "4 Irrigation Valves (w/ multi-channel device)",
                   "enum": [
                     "valve_four"
                   ]
                 },
                 {
-                  "title": "1 Switch & 1 Valve (using multi-channel device)",
+                  "title": "1 Switch & 1 Valve (w/ multi-channel device)",
                   "enum": [
                     "switch_valve"
                   ]
