@@ -176,15 +176,15 @@
                   ]
                 },
                 {
-                  "title": "1 Garage Door (w/ single or multi-channel device)",
-                  "enum": [
-                    "garage"
-                  ]
-                },
-                {
                   "title": "1 Garage Door (w/ Eachen GD-DC5)",
                   "enum": [
                     "garage_eachen"
+                  ]
+                },
+                {
+                  "title": "1 Garage Door (w/ single or multi-channel device)",
+                  "enum": [
+                    "garage"
                   ]
                 },
                 {
