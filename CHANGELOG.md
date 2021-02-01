@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Extra debug logging for ws reconnection status
+
 ## 4.6.0 (2021-01-30)
 
 ### New
