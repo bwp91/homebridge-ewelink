@@ -6,7 +6,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-* Extra debug logging for ws reconnection status
+* Extra debug logging for WS reconnection status
+* Updated `ws` dependency to v7.4.3
 
 ## 4.6.0 (2021-01-30)
 
