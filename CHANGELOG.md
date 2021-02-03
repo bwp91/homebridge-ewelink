@@ -4,10 +4,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Link to 'Configuration' wiki page in the plugin-ui
+
 ### Changes
 
 * Updated dependencies
-
 
 ## 4.6.1 (2021-02-02)
 
