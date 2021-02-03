@@ -31,9 +31,9 @@ Homebridge plugin to control eWeLink devices with original firmware
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
 * [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
-* [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
 
 ### Features
+* [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
