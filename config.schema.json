@@ -453,7 +453,11 @@
             "groups[].setup",
             "groups[].operationTime",
             "groups[].sensorId",
-            "groups[].obstructId"
+            "groups[].obstructId",
+            {
+              "type": "help",
+              "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
+            }
           ]
         }
       ]
