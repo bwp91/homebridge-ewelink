@@ -7,9 +7,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 * Link to 'Configuration' wiki page in the plugin-ui
+* Added a note in the plugin UI when adding an Accessory Simulation that the accessory will need to be removed from the cache
 
 ### Changes
 
+* Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
 * Updated dependencies
 
 ## 4.6.1 (2021-02-02)
