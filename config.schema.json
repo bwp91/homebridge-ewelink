@@ -375,10 +375,12 @@
           "type": "object",
           "properties": {
             "deviceId": {
-              "type": "string"
+              "type": "string",
+              "title": "Device ID"
             },
             "deviceIP": {
-              "type": "string"
+              "type": "string",
+              "title": "Device IP"
             }
           }
         }
@@ -462,6 +464,23 @@
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ipOverride",
+      "title": "Device IPs",
+      "description": "Set manual IPs for your devices if the plugin cannot automatically discover them.",
+      "expandable": true,
+      "add": "Add Another IP",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "ipOverride[].deviceId",
+            "ipOverride[].deviceIP"
           ]
         }
       ]
