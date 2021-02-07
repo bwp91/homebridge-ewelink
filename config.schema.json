@@ -107,20 +107,6 @@
         "title": "Hide TH10/16 Switches",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
-      "thTempOffset": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string"
-            },
-            "offset": {
-              "type": "number"
-            }
-          }
-        }
-      },
       "resetRFBridge": {
         "title": "Reset RF Bridges",
         "type": "string",
@@ -139,20 +125,6 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
-      },
-      "hideZBLDPress": {
-        "title": "Zigbee Button Hide Double/Long Press",
-        "type": "boolean",
-        "description": "If checked, double and long press options will be hidden for the ZigBee button."
-      },
-      "ZBDWBatt": {
-        "type": "boolean"
-      },
-      "bulbB02BA60": {
-        "type": "string"
-      },
-      "bulbB02FST64": {
-        "type": "string"
       },
       "groups": {
         "type": "array",
@@ -384,6 +356,35 @@
             }
           }
         }
+      },
+      "debugFakegato": {
+        "type": "boolean"
+      },
+      "bulbB02BA60": {
+        "type": "string"
+      },
+      "bulbB02FST64": {
+        "type": "string"
+      },
+      "thTempOffset": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string"
+            },
+            "offset": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "hideZBLDPress": {
+        "type": "boolean"
+      },
+      "ZBDWBatt": {
+        "type": "boolean"
       }
     }
   },
