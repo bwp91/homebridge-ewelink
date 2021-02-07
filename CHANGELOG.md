@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+* A queue for device updates to improve reliability
 * Configuration checks to highlight any unnecessary or incorrectly formatted settings you have
 * Link to 'Configuration' wiki page in the plugin-ui
 * Added a note in the plugin UI when adding an Accessory Simulation that the accessory will need to be removed from the cache
