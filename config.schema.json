@@ -369,20 +369,6 @@
           }
         }
       },
-      "nameOverride": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "fullDeviceId": {
-              "type": "string"
-            },
-            "deviceName": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "ipOverride": {
         "type": "array",
         "items": {
