@@ -6,12 +6,17 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+* Configuration checks to highlight any unnecessary or incorrectly formatted settings you have
 * Link to 'Configuration' wiki page in the plugin-ui
 * Added a note in the plugin UI when adding an Accessory Simulation that the accessory will need to be removed from the cache
 
 ### Changes
 
 * Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
+* Colour conversation formula changes
+* Error messages refactored to show the most useful information
+* [Backend] Major code refactoring
+* [Backend] Code comments
 * Updated dependencies
 
 ## 4.6.1 (2021-02-02)
