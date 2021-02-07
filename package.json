@@ -50,6 +50,7 @@
     "@homebridge/plugin-ui-utils": "^0.0.18",
     "axios": "^0.21.1",
     "node-dns-sd": "^0.4.2",
+    "p-queue": "^6.6.2",
     "websocket-as-promised": "^1.1.0",
     "ws": "^7.4.3"
   },
