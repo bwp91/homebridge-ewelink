@@ -13,8 +13,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * ⚠️ Removed `nameOverride` configuration option
+* Reinstated `ipOverride` into the Homebridge plugin UI screen
 * Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
 * Colour conversation formula changes
+* HTTP error codes will be displayed in the logs if and when the plugin re-attempts the connection
 * Error messages refactored to show the most useful information
 * [Backend] Major code refactoring
 * [Backend] Code comments
