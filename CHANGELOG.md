@@ -12,6 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* ⚠️ Removed `nameOverride` configuration option
 * Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
 * Colour conversation formula changes
 * Error messages refactored to show the most useful information
