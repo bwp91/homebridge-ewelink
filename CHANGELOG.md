@@ -16,6 +16,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * ⚠️ Removed `nameOverride` configuration option
 * Reinstated `ipOverride` into the Homebridge plugin UI screen
 * Improved colour temperature conversion for L1 and L1 Lite devices
+* Fixed a bug where Adaptive Lighting would not be disabled if the colour was changed from the eWeLink app
 * Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
 * HTTP error codes will be displayed in the logs if and when the plugin re-attempts the connection
 * Error messages refactored to show the most useful information
