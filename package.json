@@ -53,10 +53,5 @@
     "p-queue": "^6.6.2",
     "websocket-as-promised": "^1.1.0",
     "ws": "^7.4.3"
-  },
-  "standard": {
-    "ignore": [
-      "/lib/fakegato/"
-    ]
   }
 }
