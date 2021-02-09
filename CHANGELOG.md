@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+* Support for the eWeLink thermostat device type
 * A queue for device updates to improve reliability, this also results in:
   * Faster device updates with colour bulbs
 * Configuration checks to highlight any unnecessary or incorrectly formatted settings you have
