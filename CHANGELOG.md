@@ -24,6 +24,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Error messages refactored to show the most useful information
 * [Backend] Major code refactoring
 * [Backend] Code comments
+* Updated minimum node to v14.15.5
 * Updated dependencies
 
 ## 4.6.1 (2021-02-02)
