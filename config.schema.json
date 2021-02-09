@@ -13,7 +13,7 @@
         "default": "eWeLink"
       },
       "countryCode": {
-        "type": "number",
+        "type": "string",
         "title": "Country Code",
         "placeholder": "Enter without the +",
         "required": true
