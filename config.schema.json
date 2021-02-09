@@ -65,6 +65,9 @@
         "type": "boolean",
         "description": "If checked, debug information will be added to the log."
       },
+      "debugFakegato": {
+        "type": "boolean"
+      },
       "disablePlugin": {
         "title": "Disable Plugin",
         "type": "boolean",
@@ -125,6 +128,32 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
+      },
+      "bulbB02BA60": {
+        "type": "string"
+      },
+      "bulbB02FST64": {
+        "type": "string"
+      },
+      "thTempOffset": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string"
+            },
+            "offset": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "hideZBLDPress": {
+        "type": "boolean"
+      },
+      "ZBDWBatt": {
+        "type": "boolean"
       },
       "groups": {
         "type": "array",
@@ -356,35 +385,6 @@
             }
           }
         }
-      },
-      "debugFakegato": {
-        "type": "boolean"
-      },
-      "bulbB02BA60": {
-        "type": "string"
-      },
-      "bulbB02FST64": {
-        "type": "string"
-      },
-      "thTempOffset": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string"
-            },
-            "offset": {
-              "type": "number"
-            }
-          }
-        }
-      },
-      "hideZBLDPress": {
-        "type": "boolean"
-      },
-      "ZBDWBatt": {
-        "type": "boolean"
       }
     }
   },
