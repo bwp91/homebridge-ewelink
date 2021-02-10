@@ -15,7 +15,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-* ⚠️ Removed `nameOverride` configuration option
+* ⚠️ `ignoredDevices` configuration option is now an array not a string
+* ⚠️ Removed `nameOverride` configuration option - the plugin can now obtain channel names from eWeLink
+* ⚠️ Removed `resetRFBridge` option - the same usage can be achieved with `ignoredDevices`
 * Reinstated `ipOverride` into the Homebridge plugin UI screen
 * Improved colour temperature conversion for L1 and L1 Lite devices
 * Fixed a bug where Adaptive Lighting would not be disabled if the colour was changed from the eWeLink app
