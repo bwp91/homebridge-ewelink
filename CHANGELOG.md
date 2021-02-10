@@ -9,9 +9,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Support for the [eWeLink thermostat](https://ewelinkcommunity.net/device-lists/heating/kkmoon-hc-t010-ewf/) device type
 * A queue for device updates to improve reliability, this also results in:
   * Faster device updates for colour bulbs and diffusers
-* Configuration checks to highlight any unnecessary or incorrectly formatted settings you have
-* Links to 'Configuration' and 'Uninstall' wiki pages in the plugin-ui
+* Configuration checks to highlight in the logs any unnecessary or incorrectly formatted settings you have
 * Added a note in the plugin UI when adding an Accessory Simulation that the accessory will need to be removed from the cache
+* Links to 'Configuration' and 'Uninstall' wiki pages in the plugin-ui
 
 ### Changes
 
