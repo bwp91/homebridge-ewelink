@@ -47,6 +47,7 @@ Homebridge plugin to control eWeLink devices with original firmware
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
 * [How to update node](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node)
+* [How to uninstall correctly](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-uninstall-correctly)
 
 ### About
 * [About Me](https://github.com/sponsors/bwp91)
