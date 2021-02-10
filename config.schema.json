@@ -73,11 +73,6 @@
         "type": "boolean",
         "description": "If checked, the plugin will remove all accessories and not load the plugin on restart."
       },
-      "ignoredDevices": {
-        "type": "string",
-        "title": "Ignored Devices",
-        "description": "A list of devices to ignore by device id. For example 10009553c8 or multiple separated by a comma."
-      },
       "hideChanFromHB": {
         "type": "string",
         "title": "Hide Light/Switch Channels",
@@ -109,11 +104,6 @@
         "type": "string",
         "title": "Hide TH10/16 Switches",
         "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
-      },
-      "resetRFBridge": {
-        "title": "Reset RF Bridges",
-        "type": "string",
-        "description": "A list of RF Bridges to remove and re-add on restart. This is needed when adding/removed sub-devices from the RF Bridge. For example 10009553c8 or multiple separated by a comma."
       },
       "lowBattThreshold": {
         "type": "number",
@@ -385,6 +375,15 @@
             }
           }
         }
+      },
+      "ignoredDevices": {
+        "title": "Ignored Devices",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "title": "Device ID",
+          "description": "eWeLink device id of the device to ignore, e.g. 10009553c8."
+        }
       }
     }
   },
@@ -414,14 +413,12 @@
       "title": "Device Settings",
       "expandable": true,
       "items": [
-        "ignoredDevices",
         "hideChanFromHB",
         "switchAsOutlet",
         "outletAsSwitch",
         "inUsePowerThreshold",
         "hideLightFromFan",
         "hideSwitchFromTH",
-        "resetRFBridge",
         "lowBattThreshold",
         "sensorTimeDifference"
       ]
@@ -485,6 +482,20 @@
           ]
         }
       ]
+    },
+    {
+      "key": "ignoredDevices",
+      "expandable": true,
+      "description": "Use this setting to ignore specific devices from your eWeLink account.",
+      "title": "Ignored Devices",
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "ignoredDevices[]"
+        ]
+      }]
     }
   ]
 }
