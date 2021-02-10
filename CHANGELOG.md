@@ -15,7 +15,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-* ⚠️ `ignoredDevices` configuration option is now an array not a string
+* ⚠️ `ignoredDevices` configuration option is now an array not a string - [see details](https://gist.github.com/bwp91/90db67d578a8206c5a98a3447839f9e5)
 * ⚠️ Removed `nameOverride` configuration option - the plugin can now obtain channel names from eWeLink
 * ⚠️ Removed `resetRFBridge` option - the same usage can be achieved with `ignoredDevices`
 * Reinstated `ipOverride` into the Homebridge plugin UI screen
@@ -26,7 +26,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Error messages refactored to show the most useful information
 * [Backend] Major code refactoring
 * [Backend] Code comments
-* Updated minimum node to v14.15.5
+* Updated minimum Node to v14.15.5
+* Updated minimum Homebridge to v1.1.7
 * Updated dependencies
 
 ## 4.6.1 (2021-02-02)
