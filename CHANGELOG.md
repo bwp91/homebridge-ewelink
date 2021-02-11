@@ -11,6 +11,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Added a 10 second timeout when sending web socket messages
 * Updated dependencies:
   * `websocket-as-promised` to v2.0.1
+* Fakegato library formatting and simplification
 
 ## v4.7.0 (2021-02-10)
 
