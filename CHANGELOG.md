@@ -6,7 +6,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* The 'auto' and 'cool' modes will now be hidden for thermostat devices in the Eve app
 * Fixed a bug when initialising lock accessory simulations
+* Added a 10 second timeout when sending web socket messages
 * Updated dependencies:
   * `websocket-as-promised` to v2.0.1
 
