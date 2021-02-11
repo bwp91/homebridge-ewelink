@@ -2,6 +2,14 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Fixed a bug when initialising lock accessory simulations
+* Updated dependencies:
+  * `websocket-as-promised` to v2.0.1
+
 ## v4.7.0 (2021-02-10)
 
 ### Added
