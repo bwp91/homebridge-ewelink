@@ -486,7 +486,6 @@
     {
       "key": "ignoredDevices",
       "expandable": true,
-      "description": "Use this setting to ignore specific devices from your eWeLink account.",
       "title": "Ignored Devices",
       "add": "Add Another Device",
       "type": "array",
