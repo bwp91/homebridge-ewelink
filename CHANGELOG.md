@@ -2,10 +2,11 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## v4.7.2 (2021-02-12)
 
 ### Changes
 
+* Fixes a bug where config items separated by a comma weren't adhered to properly
 * Stop subsequent warning messages if a device fails to initialise
 
 ## v4.7.1 (2021-02-11)
