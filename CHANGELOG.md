@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Hide WS messages that have no useful information about a device
 * Thermostat accessory simulation will now setup after a small delay to let the accessory initialise first
 * Changes to colour conversion:
   * Lighter colours appear brighter
