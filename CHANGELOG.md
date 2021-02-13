@@ -2,6 +2,15 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Thermostat accessory simulation will now setup after a small delay to let the accessory initialise first
+* Changes to colour conversion:
+  * Lighter colours appear brighter
+  * Solid red is now easier to obtain via the Home app
+
 ## v4.7.2 (2021-02-12)
 
 ### Changes
