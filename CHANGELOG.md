@@ -8,6 +8,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Hide WS messages that have no useful information about a device
 * Thermostat accessory simulation will now setup after a small delay to let the accessory initialise first
+* Thermostat device will now suggest changing temperature scale from F to C in the eWeLink app
 * Changes to colour conversion:
   * Lighter colours appear brighter
   * Solid red is now easier to obtain via the Home app
