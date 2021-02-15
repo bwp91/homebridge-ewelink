@@ -15,6 +15,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * ⚠️ MAJOR CONFIGURATION CHANGES - BREAKING
 
+## 4.7.5 (2021-02-15)
+
+### Changes
+
+* Fixes an issue with the DW2 detecting garage door states
+
 ## 4.7.4 (2021-02-15)
 
 ### Changes
