@@ -4,16 +4,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-### Added
+### ⚠️ Breaking Configuration Changes
 
-* New `lightDevices` configuration option which:
-  * includes a `brightnessStep` option to specify a minimum brightness step in the Home app per light device
-  * includes a `adaptiveLightingShift` option to offset the Adaptive Lighting values per light device
-  * replaces the previous `bulbB02BA60` and `bulbB02FST64` settings
-
-### Changes
-
-* ⚠️ MAJOR CONFIGURATION CHANGES - BREAKING
+* This release includes an overhaul of the configuration
 
 ## 4.7.5 (2021-02-15)
 
