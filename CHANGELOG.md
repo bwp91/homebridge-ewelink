@@ -11,6 +11,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * includes a `adaptiveLightingShift` option to offset the Adaptive Lighting values per light device
   * replaces the previous `bulbB02BA60` and `bulbB02FST64` settings
 
+### Changes
+
+* ⚠️ MAJOR CONFIGURATION CHANGES - BREAKING
+
 ## 4.7.4 (2021-02-15)
 
 ### Changes
