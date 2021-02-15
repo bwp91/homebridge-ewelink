@@ -246,23 +246,99 @@
             },
             "hideLongDouble": {
               "type": "boolean",
-              "title": "Hide Light Switch",
+              "title": "Hide Long & Double Press",
               "description": "If true, double and long press options will be hidden for this Zigbee Button."
             },
             "scaleBattery": {
               "type": "boolean",
-              "title": "Hide Light Switch",
+              "title": "Scale Battery",
               "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 33."
+            },
+            "sensorTimeDifference": {
+              "type": "number",
+              "title": "Sensor Lag",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "placeholder": 120,
+              "minimum": 10
             }
           }
         }
       },
-      "sensorTimeDifference": {
-        "type": "number",
-        "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
-        "placeholder": 120,
-        "minimum": 10
+      "bridgeSensors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fullDeviceId": {
+              "type": "string",
+              "title": "Sensor Device ID",
+              "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
+            },
+            "type": {
+              "type": "string",
+              "title": "Sensor Type",
+              "description": "Select the type of sensor you would like to expose this as.",
+              "oneOf": [
+                {
+                  "title": "Motion",
+                  "enum": [
+                    "motion"
+                  ]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": [
+                    "smoke"
+                  ]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": [
+                    "water"
+                  ]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": [
+                    "co"
+                  ]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": [
+                    "co2"
+                  ]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": [
+                    "occupancy"
+                  ]
+                },
+                {
+                  "title": "Contact",
+                  "enum": [
+                    "contact"
+                  ]
+                }
+              ]
+            },
+            "sensorTimeLength": {
+              "type": "number",
+              "title": "Sensor Time Length",
+              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be 1 or more.",
+              "placeholder": 60,
+              "minimum": 1
+            },
+            "sensorTimeDifference": {
+              "type": "number",
+              "title": "Sensor Lag",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "placeholder": 120,
+              "minimum": 10
+            }
+          }
+        }
       },
       "groups": {
         "type": "array",
@@ -411,75 +487,6 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
-            }
-          }
-        }
-      },
-      "bridgeSensors": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "fullDeviceId": {
-              "type": "string",
-              "title": "Sensor Device ID",
-              "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
-            },
-            "type": {
-              "type": "string",
-              "title": "Sensor Type",
-              "description": "Select the type of sensor you would like to expose this as.",
-              "oneOf": [
-                {
-                  "title": "Motion",
-                  "enum": [
-                    "motion"
-                  ]
-                },
-                {
-                  "title": "Smoke/Fire",
-                  "enum": [
-                    "smoke"
-                  ]
-                },
-                {
-                  "title": "Water/Leak",
-                  "enum": [
-                    "water"
-                  ]
-                },
-                {
-                  "title": "Carbon Monoxide",
-                  "enum": [
-                    "co"
-                  ]
-                },
-                {
-                  "title": "Carbon Dioxide",
-                  "enum": [
-                    "co2"
-                  ]
-                },
-                {
-                  "title": "Occupancy",
-                  "enum": [
-                    "occupancy"
-                  ]
-                },
-                {
-                  "title": "Contact",
-                  "enum": [
-                    "contact"
-                  ]
-                }
-              ]
-            },
-            "sensorTimeLength": {
-              "type": "number",
-              "title": "Sensor Time Length",
-              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be 1 or more.",
-              "placeholder": 60,
-              "minimum": 1
             }
           }
         }
@@ -645,11 +652,22 @@
       ]
     },
     {
-      "type": "fieldset",
-      "title": "Device Settings",
+      "key": "bridgeSensors",
+      "title": "RF Sensor Devices",
+      "description": "Expose different types of sensors linked to your RF Bridge - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>.",
       "expandable": true,
+      "add": "Add Another Sensor",
+      "type": "array",
       "items": [
-        "sensorTimeDifference"
+        {
+          "type": "fieldset",
+          "items": [
+            "bridgeSensors[].fullDeviceId",
+            "bridgeSensors[].type",
+            "bridgeSensors[].sensorTimeLength",
+            "bridgeSensors[].sensorTimeDifference"
+          ]
+        }
       ]
     },
     {
@@ -674,24 +692,6 @@
               "type": "help",
               "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
             }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "bridgeSensors",
-      "title": "RF Bridge Sensors",
-      "description": "Expose different types of sensors linked to your RF Bridge - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>.",
-      "expandable": true,
-      "add": "Add Another Sensor",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "bridgeSensors[].fullDeviceId",
-            "bridgeSensors[].type",
-            "bridgeSensors[].sensorTimeLength"
           ]
         }
       ]
