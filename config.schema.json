@@ -173,6 +173,29 @@
           }
         }
       },
+      "thDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideSwitch": {
+              "type": "boolean",
+              "title": "Hide Switch",
+              "description": "If true, this accessory will hide the TH10/16 switch from HomeKit."
+            },
+            "offset": {
+              "type": "number",
+              "title": "Temperature Offset",
+              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.',
+              "placeholder": 0
+            }
+          }
+        }
+      },
       "fanDevices": {
         "type": "array",
         "items": {
@@ -190,11 +213,6 @@
           }
         }
       },
-      "hideSwitchFromTH": {
-        "type": "string",
-        "title": "Hide TH10/16 Switches",
-        "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
-      },
       "lowBattThreshold": {
         "type": "number",
         "title": "Low Battery Threshold",
@@ -208,20 +226,6 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
-      },
-      "thTempOffset": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string"
-            },
-            "offset": {
-              "type": "number"
-            }
-          }
-        }
       },
       "hideZBLDPress": {
         "type": "boolean"
@@ -564,6 +568,24 @@
       ]
     },
     {
+      "key": "thDevices",
+      "title": "Thermostat Devices",
+      "description": "Applies to thermostat devices and the TH10/16.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "thDevices[].deviceId",
+            "thDevices[].hideSwitch",
+            "thDevices[].offset"
+          ]
+        }
+      ]
+    },
+    {
       "key": "fanDevices",
       "title": "Fan Devices",
       "description": "Applies to iFan devices.",
@@ -585,7 +607,6 @@
       "title": "Device Settings",
       "expandable": true,
       "items": [
-        "hideSwitchFromTH",
         "lowBattThreshold",
         "sensorTimeDifference"
       ]
