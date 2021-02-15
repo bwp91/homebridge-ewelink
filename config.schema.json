@@ -190,7 +190,7 @@
             "offset": {
               "type": "number",
               "title": "Temperature Offset",
-              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.',
+              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'",
               "placeholder": 0
             }
           }
@@ -213,6 +213,28 @@
           }
         }
       },
+      "zigbeeDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideLongDouble": {
+              "type": "boolean",
+              "title": "Hide Light Switch",
+              "description": "If true, double and long press options will be hidden for this Zigbee Button."
+            },
+            "scaleBattery": {
+              "type": "boolean",
+              "title": "Hide Light Switch",
+              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 33."
+            }
+          }
+        }
+      },
       "lowBattThreshold": {
         "type": "number",
         "title": "Low Battery Threshold",
@@ -226,12 +248,6 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
-      },
-      "hideZBLDPress": {
-        "type": "boolean"
-      },
-      "ZBDWBatt": {
-        "type": "boolean"
       },
       "groups": {
         "type": "array",
@@ -598,6 +614,24 @@
           "items": [
             "fanDevices[].deviceId",
             "fanDevices[].hideLight"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "zigbeeDevices",
+      "title": "Zigbee Devices",
+      "description": "Applies to Zigbee devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "zigbeeDevices[].deviceId",
+            "zigbeeDevices[].hideLongDouble",
+            "zigbeeDevices[].scaleBattery"
           ]
         }
       ]
