@@ -85,6 +85,14 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -107,6 +115,14 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -139,6 +155,14 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -184,6 +208,14 @@
               "description": "An adjustment factor for Adaptive Lighting. The mired value for each update will be increased by this setting, making the light appear warmer. A value in the range 50-200 should be appropriate. Must be 0 or more.",
               "placeholder": 0,
               "minimum": 0
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -207,6 +239,14 @@
               "title": "Temperature Offset",
               "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -224,6 +264,14 @@
               "type": "boolean",
               "title": "Hide Light Switch",
               "description": "If true, the light switch will be hidden from HomeKit."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -260,6 +308,14 @@
               "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
               "placeholder": 120,
               "minimum": 10
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -281,45 +337,31 @@
               "oneOf": [
                 {
                   "title": "Motion",
-                  "enum": [
-                    "motion"
-                  ]
+                  "enum": ["motion"]
                 },
                 {
                   "title": "Smoke/Fire",
-                  "enum": [
-                    "smoke"
-                  ]
+                  "enum": ["smoke"]
                 },
                 {
                   "title": "Water/Leak",
-                  "enum": [
-                    "water"
-                  ]
+                  "enum": ["water"]
                 },
                 {
                   "title": "Carbon Monoxide",
-                  "enum": [
-                    "co"
-                  ]
+                  "enum": ["co"]
                 },
                 {
                   "title": "Carbon Dioxide",
-                  "enum": [
-                    "co2"
-                  ]
+                  "enum": ["co2"]
                 },
                 {
                   "title": "Occupancy",
-                  "enum": [
-                    "occupancy"
-                  ]
+                  "enum": ["occupancy"]
                 },
                 {
                   "title": "Contact",
-                  "enum": [
-                    "contact"
-                  ]
+                  "enum": ["contact"]
                 }
               ]
             },
@@ -336,6 +378,14 @@
               "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
               "placeholder": 120,
               "minimum": 10
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -357,81 +407,55 @@
               "oneOf": [
                 {
                   "title": "1 Thermostat (w/ TH10/16)",
-                  "enum": [
-                    "thermostat"
-                  ]
+                  "enum": ["thermostat"]
                 },
                 {
                   "title": "1 Garage Door (w/ Eachen GD-DC5)",
-                  "enum": [
-                    "garage_eachen"
-                  ]
+                  "enum": ["garage_eachen"]
                 },
                 {
                   "title": "1 Garage Door (w/ single or multi-channel device)",
-                  "enum": [
-                    "garage"
-                  ]
+                  "enum": ["garage"]
                 },
                 {
                   "title": "2 Garage Doors (w/ multi-channel device)",
-                  "enum": [
-                    "garage_two"
-                  ]
+                  "enum": ["garage_two"]
                 },
                 {
                   "title": "4 Garage Doors (w/ multi-channel device)",
-                  "enum": [
-                    "garage_four"
-                  ]
+                  "enum": ["garage_four"]
                 },
                 {
                   "title": "1 Window Blind (w/ multi-channel device)",
-                  "enum": [
-                    "blind"
-                  ]
+                  "enum": ["blind"]
                 },
                 {
                   "title": "1 Lock (w/ single or multi-channel device)",
-                  "enum": [
-                    "lock"
-                  ]
+                  "enum": ["lock"]
                 },
                 {
                   "title": "1 Tap/Faucet (w/ single or multi-channel device)",
-                  "enum": [
-                    "tap"
-                  ]
+                  "enum": ["tap"]
                 },
                 {
                   "title": "2 Taps/Faucets (w/ multi-channel device)",
-                  "enum": [
-                    "tap_two"
-                  ]
+                  "enum": ["tap_two"]
                 },
                 {
                   "title": "1 Irrigation Valve (w/ single or multi-channel device)",
-                  "enum": [
-                    "valve"
-                  ]
+                  "enum": ["valve"]
                 },
                 {
                   "title": "2 Irrigation Valves (w/ multi-channel device)",
-                  "enum": [
-                    "valve_two"
-                  ]
+                  "enum": ["valve_two"]
                 },
                 {
                   "title": "4 Irrigation Valves (w/ multi-channel device)",
-                  "enum": [
-                    "valve_four"
-                  ]
+                  "enum": ["valve_four"]
                 },
                 {
                   "title": "1 Switch & 1 Valve (w/ multi-channel device)",
-                  "enum": [
-                    "switch_valve"
-                  ]
+                  "enum": ["switch_valve"]
                 }
               ]
             },
@@ -445,15 +469,11 @@
               "oneOf": [
                 {
                   "title": "Single-Channel",
-                  "enum": [
-                    "oneSwitch"
-                  ]
+                  "enum": ["oneSwitch"]
                 },
                 {
                   "title": "Multi-Channel",
-                  "enum": [
-                    "twoSwitch"
-                  ]
+                  "enum": ["twoSwitch"]
                 }
               ]
             },
@@ -487,6 +507,14 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -536,7 +564,8 @@
           "items": [
             "singleDevices[].deviceId",
             "singleDevices[].showAsOutlet",
-            "singleDevices[].ipAddress"
+            "singleDevices[].ipAddress",
+            "singleDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -554,7 +583,8 @@
           "items": [
             "multiDevices[].deviceId",
             "multiDevices[].hideChannels",
-            "multiDevices[].ipAddress"
+            "multiDevices[].ipAddress",
+            "multiDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -573,7 +603,8 @@
             "outletDevices[].deviceId",
             "outletDevices[].showAsSwitch",
             "outletDevices[].inUsePowerThreshold",
-            "outletDevices[].ipAddress"
+            "outletDevices[].ipAddress",
+            "outletDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -581,7 +612,7 @@
     {
       "key": "lightDevices",
       "title": "Light Devices",
-      "description": "Applies to bulbs and LED strips.",
+      "description": "Applies to dimmer, bulb and LED strip devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -592,7 +623,8 @@
             "lightDevices[].deviceId",
             "lightDevices[].bulbModel",
             "lightDevices[].brightnessStep",
-            "lightDevices[].adaptiveLightingShift"
+            "lightDevices[].adaptiveLightingShift",
+            "lightDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -610,7 +642,8 @@
           "items": [
             "thDevices[].deviceId",
             "thDevices[].hideSwitch",
-            "thDevices[].offset"
+            "thDevices[].offset",
+            "thDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -627,7 +660,8 @@
           "type": "fieldset",
           "items": [
             "fanDevices[].deviceId",
-            "fanDevices[].hideLight"
+            "fanDevices[].hideLight",
+            "fanDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -646,7 +680,8 @@
             "sensorDevices[].deviceId",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].hideLongDouble",
-            "sensorDevices[].scaleBattery"
+            "sensorDevices[].scaleBattery",
+            "sensorDevices[].overrideDisabledLogging"
           ]
         }
       ]
@@ -665,7 +700,8 @@
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
-            "bridgeSensors[].sensorTimeDifference"
+            "bridgeSensors[].sensorTimeDifference",
+            "bridgeSensors[].overrideDisabledLogging"
           ]
         }
       ]
@@ -687,7 +723,8 @@
             "groups[].operationTime",
             "groups[].sensorId",
             "groups[].obstructId",
-            "groups[].ipAddress",
+            "groups[].ipAddress",,
+            "groups[].overrideDisabledLogging"
             {
               "type": "help",
               "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
