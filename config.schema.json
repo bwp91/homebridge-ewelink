@@ -37,15 +37,21 @@
         "oneOf": [
           {
             "title": "Auto (Recommended)",
-            "enum": ["auto"]
+            "enum": [
+              "auto"
+            ]
           },
           {
             "title": "Cloud Only",
-            "enum": ["wan"]
+            "enum": [
+              "wan"
+            ]
           },
           {
             "title": "LAN Only",
-            "enum": ["lan"]
+            "enum": [
+              "lan"
+            ]
           }
         ]
       },
@@ -67,173 +73,37 @@
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
       },
-      "singleDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "showAsOutlet": {
-              "type": "boolean",
-              "title": "Show As Outlet",
-              "description": "If true, this accessory will show as an outlet in HomeKit instead of a switch."
-            }
-          }
-        }
+      "hideChanFromHB": {
+        "type": "string",
+        "title": "Hide Light/Switch Channels",
+        "description": "A list of light/switch channels to hide. For example 10009553c8SW0 or multiple separated by a comma."
       },
-      "multiDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "hideChannels": {
-              "type": "string",
-              "title": "Hide Channels",
-              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'."
-            }
-          }
-        }
+      "switchAsOutlet": {
+        "type": "string",
+        "title": "Switch As Outlet",
+        "description": "A list of switch devices to show as outlets. For example 10009553c8 or multiple separated by a comma."
       },
-      "outletDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "showAsSwitch": {
-              "type": "boolean",
-              "title": "Show As Switch",
-              "description": "If true, this accessory will show as a switch in HomeKit instead of an outlet."
-            },
-            "inUsePowerThreshold": {
-              "type": "number",
-              "title": "Outlet 'In Use' Threshold",
-              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-              "placeholder": 0,
-              "minimum": 0,
-              "condition": {
-                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch)"
-              }
-            }
-          }
-        }
+      "outletAsSwitch": {
+        "type": "string",
+        "title": "Outlet As Switch",
+        "description": "A list of outlet devices to show as switches. For example 10009553c8 or multiple separated by a comma."
       },
-      "lightDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "bulbModel": {
-              "type": "string",
-              "title": "Device Model",
-              "description": "If your model is not listed then you do not need to set this.",
-              "oneOf": [
-                {
-                  "title": "B02-B-A60",
-                  "enum": ["bulbB02BA60"]
-                },
-                {
-                  "title": "B02-F-A60",
-                  "enum": ["bulbB02FA60"]
-                },
-                {
-                  "title": "B02-F-ST64",
-                  "enum": ["bulbB02FST64"]
-                }
-              ]
-            },
-            "brightnessStep": {
-              "title": "Brightness Step",
-              "type": "number",
-              "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
-              "placeholder": 1,
-              "minimum": 1
-            },
-            "adaptiveLightingShift": {
-              "title": "Adaptive Lighting Shift",
-              "type": "number",
-              "description": "An adjustment factor for Adaptive Lighting. The mired value for each update will be increased by this setting, making the light appear warmer. A value in the range 50-200 should be appropriate. Must be 0 or more.",
-              "placeholder": 0,
-              "minimum": 0
-            }
-          }
-        }
+      "inUsePowerThreshold": {
+        "type": "number",
+        "title": "Outlet 'In Use' Threshold",
+        "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+        "placeholder": 0,
+        "minimum": 0
       },
-      "thDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "hideSwitch": {
-              "type": "boolean",
-              "title": "Hide Switch",
-              "description": "If true, this accessory will hide the TH10/16 switch from HomeKit."
-            },
-            "offset": {
-              "type": "number",
-              "title": "Temperature Offset",
-              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'",
-              "placeholder": 0
-            }
-          }
-        }
+      "hideLightFromFan": {
+        "type": "string",
+        "title": "Hide Fan Lights",
+        "description": "A list of iFan devices for which the light will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
-      "fanDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "hideLight": {
-              "type": "boolean",
-              "title": "Hide Light Switch",
-              "description": "If true, the light switch will be hidden from HomeKit."
-            }
-          }
-        }
-      },
-      "zigbeeDevices": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "hideLongDouble": {
-              "type": "boolean",
-              "title": "Hide Light Switch",
-              "description": "If true, double and long press options will be hidden for this Zigbee Button."
-            },
-            "scaleBattery": {
-              "type": "boolean",
-              "title": "Hide Light Switch",
-              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 33."
-            }
-          }
-        }
+      "hideSwitchFromTH": {
+        "type": "string",
+        "title": "Hide TH10/16 Switches",
+        "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
       },
       "lowBattThreshold": {
         "type": "number",
@@ -248,6 +118,32 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
+      },
+      "bulbB02BA60": {
+        "type": "string"
+      },
+      "bulbB02FST64": {
+        "type": "string"
+      },
+      "thTempOffset": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string"
+            },
+            "offset": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "hideZBLDPress": {
+        "type": "boolean"
+      },
+      "ZBDWBatt": {
+        "type": "boolean"
       },
       "groups": {
         "type": "array",
@@ -513,134 +409,16 @@
       ]
     },
     {
-      "key": "singleDevices",
-      "title": "Single Channel Devices",
-      "description": "Applies to single-channel switch and light switch devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "singleDevices[].deviceId",
-            "singleDevices[].showAsOutlet"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "multiDevices",
-      "title": "Multi Channel Devices",
-      "description": "Applies to multi-channel switch and light switch devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "multiDevices[].deviceId",
-            "multiDevices[].hideChannels"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "outletDevices",
-      "title": "Outlet Devices",
-      "description": "Applies to outlet devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "outletDevices[].deviceId",
-            "outletDevices[].showAsSwitch",
-            "outletDevices[].inUsePowerThreshold"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "lightDevices",
-      "title": "Light Devices",
-      "description": "Applies to bulbs and LED strips.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "lightDevices[].deviceId",
-            "lightDevices[].bulbModel",
-            "lightDevices[].brightnessStep",
-            "lightDevices[].adaptiveLightingShift"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "thDevices",
-      "title": "Thermostat Devices",
-      "description": "Applies to thermostat devices and the TH10/16.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "thDevices[].deviceId",
-            "thDevices[].hideSwitch",
-            "thDevices[].offset"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "fanDevices",
-      "title": "Fan Devices",
-      "description": "Applies to iFan devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "fanDevices[].deviceId",
-            "fanDevices[].hideLight"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "zigbeeDevices",
-      "title": "Zigbee Devices",
-      "description": "Applies to Zigbee devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "zigbeeDevices[].deviceId",
-            "zigbeeDevices[].hideLongDouble",
-            "zigbeeDevices[].scaleBattery"
-          ]
-        }
-      ]
-    },
-    {
       "type": "fieldset",
       "title": "Device Settings",
       "expandable": true,
       "items": [
+        "hideChanFromHB",
+        "switchAsOutlet",
+        "outletAsSwitch",
+        "inUsePowerThreshold",
+        "hideLightFromFan",
+        "hideSwitchFromTH",
         "lowBattThreshold",
         "sensorTimeDifference"
       ]
