@@ -80,6 +80,11 @@
               "type": "boolean",
               "title": "Show As Outlet",
               "description": "If true, this accessory will show as an outlet in HomeKit instead of a switch."
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
             }
           }
         }
@@ -97,6 +102,11 @@
               "type": "string",
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'."
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
             }
           }
         }
@@ -124,6 +134,11 @@
               "condition": {
                 "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch)"
               }
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
             }
           }
         }
@@ -213,7 +228,7 @@
           }
         }
       },
-      "zigbeeDevices": {
+      "sensorDevices": {
         "type": "array",
         "items": {
           "type": "object",
@@ -221,6 +236,13 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "lowBattThreshold": {
+              "type": "number",
+              "title": "Low Battery Threshold",
+              "description": "HomeKit will set the low battery status for this device when the battery (if it has one) reaches this percentage level. Must be 5 or more.",
+              "placeholder": 25,
+              "minimum": 5
             },
             "hideLongDouble": {
               "type": "boolean",
@@ -234,13 +256,6 @@
             }
           }
         }
-      },
-      "lowBattThreshold": {
-        "type": "number",
-        "title": "Low Battery Threshold",
-        "description": "HomeKit will set the low battery status for supported devices when the device battery reaches this percentage level. Must be 5 or more.",
-        "placeholder": 25,
-        "minimum": 5
       },
       "sensorTimeDifference": {
         "type": "number",
@@ -391,6 +406,11 @@
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type))"
               }
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
             }
           }
         }
@@ -464,22 +484,6 @@
           }
         }
       },
-      "ipOverride": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "deviceIP": {
-              "type": "string",
-              "title": "Device IP"
-            }
-          }
-        }
-      },
       "ignoredDevices": {
         "title": "Ignored Devices",
         "type": "array",
@@ -515,7 +519,7 @@
     {
       "key": "singleDevices",
       "title": "Single Channel Devices",
-      "description": "Applies to single-channel switch and light switch devices.",
+      "description": "Applies to single-channel switch, light switch and Slampher devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -524,7 +528,8 @@
           "type": "fieldset",
           "items": [
             "singleDevices[].deviceId",
-            "singleDevices[].showAsOutlet"
+            "singleDevices[].showAsOutlet",
+            "singleDevices[].ipAddress"
           ]
         }
       ]
@@ -541,7 +546,8 @@
           "type": "fieldset",
           "items": [
             "multiDevices[].deviceId",
-            "multiDevices[].hideChannels"
+            "multiDevices[].hideChannels",
+            "multiDevices[].ipAddress"
           ]
         }
       ]
@@ -559,7 +565,8 @@
           "items": [
             "outletDevices[].deviceId",
             "outletDevices[].showAsSwitch",
-            "outletDevices[].inUsePowerThreshold"
+            "outletDevices[].inUsePowerThreshold",
+            "outletDevices[].ipAddress"
           ]
         }
       ]
@@ -619,9 +626,9 @@
       ]
     },
     {
-      "key": "zigbeeDevices",
-      "title": "Zigbee Devices",
-      "description": "Applies to Zigbee devices.",
+      "key": "sensorDevices",
+      "title": "Sensor Devices",
+      "description": "Applies to the DW2 and Zigbee sensor devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -629,9 +636,10 @@
         {
           "type": "fieldset",
           "items": [
-            "zigbeeDevices[].deviceId",
-            "zigbeeDevices[].hideLongDouble",
-            "zigbeeDevices[].scaleBattery"
+            "sensorDevices[].deviceId",
+            "sensorDevices[].lowBattThreshold",
+            "sensorDevices[].hideLongDouble",
+            "sensorDevices[].scaleBattery"
           ]
         }
       ]
@@ -641,7 +649,6 @@
       "title": "Device Settings",
       "expandable": true,
       "items": [
-        "lowBattThreshold",
         "sensorTimeDifference"
       ]
     },
@@ -662,6 +669,7 @@
             "groups[].operationTime",
             "groups[].sensorId",
             "groups[].obstructId",
+            "groups[].ipAddress",
             {
               "type": "help",
               "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
@@ -684,23 +692,6 @@
             "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "ipOverride",
-      "title": "Device IPs",
-      "description": "Set manual IPs for your devices if the plugin cannot automatically discover them.",
-      "expandable": true,
-      "add": "Add Another IP",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "ipOverride[].deviceId",
-            "ipOverride[].deviceIP"
           ]
         }
       ]
