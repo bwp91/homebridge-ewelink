@@ -654,7 +654,7 @@
     {
       "key": "bridgeSensors",
       "title": "RF Sensor Devices",
-      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>).",
+      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
