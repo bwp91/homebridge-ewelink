@@ -37,11 +37,11 @@ Homebridge plugin to control eWeLink devices with original firmware
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
+* [RF Bridge Sensors](https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 * [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 
 ### How-to Guides
-* [How to set up RF Bridge sensors](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors)
 * [How to set up Sonoff Camera (GK-200MP2-B)](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera)
 * [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
