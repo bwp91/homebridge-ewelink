@@ -11,7 +11,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * includes a `adaptiveLightingShift` option to offset the Adaptive Lighting values per light device
   * replaces the previous `bulbB02BA60` and `bulbB02FST64` settings
 
-## v4.7.3 (2021-02-13)
+## 4.7.4 (2021-02-15)
+
+### Changes
+
+* Fixes an issue when using custom RF sensors
+
+## 4.7.3 (2021-02-13)
 
 ### Changes
 
@@ -22,14 +28,14 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * Lighter colours appear brighter
   * Solid red is now easier to obtain via the Home app
 
-## v4.7.2 (2021-02-12)
+## 4.7.2 (2021-02-12)
 
 ### Changes
 
 * Fixes a bug where config items separated by a comma weren't adhered to properly
 * Stop subsequent warning messages if a device fails to initialise
 
-## v4.7.1 (2021-02-11)
+## 4.7.1 (2021-02-11)
 
 ### Changes
 
@@ -40,7 +46,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * `websocket-as-promised` to v2.0.1
 * Fakegato library formatting and simplification
 
-## v4.7.0 (2021-02-10)
+## 4.7.0 (2021-02-10)
 
 ### Added
 
