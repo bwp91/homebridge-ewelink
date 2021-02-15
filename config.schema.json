@@ -654,7 +654,7 @@
     {
       "key": "bridgeSensors",
       "title": "RF Sensor Devices",
-      "description": "Expose different types of sensors linked to your RF Bridge - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>.",
+      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>).",
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
@@ -674,7 +674,7 @@
       "key": "groups",
       "expandable": true,
       "title": "Accessory Simulations",
-      "description": "Set up custom simulated accessories generic devices - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>.",
+      "description": "Set up simulated accessories from generic switch devices (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>).",
       "add": "Add Another Type",
       "type": "array",
       "items": [
