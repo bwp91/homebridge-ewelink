@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### ⚠️ Breaking Configuration Changes
+
+* This release includes an overhaul of the configuration
+
 ## 4.7.5 (2021-02-15)
 
 ### Changes
