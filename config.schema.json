@@ -67,6 +67,40 @@
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
       },
+      "singleDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "showAsOutlet": {
+              "type": "boolean",
+              "title": "Show As Outlet",
+              "description": "If true, this accessory will show as an outlet in HomeKit instead of a switch."
+            }
+          }
+        }
+      },
+      "multiDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideChannels": {
+              "type": "string",
+              "title": "Hide Channels",
+              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'."
+            }
+          }
+        }
+      },
       "lightDevices": {
         "type": "array",
         "items": {
@@ -111,16 +145,6 @@
             }
           }
         }
-      },
-      "hideChanFromHB": {
-        "type": "string",
-        "title": "Hide Light/Switch Channels",
-        "description": "A list of light/switch channels to hide. For example 10009553c8SW0 or multiple separated by a comma."
-      },
-      "switchAsOutlet": {
-        "type": "string",
-        "title": "Switch As Outlet",
-        "description": "A list of switch devices to show as outlets. For example 10009553c8 or multiple separated by a comma."
       },
       "outletAsSwitch": {
         "type": "string",
@@ -442,11 +466,45 @@
       ]
     },
     {
+      "key": "singleDevices",
+      "title": "Single Channel Devices",
+      "description": "Applies to single-channel switch and light switch devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "singleDevices[].deviceId",
+            "singleDevices[].showAsOutlet"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "multiDevices",
+      "title": "Multi Channel Devices",
+      "description": "Applies to multi-channel switch and light switch devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "multiDevices[].deviceId",
+            "multiDevices[].hideChannels"
+          ]
+        }
+      ]
+    },
+    {
       "key": "lightDevices",
       "title": "Light Devices",
       "description": "Applies to bulbs and LED strips.",
       "expandable": true,
-      "add": "Add Another IP",
+      "add": "Add Another Device",
       "type": "array",
       "items": [
         {
@@ -465,8 +523,6 @@
       "title": "Device Settings",
       "expandable": true,
       "items": [
-        "hideChanFromHB",
-        "switchAsOutlet",
         "outletAsSwitch",
         "inUsePowerThreshold",
         "hideLightFromFan",
