@@ -37,21 +37,15 @@
         "oneOf": [
           {
             "title": "Auto (Recommended)",
-            "enum": [
-              "auto"
-            ]
+            "enum": ["auto"]
           },
           {
             "title": "Cloud Only",
-            "enum": [
-              "wan"
-            ]
+            "enum": ["wan"]
           },
           {
             "title": "LAN Only",
-            "enum": [
-              "lan"
-            ]
+            "enum": ["lan"]
           }
         ]
       },
@@ -72,6 +66,51 @@
         "title": "Disable Plugin",
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
+      },
+      "lightDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "bulbModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "If your model is not listed then you do not need to set this.",
+              "oneOf": [
+                {
+                  "title": "B02-B-A60",
+                  "enum": ["bulbB02BA60"]
+                },
+                {
+                  "title": "B02-F-A60",
+                  "enum": ["bulbB02FA60"]
+                },
+                {
+                  "title": "B02-F-ST64",
+                  "enum": ["bulbB02FST64"]
+                }
+              ]
+            },
+            "brightnessStep": {
+              "title": "Brightness Step",
+              "type": "number",
+              "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
+              "placeholder": 1,
+              "minimum": 1
+            },
+            "adaptiveLightingShift": {
+              "title": "Adaptive Lighting Shift",
+              "type": "number",
+              "description": "An adjustment factor for Adaptive Lighting. The mired value for each update will be increased by this setting, making the light appear warmer. A value in the range 50-200 should be appropriate. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0
+            }
+          }
+        }
       },
       "hideChanFromHB": {
         "type": "string",
@@ -118,12 +157,6 @@
         "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
         "placeholder": 120,
         "minimum": 10
-      },
-      "bulbB02BA60": {
-        "type": "string"
-      },
-      "bulbB02FST64": {
-        "type": "string"
       },
       "thTempOffset": {
         "type": "array",
@@ -406,6 +439,25 @@
         "disableDeviceLogging",
         "debug",
         "disablePlugin"
+      ]
+    },
+    {
+      "key": "lightDevices",
+      "title": "Light Devices",
+      "description": "Applies to bulbs and LED strips.",
+      "expandable": true,
+      "add": "Add Another IP",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "lightDevices[].deviceId",
+            "lightDevices[].bulbModel",
+            "lightDevices[].brightnessStep",
+            "lightDevices[].adaptiveLightingShift"
+          ]
+        }
       ]
     },
     {
