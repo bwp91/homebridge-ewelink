@@ -252,7 +252,7 @@
             "scaleBattery": {
               "type": "boolean",
               "title": "Scale Battery",
-              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 33."
+              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 10."
             },
             "sensorTimeDifference": {
               "type": "number",
