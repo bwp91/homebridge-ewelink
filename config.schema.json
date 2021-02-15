@@ -452,6 +452,10 @@
                 {
                   "title": "1 Switch & 1 Valve (w/ multi-channel device)",
                   "enum": ["switch_valve"]
+                },
+                {
+                  "title": "1 Leak Sensor (w/ Sonoff DW2)",
+                  "enum": ["sensor_leak"]
                 }
               ]
             },
@@ -501,7 +505,10 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type))"
+              }
             },
             "overrideDisabledLogging": {
               "type": "boolean",
