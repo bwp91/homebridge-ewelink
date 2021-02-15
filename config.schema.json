@@ -101,6 +101,33 @@
           }
         }
       },
+      "outletDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "showAsSwitch": {
+              "type": "boolean",
+              "title": "Show As Switch",
+              "description": "If true, this accessory will show as a switch in HomeKit instead of an outlet."
+            },
+            "inUsePowerThreshold": {
+              "type": "number",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch)"
+              }
+            }
+          }
+        }
+      },
       "lightDevices": {
         "type": "array",
         "items": {
@@ -162,18 +189,6 @@
             }
           }
         }
-      },
-      "outletAsSwitch": {
-        "type": "string",
-        "title": "Outlet As Switch",
-        "description": "A list of outlet devices to show as switches. For example 10009553c8 or multiple separated by a comma."
-      },
-      "inUsePowerThreshold": {
-        "type": "number",
-        "title": "Outlet 'In Use' Threshold",
-        "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-        "placeholder": 0,
-        "minimum": 0
       },
       "hideSwitchFromTH": {
         "type": "string",
@@ -512,6 +527,24 @@
       ]
     },
     {
+      "key": "outletDevices",
+      "title": "Outlet Devices",
+      "description": "Applies to outlet devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "outletDevices[].deviceId",
+            "outletDevices[].showAsSwitch",
+            "outletDevices[].inUsePowerThreshold"
+          ]
+        }
+      ]
+    },
+    {
       "key": "lightDevices",
       "title": "Light Devices",
       "description": "Applies to bulbs and LED strips.",
@@ -552,8 +585,6 @@
       "title": "Device Settings",
       "expandable": true,
       "items": [
-        "outletAsSwitch",
-        "inUsePowerThreshold",
         "hideSwitchFromTH",
         "lowBattThreshold",
         "sensorTimeDifference"
