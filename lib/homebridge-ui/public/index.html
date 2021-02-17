@@ -58,6 +58,10 @@
           <td id="eweModel"></td>
         </tr>
         <tr>
+          <th scope="row">Firmware</th>
+          <td id="eweFirmware"></td>
+        </tr>
+        <tr>
           <th scope="row">Shared Device</th>
           <td id="eweShared"></td>
         </tr>
@@ -175,12 +179,13 @@
           document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
           document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
+          document.getElementById('eweFirmware').innerHTML = selectedAccessory.context.firmware
           document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
             ? 'Yes (by ' + selectedAccessory.context.eweShared + ')'
             : 'No'
           document.getElementById('imgIcon').innerHTML = selectedAccessory.context.eweBrandLogo
-            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 100px;">'
+            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 150px;">'
             : ''
           document.getElementById('deviceTable').style.display = 'inline-table'
           homebridge.hideSpinner()
