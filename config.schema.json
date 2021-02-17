@@ -34,24 +34,17 @@
         "title": "Connection Mode",
         "description": "This setting defines how the plugin communicates with your devices.",
         "default": "auto",
-        "oneOf": [
-          {
+        "oneOf": [{
             "title": "Auto (Recommended)",
-            "enum": [
-              "auto"
-            ]
+            "enum": ["auto"]
           },
           {
             "title": "Cloud Only",
-            "enum": [
-              "wan"
-            ]
+            "enum": ["wan"]
           },
           {
             "title": "LAN Only",
-            "enum": [
-              "lan"
-            ]
+            "enum": ["lan"]
           }
         ]
       },
@@ -73,77 +66,326 @@
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
       },
-      "hideChanFromHB": {
-        "type": "string",
-        "title": "Hide Light/Switch Channels",
-        "description": "A list of light/switch channels to hide. For example 10009553c8SW0 or multiple separated by a comma."
-      },
-      "switchAsOutlet": {
-        "type": "string",
-        "title": "Switch As Outlet",
-        "description": "A list of switch devices to show as outlets. For example 10009553c8 or multiple separated by a comma."
-      },
-      "outletAsSwitch": {
-        "type": "string",
-        "title": "Outlet As Switch",
-        "description": "A list of outlet devices to show as switches. For example 10009553c8 or multiple separated by a comma."
-      },
-      "inUsePowerThreshold": {
-        "type": "number",
-        "title": "Outlet 'In Use' Threshold",
-        "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-        "placeholder": 0,
-        "minimum": 0
-      },
-      "hideLightFromFan": {
-        "type": "string",
-        "title": "Hide Fan Lights",
-        "description": "A list of iFan devices for which the light will be hidden. For example 10009553c8 or multiple separated by a comma."
-      },
-      "hideSwitchFromTH": {
-        "type": "string",
-        "title": "Hide TH10/16 Switches",
-        "description": "A list of TH10/TH16 devices for which the switch will be hidden. For example 10009553c8 or multiple separated by a comma."
-      },
-      "lowBattThreshold": {
-        "type": "number",
-        "title": "Low Battery Threshold",
-        "description": "HomeKit will set the low battery status for supported devices when the device battery reaches this percentage level. Must be 5 or more.",
-        "placeholder": 25,
-        "minimum": 5
-      },
-      "sensorTimeDifference": {
-        "type": "number",
-        "title": "Sensor Lag",
-        "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. This setting applies to sensors connected to RF/Zigbee Bridges. Must be 10 or more.",
-        "placeholder": 120,
-        "minimum": 10
-      },
-      "bulbB02BA60": {
-        "type": "string"
-      },
-      "bulbB02FST64": {
-        "type": "string"
-      },
-      "thTempOffset": {
+      "singleDevices": {
         "type": "array",
         "items": {
           "type": "object",
           "properties": {
             "deviceId": {
-              "type": "string"
+              "type": "string",
+              "title": "Device ID"
             },
-            "offset": {
-              "type": "number"
+            "showAsOutlet": {
+              "type": "boolean",
+              "title": "Show As Outlet",
+              "description": "If true, this accessory will show as an outlet in HomeKit instead of a switch."
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
       },
-      "hideZBLDPress": {
-        "type": "boolean"
+      "multiDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideChannels": {
+              "type": "string",
+              "title": "Hide Channels",
+              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'."
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
       },
-      "ZBDWBatt": {
-        "type": "boolean"
+      "outletDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "showAsSwitch": {
+              "type": "boolean",
+              "title": "Show As Switch",
+              "description": "If true, this accessory will show as a switch in HomeKit instead of an outlet."
+            },
+            "inUsePowerThreshold": {
+              "type": "number",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch)"
+              }
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
+      },
+      "lightDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "bulbModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "If your model is not listed then you do not need to set this.",
+              "oneOf": [{
+                  "title": "B02-B-A60",
+                  "enum": ["bulbB02BA60"]
+                },
+                {
+                  "title": "B02-F-A60",
+                  "enum": ["bulbB02FA60"]
+                },
+                {
+                  "title": "B02-F-ST64",
+                  "enum": ["bulbB02FST64"]
+                }
+              ]
+            },
+            "brightnessStep": {
+              "title": "Brightness Step",
+              "type": "number",
+              "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
+              "placeholder": 1,
+              "minimum": 1
+            },
+            "adaptiveLightingShift": {
+              "title": "Adaptive Lighting Shift",
+              "type": "number",
+              "description": "An adjustment factor for Adaptive Lighting. The mired value for each update will be increased by this setting, making the light appear warmer. A value in the range 50-200 should be appropriate. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
+      },
+      "thDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideSwitch": {
+              "type": "boolean",
+              "title": "Hide Switch",
+              "description": "If true, this accessory will hide the TH10/16 switch from HomeKit."
+            },
+            "offset": {
+              "type": "number",
+              "title": "Temperature Offset",
+              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
+              "placeholder": 0
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
+      },
+      "fanDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "hideLight": {
+              "type": "boolean",
+              "title": "Hide Light Switch",
+              "description": "If true, the light switch will be hidden from HomeKit."
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
+      },
+      "sensorDevices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "lowBattThreshold": {
+              "type": "number",
+              "title": "Low Battery Threshold",
+              "description": "HomeKit will set the low battery status for this device when the battery (if it has one) reaches this percentage level. Must be 5 or more.",
+              "placeholder": 25,
+              "minimum": 5
+            },
+            "hideLongDouble": {
+              "type": "boolean",
+              "title": "Hide Long & Double Press",
+              "description": "If true, double and long press options will be hidden for this Zigbee Button."
+            },
+            "scaleBattery": {
+              "type": "boolean",
+              "title": "Scale Battery",
+              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 10."
+            },
+            "sensorTimeDifference": {
+              "type": "number",
+              "title": "Sensor Lag",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "placeholder": 120,
+              "minimum": 10
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
+      },
+      "bridgeSensors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fullDeviceId": {
+              "type": "string",
+              "title": "Sensor Device ID",
+              "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
+            },
+            "type": {
+              "type": "string",
+              "title": "Sensor Type",
+              "description": "Select the type of sensor you would like to expose this as.",
+              "oneOf": [{
+                  "title": "Motion",
+                  "enum": ["motion"]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": ["smoke"]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": ["water"]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": ["co"]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": ["co2"]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": ["occupancy"]
+                },
+                {
+                  "title": "Contact",
+                  "enum": ["contact"]
+                }
+              ]
+            },
+            "sensorTimeLength": {
+              "type": "number",
+              "title": "Sensor Time Length",
+              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be 1 or more.",
+              "placeholder": 60,
+              "minimum": 1
+            },
+            "sensorTimeDifference": {
+              "type": "number",
+              "title": "Sensor Lag",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "placeholder": 120,
+              "minimum": 10
+            },
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
+            }
+          }
+        }
       },
       "groups": {
         "type": "array",
@@ -159,84 +401,61 @@
               "type": "string",
               "title": "Type",
               "description": "The new type for this device.",
-              "oneOf": [
-                {
+              "oneOf": [{
                   "title": "1 Thermostat (w/ TH10/16)",
-                  "enum": [
-                    "thermostat"
-                  ]
+                  "enum": ["thermostat"]
                 },
                 {
                   "title": "1 Garage Door (w/ Eachen GD-DC5)",
-                  "enum": [
-                    "garage_eachen"
-                  ]
+                  "enum": ["garage_eachen"]
                 },
                 {
                   "title": "1 Garage Door (w/ single or multi-channel device)",
-                  "enum": [
-                    "garage"
-                  ]
+                  "enum": ["garage"]
                 },
                 {
                   "title": "2 Garage Doors (w/ multi-channel device)",
-                  "enum": [
-                    "garage_two"
-                  ]
+                  "enum": ["garage_two"]
                 },
                 {
                   "title": "4 Garage Doors (w/ multi-channel device)",
-                  "enum": [
-                    "garage_four"
-                  ]
+                  "enum": ["garage_four"]
                 },
                 {
                   "title": "1 Window Blind (w/ multi-channel device)",
-                  "enum": [
-                    "blind"
-                  ]
+                  "enum": ["blind"]
                 },
                 {
                   "title": "1 Lock (w/ single or multi-channel device)",
-                  "enum": [
-                    "lock"
-                  ]
+                  "enum": ["lock"]
                 },
                 {
                   "title": "1 Tap/Faucet (w/ single or multi-channel device)",
-                  "enum": [
-                    "tap"
-                  ]
+                  "enum": ["tap"]
                 },
                 {
                   "title": "2 Taps/Faucets (w/ multi-channel device)",
-                  "enum": [
-                    "tap_two"
-                  ]
+                  "enum": ["tap_two"]
                 },
                 {
                   "title": "1 Irrigation Valve (w/ single or multi-channel device)",
-                  "enum": [
-                    "valve"
-                  ]
+                  "enum": ["valve"]
                 },
                 {
                   "title": "2 Irrigation Valves (w/ multi-channel device)",
-                  "enum": [
-                    "valve_two"
-                  ]
+                  "enum": ["valve_two"]
                 },
                 {
                   "title": "4 Irrigation Valves (w/ multi-channel device)",
-                  "enum": [
-                    "valve_four"
-                  ]
+                  "enum": ["valve_four"]
                 },
                 {
                   "title": "1 Switch & 1 Valve (w/ multi-channel device)",
-                  "enum": [
-                    "switch_valve"
-                  ]
+                  "enum": ["switch_valve"]
+                },
+                {
+                  "title": "1 Leak Sensor (w/ Sonoff DW2)",
+                  "enum": ["sensor_leak"]
                 }
               ]
             },
@@ -247,18 +466,13 @@
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type))"
               },
-              "oneOf": [
-                {
+              "oneOf": [{
                   "title": "Single-Channel",
-                  "enum": [
-                    "oneSwitch"
-                  ]
+                  "enum": ["oneSwitch"]
                 },
                 {
                   "title": "Multi-Channel",
-                  "enum": [
-                    "twoSwitch"
-                  ]
+                  "enum": ["twoSwitch"]
                 }
               ]
             },
@@ -287,91 +501,22 @@
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type))"
               }
-            }
-          }
-        }
-      },
-      "bridgeSensors": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "fullDeviceId": {
-              "type": "string",
-              "title": "Sensor Device ID",
-              "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
             },
-            "type": {
+            "ipAddress": {
               "type": "string",
-              "title": "Sensor Type",
-              "description": "Select the type of sensor you would like to expose this as.",
-              "oneOf": [
-                {
-                  "title": "Motion",
-                  "enum": [
-                    "motion"
-                  ]
-                },
-                {
-                  "title": "Smoke/Fire",
-                  "enum": [
-                    "smoke"
-                  ]
-                },
-                {
-                  "title": "Water/Leak",
-                  "enum": [
-                    "water"
-                  ]
-                },
-                {
-                  "title": "Carbon Monoxide",
-                  "enum": [
-                    "co"
-                  ]
-                },
-                {
-                  "title": "Carbon Dioxide",
-                  "enum": [
-                    "co2"
-                  ]
-                },
-                {
-                  "title": "Occupancy",
-                  "enum": [
-                    "occupancy"
-                  ]
-                },
-                {
-                  "title": "Contact",
-                  "enum": [
-                    "contact"
-                  ]
-                }
-              ]
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type))"
+              }
             },
-            "sensorTimeLength": {
-              "type": "number",
-              "title": "Sensor Time Length",
-              "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be 1 or more.",
-              "placeholder": 60,
-              "minimum": 1
-            }
-          }
-        }
-      },
-      "ipOverride": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID"
-            },
-            "deviceIP": {
-              "type": "string",
-              "title": "Device IP"
+            "overrideDisabledLogging": {
+              "type": "boolean",
+              "title": "Override Disabled Logging",
+              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
+              "condition": {
+                "functionBody": "return model.disableDeviceLogging;"
+              }
             }
           }
         }
@@ -387,8 +532,7 @@
       }
     }
   },
-  "layout": [
-    {
+  "layout": [{
       "type": "fieldset",
       "title": "Required Settings",
       "items": [
@@ -409,79 +553,168 @@
       ]
     },
     {
-      "type": "fieldset",
-      "title": "Device Settings",
+      "key": "singleDevices",
+      "title": "Single Channel Devices",
+      "description": "Applies to single-channel switch, light switch and Slampher devices.",
       "expandable": true,
-      "items": [
-        "hideChanFromHB",
-        "switchAsOutlet",
-        "outletAsSwitch",
-        "inUsePowerThreshold",
-        "hideLightFromFan",
-        "hideSwitchFromTH",
-        "lowBattThreshold",
-        "sensorTimeDifference"
-      ]
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "singleDevices[].deviceId",
+          "singleDevices[].showAsOutlet",
+          "singleDevices[].ipAddress",
+          "singleDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "multiDevices",
+      "title": "Multi Channel Devices",
+      "description": "Applies to multi-channel switch and light switch devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "multiDevices[].deviceId",
+          "multiDevices[].hideChannels",
+          "multiDevices[].ipAddress",
+          "multiDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "outletDevices",
+      "title": "Outlet Devices",
+      "description": "Applies to outlet devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "outletDevices[].deviceId",
+          "outletDevices[].showAsSwitch",
+          "outletDevices[].inUsePowerThreshold",
+          "outletDevices[].ipAddress",
+          "outletDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "lightDevices",
+      "title": "Light Devices",
+      "description": "Applies to dimmer, bulb and LED strip devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "lightDevices[].deviceId",
+          "lightDevices[].bulbModel",
+          "lightDevices[].brightnessStep",
+          "lightDevices[].adaptiveLightingShift",
+          "lightDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "thDevices",
+      "title": "Thermostat Devices",
+      "description": "Applies to thermostat devices and the TH10/16.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "thDevices[].deviceId",
+          "thDevices[].hideSwitch",
+          "thDevices[].offset",
+          "thDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "fanDevices",
+      "title": "Fan Devices",
+      "description": "Applies to iFan devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "fanDevices[].deviceId",
+          "fanDevices[].hideLight",
+          "fanDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "sensorDevices",
+      "title": "Sensor Devices",
+      "description": "Applies to the DW2 and Zigbee sensor devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "sensorDevices[].deviceId",
+          "sensorDevices[].lowBattThreshold",
+          "sensorDevices[].hideLongDouble",
+          "sensorDevices[].scaleBattery",
+          "sensorDevices[].overrideDisabledLogging"
+        ]
+      }]
+    },
+    {
+      "key": "bridgeSensors",
+      "title": "RF Sensor Devices",
+      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
+      "expandable": true,
+      "add": "Add Another Sensor",
+      "type": "array",
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "bridgeSensors[].fullDeviceId",
+          "bridgeSensors[].type",
+          "bridgeSensors[].sensorTimeLength",
+          "bridgeSensors[].sensorTimeDifference",
+          "bridgeSensors[].overrideDisabledLogging"
+        ]
+      }]
     },
     {
       "key": "groups",
       "expandable": true,
       "title": "Accessory Simulations",
-      "description": "Set up custom simulated accessories generic devices - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>.",
+      "description": "Set up simulated accessories from generic switch devices (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>).",
       "add": "Add Another Type",
       "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "groups[].deviceId",
-            "groups[].type",
-            "groups[].setup",
-            "groups[].operationTime",
-            "groups[].sensorId",
-            "groups[].obstructId",
-            {
-              "type": "help",
-              "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "key": "bridgeSensors",
-      "title": "RF Bridge Sensors",
-      "description": "Expose different types of sensors linked to your RF Bridge - <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors\" target=\"_blank\">more info</a>.",
-      "expandable": true,
-      "add": "Add Another Sensor",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "bridgeSensors[].fullDeviceId",
-            "bridgeSensors[].type",
-            "bridgeSensors[].sensorTimeLength"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "ipOverride",
-      "title": "Device IPs",
-      "description": "Set manual IPs for your devices if the plugin cannot automatically discover them.",
-      "expandable": true,
-      "add": "Add Another IP",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "ipOverride[].deviceId",
-            "ipOverride[].deviceIP"
-          ]
-        }
-      ]
+      "items": [{
+        "type": "fieldset",
+        "items": [
+          "groups[].deviceId",
+          "groups[].type",
+          "groups[].setup",
+          "groups[].operationTime",
+          "groups[].sensorId",
+          "groups[].obstructId",
+          "groups[].ipAddress",
+          "groups[].overrideDisabledLogging",
+          {
+            "type": "help",
+            "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
+          }
+        ]
+      }]
     },
     {
       "key": "ignoredDevices",

@@ -21,7 +21,7 @@
         <select class="form-control" id="deviceSelect"></select>
       </div>
     </form>
-    <table class="table w-100" id="deviceTable">
+    <table class="table w-100" id="deviceTable" style="display: none;">
       <thead>
         <tr class="table-active">
           <th scope="col" style="width: 40%;">Device Name</th>
@@ -58,6 +58,10 @@
           <td id="eweModel"></td>
         </tr>
         <tr>
+          <th scope="row">Firmware</th>
+          <td id="eweFirmware"></td>
+        </tr>
+        <tr>
           <th scope="row">Shared Device</th>
           <td id="eweShared"></td>
         </tr>
@@ -76,12 +80,12 @@
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Configuration" target="_blank">Configuration</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices" target="_blank">Supported Devices</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices" target="_blank">Multi Channel Devices</a></li>
+    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors" target="_blank">RF Bridge Sensors</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations" target="_blank">Accessory Simulations</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods" target="_blank">Connection Methods</a></li>
   </ul>
   <h4>How-to Guides</h4>
   <ul>
-    <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-RF-Bridge-sensors" target="_blank">How to set up RF Bridge sensors</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera" target="_blank">How to set up Sonoff Camera (GK-200MP2-B)</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs" target="_blank">How to copy Homebridge logs</a></li>
     <li><a href="https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging" target="_blank">How to enable/disable plugin extended logging</a></li>
@@ -164,23 +168,24 @@
           console.log(selectedAccessory)
           document.getElementById('displayName').innerHTML = selectedAccessory.displayName
           document.getElementById('reachableWAN').innerHTML = selectedAccessory.context.reachableWAN
-            ? 'Online'
-            : 'Offline'
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
+            : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
           document.getElementById('reachableLAN').innerHTML = selectedAccessory.context.reachableLAN
-            ? 'Online'
-            : 'Offline'
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
+            : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
           document.getElementById('lanIP').innerHTML = selectedAccessory.context.ip
             ? selectedAccessory.context.ip
             : 'N/A'
           document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
           document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
+          document.getElementById('eweFirmware').innerHTML = selectedAccessory.context.firmware
           document.getElementById('eweModel').innerHTML = selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
             ? 'Yes (by ' + selectedAccessory.context.eweShared + ')'
             : 'No'
           document.getElementById('imgIcon').innerHTML = selectedAccessory.context.eweBrandLogo
-            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 100px;">'
+            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 150px;">'
             : ''
           document.getElementById('deviceTable').style.display = 'inline-table'
           homebridge.hideSpinner()
