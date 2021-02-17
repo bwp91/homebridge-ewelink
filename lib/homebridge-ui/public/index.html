@@ -168,11 +168,11 @@
           console.log(selectedAccessory)
           document.getElementById('displayName').innerHTML = selectedAccessory.displayName
           document.getElementById('reachableWAN').innerHTML = selectedAccessory.context.reachableWAN
-            ? 'Online'
-            : 'Offline'
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
+            : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
           document.getElementById('reachableLAN').innerHTML = selectedAccessory.context.reachableLAN
-            ? 'Online'
-            : 'Offline'
+            ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
+            : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
           document.getElementById('lanIP').innerHTML = selectedAccessory.context.ip
             ? selectedAccessory.context.ip
             : 'N/A'
