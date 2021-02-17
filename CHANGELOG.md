@@ -23,6 +23,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * New plugin configuration format - [see details](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration-%28v5%29)
 * Device firmware version will now show correctly in HomeKit apps
 
+## 4.7.6 (2021-02-17)
+
+### Changes
+
+* Fixes an issue with the DW2 detecting garage door states
+
 ## 4.7.5 (2021-02-15)
 
 ### Changes
