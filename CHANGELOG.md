@@ -4,9 +4,24 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-### ⚠️ Breaking Configuration Changes
+* ⚠️ This release includes an overhaul of the configuration with some breaking changes
 
-* This release includes an overhaul of the configuration
+### Added
+
+* **Configuration**
+  * The ability to explicitly enable device logging per device if you have disableDeviceLogging set to true
+  * New brightnessStep option to specify a minimum brightness step in the Home app per dimmer/bulb/LED strip
+  * New adaptiveLightingShift option to offset the Adaptive Lighting values per bulb
+* **Accessory Simulations**
+  * Expose a DW2 contact sensor as a leak sensor
+* **Homebridge Plugin UI**
+  * 'My Devices' shows a red/green icon on the to show device WAN/LAN reachability
+  * 'My Devices' shows the firmware version for your device
+
+### Changes
+
+* New plugin configuration format - [see details](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration-%28v5%29)
+* Device firmware version will now show correctly in HomeKit apps
 
 ## 4.7.5 (2021-02-15)
 
