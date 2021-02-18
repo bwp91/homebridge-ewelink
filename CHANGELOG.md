@@ -14,6 +14,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * New adaptiveLightingShift option to offset the Adaptive Lighting values per bulb
 * **Accessory Simulations**
   * Expose a DW2 contact sensor as a leak sensor
+  * Sub-accessories will be removed automatically when setting up a new Accessory Simulation
 * **Homebridge Plugin UI**
   * 'My Devices' shows a red/green icon on the to show device WAN/LAN reachability
   * 'My Devices' shows the firmware version for your device
