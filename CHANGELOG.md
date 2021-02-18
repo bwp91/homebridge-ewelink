@@ -4,7 +4,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-* ⚠️ This release includes an overhaul of the configuration with some breaking changes
+* ⚠️ This release includes an overhaul of the configuration with some breaking changes - [more info](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
 
 ### Added
 
@@ -21,7 +21,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-* New plugin configuration format - [see details](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration-%28v5%29)
+* New plugin configuration format - [more info](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
 * Device firmware version will now show correctly in HomeKit apps
 
 ## 4.7.6 (2021-02-17)
