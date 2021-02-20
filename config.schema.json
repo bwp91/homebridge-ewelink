@@ -105,6 +105,11 @@
               "type": "string",
               "title": "Device ID"
             },
+            "showAsOutlet": {
+              "type": "boolean",
+              "title": "Show As Outlets",
+              "description": "If true, this accessory will show as outlets in HomeKit instead of switches."
+            },
             "hideChannels": {
               "type": "string",
               "title": "Hide Channels",
@@ -580,6 +585,7 @@
         "type": "fieldset",
         "items": [
           "multiDevices[].deviceId",
+          "multiDevices[].showAsOutlet",
           "multiDevices[].hideChannels",
           "multiDevices[].ipAddress",
           "multiDevices[].overrideDisabledLogging"
