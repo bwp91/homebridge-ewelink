@@ -18,6 +18,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * **Homebridge Plugin UI**
   * 'My Devices' shows a red/green icon on the to show device WAN/LAN reachability
   * 'My Devices' shows the firmware version for your device
+* Ability to show multi-channel switch devices as outlets
 
 ### Changes
 
