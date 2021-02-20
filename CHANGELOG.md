@@ -21,6 +21,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * 'My Devices' shows the firmware version for your device
 * **New Devices**
   * Support for eWeLink switch uiid 81, 82, 83, 84 and 107 device types
+  * Support for the 'Sonoff Hum' humidifier device (on/off and mode)
 
 ### Changes
 
