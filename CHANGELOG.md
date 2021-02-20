@@ -20,7 +20,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * 'My Devices' shows a red/green icon on the to show device WAN/LAN reachability
   * 'My Devices' shows the firmware version for your device
 * **New Devices**
-  * Support for eWeLink switch uiid 107 device type
+  * Support for eWeLink switch uiid 81, 82, 83, 84 and 107 device types
 
 ### Changes
 
