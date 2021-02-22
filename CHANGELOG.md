@@ -13,6 +13,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * New `brightnessStep` option to specify a minimum brightness step in the Home app per dimmer/bulb/LED strip
   * New `adaptiveLightingShift` option to offset the Adaptive Lighting values per bulb
   * `showAsOutlet` option extended multi-channel switch and light switch devices to expose them as outlets
+* **Accessories**
+  * Enhanced Eve information available for contact sensors:
+    * DW2
+    * Zigbee Contact Sensor
 * **Accessory Simulations**
   * Expose a DW2 contact sensor as a leak sensor
   * Sub-accessories will be removed automatically when setting up a new Accessory Simulation
