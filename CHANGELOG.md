@@ -10,6 +10,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * **Configuration**
   * The ability to explicitly enable device logging per device if you have `disableDeviceLogging` set to true
+  * A `label` setting per device group which has no effect except to help identify the device when editing the configuration
   * New `brightnessStep` option to specify a minimum brightness step in the Home app per dimmer/bulb/LED strip
   * New `adaptiveLightingShift` option to offset the Adaptive Lighting values per bulb
   * `showAsOutlet` option extended multi-channel switch and light switch devices to expose them as outlets
