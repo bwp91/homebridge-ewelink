@@ -31,6 +31,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * New plugin configuration format - [more info](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
 * Device firmware version will now show correctly in HomeKit apps
+* Information about error 406 added to the logs in the form of a link (shown when error is received)
 
 ## 4.7.6 (2021-02-17)
 
