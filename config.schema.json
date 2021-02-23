@@ -75,6 +75,11 @@
               "type": "string",
               "title": "Device ID"
             },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
+            },
             "showAsOutlet": {
               "type": "boolean",
               "title": "Show As Outlet",
@@ -104,6 +109,11 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "showAsOutlet": {
               "type": "boolean",
@@ -139,6 +149,11 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "showAsSwitch": {
               "type": "boolean",
@@ -179,6 +194,11 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "bulbModel": {
               "type": "string",
@@ -232,6 +252,11 @@
               "type": "string",
               "title": "Device ID"
             },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
+            },
             "hideSwitch": {
               "type": "boolean",
               "title": "Hide Switch",
@@ -263,6 +288,11 @@
               "type": "string",
               "title": "Device ID"
             },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
+            },
             "hideLight": {
               "type": "boolean",
               "title": "Hide Light Switch",
@@ -287,6 +317,11 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "lowBattThreshold": {
               "type": "number",
@@ -332,6 +367,11 @@
               "type": "string",
               "title": "Sensor Device ID",
               "description": "Device ID of the sensor (13 digits normally in the format 1000ab23cdSW2)."
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "type": {
               "type": "string",
@@ -399,8 +439,12 @@
           "properties": {
             "deviceId": {
               "type": "string",
-              "title": "Device ID",
-              "description": "Device ID from your eWeLink app (ten digits normally in the format 1000ab23cd)."
+              "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
             "type": {
               "type": "string",
@@ -568,6 +612,7 @@
         "type": "fieldset",
         "items": [
           "singleDevices[].deviceId",
+          "singleDevices[].label",
           "singleDevices[].showAsOutlet",
           "singleDevices[].ipAddress",
           "singleDevices[].overrideDisabledLogging"
@@ -585,6 +630,7 @@
         "type": "fieldset",
         "items": [
           "multiDevices[].deviceId",
+          "multiDevices[].label",
           "multiDevices[].showAsOutlet",
           "multiDevices[].hideChannels",
           "multiDevices[].ipAddress",
@@ -603,6 +649,7 @@
         "type": "fieldset",
         "items": [
           "outletDevices[].deviceId",
+          "outletDevices[].label",
           "outletDevices[].showAsSwitch",
           "outletDevices[].inUsePowerThreshold",
           "outletDevices[].ipAddress",
@@ -621,6 +668,7 @@
         "type": "fieldset",
         "items": [
           "lightDevices[].deviceId",
+          "lightDevices[].label",
           "lightDevices[].bulbModel",
           "lightDevices[].brightnessStep",
           "lightDevices[].adaptiveLightingShift",
@@ -639,6 +687,7 @@
         "type": "fieldset",
         "items": [
           "thDevices[].deviceId",
+          "thDevices[].label",
           "thDevices[].hideSwitch",
           "thDevices[].offset",
           "thDevices[].overrideDisabledLogging"
@@ -656,6 +705,7 @@
         "type": "fieldset",
         "items": [
           "fanDevices[].deviceId",
+          "fanDevices[].label",
           "fanDevices[].hideLight",
           "fanDevices[].overrideDisabledLogging"
         ]
@@ -672,6 +722,7 @@
         "type": "fieldset",
         "items": [
           "sensorDevices[].deviceId",
+          "sensorDevices[].label",
           "sensorDevices[].lowBattThreshold",
           "sensorDevices[].hideLongDouble",
           "sensorDevices[].scaleBattery",
@@ -690,6 +741,7 @@
         "type": "fieldset",
         "items": [
           "bridgeSensors[].fullDeviceId",
+          "bridgeSensors[].label",
           "bridgeSensors[].type",
           "bridgeSensors[].sensorTimeLength",
           "bridgeSensors[].sensorTimeDifference",
@@ -708,6 +760,7 @@
         "type": "fieldset",
         "items": [
           "groups[].deviceId",
+          "groups[].label",
           "groups[].type",
           "groups[].setup",
           "groups[].operationTime",
