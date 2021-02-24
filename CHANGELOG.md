@@ -16,10 +16,6 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Remove old *Switch* services when setting up Accessory Simulations
 * Add the type of Accessory Simulation to the logged options on restart
 
-### Changes
-
-* Fixes an issue initialising Accessory Simulation Lock devices
-
 ## 5.0.2 (2021-02-24)
 
 ### Changes
