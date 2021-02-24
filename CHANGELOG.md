@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 5.0.2 (2021-02-24)
+
+### Changes
+
+* Fixes an issue initialising Accessory Simulation Lock devices
+
 ## 5.0.1 (2021-02-24)
 
 ### Changes
