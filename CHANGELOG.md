@@ -2,10 +2,11 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.0.4
 
 ### Changes
 
+* Plugin will check that certain Accessory Simulations have been setup with the device type
 * Hide IP address field in plugin settings if plugin `mode` is set to `wan`
 
 ## 5.0.3 (2021-02-24)
