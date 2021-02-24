@@ -2,7 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.0.1 (2021-02-24)
+
+### Changes
+
+* Fixes an issue initialising Contact Sensor devices
+
+## 5.0.0 (2021-02-24)
 
 * ⚠️ This release includes an overhaul of the settings in particular to specific device configuration
 * The following options have been replaced:
