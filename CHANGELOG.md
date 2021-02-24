@@ -4,7 +4,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-* ⚠️ This release includes an overhaul of the configuration with some breaking changes - [more info](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
+* ⚠️ This release includes an overhaul of the settings in particular to specific device configuration
+* The following options have been replaced:
+  * `hideChanFromHB`, `switchAsOutlet`, `outletAsSwitch`, `inUsePowerThreshold`, `hideLightFromFan`, `hideSwitchFromTH`, `thAsThermostat`, `resetRFBridge`, `lowBattThreshold`, `sensorTimeDifference`, `bulbB02BA60`, `bulbB02FST64`, `thTempOffset`, `hideZBLDPress`, `ZBDWBatt`, `ipOverride`
+* If you use any of the above options then please take some time to review the changes after updating the plugin
+* Detailed information about the changes can be seen [here](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
+
 
 ### Added
 
