@@ -779,7 +779,7 @@
           "groups[].overrideDisabledLogging",
           {
             "type": "help",
-            "helpvalue": "<label class=\"control-label text-warning\">⚠ After restarting Homebridge you will need to remove this accessory from the cache for it set up correctly.</label>"
+            "helpvalue": "<label class=\"control-label text-warning\">⚠ If you find this accessory hasn't set up properly after restarting, then try removing it from the cache so it is re-added.</label>"
           }
         ]
       }]
