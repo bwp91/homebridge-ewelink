@@ -88,7 +88,10 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
             },
             "overrideDisabledLogging": {
               "type": "boolean",
@@ -128,7 +131,10 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
             },
             "overrideDisabledLogging": {
               "type": "boolean",
@@ -173,7 +179,10 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin."
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
             },
             "overrideDisabledLogging": {
               "type": "boolean",
@@ -556,7 +565,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type))"
               }
             },
             "overrideDisabledLogging": {
