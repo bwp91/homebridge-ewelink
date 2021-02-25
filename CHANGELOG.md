@@ -9,7 +9,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Reverse the polarity of the leak sensor simulation
   * You can expose a DW2 sensor as a leak sensor using [this guide](https://www.youtube.com/watch?v=YFu2LZfrrqs) as an Accessory Simulation
 
-## 5.0.4
+## 5.0.4 (2021-02-24)
 
 ### Changes
 
