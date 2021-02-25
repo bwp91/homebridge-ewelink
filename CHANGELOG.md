@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Reverse the polarity of the leak sensor simulation
+
 ## 5.0.4
 
 ### Changes
