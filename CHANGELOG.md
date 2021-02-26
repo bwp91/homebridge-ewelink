@@ -2,6 +2,17 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+* [experimental] Support for Sonoff D1 LAN control
+* Support for Sonoff DUALR3
+
+### Changes
+
+* Less strict threshold for determining a 'significant' colour change for disabling Adaptive Lighting
+
 ## 5.0.6 (2021-02-26)
 
 ### Changes
