@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 5.0.6 (2021-02-26)
+
+### Changes
+
+* Removes the extra *Switch* service that was accidentally added to certain bulbs
+
 ## 5.0.5 (2021-02-25)
 
 ### Changes
