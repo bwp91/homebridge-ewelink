@@ -8,6 +8,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * [experimental] Support for Sonoff D1 LAN control
 * Support for Sonoff DUALR3
+* Support for Sonoff Mosquito Killer
+* Support for Sonoff SC (Sensor Centre)
 
 ### Changes
 
