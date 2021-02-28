@@ -7,6 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 * [experimental] Support for Sonoff D1 LAN control
+* [experimental] Specify different operation time for UP and DOWN for window blinds
 * Support for Sonoff DUALR3
 * Support for Sonoff Mosquito Killer
 * Support for Sonoff SC (Sensor Centre)
