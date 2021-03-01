@@ -9,7 +9,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * **Accessory Simulations**
   * Added `Door` service type simulation
   * Added `Window` service type simulation
-  * [experimental] Specify different operation time for UP and DOWN for garages and window blinds
+  * [experimental] Specify different operation time for UP and DOWN for garages, blinds, doors and windows
 * **Accessories**
   * Support for Sonoff DUALR3
   * Support for Sonoff Mosquito Killer
