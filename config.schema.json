@@ -484,6 +484,14 @@
                   "enum": ["blind"]
                 },
                 {
+                  "title": "1 Door (w/ multi-channel device)",
+                  "enum": ["door"]
+                },
+                {
+                  "title": "1 Window (w/ multi-channel device)",
+                  "enum": ["window"]
+                },
+                {
                   "title": "1 Lock (w/ single or multi-channel device)",
                   "enum": ["lock"]
                 },
@@ -539,7 +547,7 @@
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'lock'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.groups[arrayIndices].type))"
               },
               "placeholder": 100,
               "minimum": 20
@@ -549,7 +557,7 @@
               "title": "Operation Time Down (Deciseconds)",
               "description": "If your garage door or blind has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'lock'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door, 'window', 'lock'].includes(model.groups[arrayIndices].type))"
               },
               "placeholder": 100,
               "minimum": 20
