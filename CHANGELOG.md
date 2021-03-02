@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 5.1.1 (2021-03-02)
+
+### Changes
+
+* Fixes an issue sending LAN updates to multi-channel devices
+
 ## 5.1.0 (2021-03-02)
 
 ### Added
