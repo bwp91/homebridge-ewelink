@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.1.0 (2021-03-02)
 
 ### Added
 
@@ -12,7 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * [experimental] Specify different operation time for UP and DOWN for garages, blinds, doors and windows
 * **Accessories**
   * Support for Sonoff DUALR3
-  * Support for Sonoff Mosquito Killer
+  * Support for Konesky Mosquito Killer
   * Support for Sonoff SC (Sensor Centre)
   * [experimental] Support for Sonoff D1 LAN control
 
