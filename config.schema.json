@@ -241,6 +241,14 @@
               "placeholder": 0,
               "minimum": 0
             },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin. Only applicable to Sonoff D1.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
+            },
             "overrideDisabledLogging": {
               "type": "boolean",
               "title": "Override Disabled Logging",
@@ -699,6 +707,7 @@
           "lightDevices[].bulbModel",
           "lightDevices[].brightnessStep",
           "lightDevices[].adaptiveLightingShift",
+          "lightDevices[].ipAddress",
           "lightDevices[].overrideDisabledLogging"
         ]
       }]
