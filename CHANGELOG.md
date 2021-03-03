@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Specify a custom IP for the Sonoff D1
+
 ## 5.1.1 (2021-03-02)
 
 ### Changes
