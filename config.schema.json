@@ -581,7 +581,7 @@
             "exposeContactSensor": {
               "type": "boolean",
               "title": "Expose Contact Sensor",
-              "description": "Expose a contact sensor which can be useful to view history in the Eve app.",
+              "description": "If true, a contact sensor will be exposed which can be useful to view history in the Eve app.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage_eachen')"
               }
