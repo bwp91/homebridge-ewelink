@@ -4,6 +4,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Expose an optional contact sensor for Eachen garage devices for historical data in the Eve app
+
 ### Changes
 
 * Specify a custom IP for the Sonoff D1
