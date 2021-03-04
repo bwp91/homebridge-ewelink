@@ -468,67 +468,67 @@
               "title": "Type",
               "description": "The new type for this device.",
               "oneOf": [{
-                  "title": "1 Thermostat (w/ TH10/16)",
+                  "title": "1 Thermostat (with Sonoff TH10 or TH16)",
                   "enum": ["thermostat"]
                 },
                 {
-                  "title": "1 Garage Door (w/ Eachen GD-DC5)",
+                  "title": "1 Garage Door (with Eachen GDDC5)",
                   "enum": ["garage_eachen"]
                 },
                 {
-                  "title": "1 Garage Door (w/ single or multi-channel device)",
+                  "title": "1 Garage Door (with single or multi channel device)",
                   "enum": ["garage"]
                 },
                 {
-                  "title": "2 Garage Doors (w/ multi-channel device)",
+                  "title": "2 Garage Doors (with multi channel device)",
                   "enum": ["garage_two"]
                 },
                 {
-                  "title": "4 Garage Doors (w/ multi-channel device)",
+                  "title": "4 Garage Doors (with multi channel device)",
                   "enum": ["garage_four"]
                 },
                 {
-                  "title": "1 Window Blind (w/ multi-channel device)",
+                  "title": "1 Window Blind (with multi channel device)",
                   "enum": ["blind"]
                 },
                 {
-                  "title": "1 Door (w/ multi-channel device)",
+                  "title": "1 Door (with multi channel device)",
                   "enum": ["door"]
                 },
                 {
-                  "title": "1 Window (w/ multi-channel device)",
+                  "title": "1 Window (with multi channel device)",
                   "enum": ["window"]
                 },
                 {
-                  "title": "1 Lock (w/ single or multi-channel device)",
+                  "title": "1 Lock (with single or multi channel device)",
                   "enum": ["lock"]
                 },
                 {
-                  "title": "1 Tap/Faucet (w/ single or multi-channel device)",
+                  "title": "1 Tap/Faucet (with single or multi channel device)",
                   "enum": ["tap"]
                 },
                 {
-                  "title": "2 Taps/Faucets (w/ multi-channel device)",
+                  "title": "2 Taps/Faucets (with multi channel device)",
                   "enum": ["tap_two"]
                 },
                 {
-                  "title": "1 Irrigation Valve (w/ single or multi-channel device)",
+                  "title": "1 Irrigation Valve (with single or multi channel device)",
                   "enum": ["valve"]
                 },
                 {
-                  "title": "2 Irrigation Valves (w/ multi-channel device)",
+                  "title": "2 Irrigation Valves (with multi channel device)",
                   "enum": ["valve_two"]
                 },
                 {
-                  "title": "4 Irrigation Valves (w/ multi-channel device)",
+                  "title": "4 Irrigation Valves (with multi channel device)",
                   "enum": ["valve_four"]
                 },
                 {
-                  "title": "1 Switch & 1 Valve (w/ multi-channel device)",
+                  "title": "1 Switch & 1 Valve (with multi channel device)",
                   "enum": ["switch_valve"]
                 },
                 {
-                  "title": "1 Leak Sensor (w/ Sonoff DW2)",
+                  "title": "1 Leak Sensor (with Sonoff DW2)",
                   "enum": ["sensor_leak"]
                 }
               ]
