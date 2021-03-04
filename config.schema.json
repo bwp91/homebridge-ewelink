@@ -173,7 +173,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch)"
+                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch);"
               }
             },
             "ipAddress": {
@@ -538,7 +538,7 @@
               "title": "Device Setup",
               "description": "The type of generic device being used.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type));"
               },
               "oneOf": [{
                   "title": "Single-Channel",
@@ -555,7 +555,7 @@
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.groups[arrayIndices].type));"
               },
               "placeholder": 100,
               "minimum": 20
@@ -565,7 +565,7 @@
               "title": "Operation Time Down (Deciseconds)",
               "description": "If your garage door or blind has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door, 'window', 'lock'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door, 'window', 'lock'].includes(model.groups[arrayIndices].type));"
               },
               "placeholder": 100,
               "minimum": 20
@@ -575,7 +575,7 @@
               "title": "Sensor",
               "description": "A DW2 sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage');"
               }
             },
             "exposeContactSensor": {
@@ -583,7 +583,7 @@
               "title": "Expose Contact Sensor",
               "description": "If true, a contact sensor will be exposed which can be useful to view history in the Eve app.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage_eachen')"
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage_eachen');"
               }
             },
             "obstructId": {
@@ -591,7 +591,7 @@
               "title": "Obstruction Switch",
               "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type));"
               }
             },
             "ipAddress": {
@@ -599,7 +599,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type))"
+                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
               }
             },
             "overrideDisabledLogging": {
