@@ -578,6 +578,14 @@
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage')"
               }
             },
+            "exposeContactSensor": {
+              "type": "boolean",
+              "title": "Expose Contact Sensor",
+              "description": "Expose a contact sensor which can be useful to view history in the Eve app.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage_eachen')"
+              }
+            },
             "obstructId": {
               "type": "string",
               "title": "Obstruction Switch",
@@ -802,6 +810,7 @@
           "groups[].operationTime",
           "groups[].operationTimeDown",
           "groups[].sensorId",
+          "groups[].exposeContactSensor",
           "groups[].obstructId",
           "groups[].ipAddress",
           "groups[].overrideDisabledLogging",
