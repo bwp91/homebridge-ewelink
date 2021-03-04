@@ -10,6 +10,7 @@
     "homebridge-plugin",
     "homebridge-ewelink",
     "hoobs",
+    "hoobs-plugin",
     "homekit",
     "siri",
     "ewelink",
