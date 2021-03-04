@@ -570,20 +570,20 @@
               "placeholder": 100,
               "minimum": 20
             },
+            "exposeContactSensor": {
+              "type": "boolean",
+              "title": "Expose Contact Sensor",
+              "description": "If true, a contact sensor will be exposed which can be useful to view history in the Eve app.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type));"
+              }
+            },
             "sensorId": {
               "type": "string",
               "title": "Sensor",
               "description": "A DW2 sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage');"
-              }
-            },
-            "exposeContactSensor": {
-              "type": "boolean",
-              "title": "Expose Contact Sensor",
-              "description": "If true, a contact sensor will be exposed which can be useful to view history in the Eve app.",
-              "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage_eachen');"
               }
             },
             "obstructId": {
@@ -809,8 +809,8 @@
           "groups[].setup",
           "groups[].operationTime",
           "groups[].operationTimeDown",
-          "groups[].sensorId",
           "groups[].exposeContactSensor",
+          "groups[].sensorId",
           "groups[].obstructId",
           "groups[].ipAddress",
           "groups[].overrideDisabledLogging",
