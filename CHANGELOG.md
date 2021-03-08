@@ -10,11 +10,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   * Expose an optional contact sensor for Eachen garage devices for historical data in the Eve app
   * Set custom minimum/maximum target temperatures for the TH10/16 thermostat simulation
 
-
 ### Changes
 
 * Specify a custom IP for the Sonoff D1
 * Show full error stack on plugin disable in debug mode
+* Fixes a `multiple callback` error with CCT bulb accessories
 
 ## 5.1.1 (2021-03-02)
 
