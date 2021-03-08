@@ -6,7 +6,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-* Expose an optional contact sensor for Eachen garage devices for historical data in the Eve app
+* **Accessory Simulations**
+  * Expose an optional contact sensor for Eachen garage devices for historical data in the Eve app
+  * Set custom minimum/maximum target temperatures for the TH10/16 thermostat simulation
+
 
 ### Changes
 
