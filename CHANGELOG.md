@@ -15,6 +15,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Specify a custom IP for the Sonoff D1
 * Show full error stack on plugin disable in debug mode
 * Fixes a `multiple callback` error with CCT bulb accessories
+* Updated dependencies
 
 ## 5.1.1 (2021-03-02)
 
