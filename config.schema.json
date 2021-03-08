@@ -285,6 +285,20 @@
               "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0
             },
+            "minTarget": {
+              "type": "number",
+              "title": "Minimum Target Temperature",
+              "description": "Minimum target temperature for TH10/16 thermostat simulation to show in HomeKit apps. Must be at least 0.",
+              "placeholder": 0,
+              "minimum": 0
+            },
+            "maxTarget": {
+              "type": "number",
+              "title": "Maximum Target Temperature",
+              "description": "Maximum target temperature for TH10/16 thermostat simulation to show in HomeKit apps. Must be at least 1, and greater than the minimum value set above.",
+              "placeholder": 30,
+              "minimum": 1
+            },
             "overrideDisabledLogging": {
               "type": "boolean",
               "title": "Override Disabled Logging",
@@ -565,7 +579,7 @@
               "title": "Operation Time Down (Deciseconds)",
               "description": "If your garage door or blind has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door, 'window', 'lock'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.groups[arrayIndices].type));"
               },
               "placeholder": 100,
               "minimum": 20
@@ -734,6 +748,8 @@
           "thDevices[].label",
           "thDevices[].hideSwitch",
           "thDevices[].offset",
+          "thDevices[].minTarget",
+          "thDevices[].maxTarget",
           "thDevices[].overrideDisabledLogging"
         ]
       }]
