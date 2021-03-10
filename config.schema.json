@@ -584,14 +584,6 @@
               "placeholder": 100,
               "minimum": 20
             },
-            "exposeContactSensor": {
-              "type": "boolean",
-              "title": "Expose Contact Sensor",
-              "description": "If true, a contact sensor will be exposed which can be useful to view history in the Eve app.",
-              "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'garage_eachen'].includes(model.groups[arrayIndices].type));"
-              }
-            },
             "sensorId": {
               "type": "string",
               "title": "Sensor",
@@ -825,7 +817,6 @@
           "groups[].setup",
           "groups[].operationTime",
           "groups[].operationTimeDown",
-          "groups[].exposeContactSensor",
           "groups[].sensorId",
           "groups[].obstructId",
           "groups[].ipAddress",
