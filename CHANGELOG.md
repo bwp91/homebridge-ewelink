@@ -4,6 +4,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Set up a polling interval for outlet devices to obtain power information on a regular basis (useful when the device doesn't automatically send frequent updates)
+
 ### Changes
 
 * Adaptive Lighting now requires Homebridge 1.3 release
