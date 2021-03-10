@@ -7,6 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Adaptive Lighting now requires Homebridge 1.3 release
+* Garages no longer need 'dummy' contact sensor to view Eve history
 
 ## 5.2.0 (2021-03-08)
 
