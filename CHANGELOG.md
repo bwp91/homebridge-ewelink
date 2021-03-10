@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Adaptive Lighting now requires Homebridge 1.3 release
+
 ## 5.2.0 (2021-03-08)
 
 ### Added
