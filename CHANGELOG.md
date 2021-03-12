@@ -4,6 +4,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Enable LAN mode for TH10/TH16 devices (usage as a thermostat simulation requires cloud connection)
+
+### Changes
+
 * Attempt to fix outlet polling updates so the device reports updated info rather than the previous info.
 
 ## 5.3.0 (2021-03-10)
