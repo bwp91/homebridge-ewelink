@@ -6,7 +6,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-* Enable LAN mode for TH10/TH16 devices (usage as a thermostat simulation requires cloud connection)
+* The plugin now differentiates between LAN support for **incoming** and **outgoing** updates, allowing incoming updates for:
+  * TH10/16
+  * B02 and B05 bulbs
 
 ### Changes
 
