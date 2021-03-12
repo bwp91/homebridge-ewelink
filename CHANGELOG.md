@@ -2,6 +2,10 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+* Attempt to fix outlet polling updates so the device reports updated info rather than the previous info.
+
 ## 5.3.0 (2021-03-10)
 
 ### Added
