@@ -12,12 +12,6 @@
         "type": "string",
         "default": "eWeLink"
       },
-      "countryCode": {
-        "type": "string",
-        "title": "Country Code",
-        "placeholder": "Enter without the +",
-        "required": true
-      },
       "username": {
         "type": "string",
         "title": "Username",
@@ -644,7 +638,6 @@
       "type": "fieldset",
       "title": "Required Settings",
       "items": [
-        "countryCode",
         "username",
         "password"
       ]
