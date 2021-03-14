@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Remove country code configuration option as the plugin can determine your region automatically
+* Log entries to highlight unnecessary top-level configuration options you may have set
+
 ## 5.4.0 (2021-03-14)
 
 ### Added
