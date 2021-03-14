@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.4.0 (2021-03-14)
 
 ### Added
 
