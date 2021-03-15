@@ -9,6 +9,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Remove country code configuration option as the plugin can determine your region automatically
 * Log entries to highlight unnecessary top-level configuration options you may have set
 * Automatically show useful info in logs for 'yet to implement' devices
+* Log entries will show for 'uncontrollable' devices if `mode:lan` on plugin startup
 * Updated links on plugin-ui to match github wiki
 
 ## 5.4.0 (2021-03-14)
