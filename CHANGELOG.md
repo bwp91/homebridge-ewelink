@@ -9,6 +9,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Enable LAN control for the Sonoff SV
 * Log entries will show for 'uncontrollable' devices if `mode:lan` on plugin startup
 * Log entries to highlight unnecessary top-level configuration options you may have set
+* Added a note in the plugin settings about changing RF bridge sensors and its consequences
 
 ### Changes
 
