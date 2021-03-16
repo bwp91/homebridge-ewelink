@@ -15,7 +15,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Remove country code configuration option as the plugin can determine your region automatically
 * Automatically show useful info in logs for 'yet to implement' devices
-* Updated links on plugin-ui to match github wiki
+* Updated links on plugin-ui to match GitHub wiki
+* [backend] Eve characteristics abstracted into separate file for better efficiency
 
 ## 5.4.0 (2021-03-14)
 
