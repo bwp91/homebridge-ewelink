@@ -61,6 +61,8 @@
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
       },
       "singleDevices": {
+        "title": "Single Channel Devices",
+        "description": "Applies to single-channel switch, light switch and Slampher devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -99,6 +101,8 @@
         }
       },
       "multiDevices": {
+        "title": "Multi Channel Devices",
+        "description": "Applies to multi-channel switch and light switch devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -142,6 +146,8 @@
         }
       },
       "outletDevices": {
+        "title": "Outlet Devices",
+        "description": "Applies to outlet devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -200,6 +206,8 @@
         }
       },
       "lightDevices": {
+        "title": "Light Devices",
+        "description": "Applies to dimmer, bulb and LED strip devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -265,6 +273,8 @@
         }
       },
       "thDevices": {
+        "title": "Thermostat Devices",
+        "description": "Applies to thermostat devices and the TH10/16.",
         "type": "array",
         "items": {
           "type": "object",
@@ -315,6 +325,8 @@
         }
       },
       "fanDevices": {
+        "title": "Fan Devices",
+        "description": "Applies to iFan devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -345,6 +357,8 @@
         }
       },
       "sensorDevices": {
+        "title": "Sensor Devices",
+        "description": "Applies to the DW2 and Zigbee sensor devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -394,6 +408,7 @@
         }
       },
       "bridgeSensors": {
+        "title": "RF Sensor Devices",      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
         "type": "array",
         "items": {
           "type": "object",
@@ -468,6 +483,8 @@
         }
       },
       "groups": {
+        "title": "Accessory Simulations",
+        "description": "Set up simulated accessories from generic switch devices (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>).",
         "type": "array",
         "items": {
           "type": "object",
