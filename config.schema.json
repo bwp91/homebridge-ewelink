@@ -801,7 +801,11 @@
           "bridgeSensors[].type",
           "bridgeSensors[].sensorTimeLength",
           "bridgeSensors[].sensorTimeDifference",
-          "bridgeSensors[].overrideDisabledLogging"
+          "bridgeSensors[].overrideDisabledLogging",
+          {
+            "type": "help",
+            "helpvalue": "<label class=\"control-label text-warning\">⚠ Any changes you make to a sensor will reset its connected RF Bridge, resetting all its devices' HomeKit names, room associations and automations.</label>"
+          }
         ]
       }]
     },
