@@ -14,6 +14,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Remove country code configuration option as the plugin can determine your region automatically
+* Modified config schema to show titles/descriptions for non Homebridge UI users
 * Automatically show useful info in logs for 'yet to implement' devices
 * Updated links on plugin-ui to match GitHub wiki
 * [backend] Eve characteristics abstracted into separate file for better efficiency
