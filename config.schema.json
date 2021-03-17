@@ -10,6 +10,7 @@
     "properties": {
       "name": {
         "type": "string",
+        "title": "Plugin Name",
         "default": "eWeLink"
       },
       "username": {
@@ -53,7 +54,9 @@
         "description": "If true, debug information will be added to the log."
       },
       "debugFakegato": {
-        "type": "boolean"
+        "title": "Debug Fakegato",
+        "type": "boolean",
+        "description": "If true, the included Fakegato library will debug to the log."
       },
       "disablePlugin": {
         "title": "Disable Plugin",
