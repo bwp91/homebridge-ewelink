@@ -8,6 +8,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Remove the custom `minValue` for `CurrentTemperature` characteristic
 * More welcome messages
+* Updated `plugin-ui-utils` dependency
 
 ## v5.5.0 (2021-03-17)
 
