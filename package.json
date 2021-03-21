@@ -48,7 +48,7 @@
     }
   ],
   "dependencies": {
-    "@homebridge/plugin-ui-utils": "^0.0.18",
+    "@homebridge/plugin-ui-utils": "^0.0.19",
     "axios": "^0.21.1",
     "node-dns-sd": "^0.4.2",
     "p-queue": "^6.6.2",
