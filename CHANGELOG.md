@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.5.1 (2021-03-21)
 
 ### Changes
 
@@ -10,7 +10,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * More welcome messages
 * Updated `plugin-ui-utils` dependency
 
-## v5.5.0 (2021-03-17)
+## 5.5.0 (2021-03-17)
 
 ### Added
 
