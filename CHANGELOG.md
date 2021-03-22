@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+* Support for zigbee colour temperature lights (ewelink uiid 1258), including:
+  * Ikea Tradfri E14 600 lumen
+
 ## 5.5.1 (2021-03-21)
 
 ### Changes
