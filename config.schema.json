@@ -24,6 +24,10 @@
         "title": "Password",
         "required": true
       },
+      "encodedPassword": {
+        "title": "Encoded Password",
+        "type": "boolean"
+      },
       "mode": {
         "type": "string",
         "title": "Connection Mode",
@@ -668,6 +672,7 @@
       "title": "Optional Settings",
       "expandable": true,
       "items": [
+        "encodedPassword",
         "mode",
         "disableDeviceLogging",
         "debug",
