@@ -26,7 +26,8 @@
       },
       "encodedPassword": {
         "title": "Encoded Password",
-        "type": "boolean"
+        "type": "boolean",
+        "description": "If true, the plugin will decode your entered password from a base64 encoded string to plain text and use this to log into eWeLink."
       },
       "mode": {
         "type": "string",
