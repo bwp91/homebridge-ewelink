@@ -6,8 +6,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+* Enter your eWeLink password as a base64 encoded string and use the option `encodedPassword` to let the plugin know
 * Support for zigbee colour temperature lights (ewelink uiid 1258), including:
   * Ikea Tradfri E14 600 lumen
+
+### Changes
+
+* Attempt to request a new web socket host if the connection closes or returns an error
 
 ## 5.5.1 (2021-03-21)
 
