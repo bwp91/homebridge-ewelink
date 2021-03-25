@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 5.6.0 (2021-03-25)
 
 ### Added
 
@@ -12,7 +12,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-* Attempt to request a new web socket host if the connection closes or returns an error ([#224](https://github.com/bwp91/homebridge-ewelink/issues/224))
+* Improvements to web socket connection: ([#224](https://github.com/bwp91/homebridge-ewelink/issues/224))
+  * On startup, the plugin will wait to connect to the web socket before initialising devices
+  * A new web socket address will be requested if the provided address causes errors
 
 ## 5.5.1 (2021-03-21)
 
