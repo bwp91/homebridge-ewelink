@@ -14,10 +14,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* 'No Response' messages for **Zigbee and DW2** devices as they go on and offline
+* 'No Response' messages for  **all devices** if controlled and unsuccessful (and this status will be reverted after 5 seconds)
+  * This change **does not** apply to Accessory Simulations nor Zigbee devices (except wired switches) yet
 * Use the new `.onSet` methods available in Homebridge v1.3
-* Plugin will report 'offline' devices with a 'No Response' message in HomeKit apps when controlled (and this status will be reverted after 5 seconds)
-  * These changes **do not** apply to Accessory Simulations nor Zigbee devices (except wired switches) yet
-
+  * This change **does not** apply to Accessory Simulations nor Zigbee devices yet
+  
 ## 5.6.0 (2021-03-25)
 
 ### Added
