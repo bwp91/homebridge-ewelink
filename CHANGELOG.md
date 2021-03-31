@@ -8,9 +8,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * **Homebridge Users**
   * This plugin has a minimum requirement of Homebridge v1.3.3
+  * This plugin has a minimum requirement of Node v12
 
 * **HOOBS Users**
   * This plugin has a minimum requirement of HOOBS v3.3.4
+  * This plugin has a minimum requirement of Node v12
 
 ### Changes
 
