@@ -19,6 +19,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Use the new `.onGet`/`.onSet` methods available in Homebridge v1.3
 * Fixes a caching issue with the iFan accessory
 * Updated README to reflect minimum supported Homebridge/HOOBS and Node versions
+* Updated recommended Node to v14.16.1
   
 ## 5.6.0 (2021-03-25)
 
