@@ -16,8 +16,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * 'No Response' messages for **Zigbee and DW2** devices as they go on and offline
 * 'No Response' messages for  **all devices** if controlled and unsuccessful (and this status will be reverted after 5 seconds)
-* Use the new `.onSet` methods available in Homebridge v1.3
+* Use the new `.onGet`/`.onSet` methods available in Homebridge v1.3
 * Fixes a caching issue with the iFan accessory
+* Updated README to reflect minimum supported Homebridge/HOOBS and Node versions
   
 ## 5.6.0 (2021-03-25)
 
