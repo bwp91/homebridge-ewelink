@@ -26,7 +26,8 @@ Homebridge plugin to control eWeLink devices with original firmware
   * uses a web socket for real-time device control and updates
 
 ### Prerequisites
-* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) or [HOOBS](https://hoobs.org) installed. Please refer to the links for more information and installation instructions.
+* To use this plugin, you will need to already have [Homebridge](https://homebridge.io) (at least v1.3.3) or [HOOBS](https://hoobs.org) (at least v3.3.4) installed. Please refer to the links for more information and installation instructions.
+* It is recommended to use the current LTS version of Node, currently v14, however Node v10 and v12 are also supported.
 
 ### Setup
 * [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
