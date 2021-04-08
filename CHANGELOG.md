@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 6.0.3 (2021-04-08)
+
+### Changes
+
+* [fix] Revert 'No Response' messages for **DW2** devices as they go on and offline
+
 ## 6.0.2 (2021-04-07)
 
 ### Changes
