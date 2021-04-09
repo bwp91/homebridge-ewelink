@@ -2,6 +2,17 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+* Support for doorbell model SA-026 (exposed as a motion sensor)
+
+### Changes
+
+* Improvements to RF Bridge:
+  * No more characteristic warnings for `LastActivation` for motion and contact sensors
+
 ## 6.0.3 (2021-04-08)
 
 ### Changes
