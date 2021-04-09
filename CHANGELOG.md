@@ -12,6 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Improvements to RF Bridge:
   * No more characteristic warnings for `LastActivation` for motion and contact sensors
+  * Removed logs for 'not triggered' if device has since been triggered again
 
 ## 6.0.3 (2021-04-08)
 
