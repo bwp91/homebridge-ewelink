@@ -50,10 +50,12 @@ Homebridge plugin to control eWeLink devices with original firmware
 * [How to update node](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node)
 * [How to uninstall correctly](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-uninstall-correctly)
 
-### About
-* [About Me](https://github.com/sponsors/bwp91)
-* [Changelog](https://github.com/bwp91/homebridge-ewelink/releases)
+### Help/About
+
+* [Common Errors](https://github.com/bwp91/homebridge-ewelink/wiki/Common-Errors)
 * [Support Request](https://github.com/bwp91/homebridge-ewelink/issues/new/choose)
+* [Changelog](https://github.com/bwp91/homebridge-ewelink/blob/latest/CHANGELOG.md)
+* [About Me](https://github.com/sponsors/bwp91)
 
 ### Credits
 * To the original plugin maintainer: [@gbro115](https://github.com/gbro115).
