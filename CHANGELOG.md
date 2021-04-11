@@ -6,13 +6,15 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-* Support for doorbell model SA-026 (exposed as a motion sensor)
+* Support for doorbell model SA-026 (can be exposed as any sensor type as per other RF sensors)
+* Updated plugin-ui 'Support' page links to match GitHub readme file
 
 ### Changes
 
 * Improvements to RF Bridge:
   * No more characteristic warnings for `LastActivation` for motion and contact sensors
   * Removed logs for 'not triggered' if device has since been triggered again
+* Fixed the interval time length for calculating total energy consumption for relevant devices
 
 ## 6.0.3 (2021-04-08)
 
