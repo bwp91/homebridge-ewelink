@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Remove any existing humidity sensor for TH10/16 if DS18B20 sensor is used
+
 ## 6.1.1 (2021-04-13)
 
 ### Changes
