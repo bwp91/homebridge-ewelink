@@ -8,6 +8,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * LAN mode for Sonoff RF Bridge
 
+### Changes
+
+* More compact logging for eWeLink 504 error
+
 ## 6.1.2 (2021-04-14)
 
 ### Changes
