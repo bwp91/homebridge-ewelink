@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+* LAN mode for Sonoff RF Bridge
+
 ## 6.1.2 (2021-04-14)
 
 ### Changes
