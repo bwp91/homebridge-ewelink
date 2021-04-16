@@ -14,6 +14,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Remove online/offline status for Zigbee sensor devices
 * Recover accessories from the cache using the UUID
 * Reduce ws timeout to 5 seconds to reduce cases of `was slow to respond` HB warning
+* Update wiki links in the Homebridge plugin-ui
 
 ## 6.1.2 (2021-04-14)
 
