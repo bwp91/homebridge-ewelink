@@ -10,6 +10,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Fix characteristic NaN warning for `LastActivation`
 * More compact logging for eWeLink 504 error
 * Remove online/offline status for Zigbee sensor devices
 * Recover accessories from the cache using the UUID
