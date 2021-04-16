@@ -30,25 +30,24 @@ Homebridge plugin to control eWeLink devices with original firmware
 * It is recommended to use the current LTS version of Node, currently v14, however Node v10 and v12 are also supported.
 
 ### Setup
-* [Installation (Homebridge)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(Homebridge))
-* [Installation (HOOBS)](https://github.com/bwp91/homebridge-ewelink/wiki/Installation-(HOOBS))
+* [Installation](https://github.com/bwp91/homebridge-ewelink/wiki/Installation)
+* [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
+* [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
+* [Node Version](https://github.com/bwp91/homebridge-ewelink/wiki/Node-Version)
+* [Uninstallation](https://github.com/bwp91/homebridge-ewelink/wiki/Uninstallation)
 
 ### Features
-* [Configuration](https://github.com/bwp91/homebridge-ewelink/wiki/Configuration)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 * [Supported Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Supported-Devices)
 * [Multi Channel Devices](https://github.com/bwp91/homebridge-ewelink/wiki/Multi-Channel-Devices)
 * [RF Bridge Sensors](https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
-* [Beta Version](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
 
 ### How-to Guides
 * [How to set up Sonoff Camera (GK-200MP2-B)](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-set-up-Sonoff-Camera)
 * [How to copy Homebridge logs](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-copy-Homebridge-logs)
 * [How to enable/disable plugin extended logging](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-enable-disable-plugin-extended-logging)
 * [How to remove an accessory from the cache](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-remove-an-accessory-from-the-cache)
-* [How to update node](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-update-node)
-* [How to uninstall correctly](https://github.com/bwp91/homebridge-ewelink/wiki/How-to-uninstall-correctly)
 
 ### Help/About
 
