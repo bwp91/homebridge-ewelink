@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* Updated dependencies (`ws`)
+
 ## 6.2.0 (2021-04-16)
 
 ### Added
