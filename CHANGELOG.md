@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Trim new lines and spaces from password when decoded from base64
 * Updated dependencies (`ws`)
 
 ## 6.2.0 (2021-04-16)
