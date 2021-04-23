@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Changed update command for multi-switch devices to only update desired switch
 * Automatically retry eWeLink login on startup in case of certain error codes
 
 ## 6.2.1 (2021-04-18)
