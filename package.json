@@ -3,7 +3,7 @@
   "alias": "eWeLink",
   "version": "6.2.2-beta.5",
   "author": "bwp91",
-  "description": "Homebridge plugin to control eWeLink devices with original firmware.",
+  "description": "Homebridge plugin to control eWeLink devices.",
   "license": "MIT",
   "keywords": [
     "homebridge",
