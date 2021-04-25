@@ -5,7 +5,7 @@
   
 # homebridge-ewelink 
 
-Homebridge plugin to control eWeLink devices with original firmware
+Homebridge plugin to control eWeLink devices
 
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 [![hoobs-certified](https://badgen.net/badge/HOOBS/certified/yellow)](https://plugins.hoobs.org/plugin/homebridge-ewelink)   
