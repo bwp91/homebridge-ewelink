@@ -7,6 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Changed commands for multi-channel devices to only update desired channel (not all channels)
+* Pause Adaptive Lighting if device is offline
 * Automatically retry eWeLink login on startup in case of certain error codes
 * Update package description (remove 'with original firmware' as this is redundant for eWeLink devices)
 
