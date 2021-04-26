@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Adjust iFan speed thresholds (now 0% is off, 1-33% is low, 34-66% is medium and 67-100% is high)
 * Changed commands for multi-channel devices to only update desired channel (not all channels)
 * Pause Adaptive Lighting if device is offline
 * Automatically retry eWeLink login on startup in case of certain error codes
