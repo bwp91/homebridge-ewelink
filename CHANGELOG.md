@@ -4,6 +4,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Support DUALR3 motor mode (as a *WindowCovering* service)
+
 ### Changes
 
 * iFan devices now use caching to avoid unnecessary duplicate updates
