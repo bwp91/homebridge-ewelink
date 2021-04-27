@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* iFan devices now use caching to avoid unnecessary duplicate updates
 * Increase ws timeout from 5 to 6 seconds
 
 ## 6.2.2 (2021-04-27)
