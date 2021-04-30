@@ -2,6 +2,14 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+* iFan speed will now log as {low, medium, high}
+* More language strings added to separate language file
+* Backend function and variable name changes
+
 ## 6.3.0 (2021-04-28)
 
 ### Added
