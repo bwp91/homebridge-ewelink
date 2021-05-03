@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* RF Bridge remote buttons will turn on for 3 seconds in HomeKit when pressed
 * iFan speed will now log as {low, medium, high}
 * More language strings added to separate language file
 * Backend function and variable name changes
