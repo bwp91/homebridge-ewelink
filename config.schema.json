@@ -184,16 +184,6 @@
                 "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch);"
               }
             },
-            "pollingInterval": {
-              "type": "number",
-              "title": "Polling Interval",
-              "description": "If your outlet doesn't regularly send power usage to the plugin you can use this to set up a polling interval in seconds. Must be 15 or more.",
-              "placeholder": 30,
-              "minimum": 15,
-              "condition": {
-                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch);"
-              }
-            },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
@@ -731,7 +721,6 @@
           "outletDevices[].label",
           "outletDevices[].showAsSwitch",
           "outletDevices[].inUsePowerThreshold",
-          "outletDevices[].pollingInterval",
           "outletDevices[].ipAddress",
           "outletDevices[].overrideDisabledLogging"
         ]
