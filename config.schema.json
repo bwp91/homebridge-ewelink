@@ -129,6 +129,16 @@
               "title": "Show As Outlets",
               "description": "If true, this accessory will show as outlets in HomeKit instead of switches."
             },
+            "inUsePowerThreshold": {
+              "type": "number",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "Applies to DUALR3 devices. HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].showAsOutlet);"
+              }
+            },
             "hideChannels": {
               "type": "string",
               "title": "Hide Channels",
@@ -701,6 +711,7 @@
           "multiDevices[].deviceId",
           "multiDevices[].label",
           "multiDevices[].showAsOutlet",
+          "multiDevices[].inUsePowerThreshold",
           "multiDevices[].hideChannels",
           "multiDevices[].ipAddress",
           "multiDevices[].overrideDisabledLogging"
