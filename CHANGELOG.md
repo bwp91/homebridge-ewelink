@@ -4,10 +4,14 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+* Power, voltage and current readings for DUALR3 when exposed as outlets
+* RF Bridge remote buttons will turn on for 3 seconds in HomeKit when pressed
+
 ### Changes
 
 * Change Sonoff POWR2/S31 polling interval to a fixed 60 seconds
-* RF Bridge remote buttons will turn on for 3 seconds in HomeKit when pressed
 * iFan speed will now log as {low, medium, high}
 * More language strings added to separate language file
 * Backend function and variable name changes
