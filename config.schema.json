@@ -420,6 +420,12 @@
               "placeholder": 25,
               "minimum": 5
             },
+            "offset": {
+              "type": "number",
+              "title": "Temperature Offset",
+              "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
+              "placeholder": 0
+            },
             "hideLongDouble": {
               "type": "boolean",
               "title": "Hide Long & Double Press",
@@ -650,7 +656,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A DW2 sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage');"
               }
@@ -842,6 +848,7 @@
           "sensorDevices[].deviceId",
           "sensorDevices[].label",
           "sensorDevices[].lowBattThreshold",
+          "sensorDevices[].offset",
           "sensorDevices[].hideLongDouble",
           "sensorDevices[].scaleBattery",
           "sensorDevices[].overrideDisabledLogging"
