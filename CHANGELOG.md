@@ -8,13 +8,16 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Power, voltage and current readings for DUALR3 when exposed as outlets
 * RF Bridge remote buttons will turn on for 3 seconds in HomeKit when pressed
+* Link a Zigbee contact sensor to a single garage door to report the garage door state
+* Set a temperature offset for the Zigbee temperature/humidity sensor
+* Configuration options to manually set account http host and country code [#249](https://github.com/bwp91/homebridge-ewelink/pull/249)
 
 ### Changes
 
 * Change Sonoff POWR2/S31 polling interval to a fixed 60 seconds
 * iFan speed will now log as {low, medium, high}
 * More language strings added to separate language file
-* Backend function and variable name changes
+* Backend refactoring, function and variable name changes
 
 ## 6.3.0 (2021-04-28)
 
