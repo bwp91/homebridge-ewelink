@@ -29,6 +29,39 @@
         "type": "boolean",
         "description": "If true, the plugin will decode your entered password from a base64 encoded string to plain text and use this to log into eWeLink."
       },
+      "httpHost": {
+        "title": "HTTP Host",
+        "type": "string",
+        "description": "Override the default eWeLink HTTP API host, useful if you need to force a specific region/host.",
+        "placeholder": "eu-apia.coolkit.cc",
+        "oneOf": [{
+          "title": "Auto (Recommended)",
+          "enum": ["auto"]
+        },
+        {
+          "title": "eu-apia.coolkit.cc",
+          "enum": ["eu-apia.coolkit.cc"]
+        },
+        {
+          "title": "us-apia.coolkit.cc",
+          "enum": ["us-apia.coolkit.cc"]
+        },
+        {
+          "title": "as-apia.coolkit.cc",
+          "enum": ["as-apia.coolkit.cc"]
+        },
+        {
+          "title": "cn-apia.coolkit.cn",
+          "enum": ["cn-apia.coolkit.cn"]
+        }
+      ]
+      },
+      "countryCode": {
+        "title": "Country Code",
+        "type": "string",
+        "description": "Override the default country code sent for login, may help with auth issues for users in other regions.",
+        "placeholder": "+44"
+      },
       "mode": {
         "type": "string",
         "title": "Connection Mode",
@@ -67,18 +100,6 @@
         "title": "Disable Plugin",
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
-      },
-      "httpHost": {
-        "title": "HTTP Host",
-        "type": "string",
-        "description": "Override the default eWeLink HTTP API host, useful if you need to force a specific region/host.",
-        "placeholder": "eu-apia.coolkit.cc"
-      },
-      "countryCode": {
-        "title": "Country code",
-        "type": "string",
-        "description": "Override the default country code sent for login, may help with auth issues for users in other regions.",
-        "placeholder": "+44"
       },
       "singleDevices": {
         "title": "Single Channel Devices",
@@ -686,12 +707,12 @@
       "expandable": true,
       "items": [
         "encodedPassword",
+        "httpHost",
+        "countryCode",
         "mode",
         "disableDeviceLogging",
         "debug",
-        "disablePlugin",
-        "httpHost",
-        "countryCode"
+        "disablePlugin"
       ]
     },
     {
