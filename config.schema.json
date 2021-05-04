@@ -68,6 +68,18 @@
         "type": "boolean",
         "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
       },
+      "httpHost": {
+        "title": "HTTP Host",
+        "type": "string",
+        "description": "Override the default eWeLink HTTP API host, useful if you need to force a specific region/host.",
+        "placeholder": "eu-apia.coolkit.cc"
+      },
+      "countryCode": {
+        "title": "Country code",
+        "type": "string",
+        "description": "Override the default country code sent for login, may help with auth issues for users in other regions.",
+        "placeholder": "+44"
+      },
       "singleDevices": {
         "title": "Single Channel Devices",
         "description": "Applies to single-channel switch, light switch and Slampher devices.",
@@ -677,7 +689,9 @@
         "mode",
         "disableDeviceLogging",
         "debug",
-        "disablePlugin"
+        "disablePlugin",
+        "httpHost",
+        "countryCode"
       ]
     },
     {
