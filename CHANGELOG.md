@@ -19,6 +19,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 * Remove 'Outlet In Use' characteristics for outlets that don't support power readings
 * Remove Eve power characteristics for outlets that don't support power readings
 * More language strings added to separate language file
+* Accessory 'identify' function will now add an entry to the log
 * Backend refactoring, function and variable name changes
 
 ## 6.3.0 (2021-04-28)
