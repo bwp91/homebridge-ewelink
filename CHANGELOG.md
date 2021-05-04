@@ -2,7 +2,11 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 6.4.0 (2021-05-04)
+
+**Please Note**
+
+Since it is impossible for me to test *every* device type and all Accessory Simulations, there may be some unexpected issues. A lot of code has changed in this release. If you encounter any issues please let me know on Github or Discord and I will get it sorted as soon as I can :)
 
 ### Added
 
