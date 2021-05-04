@@ -16,6 +16,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 * Change Sonoff POWR2/S31 polling interval to a fixed 60 seconds
 * iFan speed will now log as {low, medium, high}
+* Remove 'Outlet In Use' characteristics for outlets that don't support power readings
+* Remove Eve power characteristics for outlets that don't support power readings
 * More language strings added to separate language file
 * Backend refactoring, function and variable name changes
 
