@@ -92,6 +92,11 @@
           }
         ]
       },
+      "apiPort": {
+        "type": "number",
+        "title": "Server API Port",
+        "description": "Port to use for the internal HTTP API. Set to 0 to disable. Set to 1 to choose a randomly available port."
+      },
       "disableDeviceLogging": {
         "type": "boolean",
         "title": "Disable Device Logging",
@@ -728,6 +733,7 @@
         "httpHost",
         "countryCode",
         "mode",
+        "apiPort",
         "disableDeviceLogging",
         "debug",
         "disablePlugin"
