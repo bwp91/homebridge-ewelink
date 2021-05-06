@@ -2,11 +2,18 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 6.5.0 (2021-05-06)
+
+### Added
+
+* Internal HTTP API to query/control the state of certain homebridge-ewelink accessories
+  * Options for new configuration setting `apiPort` are:
+    * `0` to disable the API (default setting)
+    * `1` to enable the API with a random available port (port will be shown in the log)
+    * Any higher integer to enable the API on this fixed port
+  * Documentation for the API can be seen at the base url (Homebridge IP + API port)
+
 ## 6.4.0 (2021-05-04)
-
-**Please Note**
-
-Since it is impossible for me to test *every* device type and all Accessory Simulations, there may be some unexpected issues. A lot of code has changed in this release. If you encounter any issues please let me know on Github or Discord and I will get it sorted as soon as I can :)
 
 ### Added
 
