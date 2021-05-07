@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+* Log internal API requests when in debug mode
 * Support querying temperature and humidity values via the internal API
 
 ### Changes
