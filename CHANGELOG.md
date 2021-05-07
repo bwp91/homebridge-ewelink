@@ -2,6 +2,16 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+* Support querying temperature and humidity values via the internal API
+
+### Changes
+
+* Display temperature and humidity units for the zigbee temperature/humidity sensor in the logs
+
 ## 6.5.1 (2021-05-07)
 
 ### Changes
