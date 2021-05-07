@@ -12,6 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 * Display temperature and humidity units for the zigbee temperature/humidity sensor in the logs
+* Fixes an issue where the web socket would not close on plugin shutdown
 
 ## 6.5.1 (2021-05-07)
 
