@@ -42,6 +42,7 @@ Homebridge plugin to control eWeLink devices
 * [RF Bridge Sensors](https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors)
 * [Accessory Simulations](https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations)
 * [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
+* [Internal API](https://github.com/bwp91/homebridge-ewelink/wiki/Internal-API)
 
 ### Help/About
 
