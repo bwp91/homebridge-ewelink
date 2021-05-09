@@ -11,6 +11,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+* Removed `encodedPassword` and `language` config options
+  * The plugin will now initially try the supplied password and if incorrect will attempt another login with a base64 decoded version
+  * Language option unnecessary until other languages are available
 * Display temperature and humidity units for the zigbee temperature/humidity sensor in the logs
 * Fixes an issue where the web socket would not close on plugin shutdown
 * Reduce the 'No Response' timeout to 2 seconds
