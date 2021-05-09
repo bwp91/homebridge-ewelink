@@ -24,26 +24,35 @@
         "title": "Password",
         "required": true
       },
-      "language": {
+      "mode": {
         "type": "string",
-        "title": "Language",
-        "description": "If you wish to see the plugin logging in your language and can help translate then let me know!",
-        "default": "en",
+        "title": "Connection Mode",
+        "description": "This setting defines how the plugin communicates with your devices. For further guidance, please refer to <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods\" target=\"_blank\">this wiki article</a>.",
+        "default": "auto",
         "oneOf": [{
-            "title": "English",
-            "enum": ["en"]
+            "title": "Auto (Recommended)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "Cloud Only",
+            "enum": ["wan"]
+          },
+          {
+            "title": "LAN Only",
+            "enum": ["lan"]
           }
         ]
       },
-      "encodedPassword": {
-        "title": "Encoded Password",
-        "type": "boolean",
-        "description": "If true, the plugin will decode your entered password from a base64 encoded string to plain text and use this to log into eWeLink."
+      "countryCode": {
+        "title": "Country Code",
+        "type": "string",
+        "description": "Override the default country code sent, may help with login issues for users in other regions.",
+        "placeholder": "+44"
       },
       "httpHost": {
         "title": "HTTP Host",
         "type": "string",
-        "description": "Override the default eWeLink HTTP API host, useful if you need to force a specific region/host.",
+        "description": "Override the default API host, may help with login issues for users in other regions.",
         "placeholder": "eu-apia.coolkit.cc",
         "oneOf": [{
           "title": "Auto (Recommended)",
@@ -67,34 +76,9 @@
         }
       ]
       },
-      "countryCode": {
-        "title": "Country Code",
-        "type": "string",
-        "description": "Override the default country code sent for login, may help with auth issues for users in other regions.",
-        "placeholder": "+44"
-      },
-      "mode": {
-        "type": "string",
-        "title": "Connection Mode",
-        "description": "This setting defines how the plugin communicates with your devices. For further guidance, please refer to <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods\" target=\"_blank\">this wiki article</a>.",
-        "default": "auto",
-        "oneOf": [{
-            "title": "Auto (Recommended)",
-            "enum": ["auto"]
-          },
-          {
-            "title": "Cloud Only",
-            "enum": ["wan"]
-          },
-          {
-            "title": "LAN Only",
-            "enum": ["lan"]
-          }
-        ]
-      },
       "apiPort": {
         "type": "number",
-        "title": "Server API Port",
+        "title": "Internal API Port",
         "description": "Port to use for the internal HTTP API. Set to 0 to disable. Set to 1 to choose a randomly available port."
       },
       "disableDeviceLogging": {
@@ -728,11 +712,9 @@
       "title": "Optional Settings",
       "expandable": true,
       "items": [
-        "language",
-        "encodedPassword",
-        "httpHost",
-        "countryCode",
         "mode",
+        "countryCode",
+        "httpHost",
         "apiPort",
         "disableDeviceLogging",
         "debug",
