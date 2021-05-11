@@ -48,7 +48,7 @@
       "countryCode": {
         "title": "Country Code",
         "type": "string",
-        "description": "Override the default country code sent, may help with login issues for users in other regions.",
+        "description": "Override the default country code, may help with login issues for users in other regions.",
         "placeholder": "+44"
       },
       "httpHost": {
