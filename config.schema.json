@@ -31,7 +31,8 @@
         "title": "Connection Mode",
         "description": "This setting defines how the plugin communicates with your devices. For further guidance, please refer to <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods\" target=\"_blank\">this wiki article</a>.",
         "default": "auto",
-        "oneOf": [{
+        "oneOf": [
+          {
             "title": "Auto (Recommended)",
             "enum": ["auto"]
           },
@@ -56,27 +57,28 @@
         "type": "string",
         "description": "Override the default API host, may help with login issues for users in other regions.",
         "placeholder": "eu-apia.coolkit.cc",
-        "oneOf": [{
-          "title": "Auto (Recommended)",
-          "enum": ["auto"]
-        },
-        {
-          "title": "eu-apia.coolkit.cc",
-          "enum": ["eu-apia.coolkit.cc"]
-        },
-        {
-          "title": "us-apia.coolkit.cc",
-          "enum": ["us-apia.coolkit.cc"]
-        },
-        {
-          "title": "as-apia.coolkit.cc",
-          "enum": ["as-apia.coolkit.cc"]
-        },
-        {
-          "title": "cn-apia.coolkit.cn",
-          "enum": ["cn-apia.coolkit.cn"]
-        }
-      ]
+        "oneOf": [
+          {
+            "title": "Auto (Recommended)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "eu-apia.coolkit.cc",
+            "enum": ["eu-apia.coolkit.cc"]
+          },
+          {
+            "title": "us-apia.coolkit.cc",
+            "enum": ["us-apia.coolkit.cc"]
+          },
+          {
+            "title": "as-apia.coolkit.cc",
+            "enum": ["as-apia.coolkit.cc"]
+          },
+          {
+            "title": "cn-apia.coolkit.cn",
+            "enum": ["cn-apia.coolkit.cn"]
+          }
+        ]
       },
       "apiPort": {
         "type": "number",
@@ -268,7 +270,8 @@
               "type": "string",
               "title": "Device Model",
               "description": "If your model is not listed then you do not need to set this.",
-              "oneOf": [{
+              "oneOf": [
+                {
                   "title": "B02-B-A60",
                   "enum": ["bulbB02BA60"]
                 },
@@ -477,7 +480,8 @@
               "type": "string",
               "title": "Sensor Type",
               "description": "Select the type of sensor you would like to expose this as.",
-              "oneOf": [{
+              "oneOf": [
+                {
                   "title": "Motion",
                   "enum": ["motion"]
                 },
@@ -552,7 +556,8 @@
               "type": "string",
               "title": "Type",
               "description": "The new type for this device.",
-              "oneOf": [{
+              "oneOf": [
+                {
                   "title": "1 Thermostat (with Sonoff TH10 or TH16)",
                   "enum": ["thermostat"]
                 },
@@ -625,7 +630,8 @@
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type));"
               },
-              "oneOf": [{
+              "oneOf": [
+                {
                   "title": "Single-Channel",
                   "enum": ["oneSwitch"]
                 },
@@ -701,13 +707,11 @@
       }
     }
   },
-  "layout": [{
+  "layout": [
+    {
       "type": "fieldset",
       "title": "Required Settings",
-      "items": [
-        "username",
-        "password"
-      ]
+      "items": ["username", "password"]
     },
     {
       "type": "fieldset",
@@ -730,16 +734,18 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "singleDevices[].deviceId",
-          "singleDevices[].label",
-          "singleDevices[].showAsOutlet",
-          "singleDevices[].ipAddress",
-          "singleDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "singleDevices[].deviceId",
+            "singleDevices[].label",
+            "singleDevices[].showAsOutlet",
+            "singleDevices[].ipAddress",
+            "singleDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "multiDevices",
@@ -748,18 +754,20 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "multiDevices[].deviceId",
-          "multiDevices[].label",
-          "multiDevices[].showAsOutlet",
-          "multiDevices[].inUsePowerThreshold",
-          "multiDevices[].hideChannels",
-          "multiDevices[].ipAddress",
-          "multiDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "multiDevices[].deviceId",
+            "multiDevices[].label",
+            "multiDevices[].showAsOutlet",
+            "multiDevices[].inUsePowerThreshold",
+            "multiDevices[].hideChannels",
+            "multiDevices[].ipAddress",
+            "multiDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "outletDevices",
@@ -768,17 +776,19 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "outletDevices[].deviceId",
-          "outletDevices[].label",
-          "outletDevices[].showAsSwitch",
-          "outletDevices[].inUsePowerThreshold",
-          "outletDevices[].ipAddress",
-          "outletDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "outletDevices[].deviceId",
+            "outletDevices[].label",
+            "outletDevices[].showAsSwitch",
+            "outletDevices[].inUsePowerThreshold",
+            "outletDevices[].ipAddress",
+            "outletDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "lightDevices",
@@ -787,18 +797,20 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "lightDevices[].deviceId",
-          "lightDevices[].label",
-          "lightDevices[].bulbModel",
-          "lightDevices[].brightnessStep",
-          "lightDevices[].adaptiveLightingShift",
-          "lightDevices[].ipAddress",
-          "lightDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "lightDevices[].deviceId",
+            "lightDevices[].label",
+            "lightDevices[].bulbModel",
+            "lightDevices[].brightnessStep",
+            "lightDevices[].adaptiveLightingShift",
+            "lightDevices[].ipAddress",
+            "lightDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "thDevices",
@@ -807,18 +819,20 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "thDevices[].deviceId",
-          "thDevices[].label",
-          "thDevices[].hideSwitch",
-          "thDevices[].offset",
-          "thDevices[].minTarget",
-          "thDevices[].maxTarget",
-          "thDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "thDevices[].deviceId",
+            "thDevices[].label",
+            "thDevices[].hideSwitch",
+            "thDevices[].offset",
+            "thDevices[].minTarget",
+            "thDevices[].maxTarget",
+            "thDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "fanDevices",
@@ -827,15 +841,17 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "fanDevices[].deviceId",
-          "fanDevices[].label",
-          "fanDevices[].hideLight",
-          "fanDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "fanDevices[].deviceId",
+            "fanDevices[].label",
+            "fanDevices[].hideLight",
+            "fanDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "sensorDevices",
@@ -844,18 +860,20 @@
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "sensorDevices[].deviceId",
-          "sensorDevices[].label",
-          "sensorDevices[].lowBattThreshold",
-          "sensorDevices[].offset",
-          "sensorDevices[].hideLongDouble",
-          "sensorDevices[].scaleBattery",
-          "sensorDevices[].overrideDisabledLogging"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "sensorDevices[].deviceId",
+            "sensorDevices[].label",
+            "sensorDevices[].lowBattThreshold",
+            "sensorDevices[].offset",
+            "sensorDevices[].hideLongDouble",
+            "sensorDevices[].scaleBattery",
+            "sensorDevices[].overrideDisabledLogging"
+          ]
+        }
+      ]
     },
     {
       "key": "bridgeSensors",
@@ -864,21 +882,23 @@
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "bridgeSensors[].fullDeviceId",
-          "bridgeSensors[].label",
-          "bridgeSensors[].type",
-          "bridgeSensors[].sensorTimeLength",
-          "bridgeSensors[].sensorTimeDifference",
-          "bridgeSensors[].overrideDisabledLogging",
-          {
-            "type": "help",
-            "helpvalue": "<label class=\"control-label text-warning\">⚠ Any changes you make to a sensor will reset its connected RF Bridge, resetting all its devices' HomeKit names, room associations and automations.</label>"
-          }
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "bridgeSensors[].fullDeviceId",
+            "bridgeSensors[].label",
+            "bridgeSensors[].type",
+            "bridgeSensors[].sensorTimeLength",
+            "bridgeSensors[].sensorTimeDifference",
+            "bridgeSensors[].overrideDisabledLogging",
+            {
+              "type": "help",
+              "helpvalue": "<label class=\"control-label text-warning\">⚠ Any changes you make to a sensor will reset its connected RF Bridge, resetting all its devices' HomeKit names, room associations and automations.</label>"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "groups",
@@ -887,25 +907,27 @@
       "description": "Set up simulated accessories from generic switch devices (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Accessory-Simulations\" target=\"_blank\">more info</a>).",
       "add": "Add Another Type",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "groups[].deviceId",
-          "groups[].label",
-          "groups[].type",
-          "groups[].setup",
-          "groups[].operationTime",
-          "groups[].operationTimeDown",
-          "groups[].sensorId",
-          "groups[].obstructId",
-          "groups[].ipAddress",
-          "groups[].overrideDisabledLogging",
-          {
-            "type": "help",
-            "helpvalue": "<label class=\"control-label text-warning\">⚠ If you find this accessory hasn't set up properly after restarting, then try removing it from the cache so it is re-added.</label>"
-          }
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": [
+            "groups[].deviceId",
+            "groups[].label",
+            "groups[].type",
+            "groups[].setup",
+            "groups[].operationTime",
+            "groups[].operationTimeDown",
+            "groups[].sensorId",
+            "groups[].obstructId",
+            "groups[].ipAddress",
+            "groups[].overrideDisabledLogging",
+            {
+              "type": "help",
+              "helpvalue": "<label class=\"control-label text-warning\">⚠ If you find this accessory hasn't set up properly after restarting, then try removing it from the cache so it is re-added.</label>"
+            }
+          ]
+        }
+      ]
     },
     {
       "key": "ignoredDevices",
@@ -913,12 +935,12 @@
       "title": "Ignored Devices",
       "add": "Add Another Device",
       "type": "array",
-      "items": [{
-        "type": "fieldset",
-        "items": [
-          "ignoredDevices[]"
-        ]
-      }]
+      "items": [
+        {
+          "type": "fieldset",
+          "items": ["ignoredDevices[]"]
+        }
+      ]
     }
   ]
 }
