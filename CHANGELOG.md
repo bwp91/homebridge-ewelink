@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changes
+
+- [Backend] Use `standard-prettier` code formatting
+- Recommended node version bump to v14.17.0
+
 ## 6.6.0 (2021-05-10)
 
 ### Added
