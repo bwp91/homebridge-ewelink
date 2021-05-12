@@ -6,6 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+- Fix internal API auth issue when using a base64 encoded password
 - [Backend] Use `standard-prettier` code formatting
 - Recommended node version bump to v14.17.0
 
