@@ -669,6 +669,14 @@
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type==='garage');"
               }
             },
+            "hideSensor": {
+              "type": "boolean",
+              "title": "Hide Sensor",
+              "description": "Hide the contact sensor from HomeKit",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].sensorId);"
+              }
+            },
             "obstructId": {
               "type": "string",
               "title": "Obstruction Switch",
@@ -918,6 +926,7 @@
             "groups[].operationTime",
             "groups[].operationTimeDown",
             "groups[].sensorId",
+            "groups[].hideSensor",
             "groups[].obstructId",
             "groups[].ipAddress",
             "groups[].overrideDisabledLogging",
