@@ -4,8 +4,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+- The ability to hide a contact sensor from HomeKit when used with a garage door simulation
+
 ### Changes
 
+- Avoid repeated battery logging for the Sonoff DW2
 - Fix internal API auth issue when using a base64 encoded password
 - [Backend] Use `standard-prettier` code formatting
 - Recommended node version bump to v14.17.0
