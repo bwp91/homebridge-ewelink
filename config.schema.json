@@ -672,7 +672,7 @@
             "hideSensor": {
               "type": "boolean",
               "title": "Hide Sensor",
-              "description": "Hide the contact sensor from HomeKit",
+              "description": "Hide this contact sensor accessory from HomeKit.",
               "condition": {
                 "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].sensorId);"
               }
