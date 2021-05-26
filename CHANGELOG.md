@@ -17,6 +17,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Throw an error when controlling a device when the web socket is closed (avoid queuing updates)
 - [Backend] Use `standard-prettier` code formatting
 - Recommended node version bump to v14.17.0
+- Bump `ws` dependency to v7.4.6
 
 ## 6.6.0 (2021-05-10)
 
