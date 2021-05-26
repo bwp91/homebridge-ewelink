@@ -2,7 +2,7 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-## BETA
+## 6.7.0 (2021-05-26)
 
 ### Added
 
@@ -15,9 +15,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - iFan logging modifications
 - Fix internal API auth issue when using a base64 encoded password
 - Throw an error when controlling a device when the web socket is closed (avoid queuing updates)
-- [Backend] Use `standard-prettier` code formatting
 - Recommended node version bump to v14.17.0
 - Bump `ws` dependency to v7.4.6
+- Use `standard-prettier` code formatting
 
 ## 6.6.0 (2021-05-10)
 
