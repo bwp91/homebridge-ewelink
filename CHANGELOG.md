@@ -2,6 +2,13 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## 6.7.1 (2021-05-27)
+
+### Changes
+
+- Fixes an issue with sensors with a garage simulation
+- Fixes an issue with TH10/16 devices with web socket timeouts
+
 ## 6.7.0 (2021-05-26)
 
 ### Added
