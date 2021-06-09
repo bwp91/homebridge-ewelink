@@ -2,6 +2,16 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Expose a single/multi channel device as any type of sensor
+
+### Changes
+
+- Fix a logging issue for the zigbee contact sensor
+
 ## 6.7.1 (2021-05-27)
 
 ### Changes
