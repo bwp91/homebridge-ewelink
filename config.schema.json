@@ -618,6 +618,10 @@
                   "enum": ["switch_valve"]
                 },
                 {
+                  "title": "1 Sensor (with single or multi channel device)",
+                  "enum": ["sensor"]
+                },
+                {
                   "title": "1 Leak Sensor (with Sonoff DW2)",
                   "enum": ["sensor_leak"]
                 }
@@ -628,7 +632,7 @@
               "title": "Device Setup",
               "description": "The type of generic device being used.",
               "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve', 'sensor'].includes(model.groups[arrayIndices].type));"
               },
               "oneOf": [
                 {
@@ -638,6 +642,44 @@
                 {
                   "title": "Multi-Channel",
                   "enum": ["twoSwitch"]
+                }
+              ]
+            },
+            "sensorType": {
+              "type": "string",
+              "title": "Sensor Type",
+              "description": "The type of sensor to use.",
+              "condition": {
+                "functionBody": "return (model.groups[arrayIndices] && model.groups[arrayIndices].type === 'sensor');"
+              },
+              "oneOf": [
+                {
+                  "title": "Motion",
+                  "enum": ["motion"]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": ["smoke"]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": ["water"]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": ["co"]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": ["co2"]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": ["occupancy"]
+                },
+                {
+                  "title": "Contact",
+                  "enum": ["contact"]
                 }
               ]
             },
@@ -923,6 +965,7 @@
             "groups[].label",
             "groups[].type",
             "groups[].setup",
+            "groups[].sensorType",
             "groups[].operationTime",
             "groups[].operationTimeDown",
             "groups[].sensorId",
