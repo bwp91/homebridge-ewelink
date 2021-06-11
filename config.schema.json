@@ -627,24 +627,6 @@
                 }
               ]
             },
-            "setup": {
-              "type": "string",
-              "title": "Device Setup",
-              "description": "The type of generic device being used.",
-              "condition": {
-                "functionBody": "return (model.groups[arrayIndices] && ['garage', 'lock', 'tap', 'valve', 'sensor'].includes(model.groups[arrayIndices].type));"
-              },
-              "oneOf": [
-                {
-                  "title": "Single-Channel",
-                  "enum": ["oneSwitch"]
-                },
-                {
-                  "title": "Multi-Channel",
-                  "enum": ["twoSwitch"]
-                }
-              ]
-            },
             "sensorType": {
               "type": "string",
               "title": "Sensor Type",
@@ -964,7 +946,6 @@
             "groups[].deviceId",
             "groups[].label",
             "groups[].type",
-            "groups[].setup",
             "groups[].sensorType",
             "groups[].operationTime",
             "groups[].operationTimeDown",
