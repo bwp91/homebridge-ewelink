@@ -12,6 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+- Remove `setup` config option for simulations as device type is now automatically determined
 - Fix a logging issue for the zigbee contact sensor
 
 ## 6.7.1 (2021-05-27)
