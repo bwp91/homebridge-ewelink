@@ -562,6 +562,10 @@
                   "enum": ["thermostat"]
                 },
                 {
+                  "title": "1 Cooler (with Sonoff TH10 or TH16)",
+                  "enum": ["cooler"]
+                },
+                {
                   "title": "1 Garage Door (with Eachen GDDC5)",
                   "enum": ["garage_eachen"]
                 },
@@ -714,7 +718,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'cooler', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
               }
             },
             "overrideDisabledLogging": {
