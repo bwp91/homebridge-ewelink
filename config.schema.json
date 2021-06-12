@@ -348,14 +348,14 @@
             "minTarget": {
               "type": "number",
               "title": "Minimum Target Temperature",
-              "description": "Minimum target temperature for TH10/16 heater simulation to show in HomeKit apps. Must be 0 or more.",
+              "description": "Minimum target temperature/humidity for TH10/16 heater/cooler/humidifer/dehumidifier simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
               "minimum": 0
             },
             "maxTarget": {
               "type": "number",
               "title": "Maximum Target Temperature",
-              "description": "Maximum target temperature for TH10/16 heater simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
+              "description": "Maximum target temperature/humidity for TH10/16 heater/cooler/humidifer/dehumidifier simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
               "minimum": 1
             },
@@ -566,6 +566,14 @@
                   "enum": ["cooler"]
                 },
                 {
+                  "title": "1 Humidifier (with Sonoff TH10 or TH16)",
+                  "enum": ["humidifier"]
+                },
+                {
+                  "title": "1 Dehumidifier (with Sonoff TH10 or TH16)",
+                  "enum": ["dehumidifier"]
+                },
+                {
                   "title": "1 Garage Door (with Eachen GDDC5)",
                   "enum": ["garage_eachen"]
                 },
@@ -718,7 +726,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'cooler', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'cooler', 'humidifier', 'dehumidifier', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
               }
             },
             "overrideDisabledLogging": {
