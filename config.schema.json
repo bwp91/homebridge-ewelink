@@ -348,14 +348,14 @@
             "minTarget": {
               "type": "number",
               "title": "Minimum Target Temperature",
-              "description": "Minimum target temperature for TH10/16 thermostat simulation to show in HomeKit apps. Must be 0 or more.",
+              "description": "Minimum target temperature for TH10/16 heater simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
               "minimum": 0
             },
             "maxTarget": {
               "type": "number",
               "title": "Maximum Target Temperature",
-              "description": "Maximum target temperature for TH10/16 thermostat simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
+              "description": "Maximum target temperature for TH10/16 heater simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
               "minimum": 1
             },
@@ -558,7 +558,7 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "1 Thermostat (with Sonoff TH10 or TH16)",
+                  "title": "1 Heater (with Sonoff TH10 or TH16)",
                   "enum": ["thermostat"]
                 },
                 {
