@@ -7,6 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 - Expose a single/multi channel device as any type of sensor
+- Expose a TH10/16 device as a *Cooler* accessory type (via simulation)
 - LAN control for TH10/16 (requires firmware 3.5.0)
 - [test] LAN control polling for POWR2 devices
 
