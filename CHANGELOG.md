@@ -12,6 +12,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
+- TH10/16 simulation accessory type change from thermostat to heater
 - Remove `setup` config option for simulations as device type is now automatically determined
 - Fix a logging issue for the zigbee contact sensor
 
