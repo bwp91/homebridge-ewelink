@@ -7,11 +7,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 - Expose a single/multi channel device as any type of sensor (via simulation)
+- Expose a single/multi channel device an _Air Purifier_ (via simulation)
 - Expose a TH10/16 device as a _Cooler_ accessory type (via simulation)
 - Expose a TH10/16 device as a _Humidifier_ accessory type (via simulation)
 - Expose a TH10/16 device as a _Dehumidfier_ accessory type (via simulation)
 - LAN control for TH10/16 (requires firmware 3.5.0, not available when using heater/cooler simulation)
 - [test] LAN control polling for POWR2 devices
+- Show MAC address of accessory in plugin-ui
 
 ### Changes
 
