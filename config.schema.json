@@ -348,14 +348,14 @@
             "minTarget": {
               "type": "number",
               "title": "Minimum Target Temperature",
-              "description": "Minimum target temperature/humidity for TH10/16 heater/cooler/humidifer/dehumidifier simulation to show in HomeKit apps. Must be 0 or more.",
+              "description": "Minimum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
               "minimum": 0
             },
             "maxTarget": {
               "type": "number",
               "title": "Maximum Target Temperature",
-              "description": "Maximum target temperature/humidity for TH10/16 heater/cooler/humidifer/dehumidifier simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
+              "description": "Maximum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
               "minimum": 1
             },
@@ -558,28 +558,12 @@
               "description": "The new type for this device.",
               "oneOf": [
                 {
-                  "title": "1 Heater (with Sonoff TH10 or TH16)",
-                  "enum": ["thermostat"]
-                },
-                {
-                  "title": "1 Cooler (with Sonoff TH10 or TH16)",
-                  "enum": ["cooler"]
-                },
-                {
-                  "title": "1 Humidifier (with Sonoff TH10 or TH16)",
-                  "enum": ["humidifier"]
-                },
-                {
-                  "title": "1 Dehumidifier (with Sonoff TH10 or TH16)",
-                  "enum": ["dehumidifier"]
+                  "title": "1 Garage Door (with single or multi channel device)",
+                  "enum": ["garage"]
                 },
                 {
                   "title": "1 Garage Door (with Eachen GDDC5)",
                   "enum": ["garage_eachen"]
-                },
-                {
-                  "title": "1 Garage Door (with single or multi channel device)",
-                  "enum": ["garage"]
                 },
                 {
                   "title": "2 Garage Doors (with multi channel device)",
@@ -632,6 +616,22 @@
                 {
                   "title": "1 Sensor (with single or multi channel device)",
                   "enum": ["sensor"]
+                },
+                {
+                  "title": "1 Heater (with Sonoff TH10 or TH16)",
+                  "enum": ["thermostat"]
+                },
+                {
+                  "title": "1 Cooler (with Sonoff TH10 or TH16)",
+                  "enum": ["cooler"]
+                },
+                {
+                  "title": "1 Humidifier (with Sonoff TH10 or TH16)",
+                  "enum": ["humidifier"]
+                },
+                {
+                  "title": "1 Dehumidifier (with Sonoff TH10 or TH16)",
+                  "enum": ["dehumidifier"]
                 },
                 {
                   "title": "1 Leak Sensor (with Sonoff DW2)",
