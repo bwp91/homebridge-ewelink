@@ -90,6 +90,10 @@
           <td id="eweFirmware"></td>
         </tr>
         <tr>
+          <th scope="row">MAC Address</th>
+          <td id="eweMacAddress"></td>
+        </tr>
+        <tr>
           <th scope="row">Shared Device</th>
           <td id="eweShared"></td>
         </tr>
@@ -297,6 +301,9 @@
           document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
           document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
           document.getElementById('eweFirmware').innerHTML = selectedAccessory.context.firmware
+          document.getElementById('eweMacAddress').innerHTML = selectedAccessory.context.macAddress
+            ? selectedAccessory.context.macAddress
+            : 'N/A'
           document.getElementById('eweModel').innerHTML =
             selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
           document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
