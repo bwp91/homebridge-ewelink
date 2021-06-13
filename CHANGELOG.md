@@ -5,6 +5,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ## BETA
 
 ### Added
+
 - **Accessory Simulations**
   - Expose a single/multi channel device as any type of sensor
   - Expose a single/multi channel device an _Air Purifier_
