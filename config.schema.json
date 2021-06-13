@@ -618,6 +618,10 @@
                   "enum": ["sensor"]
                 },
                 {
+                  "title": "1 Air Purifier (with single or multi channel device)",
+                  "enum": ["purifier"]
+                },
+                {
                   "title": "1 Heater (with Sonoff TH10 or TH16)",
                   "enum": ["thermostat"]
                 },
