@@ -13,10 +13,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Expose a TH10/16 device as a _Humidifier_
   - Expose a TH10/16 device as a _Dehumidfier_
 - **LAN Mode**
-  - Enabled for TH10/16
-    - Requires firmware 3.5.0
-    - Not available when using an accessory simulation
-  - [test] Enabled for polling for POWR2 devices
+  - Enabled for TH10/16 (requires firmware 3.5.0, not available when using an accessory simulation)
 - **Plugin UI**
   - Show MAC address of accessory in plugin-ui
 
