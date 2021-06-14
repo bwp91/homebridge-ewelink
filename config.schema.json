@@ -345,6 +345,12 @@
               "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0
             },
+            "humidityOffset": {
+              "type": "number",
+              "title": "Humidity Offset",
+              "description": "You can offset the humidity that the sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
+              "placeholder": 0
+            },
             "minTarget": {
               "type": "number",
               "title": "Minimum Target Temperature",
@@ -429,6 +435,12 @@
               "type": "number",
               "title": "Temperature Offset",
               "description": "You can offset the temperature that the SNZB-02 sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
+              "placeholder": 0
+            },
+            "humidityOffset": {
+              "type": "number",
+              "title": "Humidity Offset",
+              "description": "You can offset the humidity that the SNZB-02 sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0
             },
             "hideLongDouble": {
@@ -875,6 +887,7 @@
             "thDevices[].label",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
+            "thDevices[].humidityOffset",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
             "thDevices[].overrideDisabledLogging"
@@ -916,6 +929,7 @@
             "sensorDevices[].label",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].offset",
+            "sensorDevices[].humidityOffset",
             "sensorDevices[].hideLongDouble",
             "sensorDevices[].scaleBattery",
             "sensorDevices[].overrideDisabledLogging"
