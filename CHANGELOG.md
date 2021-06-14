@@ -7,9 +7,6 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 - Config option to offset the recorded humidity (%RH) for devices that report this
-
-### Changes
-
 - [test] Polling via LAN mode for outlet devices that report power attributes
 
 ## 6.8.0 (2021-06-14)
