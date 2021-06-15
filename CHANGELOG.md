@@ -9,6 +9,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Config option to offset the recorded humidity (%RH) for devices that report this
 - [test] Polling via LAN mode for outlet devices that report power attributes
 
+### Changes
+
+- If `mode` is `lan` then the plugin will not use accessory simulations for TH10/16 devices
+
 ## 6.8.0 (2021-06-14)
 
 ### Added
