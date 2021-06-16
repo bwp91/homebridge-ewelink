@@ -779,6 +779,10 @@
       "expandable": true,
       "items": [
         "mode",
+        {
+          "type": "help",
+          "helpvalue": "<label class=\"control-label text-warning\">⚠ Using LAN mode will remove any unsupported accessories from Homebridge.</label>"
+        },
         "countryCode",
         "httpHost",
         "apiPort",
