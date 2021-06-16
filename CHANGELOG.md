@@ -6,8 +6,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- Plugin LAN-only mode without need for eWeLink credentials (read more)
 - Config option to offset the recorded humidity (%RH) for devices that report this
 - Polling for TH10/16 devices as they do not seem to send regular updates from firmware 3.5.0
+- Zigbee Button now compares incoming notification against last trigger time
 - [test] Polling via LAN mode for outlet devices that report power attributes
 
 ### Changes
@@ -15,6 +17,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - If `mode` is `lan` then the plugin will not use accessory simulations for TH10/16 devices
 - Power reading polling for POWR2 and DUALR3 increased to two minutes
 - Device polling (for power, temperature and humidity) will no longer log when sending updates
+- `sensorTimeDifference` minimum value reduced to 5 seconds
 - Recommended node version bump to v14.17.1
 
 ## 6.8.0 (2021-06-14)
