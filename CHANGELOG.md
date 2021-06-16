@@ -6,7 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Plugin LAN-only mode without need for eWeLink credentials (read more)
+- Plugin LAN-only mode without need for eWeLink credentials ([read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials))
 - Config option to offset the recorded humidity (%RH) for devices that report this
 - Polling for TH10/16 devices as they do not seem to send regular updates from firmware 3.5.0
 - Zigbee Button now compares incoming notification against last trigger time
