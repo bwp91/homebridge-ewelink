@@ -456,9 +456,9 @@
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
-              "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something or a Zigbee Button press and the plugin receiving the notification. Must be 5 or more.",
               "placeholder": 120,
-              "minimum": 10
+              "minimum": 5
             },
             "overrideDisabledLogging": {
               "type": "boolean",
@@ -533,9 +533,9 @@
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
-              "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 10 or more.",
+              "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 5 or more.",
               "placeholder": 120,
-              "minimum": 10
+              "minimum": 5
             },
             "overrideDisabledLogging": {
               "type": "boolean",
@@ -932,6 +932,7 @@
             "sensorDevices[].humidityOffset",
             "sensorDevices[].hideLongDouble",
             "sensorDevices[].scaleBattery",
+            "sensorDevices[].sensorTimeDifference",
             "sensorDevices[].overrideDisabledLogging"
           ]
         }
