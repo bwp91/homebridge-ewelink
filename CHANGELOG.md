@@ -4,6 +4,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### ⚠️ Important
+
+- If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+
 ### Added
 
 - Plugin LAN-only mode without need for eWeLink credentials ([read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials))
