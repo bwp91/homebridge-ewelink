@@ -456,7 +456,7 @@
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
-              "description": "An offset in seconds to ignore any notifications if they is a delay between this Zigbee Motion Sensor detecting something or a Zigbee Button press and the plugin receiving the notification. Must be 5 or more.",
+              "description": "An offset in seconds to ignore notifications if the delay between this Zigbee Motion activating or Zigbee Button press and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
               "minimum": 5
             },
@@ -533,7 +533,7 @@
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
-              "description": "An offset in seconds to ignore any notifications if they is a delay between a sensor detecting something and the plugin receiving the notification. Must be 5 or more.",
+              "description": "An offset in seconds to ignore notifications if the delay between this sensor activating and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
               "minimum": 5
             },
