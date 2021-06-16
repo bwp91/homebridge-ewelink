@@ -17,7 +17,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - If `mode` is `lan` then the plugin will not use accessory simulations for TH10/16 devices
 - Power reading polling for POWR2 and DUALR3 increased to two minutes
 - Device polling (for power, temperature and humidity) will no longer log when sending updates
-- `sensorTimeDifference` minimum value reduced to 5 seconds
+- `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - Recommended node version bump to v14.17.1
 
 ## 6.8.0 (2021-06-14)
