@@ -19,7 +19,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-- If `mode` is `lan` then the plugin will not use accessory simulations for TH10/16 devices
+- Accessory simulations for TH10/16 devices no longer use eWeLink auto mode, allowing for LAN control
 - Power reading polling for POWR2 and DUALR3 increased to two minutes
 - Device polling (for power, temperature and humidity) will no longer log when sending updates
 - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
