@@ -21,7 +21,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Humidity Sensor Devices**
   - Config option to offset the recorded humidity (%RH) for devices that report this
 - **POWR2/DUALR3 Devices**
-- [test] Polling via LAN mode to enable constant power attribute updates
+  - [test] Polling via LAN mode to enable constant power attribute updates
 - **Zigbee Button Device**
   - Comparison of trigger time against notification time to reduce duplicate accessory updates
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
