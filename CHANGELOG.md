@@ -33,7 +33,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Power reading polling for POWR2/DUALR3 increased to two minutes
   - Small changes to the startup logging
 - **Configuration**
- - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
+  - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
   - Recommended node version bump to v14.17.1
   - Bump `ws` dependency to v7.5.0
