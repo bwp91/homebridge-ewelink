@@ -10,22 +10,33 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Plugin LAN-only mode without need for eWeLink credentials ([read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials))
-- LAN mode for iFan devices
-- Polling for TH10/16 devices as they do not seem to send regular updates from firmware 3.5.0
-- Config option to offset the recorded humidity (%RH) for devices that report this
-- Zigbee Button now compares incoming notification against last trigger time
-- [test] Polling via LAN mode for outlet devices that report power attributes
+- **LAN Mode (without eWeLink credentials)**
+  - The plugin now supports removing eWeLink credentials from the config when in LAN mode
+  - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+- **iFan Devices**
+  - LAN mode control enabled
+- **TH10/16 Devices**
+  - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
+  - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
+- **Humidity Sensor Devices**
+  - Config option to offset the recorded humidity (%RH) for devices that report this
+- **POWR2/DUALR3 Devices**
+- [test] Polling via LAN mode to enable constant power attribute updates
+- **Zigbee Button Device**
+  - Comparison of trigger time against notification time to reduce duplicate accessory updates
+  - Will no longer request current state when coming back online to reduce duplicate accessory updates
 
 ### Changes
 
-- Accessory simulations for TH10/16 devices no longer use eWeLink auto mode, allowing for LAN control
-- Power reading polling for POWR2 and DUALR3 increased to two minutes
-- Device polling (for power, temperature and humidity) will no longer log when sending updates
-- `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
-- Small changes to the startup logging
-- Recommended node version bump to v14.17.1
-- Bump `ws` dependency to v7.5.0
+- **Polling/Logging**
+  - Device polling (for power, temperature and humidity) will no longer log when sending updates
+  - Power reading polling for POWR2/DUALR3 increased to two minutes
+  - Small changes to the startup logging
+- **Configuration**
+ - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
+- **Dependencies**
+  - Recommended node version bump to v14.17.1
+  - Bump `ws` dependency to v7.5.0
 
 ## 6.8.0 (2021-06-14)
 
