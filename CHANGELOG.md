@@ -16,7 +16,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
   - If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
 - **Accessory Logging**
-  - `overrideDisabledLogging` option for each accessory type has been removed in favour of a new setting
+  - `overrideDisabledLogging` option for each accessory type has been removed in favour of a new setting `overrideLogging`
 - **iFan Devices**
   - LAN mode control enabled
   - Previous fan speed will be used again after turning off and on
