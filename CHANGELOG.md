@@ -30,7 +30,6 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Changes
 
 - **Polling/Logging**
-  - Device polling (for power, temperature and humidity) will no longer log when sending updates
   - Power reading polling for POWR2/DUALR3 increased to two minutes
   - Small changes to the startup logging
 - **Configuration**
