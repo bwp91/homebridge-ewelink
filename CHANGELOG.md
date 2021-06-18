@@ -4,34 +4,40 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-### ⚠️ Important
+### ⚠️ Breaking Changes
 
 - If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- `overrideDisabledLogging` config option for each accessory type has been removed in favour of a new setting `overrideLogging`
 
 ### Added
 
 - **LAN Mode (without eWeLink credentials)**
   - The plugin now supports removing eWeLink credentials from the config when in LAN mode
   - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+  - If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- **Accessory Logging**
+  - `overrideDisabledLogging` option for each accessory type has been removed in favour of a new setting
 - **iFan Devices**
   - LAN mode control enabled
   - Previous fan speed will be used again after turning off and on
 - **TH10/16 Devices**
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
   - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
-- **Humidity Sensor Devices**
-  - Config option to offset the recorded humidity (%RH) for devices that report this
 - **POWR2/DUALR3 Devices**
   - [test] Polling via LAN mode to enable constant power attribute updates
+- **RF Bridge Devices**
+  - Ability to change sensor type and other confiurable options without the need to re-add the accessory
 - **Zigbee Button Device**
   - Comparison of trigger time against notification time to reduce duplicate accessory updates
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
+- **Humidity Sensor Devices**
+  - Config option to offset the recorded humidity (%RH) for devices that report this
 
 ### Changes
 
 - **Polling/Logging**
   - Power reading polling for POWR2/DUALR3 increased to two minutes
-  - Small changes to the startup logging
+  - Changes to the startup logging including always logging accessory configuration options
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
