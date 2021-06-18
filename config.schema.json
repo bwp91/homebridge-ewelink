@@ -134,13 +134,28 @@
                 "functionBody": "return model.mode !== 'wan';"
               }
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -189,13 +204,28 @@
                 "functionBody": "return model.mode !== 'wan';"
               }
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -239,13 +269,28 @@
                 "functionBody": "return model.mode !== 'wan';"
               }
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -307,13 +352,28 @@
                 "functionBody": "return model.mode !== 'wan';"
               }
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -365,13 +425,28 @@
               "placeholder": 30,
               "minimum": 1
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -397,13 +472,28 @@
               "title": "Hide Light Switch",
               "description": "If true, the light switch will be hidden from HomeKit."
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -460,13 +550,28 @@
               "placeholder": 60,
               "minimum": 5
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -537,13 +642,28 @@
               "placeholder": 60,
               "minimum": 5
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -745,13 +865,28 @@
                 "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'cooler', 'humidifier', 'dehumidifier', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
               }
             },
-            "overrideDisabledLogging": {
-              "type": "boolean",
-              "title": "Override Disabled Logging",
-              "description": "If true, updates for this device will be added to the log, even if the general 'Disable Device Logging' setting is true.",
-              "condition": {
-                "functionBody": "return model.disableDeviceLogging;"
-              }
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -806,7 +941,7 @@
             "singleDevices[].label",
             "singleDevices[].showAsOutlet",
             "singleDevices[].ipAddress",
-            "singleDevices[].overrideDisabledLogging"
+            "singleDevices[].overrideLogging"
           ]
         }
       ]
@@ -828,7 +963,7 @@
             "multiDevices[].inUsePowerThreshold",
             "multiDevices[].hideChannels",
             "multiDevices[].ipAddress",
-            "multiDevices[].overrideDisabledLogging"
+            "multiDevices[].overrideLogging"
           ]
         }
       ]
@@ -849,7 +984,7 @@
             "outletDevices[].showAsSwitch",
             "outletDevices[].inUsePowerThreshold",
             "outletDevices[].ipAddress",
-            "outletDevices[].overrideDisabledLogging"
+            "outletDevices[].overrideLogging"
           ]
         }
       ]
@@ -871,7 +1006,7 @@
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
             "lightDevices[].ipAddress",
-            "lightDevices[].overrideDisabledLogging"
+            "lightDevices[].overrideLogging"
           ]
         }
       ]
@@ -894,7 +1029,7 @@
             "thDevices[].humidityOffset",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
-            "thDevices[].overrideDisabledLogging"
+            "thDevices[].overrideLogging"
           ]
         }
       ]
@@ -913,7 +1048,7 @@
             "fanDevices[].deviceId",
             "fanDevices[].label",
             "fanDevices[].hideLight",
-            "fanDevices[].overrideDisabledLogging"
+            "fanDevices[].overrideLogging"
           ]
         }
       ]
@@ -937,7 +1072,7 @@
             "sensorDevices[].hideLongDouble",
             "sensorDevices[].scaleBattery",
             "sensorDevices[].sensorTimeDifference",
-            "sensorDevices[].overrideDisabledLogging"
+            "sensorDevices[].overrideLogging"
           ]
         }
       ]
@@ -958,7 +1093,7 @@
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
             "bridgeSensors[].sensorTimeDifference",
-            "bridgeSensors[].overrideDisabledLogging",
+            "bridgeSensors[].overrideLogging",
             {
               "type": "help",
               "helpvalue": "<label class=\"control-label text-warning\">⚠ Any changes you make to a sensor will reset its connected RF Bridge, resetting all its devices' HomeKit names, room associations and automations.</label>"
@@ -988,7 +1123,7 @@
             "groups[].hideSensor",
             "groups[].obstructId",
             "groups[].ipAddress",
-            "groups[].overrideDisabledLogging",
+            "groups[].overrideLogging",
             {
               "type": "help",
               "helpvalue": "<label class=\"control-label text-warning\">⚠ If you find this accessory hasn't set up properly after restarting, then try removing it from the cache so it is re-added.</label>"
