@@ -15,6 +15,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
 - **iFan Devices**
   - LAN mode control enabled
+  - Previous fan speed will be used again after turning off and on
 - **TH10/16 Devices**
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
   - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
