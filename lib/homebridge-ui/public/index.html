@@ -284,33 +284,28 @@
         })
         showDeviceInfo = async hbDeviceId => {
           homebridge.showSpinner()
-          const selectedAccessory = cachedAccessories.find(x => x.context.hbDeviceId === hbDeviceId)
-
-          console.log(selectedAccessory)
-          document.getElementById('displayName').innerHTML = selectedAccessory.displayName
-          document.getElementById('reachableWAN').innerHTML = selectedAccessory.context.reachableWAN
+          const thisAcc = cachedAccessories.find(x => x.context.hbDeviceId === hbDeviceId)
+          const context = thisAcc.context
+          document.getElementById('displayName').innerHTML = thisAcc.displayName
+          document.getElementById('reachableWAN').innerHTML = context.reachableWAN
             ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
             : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
-          document.getElementById('reachableLAN').innerHTML = selectedAccessory.context.reachableLAN
+          document.getElementById('reachableLAN').innerHTML = context.reachableLAN
             ? '<i class="fas fa-circle mr-1 green-text"></i> Online'
             : '<i class="fas fa-circle mr-1 red-text"></i> Offline'
-          document.getElementById('lanIP').innerHTML = selectedAccessory.context.ip
-            ? selectedAccessory.context.ip
-            : 'N/A'
-          document.getElementById('hbDeviceId').innerHTML = selectedAccessory.context.hbDeviceId
-          document.getElementById('eweDeviceId').innerHTML = selectedAccessory.context.eweDeviceId
-          document.getElementById('eweBrandName').innerHTML = selectedAccessory.context.eweBrandName
-          document.getElementById('eweFirmware').innerHTML = selectedAccessory.context.firmware
-          document.getElementById('eweMacAddress').innerHTML = selectedAccessory.context.macAddress
-            ? selectedAccessory.context.macAddress
-            : 'N/A'
+          document.getElementById('lanIP').innerHTML = context.ip || 'N/A'
+          document.getElementById('hbDeviceId').innerHTML = context.hbDeviceId || 'N/A'
+          document.getElementById('eweDeviceId').innerHTML = context.eweDeviceId || 'N/A'
+          document.getElementById('eweBrandName').innerHTML = context.eweBrandName || 'N/A'
+          document.getElementById('eweFirmware').innerHTML = context.firmware || 'N/A'
+          document.getElementById('eweMacAddress').innerHTML = context.macAddress || 'N/A'
           document.getElementById('eweModel').innerHTML =
-            selectedAccessory.context.eweModel + ' (' + selectedAccessory.context.eweUIID + ')'
-          document.getElementById('eweShared').innerHTML = selectedAccessory.context.eweShared
-            ? 'Yes (by ' + selectedAccessory.context.eweShared + ')'
+            (context.eweModel || 'N/A') + ' (' + (context.eweUIID || 'N/A') + ')'
+          document.getElementById('eweShared').innerHTML = context.eweShared
+            ? 'Yes (by ' + context.eweShared + ')'
             : 'No'
-          document.getElementById('imgIcon').innerHTML = selectedAccessory.context.eweBrandLogo
-            ? '<img src="' + selectedAccessory.context.eweBrandLogo + '" style="width: 150px;">'
+          document.getElementById('imgIcon').innerHTML = context.eweBrandLogo
+            ? '<img src="' + context.eweBrandLogo + '" style="width: 150px;">'
             : ''
           document.getElementById('deviceTable').style.display = 'inline-table'
           homebridge.hideSpinner()
