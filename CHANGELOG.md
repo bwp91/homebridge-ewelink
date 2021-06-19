@@ -23,6 +23,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
     - `"debug"` to enable device update and debug logging for this accessory
     - `"disable"` to disable device update and debug logging for this accessory
   - The easiest way to manage these settings is through the Homebridge UI or the HOOBS UI
+  - This can be used for example to set TH10/16 or POWR2 device to `standard` when in global `debug` logging mode to stop the polling from flooding the logs
 - **iFan Devices**
   - LAN mode control enabled
   - Previous fan speed will be used again after turning off and on
