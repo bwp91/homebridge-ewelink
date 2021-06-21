@@ -25,12 +25,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - The easiest way to manage these settings is through the Homebridge UI or the HOOBS UI
   - This can be used for example to set TH10/16 or POWR2 device to `standard` when in global `debug` logging mode to stop the polling from flooding the logs
 - **iFan Devices**
-  - LAN mode control enabled
+  - Support for LAN mode control
   - Previous fan speed will be used again after turning off and on
 - **TH10/16 Devices**
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
   - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
 - **POWR2/DUALR3 Devices**
+  - Support for LAN mode control for DUALR3 in motor mode
   - [test] Polling via LAN mode to enable constant power attribute updates
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
