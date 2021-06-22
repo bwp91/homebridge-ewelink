@@ -34,7 +34,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Added option to specify a manual IP
 - **POWR2/DUALR3 Devices**
   - Support for LAN mode control for DUALR3 in motor mode
-  - [test] Polling via LAN mode to enable constant power attribute updates
+  - [test] Polling via LAN mode to enable constant power attribute updates for POWR2 devices
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
