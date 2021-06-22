@@ -42,7 +42,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Config option to offset the recorded humidity (%RH) for devices that report this
 - **Garage Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
-  
+
 ### Changes
 
 - **Polling/Logging**
