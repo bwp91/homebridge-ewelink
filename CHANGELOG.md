@@ -51,7 +51,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - **Polling/Logging**
   - Power reading polling for POWR2/DUALR3 increased to two minutes
-  - Changes to the startup logging including always logging accessory configuration options
+  - Changes to the startup logging:
+    - Accessory configuration options will always be logged on plugin startup
+    - Warning alerts if a device's discovered IP is different to any manually configured IP
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
