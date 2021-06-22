@@ -30,6 +30,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **TH10/16 Devices**
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
   - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
+  - Added option to specify a manual IP for a TH10/16
 - **POWR2/DUALR3 Devices**
   - Support for LAN mode control for DUALR3 in motor mode
   - [test] Polling via LAN mode to enable constant power attribute updates
