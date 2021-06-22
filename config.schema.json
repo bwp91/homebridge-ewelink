@@ -88,12 +88,12 @@
       "disableDeviceLogging": {
         "type": "boolean",
         "title": "Disable Device Logging",
-        "description": "If true, updates for all devices will not be added to the log when they are controlled."
+        "description": "Global logging setting for accessory status changes. If true then accessory status changes will not be logged. This can also be set per accessory later in the config."
       },
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "description": "If true, debug information will be added to the log."
+        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config.."
       },
       "debugFakegato": {
         "title": "Debug Fakegato",
