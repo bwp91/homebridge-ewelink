@@ -347,7 +347,7 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin. Only applicable to Sonoff D1.",
+              "description": "You can manually set the IP address for this Sonoff D1 if it cannot be discovered by the plugin.",
               "condition": {
                 "functionBody": "return model.mode !== 'wan';"
               }
@@ -424,6 +424,14 @@
               "description": "Maximum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
               "minimum": 1
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this Sonoff TH10/16 if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
             },
             "overrideLogging": {
               "type": "string",
@@ -1029,6 +1037,7 @@
             "thDevices[].humidityOffset",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
+            "thDevices[].ipAddress",
             "thDevices[].overrideLogging"
           ]
         }
