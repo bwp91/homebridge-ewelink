@@ -54,6 +54,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Changes to the startup logging:
     - Accessory configuration options will always be logged on plugin startup
     - Warning alerts if a device's discovered IP is different to any manually configured IP
+- **Garage Simulations**
+  - Removed `ContactSensorState` and other unneeded characteristics from the garage service
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
