@@ -480,6 +480,14 @@
               "title": "Hide Light Switch",
               "description": "If true, the light switch will be hidden from HomeKit."
             },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
+            },
             "overrideLogging": {
               "type": "string",
               "title": "Override Logging Setting",
@@ -1057,6 +1065,7 @@
             "fanDevices[].deviceId",
             "fanDevices[].label",
             "fanDevices[].hideLight",
+            "fanDevices[].ipAddress",
             "fanDevices[].overrideLogging"
           ]
         }
