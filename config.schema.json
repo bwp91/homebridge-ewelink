@@ -93,7 +93,7 @@
       "debug": {
         "title": "Debug Logging",
         "type": "boolean",
-        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config.."
+        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config."
       },
       "debugFakegato": {
         "title": "Debug Fakegato",
