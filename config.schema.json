@@ -592,9 +592,36 @@
           }
         }
       },
+      "rfDevices": {
+        "title": "RF Devices",
+        "description": "Applies to RF Bridge devices.",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "deviceId": {
+              "type": "string",
+              "title": "Device ID"
+            },
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
+            },
+            "ipAddress": {
+              "type": "string",
+              "title": "IP Address",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
+              "condition": {
+                "functionBody": "return model.mode !== 'wan';"
+              }
+            }
+          }
+        }
+      },
       "bridgeSensors": {
         "title": "RF Sensor Devices",
-        "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
+        "description": "Applies to RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
         "type": "array",
         "items": {
           "type": "object",
@@ -1096,9 +1123,23 @@
       ]
     },
     {
+      "key": "rfDevices",
+      "title": "RF Bridge Devices",
+      "description": "Applies to RF Bridge devices.",
+      "expandable": true,
+      "add": "Add Another Device",
+      "type": "array",
+      "items": [
+        {
+          "type": "fieldset",
+          "items": ["rfDevices[].deviceId", "rfDevices[].label", "rfDevices[].ipAddress"]
+        }
+      ]
+    },
+    {
       "key": "bridgeSensors",
-      "title": "RF Sensor Devices",
-      "description": "Applies to RF Bridge sensors to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
+      "title": "RF Subdevices",
+      "description": "Applies to RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
