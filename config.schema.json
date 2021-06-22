@@ -615,6 +615,29 @@
               "condition": {
                 "functionBody": "return model.mode !== 'wan';"
               }
+            },
+            "overrideLogging": {
+              "type": "string",
+              "title": "Override Logging Setting",
+              "description": "Override global logging setting for this device.",
+              "oneOf": [
+                {
+                  "title": "Default (Use Global Setting)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Enable Standard Logging",
+                  "enum": ["standard"]
+                },
+                {
+                  "title": "Enable Debug Logging",
+                  "enum": ["debug"]
+                },
+                {
+                  "title": "Disable All Logging",
+                  "enum": ["disable"]
+                }
+              ]
             }
           }
         }
@@ -1132,7 +1155,12 @@
       "items": [
         {
           "type": "fieldset",
-          "items": ["rfDevices[].deviceId", "rfDevices[].label", "rfDevices[].ipAddress"]
+          "items": [
+            "rfDevices[].deviceId",
+            "rfDevices[].label",
+            "rfDevices[].ipAddress",
+            "rfDevices[].overrideLogging"
+          ]
         }
       ]
     },
