@@ -608,6 +608,11 @@
               "type": "string",
               "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
+            "resetOnStartup": {
+              "title": "Reset Subdevices",
+              "type": "boolean",
+              "description": "If true, the plugin will remove and re-add all subdevices when the plugin initialises. Useful if adding or removing subdevices via the eWeLink app."
+            },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
@@ -1158,6 +1163,7 @@
           "items": [
             "rfDevices[].deviceId",
             "rfDevices[].label",
+            "rfDevices[].resetOnStartup",
             "rfDevices[].ipAddress",
             "rfDevices[].overrideLogging"
           ]
