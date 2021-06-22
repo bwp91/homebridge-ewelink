@@ -37,6 +37,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - [test] Polling via LAN mode to enable constant power attribute updates
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
+  - Added option to specify a manual IP for an RF Bridge
 - **Zigbee Button Device**
   - Comparison of trigger time against notification time to reduce duplicate accessory updates
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
