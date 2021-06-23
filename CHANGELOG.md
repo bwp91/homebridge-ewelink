@@ -4,29 +4,19 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
-### ⚠️ Breaking Changes
-
-- If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
-- `overrideDisabledLogging` config option for each accessory type has been removed in favour of a new setting `overrideLogging`
-
 ### Added
 
 - **LAN Mode (without eWeLink credentials)**
   - The plugin now supports removing eWeLink credentials from the config when in LAN mode
   - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
-  - If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
 - **Accessory Logging**
-  - `overrideDisabledLogging` option for each accessory type has been removed in favour of a new setting `overrideLogging`
-  - `overrideLogging` can be set to (and will override the global device logging and debug logging settings):
+  - `overrideLogging` setting per device type (to replace the removed `overrideDisabledLogging`), which can be set to (and will override the global device logging and debug logging settings):
     - `"default"` to follow the global device update and debug logging setting for this accessory (default if setting not set)
     - `"standard"` to enable device update logging but disable debug logging for this accessory
     - `"debug"` to enable device update and debug logging for this accessory
     - `"disable"` to disable device update and debug logging for this accessory
-  - The easiest way to manage these settings is through the Homebridge UI or the HOOBS UI
-  - This can be used for example to set TH10/16 or POWR2 device to `standard` when in global `debug` logging mode to stop the polling from flooding the logs
 - **iFan Devices**
   - Support for LAN mode control
-  - Previous fan speed will be used again after turning off and on
   - Added option to specify a manual IP
 - **TH10/16 Devices**
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
@@ -47,20 +37,28 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Garage Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
 
-### Changes
+### Changed
 
+- **LAN Mode**
+  - ⚠️ If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- **iFan Devices**
+  - Previous fan speed will be used again after turning off and on
 - **Polling/Logging**
   - Power reading polling for POWR2/DUALR3 increased to two minutes
   - Changes to the startup logging:
     - Accessory configuration options will always be logged on plugin startup
     - Warning alerts if a device's discovered IP is different to any manually configured IP
-- **Garage Simulations**
-  - Removed `ContactSensorState` and other unneeded characteristics from the garage service
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
+
   - Recommended node version bump to v14.17.1
   - Bump `ws` dependency to v7.5.0
+
+### Removed
+
+- `overrideDisabledLogging` setting for each accessory type
+- `ContactSensorState` and other unneeded characteristics from garage (simulation) services
 
 ## 6.8.0 (2021-06-14)
 
@@ -77,15 +75,21 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Plugin UI**
   - Show MAC address of accessory in plugin-ui
 
-### Changes
+### Changed
 
 - TH10/16 simulation accessory type change from _Thermostat_ to _Heater_
+
+### Removed
+
 - Remove `setup` config option for simulations as device type is now automatically determined
+
+### Fixed
+
 - Fix a logging issue for the zigbee contact sensor
 
 ## 6.7.1 (2021-05-27)
 
-### Changes
+### Fixed
 
 - Fixes an issue with sensors with a garage simulation
 - Fixes an issue with TH10/16 devices with web socket timeouts
@@ -97,15 +101,18 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Hide a contact sensor from HomeKit when used with a garage door simulation
 - Support devices with eWeLink UIID 112, 113, 114
 
-### Changes
+### Changed
 
 - Avoid repeated battery logging for the Sonoff DW2
 - iFan logging modifications
-- Fix internal API auth issue when using a base64 encoded password
 - Throw an error when controlling a device when the web socket is closed (avoid queuing updates)
 - Recommended node version bump to v14.17.0
 - Bump `ws` dependency to v7.4.6
 - Use `standard-prettier` code formatting
+
+### Fixed
+
+- Fix internal API auth issue when using a base64 encoded password
 
 ## 6.6.0 (2021-05-10)
 
@@ -114,25 +121,34 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Log internal API requests when in debug mode
 - Support querying temperature and humidity values via the internal API
 
-### Changes
+### Changed
 
-- Removed `encodedPassword` and `language` config options
-  - The plugin will now initially try the supplied password and if incorrect will attempt another login with a base64 decoded version
-  - Language option unnecessary until if and when other languages are available
 - Display temperature and humidity units for the zigbee temperature/humidity sensor in the logs
-- Fixes an issue where the web socket would not close on plugin shutdown
 - Reduce the 'No Response' timeout to 2 seconds
 - Update the correct corresponding characteristic after the 'No Response' timeout
 - Ensure user is using at least Homebridge v1.3.0
 - Update homebridge-ui wiki links to match github readme file
 
+### Removed
+
+- Removed `encodedPassword` and `language` config options
+  - The plugin will now initially try the supplied password and if incorrect will attempt another login with a base64 decoded version
+- Language option unnecessary until if and when other languages are available
+
+### Fixed
+
+- Fixes an issue where the web socket would not close on plugin shutdown
+
 ## 6.5.1 (2021-05-07)
 
-### Changes
+### Changed
 
-- Fixes an initialisation issue with the 'garage' and 'obstruction detection' switch simulations
 - Amendments to internal API endpoints
 - Device IP changes will now reflect correctly
+
+### Fixed
+
+- Fixes an initialisation issue with the 'garage' and 'obstruction detection' switch simulations
 
 ## 6.5.0 (2021-05-06)
 
@@ -155,7 +171,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Set a temperature offset for the Zigbee temperature/humidity sensor
 - Configuration options to manually set account http host and country code [#249](https://github.com/bwp91/homebridge-ewelink/pull/249)
 
-### Changes
+### Changed
 
 - Change Sonoff POWR2/S31 polling interval to a fixed 60 seconds
 - iFan speed will now log as {low, medium, high}
@@ -171,7 +187,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - Support DUALR3 motor mode (as a _WindowCovering_ service)
 
-### Changes
+### Changed
 
 - Remove old _Switch_ services from DUALR3 when in motor mode
 - iFan devices now use caching to avoid unnecessary duplicate updates
@@ -180,7 +196,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 6.2.2 (2021-04-27)
 
-### Changes
+### Changed
 
 - Adjust iFan speed thresholds (now 0% is off, 1-33% is low, 34-66% is medium and 67-100% is high)
 - Changed commands for multi-channel devices to only update desired channel (not all channels)
@@ -190,7 +206,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 6.2.1 (2021-04-18)
 
-### Changes
+### Changed
 
 - Trim new lines and spaces from password when decoded from base64
 - Updated dependencies (`ws`)
@@ -201,24 +217,30 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - LAN mode for Sonoff RF Bridge
 
-### Changes
+### Changed
 
-- Fix characteristic NaN warning for `LastActivation`
 - More compact logging for eWeLink 504 error
-- Remove online/offline status for Zigbee sensor devices
 - Recover accessories from the cache using the UUID
 - Reduce WS timeout to 5 seconds to reduce cases of `was slow to respond` HB warning
 - Update wiki links in the Homebridge plugin-ui
 
+### Removed
+
+- Remove online/offline status for Zigbee sensor devices
+
+### Fixed
+
+- Fix characteristic NaN warning for `LastActivation`
+
 ## 6.1.2 (2021-04-14)
 
-### Changes
+### Fixed
 
 - Remove any existing humidity sensor for TH10/16 if DS18B20 sensor is used
 
 ## 6.1.1 (2021-04-13)
 
-### Changes
+### Fixed
 
 - Fixed an unhandled rejection error when controlling certain CCT bulbs
 
@@ -229,22 +251,22 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Support for doorbell model SA-026 (can be exposed as any sensor type as per other RF sensors)
 - Updated plugin-ui 'Support' page links to match GitHub readme file
 
-### Changes
+### Changed
 
 - Improvements to RF Bridge:
   - No more characteristic warnings for `LastActivation` for motion and contact sensors
   - Removed logs for 'not triggered' if device has since been triggered again
-- Fixed the interval time length for calculating total energy consumption for relevant devices
 
 ## 6.0.3 (2021-04-08)
 
-### Changes
+### Fixed
 
-- [fix] Revert 'No Response' messages for **DW2** devices as they go on and offline
+- Revert 'No Response' messages for **DW2** devices as they go on and offline
+- Fixed the interval time length for calculating total energy consumption for relevant devices
 
 ## 6.0.2 (2021-04-07)
 
-### Changes
+### Changed
 
 - Revert 'No Response' messages for **DW2** devices as they go on and offline
 
@@ -259,14 +281,17 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **HOOBS Users**
   - This plugin has a minimum requirement of HOOBS v3.3.4
 
-### Changes
+### Changed
 
 - 'No Response' messages for **Zigbee and DW2** devices as they go on and offline
 - 'No Response' messages for **all devices** if controlled and unsuccessful (and this status will be reverted after 5 seconds)
 - Use the new `.onGet`/`.onSet` methods available in Homebridge v1.3
-- Fixes a caching issue with the iFan accessory
 - Updated README to reflect minimum supported Homebridge/HOOBS and Node versions
 - Updated recommended Node to v14.16.1
+
+### Fixed
+
+- Fixes a caching issue with the iFan accessory
 
 ## 5.6.0 (2021-03-25)
 
@@ -276,7 +301,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Support for zigbee colour temperature lights (ewelink uiid 1258) ([#222](https://github.com/bwp91/homebridge-ewelink/issues/222)), including:
   - Ikea Tradfri E14 600 lumen
 
-### Changes
+### Changed
 
 - Improvements to web socket connection: ([#224](https://github.com/bwp91/homebridge-ewelink/issues/224))
   - On startup, the plugin will wait to connect to the web socket before initialising devices
@@ -285,7 +310,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 5.5.1 (2021-03-21)
 
-### Changes
+### Changed
 
 - Remove the custom `minValue` for `CurrentTemperature` characteristic
 - More welcome messages
@@ -300,7 +325,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Log entries to highlight unnecessary top-level configuration options you may have set
 - Added a note in the plugin settings about changing RF bridge sensors and its consequences
 
-### Changes
+### Changed
 
 - Remove country code configuration option as the plugin can determine your region automatically
 - Modified config schema to show titles/descriptions for non Homebridge UI users
@@ -316,7 +341,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - TH10/16
   - B02 and B05 bulbs
 
-### Changes
+### Fixed
 
 - Attempt to fix outlet polling updates so the device reports updated info rather than the previous info.
 
@@ -326,7 +351,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - Set up a polling interval for outlet devices to obtain power information on a regular basis (useful when the device doesn't automatically send frequent updates)
 
-### Changes
+### Changed
 
 - Adaptive Lighting now requires Homebridge 1.3 release
 - Garages no longer need 'dummy' contact sensor to view Eve history
@@ -341,16 +366,19 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Expose an optional contact sensor for Eachen garage devices for historical data in the Eve app
   - Set custom minimum/maximum target temperatures for the TH10/16 thermostat simulation
 
-### Changes
+### Changed
 
 - Specify a custom IP for the Sonoff D1
 - Show full error stack on plugin disable in debug mode
-- Fixes a `multiple callback` error with CCT bulb accessories
 - Updated dependencies
+
+### Fixed
+
+- Fixes a `multiple callback` error with CCT bulb accessories
 
 ## 5.1.1 (2021-03-02)
 
-### Changes
+### Fixed
 
 - Fixes an issue sending LAN updates to multi-channel devices
 
@@ -368,46 +396,46 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Support for Sonoff SC (Sensor Centre)
   - [experimental] Support for Sonoff D1 LAN control
 
-### Changes
+### Changed
 
 - Less strict threshold for determining a 'significant' colour change for disabling Adaptive Lighting
 
 ## 5.0.6 (2021-02-26)
 
-### Changes
+### Fixed
 
 - Removes the extra _Switch_ service that was accidentally added to certain bulbs
 
 ## 5.0.5 (2021-02-25)
 
-### Changes
+### Changed
 
 - Reverse the polarity of the leak sensor simulation
   - You can expose a DW2 sensor as a leak sensor using [this guide](https://www.youtube.com/watch?v=YFu2LZfrrqs) as an Accessory Simulation
 
 ## 5.0.4 (2021-02-24)
 
-### Changes
+### Changed
 
 - Plugin will check that certain Accessory Simulations have been setup with the device type
 - Hide IP address field in plugin settings if plugin `mode` is set to `wan`
 
 ## 5.0.3 (2021-02-24)
 
-### Changes
+### Changed
 
 - Remove old _Switch_ services when setting up Accessory Simulations
 - Add the type of Accessory Simulation to the logged options on restart
 
 ## 5.0.2 (2021-02-24)
 
-### Changes
+### Fixed
 
 - Fixes an issue initialising Accessory Simulation Lock devices
 
 ## 5.0.1 (2021-02-24)
 
-### Changes
+### Fixed
 
 - Fixes an issue initialising Contact Sensor devices
 
@@ -441,35 +469,38 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Support for eWeLink switch uiid 81, 82, 83, 84 and 107 device types
   - Support for the 'Sonoff Hum' humidifier device (on/off and mode)
 
-### Changes
+### Changed
 
 - New plugin configuration format - [more info](https://gist.github.com/bwp91/e87d9d3eb0e5dbc08e9ae7b31e33366e)
 - Device firmware version will now show correctly in HomeKit apps
-- Fixes a characteristic warning for _MotionDetected_ for Zigbee Motion Sensors
 - Information about error 406 added to the logs in the form of a link (shown when error is received)
 - Updated minimum Node to v14.16.0
 
+### Fixed
+
+- Fixes a characteristic warning for _MotionDetected_ for Zigbee Motion Sensors
+
 ## 4.7.6 (2021-02-17)
 
-### Changes
+### Fixed
 
 - Fixes an issue with the DW2 detecting garage door states
 
 ## 4.7.5 (2021-02-15)
 
-### Changes
+### Changed
 
 - Fixes an issue with the DW2 detecting garage door states
 
 ## 4.7.4 (2021-02-15)
 
-### Changes
+### Fixed
 
 - Fixes an issue when using custom RF sensors
 
 ## 4.7.3 (2021-02-13)
 
-### Changes
+### Changed
 
 - Hide WS messages that have no useful information about a device
 - Thermostat accessory simulation will now setup after a small delay to let the accessory initialise first
@@ -480,21 +511,24 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 4.7.2 (2021-02-12)
 
-### Changes
+### Fixed
 
 - Fixes a bug where config items separated by a comma weren't adhered to properly
 - Stop subsequent warning messages if a device fails to initialise
 
 ## 4.7.1 (2021-02-11)
 
-### Changes
+### Changed
 
 - The 'auto' and 'cool' modes will now be hidden for thermostat devices in the Eve app
-- Fixed a bug when initialising lock accessory simulations
 - Added a 10 second timeout when sending web socket messages
 - Updated dependencies:
   - `websocket-as-promised` to v2.0.1
 - Fakegato library formatting and simplification
+
+### Fixed
+
+- Fixed a bug when initialising lock accessory simulations
 
 ## 4.7.0 (2021-02-10)
 
@@ -507,15 +541,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Added a note in the plugin UI when adding an Accessory Simulation that the accessory will need to be removed from the cache
 - Links to 'Configuration' and 'Uninstall' wiki pages in the plugin-ui
 
-### Changes
+### Changed
 
 - ⚠️ `ignoredDevices` configuration option is now an array not a string - [see details](https://gist.github.com/bwp91/90db67d578a8206c5a98a3447839f9e5)
-- ⚠️ Removed `nameOverride` configuration option - the plugin can now obtain channel names from eWeLink
-- ⚠️ Removed `resetRFBridge` option - the same usage can be achieved with `ignoredDevices`
 - Reinstated `ipOverride` into the Homebridge plugin UI screen
 - Improved colour temperature conversion for L1 and L1 Lite devices
-- Fixed a bug where Adaptive Lighting would not be disabled if the colour was changed from the eWeLink app
-- Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
 - HTTP error codes will be displayed in the logs if and when the plugin re-attempts the connection
 - Error messages refactored to show the most useful information
 - [Backend] Major code refactoring
@@ -524,21 +554,31 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - Updated minimum Homebridge to v1.1.7
 - Updated dependencies
 
+### Removed
+
+- Removed `nameOverride` configuration option - the plugin can now obtain channel names from eWeLink
+- Removed `resetRFBridge` option - the same usage can be achieved with `ignoredDevices`
+
+### Fixed
+
+- Fixed a bug where Adaptive Lighting would not be disabled if the colour was changed from the eWeLink app
+- Fixed an issue with the 'Lock' Accessory Simulation where the status would never update as 'Unlocked'
+
 ## 4.6.1 (2021-02-02)
 
-### Changes
+### Changed
 
 - Extra debug logging for WS reconnection status
 - Updated `ws` dependency to v7.4.3
 
 ## 4.6.0 (2021-01-30)
 
-### New
+### Added
 
 - **[Experimental]** Use a TH10/16 device as a thermostat using an Accessory Simulation [more info](https://github.com/bwp91/homebridge-ewelink/issues/161#issuecomment-770230157)
 - Support for the Zigbee type white bulb
 
-### Changes
+### Changed
 
 - Updated plugin-ui-utils dep and use new method to get cached accessories
 - Increase the timeout for LAN control to 10 seconds for LAN only settings
@@ -546,92 +586,93 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## 4.5.1 (2021-01-28)
 
-### Changes
+### Changed
 
 - Set the switch as the primary service of a TH10/16 device
 - Only show the line in error logs if it exists (no more `[line undefined]`)
+
+### Fixed
+
 - Fixes an issue where RF sensors would not use a custom defined type (again!)
 
 ## 4.5.0 (2021-01-28)
 
-### New
+### Added
 
 - Use a switch to control the `Obstruction Detected` feature of a garage door
 
-### Changes
+### Changed
+
+- More consistent and clearer error logging
+
+### Fixed
 
 - Fix for TH10/16 devices when the HomeKit switch would show the state of 'auto' mode
 - Fix for TH10/16 devices (shown as thermostat) where the plugin would not show the current state of the device
 - Fix for the display of watts/amps/volts for outlets that support this
-- More consistent and clearer error logging
 
 ## 4.4.5 (2021-01-24)
 
-### Changes
+### Fixed
 
 - Fix where the battery for DW2 device would not update
 
 ## 4.4.4 (2021-01-24)
 
-### Changes
+### Changed
 
 - Backend - better handling of errors
 
 ## 4.4.3 (2021-01-20)
 
-### Changes
+### Fixed
 
 - Fixes an issue where RF sensors would not use a custom defined type
 
 ## 4.4.2 (2021-01-20)
 
-### Changes
+### Changed
+
+- Minimum Homebridge beta needed for Adaptive Lighting bumped to beta-46
+
+### Fixed
 
 - Fixes an issue when adding new RF bridge devices
-- Minimum Homebridge beta needed for Adaptive Lighting bumped to beta-46
 
 ## 4.4.1 (2021-01-20)
 
-### Changes
+### Changed
 
 - Fakegato logging disabled in Homebridge `debug` mode, can be explicitly enabled with `debugFakegato`
 
 ## 4.4.0 (2021-01-14)
 
-### ⚠️ Breaking Changes
-
-- **Accessory Simulations** - if use the following:
-  - 1 Lock
-  - 1 Tap/Faucet
-  - 1 Valve
-- you will need to update your configuration with the Device Setup field (via Homebridge UI) or adding the line `"setup": "oneSwitch"` directly to your configuration file in the groups section
-
-### New
+### Added
 
 - Single Accessory Simulations for multi-channel devices (e.g. 1 valve using a Sonoff 4CH)
 - `operationTime` for Accessory Simulations will now be validated and increased to 20 if less than 20 or an invalid number
 
-### Changes
+### Changed
 
+- ⚠️ **Accessory Simulations** - if use '1 Lock', '1 Tap/Faucet' or '1 Valve' you will need to update your configuration with the Device Setup field (via Homebridge UI) or adding the line `"setup": "oneSwitch"` directly to your configuration file in the groups section
 - Changes to plugin now in CHANGELOG.md
+
+### Removed
+
 - Removed `Obstruction Detected` tests
 
 ## 4.3.0 (2021-01-12)
 
-### ⚠️ Breaking Changes
-
-- `hideDevFromHB` config option renamed to `ignoredDevices`
-  - After installing this update any hidden devices may reappear in Homebridge. Please edit your configuration directly, changing `hideDevFromHB` to `ignoredDevices`. The devices will be removed upon Homebridge restart.
-
-### New
+### Added
 
 - New Accessory Simulations:
   - 2 Taps/Faucets using a multi-channel device
   - 4 Irrigation Valves using a multi-channel device #182
 - New `disableDeviceLogging` config option to hide device state logging #183
 
-### Changes
+### Changed
 
+- `hideDevFromHB` config option renamed to `ignoredDevices`
 - Minimum `operationTime` for associated Accessory Simulations increased to 20 (2 seconds)
 - Removal of maximum values on plugin settings screen for all `number` types
 - Changes to startup log messages
