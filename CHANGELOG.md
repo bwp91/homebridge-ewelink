@@ -15,6 +15,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
     - `"standard"` to enable device update logging but disable debug logging for this accessory
     - `"debug"` to enable device update and debug logging for this accessory
     - `"disable"` to disable device update and debug logging for this accessory
+- **Startup Logging**
+  - An accessory warning if a manually configured IP is different from the discovered IP
+  - An accessory warning if a shared device is used over the cloud
 - **iFan Devices**
   - Support for LAN mode control
   - Added option to specify a manual IP
@@ -41,17 +44,15 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - **LAN Mode**
   - ⚠️ If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- **Startup Logging**
+  - Accessory configuration options will be logged regardless of logging level
 - **iFan Devices**
   - Previous fan speed will be used again after turning off and on
-- **Polling/Logging**
-  - Power reading polling for POWR2/DUALR3 increased to two minutes
-  - Changes to the startup logging:
-    - Accessory configuration options will always be logged on plugin startup
-    - Warning alerts if a device's discovered IP is different to any manually configured IP
+- **POWR2/DUALR3 Devices**
+  - Polling for power/temperature/humidity readings increased to two minutes
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
-
   - Recommended node version bump to v14.17.1
   - Bump `ws` dependency to v7.5.0
 
