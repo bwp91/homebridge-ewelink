@@ -18,6 +18,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Startup Logging**
   - An accessory warning if a manually configured IP is different from the discovered IP
   - An accessory warning if a shared device is used over the cloud
+  - An accessory warning if a cloud-device is reported offline
 - **No Response Status**
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
 - **iFan Devices**
