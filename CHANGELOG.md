@@ -53,6 +53,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Previous fan speed will be used again after turning off and on
 - **POWR2/DUALR3 Devices**
   - Polling for power/temperature/humidity readings increased to two minutes
+  - Polling for data will be skipped if device is marked as offline
+- **TH10/16 Devices**
+  - Polling for data will be skipped if device is marked as offline
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
