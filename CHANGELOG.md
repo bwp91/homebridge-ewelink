@@ -23,6 +23,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
 - **Single/Multi-Channel Devices**
   - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
+  - Wattage/Voltage/Amp readings (via Eve app) now visible for DUALR3 when in motor mode
   - Support for LAN mode control for DUALR3 in motor mode
   - Polling via LAN mode to enable constant power attribute updates for POWR2 devices
 - **iFan Devices**
@@ -64,6 +65,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Dependencies**
   - Recommended node version bump to v14.17.1
   - Bump `ws` dependency to v7.5.0
+
+### Fixed
+
+- An issue preventing controlling a garage door simulation when using a sensor
 
 ### Removed
 
