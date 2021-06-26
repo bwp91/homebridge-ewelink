@@ -21,6 +21,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - An accessory warning if a cloud-device is reported offline
 - **No Response Status**
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
+- **Single/Multi-Channel Devices**
+  - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
+  - Support for LAN mode control for DUALR3 in motor mode
+  - Polling via LAN mode to enable constant power attribute updates for POWR2 devices
 - **iFan Devices**
   - Support for LAN mode control
   - Added option to specify a manual IP
@@ -28,10 +32,6 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
   - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
   - Added option to specify a manual IP
-- **POW/DUAL Devices**
-  - Support for LAN mode control for DUALR3 in motor mode
-  - Polling via LAN mode to enable constant power attribute updates for POWR2 devices
-  - Reinstate power readings in the Eve app for Sonoff POW(R1) devices
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
