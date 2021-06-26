@@ -44,7 +44,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Garage Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
 - **New Devices**
-  - Support for device with eWeLink UIID 67 *RollingDoor*
+  - Support for device with eWeLink UIID 67 _RollingDoor_
 
 ### Changed
 
