@@ -44,6 +44,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Config option to offset the recorded humidity (%RH) for devices that report this
 - **Garage Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
+- **Lock Simulations**
+  - Added the option of using a DW2 or Zigbee contact sensor to determine *Locked* and *Unlocked* state
 - **New Devices**
   - Support for device with eWeLink UIID 67 _RollingDoor_
 
