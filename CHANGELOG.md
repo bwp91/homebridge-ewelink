@@ -45,7 +45,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Garage Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
 - **Lock Simulations**
-  - Added the option of using a DW2 or Zigbee contact sensor to determine *Locked* and *Unlocked* state
+  - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state
 - **New Devices**
   - Support for device with eWeLink UIID 67 _RollingDoor_
 
@@ -66,7 +66,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
   - Recommended node version bump to v14.17.1
-  - Bump `ws` dependency to v7.5.0
+  - Bump `ws` dependency to v7.5.1
 
 ### Fixed
 
