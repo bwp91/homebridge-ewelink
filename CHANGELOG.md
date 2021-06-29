@@ -47,6 +47,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Lock Simulations**
   - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state
 - **New Devices**
+  - Support for Zigbee leak sensors
   - Support for device with eWeLink UIID 67 _RollingDoor_
 
 ### Changed
