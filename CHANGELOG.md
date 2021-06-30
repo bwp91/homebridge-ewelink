@@ -25,7 +25,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
   - Wattage/Voltage/Amp readings (via Eve app) now visible for DUALR3 when in motor mode
   - Support for LAN mode control for DUALR3 in motor mode
-  - Polling via LAN mode to enable constant power attribute updates for POWR2/DUALR3 devices
+  - Polling via LAN mode to enable constant power attribute updates for POW/R2 devices
 - **iFan Devices**
   - Support for LAN mode control
   - Added option to specify a manual IP
