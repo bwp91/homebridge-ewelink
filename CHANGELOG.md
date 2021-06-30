@@ -25,7 +25,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
   - Wattage/Voltage/Amp readings (via Eve app) now visible for DUALR3 when in motor mode
   - Support for LAN mode control for DUALR3 in motor mode
-  - Polling via LAN mode to enable constant power attribute updates for POWR2 devices
+  - Polling via LAN mode to enable constant power attribute updates for POWR2/DUALR3 devices
 - **iFan Devices**
   - Support for LAN mode control
   - Added option to specify a manual IP
@@ -42,10 +42,10 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
 - **Humidity Sensor Devices**
   - Config option to offset the recorded humidity (%RH) for devices that report this
-- **Garage Simulations**
+- **Accessory Simulations**
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
-- **Lock Simulations**
-  - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state
+  - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state for lock simulation
+  - Wattage/Voltage/Amp readings (via Eve app) visible for simulations when using a DUALR3 device
 - **New Devices**
   - Support for Zigbee leak sensors
   - Support for device with eWeLink UIID 67 _RollingDoor_
