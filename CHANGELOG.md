@@ -72,6 +72,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Fixed
 
 - An issue preventing controlling a garage door simulation when using a sensor
+- Fixed the multiple notifications when closing an eachen device garage door
 
 ### Removed
 
