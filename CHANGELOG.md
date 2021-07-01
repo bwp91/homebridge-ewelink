@@ -37,9 +37,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
   - Added option to specify a manual IP for an RF Bridge
-- **Zigbee Button Device**
+- **Zigbee Button Devices**
   - Comparison of trigger time against notification time to reduce duplicate accessory updates
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
+- **Zigbee Switch Devices**
+  - Option to expose as an `Outlet`
 - **Humidity Sensor Devices**
   - Config option to offset the recorded humidity (%RH) for devices that report this
 - **Accessory Simulations**
