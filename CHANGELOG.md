@@ -37,6 +37,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
   - Added option to specify a manual IP for an RF Bridge
+- **Light Devices**
+  - Remove Adaptive Lighting feature from a device by setting the `adaptiveLightingShift` to `-1`
 - **Zigbee Button Devices**
   - Comparison of trigger time against notification time to reduce duplicate accessory updates
   - Will no longer request current state when coming back online to reduce duplicate accessory updates
