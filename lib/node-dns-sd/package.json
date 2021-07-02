@@ -1,0 +1,62 @@
+{
+  "_from": "node-dns-sd",
+  "_id": "node-dns-sd@0.4.2",
+  "_inBundle": false,
+  "_integrity": "sha512-fZvDqy19zyaiSXajmRjwue1VWLrJcy8bTV/LJVtAx8DeEFVlXRBMyZknW+q6CEfiW8Y4MQDDKh9x5wF32BHAHQ==",
+  "_location": "/node-dns-sd",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "node-dns-sd",
+    "name": "node-dns-sd",
+    "escapedName": "node-dns-sd",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-dns-sd/-/node-dns-sd-0.4.2.tgz",
+  "_shasum": "b72ec7a7323d0706b09fbfa8a7b90f9f4b66e32e",
+  "_spec": "node-dns-sd",
+  "_where": "/Users/benpotter1991/Packages/homebridge-ewelink",
+  "author": {
+    "name": "Futomi Hatano",
+    "email": "futomi.hatano@gmail.com",
+    "url": "https://github.com/futomi"
+  },
+  "bugs": {
+    "url": "https://github.com/futomi/node-dns-sd/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "The node-dns-sd is a Node.js module which is a pure javascript implementation of mDNS/DNS-SD (Apple Bonjour) browser and packet parser. It allows you to discover IPv4 addresses in the local network specifying a service name such as `_http._tcp.local`. Besides, it allows you to monitor mDNS/DNS-SD packets.",
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/futomi",
+  "keywords": [
+    "DNS-SD",
+    "mDNS",
+    "DNS-Based Service Discovery",
+    "Multicast DNS",
+    "Bonjour"
+  ],
+  "license": "MIT",
+  "main": "./lib/dns-sd.js",
+  "name": "node-dns-sd",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futomi/node-dns-sd.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.4.2"
+}
