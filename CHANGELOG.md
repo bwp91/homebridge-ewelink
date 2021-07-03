@@ -60,6 +60,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - **LAN Mode**
   - ⚠️ If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- **Homebridge UI**
+  - Device configuration options will now hide/show based on the `deviceModel` field
 - **Startup Logging**
   - Accessory configuration options will be logged regardless of logging level
 - **iFan Devices**
