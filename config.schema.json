@@ -708,6 +708,10 @@
                 {
                   "title": "Sonoff SNZB-04 Door/Window",
                   "enum": ["snzb04"]
+                },
+                {
+                  "title": "Zigbee Leak Sensor",
+                  "enum": ["leak"]
                 }
               ]
             },
@@ -723,7 +727,7 @@
               "placeholder": 25,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel));"
               }
             },
             "offset": {
@@ -763,11 +767,11 @@
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
-              "description": "An offset in seconds to ignore notifications if the delay between this Zigbee Motion activating or Zigbee Button press and the plugin receiving the notification is greater than this number. Must be 5 or more.",
+              "description": "An offset in seconds to ignore notifications if the delay between this Zigbee Motion/Leak activating or Zigbee Button press and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
