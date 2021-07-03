@@ -21,11 +21,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - An accessory warning if a cloud-device is reported offline
 - **No Response Status**
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
-- **Single/Multi-Channel Devices**
+- **Single-Channel Devices**
   - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
+  - Polling via LAN mode to enable constant power attribute updates for POW/R2 devices
+- **Multi-Channel Devices**
   - Wattage/Voltage/Amp readings (via Eve app) now visible for DUALR3 when in motor mode
   - Support for LAN mode control for DUALR3 in motor mode
-  - Polling via LAN mode to enable constant power attribute updates for POW/R2 devices
+  - Option to expose a DUALR3 in motor mode as a `WindowCovering`, `Window` or `Door` accessory type
 - **iFan Devices**
   - Support for LAN mode control
   - Added option to specify a manual IP
