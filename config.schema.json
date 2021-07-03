@@ -176,6 +176,33 @@
               "type": "string",
               "title": "Device ID"
             },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff DUAL/R2",
+                  "enum": ["dual_dualr2"]
+                },
+                {
+                  "title": "Sonoff DUALR3 (Switch Mode)",
+                  "enum": ["dualr3_switch"]
+                },
+                {
+                  "title": "Sonoff DUALR3 (Motor Mode)",
+                  "enum": ["dualr3_motor"]
+                },
+                {
+                  "title": "Sonoff 4CH/PRO/R2/R3",
+                  "enum": ["4ch"]
+                },
+                {
+                  "title": "Sonoff T1/T2/T3/TX-2C/3C/4C",
+                  "enum": ["t1_t2_t3_tx"]
+                }
+              ]
+            },
             "label": {
               "title": "Label",
               "type": "string",
@@ -184,22 +211,50 @@
             "showAsOutlet": {
               "type": "boolean",
               "title": "Show As Outlets",
-              "description": "If true, this accessory will show as outlets in HomeKit instead of switches."
+              "description": "If true, this accessory will show as outlets in HomeKit instead of switches.",
+              "condition": {
+                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't1_t2_t3_tx'].includes(model.multiDevices[arrayIndices].deviceModel));"
+              }
+            },
+            "showAsType": {
+              "type": "string",
+              "title": "DUALR3 Accessory Type",
+              "description": "Select the accessory type to show in HomeKit.",
+              "oneOf": [
+                {
+                  "title": "Window Covering (Default)",
+                  "enum": ["blind"]
+                },
+                {
+                  "title": "Door",
+                  "enum": ["door"]
+                },
+                {
+                  "title": "Window",
+                  "enum": ["window"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.multiDevices[arrayIndices] && ['dualr3_motor'].includes(model.multiDevices[arrayIndices].deviceModel));"
+              }
             },
             "inUsePowerThreshold": {
               "type": "number",
               "title": "Outlet 'In Use' Threshold",
-              "description": "Applies to DUALR3 devices. HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].showAsOutlet);"
+                "functionBody": "return (model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].showAsOutlet) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel);"
               }
             },
             "hideChannels": {
               "type": "string",
               "title": "Hide Channels",
-              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'."
+              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
+              "condition": {
+                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't1_t2_t3_tx'].includes(model.multiDevices[arrayIndices].deviceModel));"
+              }
             },
             "ipAddress": {
               "type": "string",
@@ -1035,8 +1090,10 @@
           "type": "fieldset",
           "items": [
             "multiDevices[].deviceId",
+            "multiDevices[].deviceModel",
             "multiDevices[].label",
             "multiDevices[].showAsOutlet",
+            "multiDevices[].showAsType",
             "multiDevices[].inUsePowerThreshold",
             "multiDevices[].hideChannels",
             "multiDevices[].ipAddress",
