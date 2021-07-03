@@ -81,6 +81,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Fixed
 
 - An issue preventing controlling a garage door simulation when using a sensor
+- An issue with the DUALR3 in motor mode hanging on 'Closing...' or 'Opening...'
 - Fixed the multiple notifications when closing an eachen device garage door
 
 ### Removed
