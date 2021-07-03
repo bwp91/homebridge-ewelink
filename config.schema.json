@@ -199,7 +199,7 @@
                 },
                 {
                   "title": "Sonoff T1/T2/T3/TX-2C/3C/4C",
-                  "enum": ["t1_t2_t3_tx"]
+                  "enum": ["t"]
                 }
               ]
             },
@@ -213,7 +213,7 @@
               "title": "Show As Outlets",
               "description": "If true, this accessory will show as outlets in HomeKit instead of switches.",
               "condition": {
-                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't1_t2_t3_tx'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "showAsType": {
@@ -245,7 +245,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].showAsOutlet) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel);"
+                "functionBody": "return (model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].showAsOutlet && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "hideChannels": {
@@ -253,7 +253,7 @@
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't1_t2_t3_tx'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "ipAddress": {
@@ -292,7 +292,7 @@
       },
       "outletDevices": {
         "title": "Outlet Devices",
-        "description": "Applies to outlet devices.",
+        "description": "Applies to single-channel outlet devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -300,6 +300,29 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID"
+            },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff POW/R2",
+                  "enum": ["pow"]
+                },
+                {
+                  "title": "Sonoff IW100/IW101",
+                  "enum": ["iw"]
+                },
+                {
+                  "title": "Sonoff S20/S26/S31/S55",
+                  "enum": ["s"]
+                },
+                {
+                  "title": "Sonoff Micro",
+                  "enum": ["micro"]
+                }
+              ]
             },
             "label": {
               "title": "Label",
@@ -318,7 +341,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch);"
+                "functionBody": "return (model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch  && ['pow'].includes(model.outletDevices[arrayIndices].deviceModel));"
               }
             },
             "ipAddress": {
@@ -371,22 +394,50 @@
               "type": "string",
               "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration."
             },
-            "bulbModel": {
+            "deviceModel": {
               "type": "string",
               "title": "Device Model",
-              "description": "If your model is not listed then you do not need to set this.",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
               "oneOf": [
                 {
-                  "title": "B02-B-A60",
+                  "title": "Sonoff D1/R2",
+                  "enum": ["d1"]
+                },
+                {
+                  "title": "Sonoff B1/R2",
+                  "enum": ["b1"]
+                },
+                {
+                  "title": "Sonoff L1/Lite",
+                  "enum": ["l1"]
+                },
+                {
+                  "title": "Sonoff B02-B-A60",
                   "enum": ["bulbB02BA60"]
                 },
                 {
-                  "title": "B02-F-A60",
+                  "title": "Sonoff B05-B-A60",
+                  "enum": ["bulbB05BA60"]
+                },
+                {
+                  "title": "Sonoff B02-F-A60",
                   "enum": ["bulbB02FA60"]
                 },
                 {
-                  "title": "B02-F-ST64",
+                  "title": "Sonoff B02-F-ST64",
                   "enum": ["bulbB02FST64"]
+                },
+                {
+                  "title": "KingArt KING-M4",
+                  "enum": ["king"]
+                },
+                {
+                  "title": "Zigbee Light (Dimmer)",
+                  "enum": ["zl_d"]
+                },
+                {
+                  "title": "Zigbee Light (Dimmer + CCT)",
+                  "enum": ["zl_dc"]
                 }
               ]
             },
@@ -395,21 +446,27 @@
               "type": "number",
               "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
               "placeholder": 1,
-              "minimum": 1
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.lightDevices[arrayIndices] && ['d1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel));"
+              }
             },
             "adaptiveLightingShift": {
               "title": "Adaptive Lighting Shift",
               "type": "number",
               "description": "The mired for each Adaptive Lighting update will be increased by this value, making the light appear warmer. Set to -1 to remove Adaptive Lighting feature. Must be -1 or more.",
               "placeholder": 0,
-              "minimum": -1
+              "minimum": -1,
+              "condition": {
+                "functionBody": "return (model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FA60', 'bulbB02FST64', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel));"
+              }
             },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this Sonoff D1 if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return model.mode !== 'wan';"
+                "functionBody": "return (model.mode !== 'wan' && model.lightDevices[arrayIndices] && ['d1'].includes(model.lightDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
@@ -449,6 +506,25 @@
               "type": "string",
               "title": "Device ID"
             },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff TH10/16",
+                  "enum": ["th"]
+                },
+                {
+                  "title": "Sonoff SC",
+                  "enum": ["sc"]
+                },
+                {
+                  "title": "KKMOON HC-T010-EWF",
+                  "enum": ["hc"]
+                }
+              ]
+            },
             "label": {
               "title": "Label",
               "type": "string",
@@ -457,7 +533,10 @@
             "hideSwitch": {
               "type": "boolean",
               "title": "Hide Switch",
-              "description": "If true, this accessory will hide the TH10/16 switch from HomeKit."
+              "description": "If true, this accessory will hide the TH10/16 switch from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+              }
             },
             "offset": {
               "type": "number",
@@ -476,21 +555,27 @@
               "title": "Minimum Target Temperature",
               "description": "Minimum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
-              "minimum": 0
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+              }
             },
             "maxTarget": {
               "type": "number",
               "title": "Maximum Target Temperature",
               "description": "Maximum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
-              "minimum": 1
+              "minimum": 1,
+              "condition": {
+                "functionBody": "return (model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+              }
             },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this Sonoff TH10/16 if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return model.mode !== 'wan';"
+                "functionBody": "return (model.mode !== 'wan' && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
@@ -530,6 +615,17 @@
               "type": "string",
               "title": "Device ID"
             },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff iFan/02/03",
+                  "enum": ["ifan"]
+                }
+              ]
+            },
             "label": {
               "title": "Label",
               "type": "string",
@@ -538,14 +634,17 @@
             "hideLight": {
               "type": "boolean",
               "title": "Hide Light Switch",
-              "description": "If true, the light switch will be hidden from HomeKit."
+              "description": "If true, the light switch will be hidden from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel));"
+              }
             },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return model.mode !== 'wan';"
+                "functionBody": "return (model.mode !== 'wan' && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
@@ -585,6 +684,33 @@
               "type": "string",
               "title": "Device ID"
             },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "Setting this hides and shows the applicable options for this device type below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff DW2-Wifi",
+                  "enum": ["dw"]
+                },
+                {
+                  "title": "Sonoff SNZB-01 Button",
+                  "enum": ["snzb01"]
+                },
+                {
+                  "title": "Sonoff SNZB-02 Temp/Humidity",
+                  "enum": ["snzb02"]
+                },
+                {
+                  "title": "Sonoff SNZB-03 Motion",
+                  "enum": ["snzb03"]
+                },
+                {
+                  "title": "Sonoff SNZB-04 Door/Window",
+                  "enum": ["snzb04"]
+                }
+              ]
+            },
             "label": {
               "title": "Label",
               "type": "string",
@@ -595,36 +721,54 @@
               "title": "Low Battery Threshold",
               "description": "HomeKit will set the low battery status for this device when the battery (if it has one) reaches this percentage level. Must be 5 or more.",
               "placeholder": 25,
-              "minimum": 5
+              "minimum": 5,
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "offset": {
               "type": "number",
               "title": "Temperature Offset",
               "description": "You can offset the temperature that the SNZB-02 sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
-              "placeholder": 0
+              "placeholder": 0,
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "humidityOffset": {
               "type": "number",
               "title": "Humidity Offset",
               "description": "You can offset the humidity that the SNZB-02 sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
-              "placeholder": 0
+              "placeholder": 0,
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "hideLongDouble": {
               "type": "boolean",
               "title": "Hide Long & Double Press",
-              "description": "If true, double and long press options will be hidden for this Zigbee Button."
+              "description": "If true, double and long press options will be hidden for this Zigbee Button.",
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb01'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "scaleBattery": {
               "type": "boolean",
               "title": "Scale Battery",
-              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 10."
+              "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 10.",
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb04'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "sensorTimeDifference": {
               "type": "number",
               "title": "Sensor Lag",
               "description": "An offset in seconds to ignore notifications if the delay between this Zigbee Motion activating or Zigbee Button press and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
-              "minimum": 5
+              "minimum": 5,
+              "condition": {
+                "functionBody": "return (model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
             },
             "overrideLogging": {
               "type": "string",
@@ -993,7 +1137,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && !['thermostat', 'cooler', 'humidifier', 'dehumidifier', 'sensor_leak'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.mode !== 'wan' && model.groups[arrayIndices] && ['blind', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'lock', 'purifier', 'sensor', 'switch_valve', 'tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
               }
             },
             "overrideLogging": {
@@ -1105,7 +1249,7 @@
     {
       "key": "outletDevices",
       "title": "Outlet Devices",
-      "description": "Applies to outlet devices.",
+      "description": "Applies to single-channel outlet devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1114,6 +1258,7 @@
           "type": "fieldset",
           "items": [
             "outletDevices[].deviceId",
+            "outletDevices[].deviceModel",
             "outletDevices[].label",
             "outletDevices[].showAsSwitch",
             "outletDevices[].inUsePowerThreshold",
@@ -1135,8 +1280,8 @@
           "type": "fieldset",
           "items": [
             "lightDevices[].deviceId",
+            "lightDevices[].deviceModel",
             "lightDevices[].label",
-            "lightDevices[].bulbModel",
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
             "lightDevices[].ipAddress",
@@ -1157,6 +1302,7 @@
           "type": "fieldset",
           "items": [
             "thDevices[].deviceId",
+            "thDevices[].deviceModel",
             "thDevices[].label",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
@@ -1181,6 +1327,7 @@
           "type": "fieldset",
           "items": [
             "fanDevices[].deviceId",
+            "fanDevices[].deviceModel",
             "fanDevices[].label",
             "fanDevices[].hideLight",
             "fanDevices[].ipAddress",
@@ -1201,6 +1348,7 @@
           "type": "fieldset",
           "items": [
             "sensorDevices[].deviceId",
+            "sensorDevices[].deviceModel",
             "sensorDevices[].label",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].offset",
