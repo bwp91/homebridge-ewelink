@@ -40,6 +40,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
   - Added option to specify a manual IP for an RF Bridge
   - Added option to expose an RF sensor device as a `Doorbell` accessory type
+  - Added option to expose an RF sensor device as a `StatelessProgrammableSwitch` accessory type
 - **Light Devices**
   - Remove Adaptive Lighting feature from a device by setting the `adaptiveLightingShift` to `-1`
 - **Zigbee Button Devices**
