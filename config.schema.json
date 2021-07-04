@@ -1015,6 +1015,10 @@
                 {
                   "title": "Contact",
                   "enum": ["contact"]
+                },
+                {
+                  "title": "Doorbell",
+                  "enum": ["doorbell"]
                 }
               ],
               "condition": {
