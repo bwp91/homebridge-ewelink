@@ -1017,6 +1017,10 @@
                   "enum": ["contact"]
                 },
                 {
+                  "title": "Programmable Button",
+                  "enum": ["p_button"]
+                },
+                {
                   "title": "Doorbell",
                   "enum": ["doorbell"]
                 }
