@@ -51,6 +51,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Humidity Sensor Devices**
   - Config option to offset the recorded humidity (%RH) for devices that report this
 - **Accessory Simulations**
+  - Expose a generic single/multi-channel device as a `Doorbell` accessory
+  - Expose a generic single/multi-channel device as a `StatelessProgrammableSwitch` accessory
   - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
   - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state for lock simulation
   - Wattage/Voltage/Amp readings (via Eve app) visible for simulations when using a DUALR3 device
