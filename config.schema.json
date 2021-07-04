@@ -513,7 +513,7 @@
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
-              "description": "You can manually set the IP address for this Sonoff D1 if it cannot be discovered by the plugin.",
+              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1'].includes(model.lightDevices[arrayIndices].deviceModel));"
               }
@@ -1166,6 +1166,14 @@
                   "enum": ["sensor"]
                 },
                 {
+                  "title": "1 Programmable Button (with single or multi channel device)",
+                  "enum": ["p_button"]
+                },
+                {
+                  "title": "1 Doorbell (with single or multi channel device)",
+                  "enum": ["doorbell"]
+                },
+                {
                   "title": "1 Air Purifier (with single or multi channel device)",
                   "enum": ["purifier"]
                 },
@@ -1283,7 +1291,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups && model.groups[arrayIndices] && ['blind', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'lock', 'purifier', 'sensor', 'switch_valve', 'tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.mode !== 'wan' && model.groups && model.groups[arrayIndices] && ['blind', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'lock', 'purifier', 'sensor', 'p_button', 'doorbell', 'switch_valve', 'tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
               }
             },
             "overrideLogging": {
@@ -1309,7 +1317,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.groups && model.groups[arrayIndices] && ['blind', 'cooler', 'dehumidifier', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'humidifier', 'lock', 'purifier', 'sensor', 'sensor_leak', 'switch_valve', 'tap', 'tap_two', 'thermostat', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.groups && model.groups[arrayIndices] && ['blind', 'cooler', 'dehumidifier', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'humidifier', 'lock', 'purifier', 'sensor', 'p_button', 'doorbell', 'sensor_leak', 'switch_valve', 'tap', 'tap_two', 'thermostat', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
               }
             }
           }
