@@ -1036,7 +1036,7 @@
               "placeholder": 60,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
               }
             },
             "sensorTimeDifference": {
@@ -1046,7 +1046,7 @@
               "placeholder": 60,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
               }
             },
             "overrideLogging": {
