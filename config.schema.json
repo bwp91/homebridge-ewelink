@@ -86,9 +86,10 @@
         ]
       },
       "apiPort": {
-        "type": "number",
+        "type": "integer",
         "title": "Internal API Port",
-        "description": "Port to use for the internal HTTP API. Set to 0 to disable. Set to 1 to choose a randomly available port."
+        "description": "Port to use for the internal HTTP API. Set to 0 to disable. Set to 1 to choose a randomly available port.",
+        "minimum": 1
       },
       "disableDeviceLogging": {
         "type": "boolean",
@@ -120,7 +121,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "label": {
               "title": "Label",
@@ -185,7 +188,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -256,7 +261,7 @@
               }
             },
             "inUsePowerThreshold": {
-              "type": "number",
+              "type": "integer",
               "title": "Outlet 'In Use' Threshold",
               "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
               "placeholder": 0,
@@ -320,7 +325,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -365,7 +372,7 @@
               }
             },
             "inUsePowerThreshold": {
-              "type": "number",
+              "type": "integer",
               "title": "Outlet 'In Use' Threshold",
               "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
               "placeholder": 0,
@@ -421,7 +428,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -483,7 +492,7 @@
             },
             "brightnessStep": {
               "title": "Brightness Step",
-              "type": "number",
+              "type": "integer",
               "description": "A minimum step for the brightness slider in the Home app. Must be 1 or more.",
               "placeholder": 1,
               "minimum": 1,
@@ -493,7 +502,7 @@
             },
             "adaptiveLightingShift": {
               "title": "Adaptive Lighting Shift",
-              "type": "number",
+              "type": "integer",
               "description": "The mired for each Adaptive Lighting update will be increased by this value, making the light appear warmer. Set to -1 to remove Adaptive Lighting feature. Must be -1 or more.",
               "placeholder": 0,
               "minimum": -1,
@@ -548,7 +557,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -598,7 +609,7 @@
               }
             },
             "humidityOffset": {
-              "type": "number",
+              "type": "integer",
               "title": "Humidity Offset",
               "description": "You can offset the humidity that the sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
@@ -607,7 +618,7 @@
               }
             },
             "minTarget": {
-              "type": "number",
+              "type": "integer",
               "title": "Minimum Target Temperature",
               "description": "Minimum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
@@ -617,7 +628,7 @@
               }
             },
             "maxTarget": {
-              "type": "number",
+              "type": "integer",
               "title": "Maximum Target Temperature",
               "description": "Maximum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
@@ -673,7 +684,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -752,7 +765,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "deviceModel": {
               "type": "string",
@@ -797,7 +812,7 @@
               }
             },
             "lowBattThreshold": {
-              "type": "number",
+              "type": "integer",
               "title": "Low Battery Threshold",
               "description": "HomeKit will set the low battery status for this device when the battery (if it has one) reaches this percentage level. Must be 5 or more.",
               "placeholder": 25,
@@ -816,7 +831,7 @@
               }
             },
             "humidityOffset": {
-              "type": "number",
+              "type": "integer",
               "title": "Humidity Offset",
               "description": "You can offset the humidity that the SNZB-02 sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
@@ -841,7 +856,7 @@
               }
             },
             "sensorTimeDifference": {
-              "type": "number",
+              "type": "integer",
               "title": "Sensor Lag",
               "description": "An offset in seconds to ignore notifications if the delay between this Zigbee Motion/Leak activating or Zigbee Button press and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
@@ -889,7 +904,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "label": {
               "title": "Label",
@@ -954,7 +971,9 @@
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
-              "description": "Enter the Device ID of the sensor to begin (13 digits normally in the format 1000ab23cdSW2)."
+              "description": "Enter the Device ID of the sensor to begin (13 digits normally in the format 1000ab23cdSW2).",
+              "minLength": 13,
+              "maxLength": 15
             },
             "label": {
               "title": "Label",
@@ -1003,7 +1022,7 @@
               }
             },
             "sensorTimeLength": {
-              "type": "number",
+              "type": "integer",
               "title": "Sensor Time Length",
               "description": "The number of seconds which the sensor tile in the Home app will light up for if this sensor is activated. Must be 1 or more.",
               "placeholder": 60,
@@ -1013,7 +1032,7 @@
               }
             },
             "sensorTimeDifference": {
-              "type": "number",
+              "type": "integer",
               "title": "Sensor Lag",
               "description": "An offset in seconds to ignore notifications if the delay between this sensor activating and the plugin receiving the notification is greater than this number. Must be 5 or more.",
               "placeholder": 60,
@@ -1061,7 +1080,9 @@
             "deviceId": {
               "type": "string",
               "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin."
+              "description": "Enter the 10 digit eWeLink Device ID to begin.",
+              "minLength": 10,
+              "maxLength": 10
             },
             "label": {
               "title": "Label",
@@ -1204,7 +1225,7 @@
               }
             },
             "operationTime": {
-              "type": "number",
+              "type": "integer",
               "title": "Operation Time (Deciseconds)",
               "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
               "placeholder": 100,
@@ -1214,7 +1235,7 @@
               }
             },
             "operationTimeDown": {
-              "type": "number",
+              "type": "integer",
               "title": "Operation Time Down (Deciseconds)",
               "description": "If your garage door or blind has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
               "placeholder": 100,
@@ -1227,6 +1248,8 @@
               "type": "string",
               "title": "Sensor",
               "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "minLength": 10,
+              "maxLength": 10,
               "condition": {
                 "functionBody": "return (model.groups && model.groups[arrayIndices] && ['garage'].includes(model.groups[arrayIndices].type));"
               }
