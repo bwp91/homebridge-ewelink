@@ -113,7 +113,7 @@
       },
       "singleDevices": {
         "title": "Single Channel Devices",
-        "description": "Applies to single-channel switch, light switch and Slampher devices.",
+        "description": "Applies to single-channel switch, outlet and light switch devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -125,6 +125,52 @@
               "minLength": 10,
               "maxLength": 10
             },
+            "deviceModel": {
+              "type": "string",
+              "title": "Device Model",
+              "description": "This setting has no effect except showing the relevant options for this model below.",
+              "oneOf": [
+                {
+                  "title": "Sonoff BASIC/MINI/RF/SV/RE5V1C",
+                  "enum": ["single"]
+                },
+                {
+                  "title": "Sonoff T1/T2/T3/TX-1C",
+                  "enum": ["t"]
+                },
+                {
+                  "title": "Sonoff POW/R2",
+                  "enum": ["pow"]
+                },
+                {
+                  "title": "Sonoff IW100/IW101",
+                  "enum": ["iw"]
+                },
+                {
+                  "title": "Sonoff S20/S26/S31/S55",
+                  "enum": ["s"]
+                },
+                {
+                  "title": "Sonoff Micro",
+                  "enum": ["micro"]
+                },
+                {
+                  "title": "Sonoff SLAMPHER",
+                  "enum": ["slampher"]
+                },
+                {
+                  "title": "KingArt KING-Q4",
+                  "enum": ["king"]
+                },
+                {
+                  "title": "Zigbee Single Switch (BASICZBR3/ZBMINI/S31ZB)",
+                  "enum": ["zb"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+              }
+            },
             "label": {
               "title": "Label",
               "type": "string",
@@ -133,12 +179,86 @@
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
               }
             },
-            "showAsOutlet": {
-              "type": "boolean",
-              "title": "Show As Outlet",
-              "description": "If true, this accessory will show as an outlet in HomeKit instead of a switch.",
+            "showAs": {
+              "type": "string",
+              "title": "Show As (Simulation)",
+              "description": "Expose this device as a different HomeKit accessory type.",
+              "oneOf": [
+                {
+                  "title": "1 Switch (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "1 Outlet",
+                  "enum": ["outlet"]
+                },
+                {
+                  "title": "1 Air Purifier",
+                  "enum": ["purifier"]
+                },
+                {
+                  "title": "1 Doorbell",
+                  "enum": ["doorbell"]
+                },
+                {
+                  "title": "1 Programmable Button",
+                  "enum": ["p_button"]
+                },
+                {
+                  "title": "1 Sensor",
+                  "enum": ["sensor"]
+                }
+              ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
+              }
+            },
+            "sensorType": {
+              "type": "string",
+              "title": "Sensor Type",
+              "description": "The type of sensor to use.",
+              "oneOf": [
+                {
+                  "title": "Motion",
+                  "enum": ["motion"]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": ["smoke"]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": ["water"]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": ["co"]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": ["co2"]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": ["occupancy"]
+                },
+                {
+                  "title": "Contact",
+                  "enum": ["contact"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['sensor'].includes(model.singleDevices[arrayIndices].showAs));"
+              }
+            },
+            "inUsePowerThreshold": {
+              "type": "integer",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs));"
               }
             },
             "ipAddress": {
@@ -146,7 +266,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher'].includes(model.singleDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
@@ -172,7 +292,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
               }
             }
           }
@@ -180,7 +300,7 @@
       },
       "multiDevices": {
         "title": "Multi Channel Devices",
-        "description": "Applies to multi-channel switch and light switch devices.",
+        "description": "Applies to multi-channel switch, outlet and light switch devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -230,10 +350,36 @@
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10);"
               }
             },
-            "showAsOutlet": {
-              "type": "boolean",
-              "title": "Show As Outlets",
-              "description": "If true, this accessory will show as outlets in HomeKit instead of switches.",
+            "showAs": {
+              "type": "string",
+              "title": "Show As (Simulation)",
+              "description": "Expose this device as a different HomeKit accessory type.",
+              "oneOf": [
+                {
+                  "title": "Switches (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "Outlets",
+                  "enum": ["outlet"]
+                },
+                {
+                  "title": "1 Air Purifier",
+                  "enum": ["purifier"]
+                },
+                {
+                  "title": "1 Doorbell",
+                  "enum": ["doorbell"]
+                },
+                {
+                  "title": "1 Programmable Button",
+                  "enum": ["p_button"]
+                },
+                {
+                  "title": "1 Sensor",
+                  "enum": ["sensor"]
+                }
+              ],
               "condition": {
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
@@ -260,6 +406,44 @@
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dualr3_motor'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
+            "sensorType": {
+              "type": "string",
+              "title": "Sensor Type",
+              "description": "The type of sensor to use.",
+              "oneOf": [
+                {
+                  "title": "Motion",
+                  "enum": ["motion"]
+                },
+                {
+                  "title": "Smoke/Fire",
+                  "enum": ["smoke"]
+                },
+                {
+                  "title": "Water/Leak",
+                  "enum": ["water"]
+                },
+                {
+                  "title": "Carbon Monoxide",
+                  "enum": ["co"]
+                },
+                {
+                  "title": "Carbon Dioxide",
+                  "enum": ["co2"]
+                },
+                {
+                  "title": "Occupancy",
+                  "enum": ["occupancy"]
+                },
+                {
+                  "title": "Contact",
+                  "enum": ["contact"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['sensor'].includes(model.multiDevices[arrayIndices].showAs));"
+              }
+            },
             "inUsePowerThreshold": {
               "type": "integer",
               "title": "Outlet 'In Use' Threshold",
@@ -267,7 +451,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].showAsOutlet && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "hideChannels": {
@@ -275,7 +459,7 @@
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
             "ipAddress": {
@@ -310,109 +494,6 @@
               ],
               "condition": {
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
-              }
-            }
-          }
-        }
-      },
-      "outletDevices": {
-        "title": "Outlet Devices",
-        "description": "Applies to single-channel outlet devices.",
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "deviceId": {
-              "type": "string",
-              "title": "Device ID",
-              "description": "Enter the 10 digit eWeLink Device ID to begin.",
-              "minLength": 10,
-              "maxLength": 10
-            },
-            "deviceModel": {
-              "type": "string",
-              "title": "Device Model",
-              "description": "This setting has no effect except showing the relevant options for this model below.",
-              "oneOf": [
-                {
-                  "title": "Sonoff POW/R2",
-                  "enum": ["pow"]
-                },
-                {
-                  "title": "Sonoff IW100/IW101",
-                  "enum": ["iw"]
-                },
-                {
-                  "title": "Sonoff S20/S26/S31/S55",
-                  "enum": ["s"]
-                },
-                {
-                  "title": "Sonoff Micro",
-                  "enum": ["micro"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.outletDevices && model.outletDevices[arrayIndices] && model.outletDevices[arrayIndices].deviceId && model.outletDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
-              "condition": {
-                "functionBody": "return (model.outletDevices && model.outletDevices[arrayIndices] && model.outletDevices[arrayIndices].deviceId && model.outletDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "showAsSwitch": {
-              "type": "boolean",
-              "title": "Show As Switch",
-              "description": "If true, this accessory will show as a switch in HomeKit instead of an outlet.",
-              "condition": {
-                "functionBody": "return (model.outletDevices && model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch && ['pow', 'iw', 's', 'micro'].includes(model.outletDevices[arrayIndices].deviceModel));"
-              }
-            },
-            "inUsePowerThreshold": {
-              "type": "integer",
-              "title": "Outlet 'In Use' Threshold",
-              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-              "placeholder": 0,
-              "minimum": 0,
-              "condition": {
-                "functionBody": "return (model.outletDevices && model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch && ['pow'].includes(model.outletDevices[arrayIndices].deviceModel));"
-              }
-            },
-            "ipAddress": {
-              "type": "string",
-              "title": "IP Address",
-              "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
-              "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.outletDevices && model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch && ['pow', 'iw', 's', 'micro'].includes(model.outletDevices[arrayIndices].deviceModel));"
-              }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.outletDevices && model.outletDevices[arrayIndices] && !model.outletDevices[arrayIndices].showAsSwitch && ['pow', 'iw', 's', 'micro'].includes(model.outletDevices[arrayIndices].deviceModel));"
               }
             }
           }
@@ -1208,64 +1289,10 @@
                 {
                   "title": "1 Switch & 1 Valve (with multi channel device)",
                   "enum": ["switch_valve"]
-                },
-                {
-                  "title": "1 Sensor (with single or multi channel device)",
-                  "enum": ["sensor"]
-                },
-                {
-                  "title": "1 Programmable Button (with single or multi channel device)",
-                  "enum": ["p_button"]
-                },
-                {
-                  "title": "1 Doorbell (with single or multi channel device)",
-                  "enum": ["doorbell"]
-                },
-                {
-                  "title": "1 Air Purifier (with single or multi channel device)",
-                  "enum": ["purifier"]
                 }
               ],
               "condition": {
                 "functionBody": "return (model.groups && model.groups[arrayIndices] && model.groups[arrayIndices].deviceId && model.groups[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "sensorType": {
-              "type": "string",
-              "title": "Sensor Type",
-              "description": "The type of sensor to use.",
-              "oneOf": [
-                {
-                  "title": "Motion",
-                  "enum": ["motion"]
-                },
-                {
-                  "title": "Smoke/Fire",
-                  "enum": ["smoke"]
-                },
-                {
-                  "title": "Water/Leak",
-                  "enum": ["water"]
-                },
-                {
-                  "title": "Carbon Monoxide",
-                  "enum": ["co"]
-                },
-                {
-                  "title": "Carbon Dioxide",
-                  "enum": ["co2"]
-                },
-                {
-                  "title": "Occupancy",
-                  "enum": ["occupancy"]
-                },
-                {
-                  "title": "Contact",
-                  "enum": ["contact"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.groups && model.groups[arrayIndices] && ['sensor'].includes(model.groups[arrayIndices].type));"
               }
             },
             "operationTime": {
@@ -1345,7 +1372,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.groups && model.groups[arrayIndices] && ['blind', 'cooler', 'dehumidifier', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'humidifier', 'lock', 'purifier', 'sensor', 'p_button', 'doorbell', 'sensor_leak', 'switch_valve', 'tap', 'tap_two', 'thermostat', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
+                "functionBody": "return (model.groups && model.groups[arrayIndices] && ['blind', 'door', 'garage', 'garage_two', 'garage_four', 'garage_eachen', 'lock', 'purifier', 'switch_valve', 'tap', 'tap_two', 'valve', 'valve_two', 'valve_four', 'window'].includes(model.groups[arrayIndices].type));"
               }
             }
           }
@@ -1390,7 +1417,7 @@
     {
       "key": "singleDevices",
       "title": "Single Channel Devices",
-      "description": "Applies to single-channel switch, light switch and Slampher devices.",
+      "description": "Applies to single-channel switch, outlet and light switch devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1399,8 +1426,11 @@
           "type": "fieldset",
           "items": [
             "singleDevices[].deviceId",
+            "singleDevices[].deviceModel",
             "singleDevices[].label",
-            "singleDevices[].showAsOutlet",
+            "singleDevices[].showAs",
+            "singleDevices[].sensorType",
+            "singleDevices[].inUsePowerThreshold",
             "singleDevices[].ipAddress",
             "singleDevices[].overrideLogging"
           ]
@@ -1410,7 +1440,7 @@
     {
       "key": "multiDevices",
       "title": "Multi Channel Devices",
-      "description": "Applies to multi-channel switch and light switch devices.",
+      "description": "Applies to multi-channel switch, outlet and light switch devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1421,34 +1451,13 @@
             "multiDevices[].deviceId",
             "multiDevices[].deviceModel",
             "multiDevices[].label",
-            "multiDevices[].showAsOutlet",
+            "multiDevices[].showAs",
             "multiDevices[].showAsMotor",
+            "multiDevices[].sensorType",
             "multiDevices[].inUsePowerThreshold",
             "multiDevices[].hideChannels",
             "multiDevices[].ipAddress",
             "multiDevices[].overrideLogging"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "outletDevices",
-      "title": "Outlet Devices",
-      "description": "Applies to single-channel outlet devices.",
-      "expandable": true,
-      "add": "Add Another Device",
-      "type": "array",
-      "items": [
-        {
-          "type": "fieldset",
-          "items": [
-            "outletDevices[].deviceId",
-            "outletDevices[].deviceModel",
-            "outletDevices[].label",
-            "outletDevices[].showAsSwitch",
-            "outletDevices[].inUsePowerThreshold",
-            "outletDevices[].ipAddress",
-            "outletDevices[].overrideLogging"
           ]
         }
       ]
@@ -1604,10 +1613,13 @@
         {
           "type": "fieldset",
           "items": [
+            {
+              "type": "help",
+              "helpvalue": "<label class=\"control-label text-warning\">⚠ This section will be removed in a future plugin version. Please use the relevant device sections above to set up new simulations and configure your existing simulations.</label>"
+            },
             "groups[].deviceId",
             "groups[].label",
             "groups[].type",
-            "groups[].sensorType",
             "groups[].operationTime",
             "groups[].operationTimeDown",
             "groups[].sensorId",
