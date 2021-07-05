@@ -841,6 +841,24 @@
                 "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10);"
               }
             },
+            "showAs": {
+              "type": "string",
+              "title": "Show As (Simulation)",
+              "description": "Expose this device as a different HomeKit accessory type.",
+              "oneOf": [
+                {
+                  "title": "1 Contact Sensor (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "1 Leak Sensor",
+                  "enum": ["sensor_leak"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+              }
+            },
             "lowBattThreshold": {
               "type": "integer",
               "title": "Low Battery Threshold",
@@ -1206,10 +1224,6 @@
                 {
                   "title": "1 Air Purifier (with single or multi channel device)",
                   "enum": ["purifier"]
-                },
-                {
-                  "title": "1 Leak Sensor (with Sonoff DW2)",
-                  "enum": ["sensor_leak"]
                 }
               ],
               "condition": {
@@ -1522,6 +1536,7 @@
             "sensorDevices[].deviceId",
             "sensorDevices[].deviceModel",
             "sensorDevices[].label",
+            "sensorDevices[].showAs",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].offset",
             "sensorDevices[].humidityOffset",
