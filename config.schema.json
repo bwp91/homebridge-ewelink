@@ -238,7 +238,7 @@
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
-            "showAsType": {
+            "showAsMotor": {
               "type": "string",
               "title": "DUALR3 Accessory Type",
               "description": "Select the accessory type to show in HomeKit.",
@@ -1422,7 +1422,7 @@
             "multiDevices[].deviceModel",
             "multiDevices[].label",
             "multiDevices[].showAsOutlet",
-            "multiDevices[].showAsType",
+            "multiDevices[].showAsMotor",
             "multiDevices[].inUsePowerThreshold",
             "multiDevices[].hideChannels",
             "multiDevices[].ipAddress",
