@@ -591,12 +591,42 @@
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10);"
               }
             },
+            "showAs": {
+              "type": "string",
+              "title": "Show As (Simulation)",
+              "description": "Expose this device as a different HomeKit accessory type.",
+              "oneOf": [
+                {
+                  "title": "1 Switch + Sensors (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "1 Heater",
+                  "enum": ["heater"]
+                },
+                {
+                  "title": "1 Cooler",
+                  "enum": ["cooler"]
+                },
+                {
+                  "title": "1 Humidifier",
+                  "enum": ["humidifier"]
+                },
+                {
+                  "title": "1 Dehumidifier",
+                  "enum": ["dehumidifier"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+              }
+            },
             "hideSwitch": {
               "type": "boolean",
               "title": "Hide Switch",
               "description": "If true, this accessory will hide the TH10/16 switch from HomeKit.",
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !['heater', 'cooler', 'humidifier', 'dehumidifier'].includes(model.thDevices[arrayIndices].showAs));"
               }
             },
             "offset": {
@@ -624,7 +654,7 @@
               "placeholder": 10,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs));"
               }
             },
             "maxTarget": {
@@ -634,7 +664,7 @@
               "placeholder": 30,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs));"
               }
             },
             "ipAddress": {
@@ -1178,22 +1208,6 @@
                   "enum": ["purifier"]
                 },
                 {
-                  "title": "1 Heater (with Sonoff TH10 or TH16)",
-                  "enum": ["thermostat"]
-                },
-                {
-                  "title": "1 Cooler (with Sonoff TH10 or TH16)",
-                  "enum": ["cooler"]
-                },
-                {
-                  "title": "1 Humidifier (with Sonoff TH10 or TH16)",
-                  "enum": ["humidifier"]
-                },
-                {
-                  "title": "1 Dehumidifier (with Sonoff TH10 or TH16)",
-                  "enum": ["dehumidifier"]
-                },
-                {
                   "title": "1 Leak Sensor (with Sonoff DW2)",
                   "enum": ["sensor_leak"]
                 }
@@ -1461,6 +1475,7 @@
             "thDevices[].deviceId",
             "thDevices[].deviceModel",
             "thDevices[].label",
+            "thDevices[].showAs",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
             "thDevices[].humidityOffset",
