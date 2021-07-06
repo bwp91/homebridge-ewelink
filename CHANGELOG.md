@@ -33,7 +33,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **iFan Devices**
   - Support for LAN mode and ability to specify a manual IP
 - **TH10/16 Devices**
-  - Support for LAN mode and ability to specify a manual IP
+  - Support for LAN mode for all Accessory Simulations and ability to specify a manual IP
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
