@@ -4,6 +4,13 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Important Notes
+
+- This release includes breaking changes (denoted below with a ⚠️), so take note especially if:
+  - You use the plugin in LAN-only mode,
+  - You have Sonoff devices exposed as Outlet accessories, or
+  - You use Accessory Simulations
+
 ### Added
 
 - **LAN Mode (without eWeLink credentials)**
@@ -90,7 +97,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - An issue preventing controlling a garage door simulation when using a sensor
 - An issue with the DUALR3 in motor mode hanging on 'Closing...' or 'Opening...'
-- Fixed the multiple notifications when closing an eachen device garage door
+- Fixed the multiple notifications when closing an Eachen device garage door
 - A `RangeError` error which caused HOOBS bridge to restart
 
 ### Removed
