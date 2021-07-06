@@ -159,6 +159,10 @@
                   "enum": ["slampher"]
                 },
                 {
+                  "title": "Eachen GD-DC5",
+                  "enum": ["gddc5"]
+                },
+                {
                   "title": "KingArt KING-Q4",
                   "enum": ["king"]
                 },
@@ -203,10 +207,6 @@
                 {
                   "title": "1 Garage Door",
                   "enum": ["garage"]
-                },
-                {
-                  "title": "1 Garage Door (Eachen GDDC5)",
-                  "enum": ["garage_eachen"]
                 },
                 {
                   "title": "1 Irrigation Valve",
@@ -288,7 +288,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'gargage_eachen', 'lock'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs)));"
               }
             },
             "operationTimeDown": {
@@ -324,7 +324,7 @@
               "title": "Obstruction Switch",
               "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'garage_eachen'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage'].includes(model.singleDevices[arrayIndices].showAs)));"
               }
             },
             "ipAddress": {
@@ -332,7 +332,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher'].includes(model.singleDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel));"
               }
             },
             "overrideLogging": {
@@ -358,7 +358,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
               }
             }
           }
@@ -587,7 +587,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
             "operationTimeDown": {
