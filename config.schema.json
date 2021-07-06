@@ -201,16 +201,46 @@
                   "enum": ["doorbell"]
                 },
                 {
+                  "title": "1 Garage Door",
+                  "enum": ["garage"]
+                },
+                {
+                  "title": "1 Garage Door (Eachen GDDC5)",
+                  "enum": ["garage_eachen"]
+                },
+                {
+                  "title": "1 Irrigation Valve",
+                  "enum": ["valve"]
+                },
+                {
+                  "title": "1 Lock",
+                  "enum": ["lock"]
+                },
+                {
                   "title": "1 Programmable Button",
                   "enum": ["p_button"]
                 },
                 {
                   "title": "1 Sensor",
                   "enum": ["sensor"]
+                },
+                {
+                  "title": "1 Tap/Faucet",
+                  "enum": ["tap"]
                 }
               ],
               "condition": {
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
+              }
+            },
+            "inUsePowerThreshold": {
+              "type": "integer",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs));"
               }
             },
             "sensorType": {
@@ -251,14 +281,50 @@
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['sensor'].includes(model.singleDevices[arrayIndices].showAs));"
               }
             },
-            "inUsePowerThreshold": {
+            "operationTime": {
               "type": "integer",
-              "title": "Outlet 'In Use' Threshold",
-              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-              "placeholder": 0,
-              "minimum": 0,
+              "title": "Operation Time (Deciseconds)",
+              "description": "Garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'gargage_eachen', 'lock'].includes(model.singleDevices[arrayIndices].showAs));"
+              }
+            },
+            "operationTimeDown": {
+              "type": "integer",
+              "title": "Operation Time Down (Deciseconds)",
+              "description": "If your garage door has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage'].includes(model.singleDevices[arrayIndices].showAs));"
+              }
+            },
+            "sensorId": {
+              "type": "string",
+              "title": "Sensor",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "minLength": 10,
+              "maxLength": 10,
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage'].includes(model.singleDevices[arrayIndices].showAs));"
+              }
+            },
+            "hideSensor": {
+              "type": "boolean",
+              "title": "Hide Sensor",
+              "description": "Hide this contact sensor accessory from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].sensorId && model.singleDevices[arrayIndices].sensorId.length === 10);"
+              }
+            },
+            "obstructId": {
+              "type": "string",
+              "title": "Obstruction Switch",
+              "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'garage_eachen'].includes(model.singleDevices[arrayIndices].showAs));"
               }
             },
             "ipAddress": {
@@ -368,8 +434,40 @@
                   "enum": ["purifier"]
                 },
                 {
+                  "title": "1 Door",
+                  "enum": ["door"]
+                },
+                {
                   "title": "1 Doorbell",
                   "enum": ["doorbell"]
+                },
+                {
+                  "title": "1 Garage Door",
+                  "enum": ["garage"]
+                },
+                {
+                  "title": "2 Garage Doors",
+                  "enum": ["garage_two"]
+                },
+                {
+                  "title": "4 Garage Doors",
+                  "enum": ["garage_four"]
+                },
+                {
+                  "title": "1 Irrigation Valve",
+                  "enum": ["valve"]
+                },
+                {
+                  "title": "2 Irrigation Valves",
+                  "enum": ["valve_two"]
+                },
+                {
+                  "title": "4 Irrigation Valves",
+                  "enum": ["valve_four"]
+                },
+                {
+                  "title": "1 Lock",
+                  "enum": ["lock"]
                 },
                 {
                   "title": "1 Programmable Button",
@@ -378,6 +476,26 @@
                 {
                   "title": "1 Sensor",
                   "enum": ["sensor"]
+                },
+                {
+                  "title": "1 Switch & 1 Valve",
+                  "enum": ["switch_valve"]
+                },
+                {
+                  "title": "1 Tap/Faucet",
+                  "enum": ["tap"]
+                },
+                {
+                  "title": "2 Taps/Faucets",
+                  "enum": ["tap_two"]
+                },
+                {
+                  "title": "1 Window",
+                  "enum": ["window"]
+                },
+                {
+                  "title": "1 Window Blind",
+                  "enum": ["blind"]
                 }
               ],
               "condition": {
@@ -404,6 +522,24 @@
               ],
               "condition": {
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dualr3_motor'].includes(model.multiDevices[arrayIndices].deviceModel));"
+              }
+            },
+            "hideChannels": {
+              "type": "string",
+              "title": "Hide Channels",
+              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
+              }
+            },
+            "inUsePowerThreshold": {
+              "type": "integer",
+              "title": "Outlet 'In Use' Threshold",
+              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
+              "placeholder": 0,
+              "minimum": 0,
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "sensorType": {
@@ -444,22 +580,50 @@
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['sensor'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
-            "inUsePowerThreshold": {
+            "operationTime": {
               "type": "integer",
-              "title": "Outlet 'In Use' Threshold",
-              "description": "HomeKit will set the 'In Use' status of outlet devices to true when the wattage is above this number. Must be 0 or more.",
-              "placeholder": 0,
-              "minimum": 0,
+              "title": "Operation Time (Deciseconds)",
+              "description": "Blinds/garage doors: the time to open/close the device. Locks: the time to show as unlocked. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'garage_eachen', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
-            "hideChannels": {
-              "type": "string",
-              "title": "Hide Channels",
-              "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
+            "operationTimeDown": {
+              "type": "integer",
+              "title": "Operation Time Down (Deciseconds)",
+              "description": "If your garage door or blind has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window'].includes(model.multiDevices[arrayIndices].showAs));"
+              }
+            },
+            "sensorId": {
+              "type": "string",
+              "title": "Sensor",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "minLength": 10,
+              "maxLength": 10,
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage'].includes(model.multiDevices[arrayIndices].showAs));"
+              }
+            },
+            "hideSensor": {
+              "type": "boolean",
+              "title": "Hide Sensor",
+              "description": "Hide this contact sensor accessory from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].sensorId && model.multiDevices[arrayIndices].sensorId.length === 10);"
+              }
+            },
+            "obstructId": {
+              "type": "string",
+              "title": "Obstruction Switch",
+              "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
             "ipAddress": {
@@ -1429,8 +1593,13 @@
             "singleDevices[].deviceModel",
             "singleDevices[].label",
             "singleDevices[].showAs",
-            "singleDevices[].sensorType",
             "singleDevices[].inUsePowerThreshold",
+            "singleDevices[].operationTime",
+            "singleDevices[].operationTimeDown",
+            "singleDevices[].sensorId",
+            "singleDevices[].hideSensor",
+            "singleDevices[].obstructId",
+            "singleDevices[].sensorType",
             "singleDevices[].ipAddress",
             "singleDevices[].overrideLogging"
           ]
@@ -1453,9 +1622,14 @@
             "multiDevices[].label",
             "multiDevices[].showAs",
             "multiDevices[].showAsMotor",
-            "multiDevices[].sensorType",
-            "multiDevices[].inUsePowerThreshold",
             "multiDevices[].hideChannels",
+            "multiDevices[].inUsePowerThreshold",
+            "multiDevices[].sensorType",
+            "multiDevices[].operationTime",
+            "multiDevices[].operationTimeDown",
+            "multiDevices[].sensorId",
+            "multiDevices[].hideSensor",
+            "multiDevices[].obstructId",
             "multiDevices[].ipAddress",
             "multiDevices[].overrideLogging"
           ]
