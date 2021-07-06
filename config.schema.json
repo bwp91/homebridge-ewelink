@@ -174,7 +174,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -411,7 +411,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -730,7 +730,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -831,7 +831,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -980,7 +980,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && model.fanDevices[arrayIndices].deviceId && model.fanDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -1081,7 +1081,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -1204,7 +1204,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -1271,7 +1271,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
               }
@@ -1388,7 +1388,7 @@
             "label": {
               "title": "Label",
               "type": "string",
-              "description": "This setting has no effect except to be a helpful label for identifying which device this is when editing the configuration.",
+              "description": "This setting has no effect except to help identify this device.",
               "condition": {
                 "functionBody": "return (model.groups && model.groups[arrayIndices] && model.groups[arrayIndices].deviceId && model.groups[arrayIndices].deviceId.length === 10);"
               }
