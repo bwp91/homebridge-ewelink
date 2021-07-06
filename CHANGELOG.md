@@ -25,7 +25,6 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
 - **Power Readings**
   - Power readings (via Eve app) now visible for accessories when exposed as `Switch`
-  - Polling via LAN mode to enable constant power attribute updates for POW/R2 devices
 - **DUALR3 Devices**
   - Support for LAN mode control for DUALR3 in motor mode
   - Power readings (via Eve app) available when in motor mode
