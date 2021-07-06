@@ -7,8 +7,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 - **LAN Mode (without eWeLink credentials)**
-  - The plugin now supports removing eWeLink credentials from the config when in LAN mode
-  - It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+  - The plugin now supports removing eWeLink credentials from the config when in LAN mode It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
 - **Accessory Logging**
   - `overrideLogging` setting per device type (to replace the removed `overrideDisabledLogging`), which can be set to (and will override the global device logging and debug logging settings):
     - `"default"` to follow the global device update and debug logging setting for this accessory (default if setting not set)
@@ -21,20 +20,17 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - An accessory warning if a cloud-device is reported offline
 - **No Response Status**
   - Added a global setting `offlineAsNoResponse` to mark cloud-offline accessories as 'No Response' in HomeKit
-- **Single-Channel Devices**
-  - Wattage/Voltage/Amp readings (via Eve app) now visible for outlets in Eve app when exposed as `Switch`
+- **Power Readings**
+  - Power readings (via Eve app) now visible for accessories when exposed as `Switch`
   - Polling via LAN mode to enable constant power attribute updates for POW/R2 devices
-- **Multi-Channel Devices**
-  - Wattage/Voltage/Amp readings (via Eve app) now visible for DUALR3 when in motor mode
+- **DUALR3 Devices**
   - Support for LAN mode control for DUALR3 in motor mode
-  - Option to expose a DUALR3 in motor mode as a `WindowCovering`, `Window` or `Door` accessory type
+  - Power readings (via Eve app) available when in motor mode
+  - Option to expose as a `WindowCovering`, `Window` or `Door` accessory type when in motor mode
 - **iFan Devices**
-  - Support for LAN mode control
-  - Added option to specify a manual IP
+  - Support for LAN mode and ability to specify a manual IP
 - **TH10/16 Devices**
-  - Implemented polling as firmware 3.5.0 does not seem to send regular temperature updates
-  - Implemented LAN mode for Accessory Simulations (eWeLink 'auto' mode is no longer used)
-  - Added option to specify a manual IP
+  - Support for LAN mode and ability to specify a manual IP
 - **RF Bridge Devices**
   - Ability to change sensor type and other configurable options without the need to re-add the accessory
   - Configuration option `resetOnStartup` to reset the subdevices, useful when adding/removing subdevices to the bridge
@@ -53,9 +49,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Accessory Simulations**
   - Expose a generic single/multi-channel device as a `Doorbell` accessory
   - Expose a generic single/multi-channel device as a `StatelessProgrammableSwitch` accessory
-  - Added `TimesOpened` Eve characteristic functionality to single garage door simulation
   - Added the option of using a DW2 or Zigbee contact sensor to determine _Locked_ and _Unlocked_ state for lock simulation
-  - Wattage/Voltage/Amp readings (via Eve app) visible for simulations when using a DUALR3 device
+  - Power readings (via Eve app) visible for simulations when using a DUALR3 device
 - **New Devices**
   - Support for Zigbee leak sensors
   - Support for device with eWeLink UIID 67 _RollingDoor_
@@ -64,6 +59,14 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - **LAN Mode**
   - ⚠️ If you have the plugin in `lan`-only mode then the plugin will remove any accessories that do not support LAN mode
+- **Configuration**
+  - ⚠️ The 'Outlet Devices' (`outletDevices[]`) section has been removed from the configuration - you will need to reconfigured these devices within the 'Single Devices' (`singleDevices[]`) section
+- **Accessory Simulations**
+  - ⚠️ The 'Accessory Simulations' (`groups[]`) section will be removed in a future plugin version - you should now setup your simulations from within the appropriate device type section using the 'Show As' setting
+    - Simulations for TH10/16, DW2 and `doorbell`, `p_button` & `sensor` will need to be recreated immediately
+    - Garage door, window blind, door, window, valve, tap, lock and switch-valve simulations will continue to work for now but will need to be recreated at some point in the future
+- **Outlet Devices**
+  - ⚠️ Will now be exposed by default as `Switch`, use the 'Show As' setting to change back to `Outlet` if needed
 - **Homebridge UI**
   - More interactive - device configuration will expand once device ID and model entered
   - Device configuration options will now hide/show based on the `deviceModel` field
@@ -71,11 +74,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - Accessory configuration options will be logged regardless of logging level
 - **iFan Devices**
   - Previous fan speed will be used again after turning off and on
-- **POWR2/DUALR3 Devices**
+- **Polling**
   - Polling for power/temperature/humidity readings increased to two minutes
-  - Polling for data will be skipped if device is marked as offline
-- **TH10/16 Devices**
-  - Polling for data will be skipped if device is marked as offline
+  - Polling for power/temperature/humidity readings will be skipped if device is marked as offline
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
@@ -92,6 +93,8 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Removed
 
 - `overrideDisabledLogging` setting for each accessory type
+- `outletDevices[]` configuration section
+- `switchDevices[].showAsOutlet` removed - use `switchDevices[].showAs` instead
 - `ContactSensorState` and other unneeded characteristics from garage (simulation) services
 
 ## 6.8.0 (2021-06-14)
