@@ -79,7 +79,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 - **Configuration**
   - `sensorTimeDifference` minimum reduced to 5 seconds and default reduced to 60 seconds
 - **Dependencies**
-  - Recommended node version bump to v14.17.2
+  - Recommended node version bump to v14.17.3
   - Bump `ws` dependency to v7.5.2
 
 ### Fixed
