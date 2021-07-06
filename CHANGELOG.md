@@ -67,6 +67,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
   - ⚠️ The 'Accessory Simulations' (`groups[]`) section will be removed in a future plugin version - you should now setup your simulations from within the appropriate device type section using the 'Show As' setting
     - Simulations for TH10/16, DW2 and `doorbell`, `p_button` & `sensor` will need to be recreated immediately
     - Garage door, window blind, door, window, valve, tap, lock and switch-valve simulations will continue to work for now but will need to be recreated at some point in the future
+  - ⚠️ Eachen GD-DC5 devices no longer need to be setup as a simulation if this deviceModel is chosen in the configuration
 - **Outlet Devices**
   - ⚠️ Will now be exposed by default as `Switch`, use the 'Show As' setting to change back to `Outlet` if needed
 - **Homebridge UI**
