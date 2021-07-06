@@ -8,6 +8,9 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - **LAN Mode (without eWeLink credentials)**
   - The plugin now supports removing eWeLink credentials from the config when in LAN mode It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+- **Homebridge UI**
+  - Device-specific settings will show and hide depending on the new 'Device Model' (`deviceModel`) option
+  - This showing/hiding of options will hopefully be available in the HOOBS UI soon
 - **Accessory Logging**
   - `overrideLogging` setting per device type (to replace the removed `overrideDisabledLogging`), which can be set to (and will override the global device logging and debug logging settings):
     - `"default"` to follow the global device update and debug logging setting for this accessory (default if setting not set)
