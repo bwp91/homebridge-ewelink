@@ -155,7 +155,7 @@
                   "enum": ["micro"]
                 },
                 {
-                  "title": "Sonoff SLAMPHER",
+                  "title": "Sonoff SLAMPHER/R2",
                   "enum": ["slampher"]
                 },
                 {
