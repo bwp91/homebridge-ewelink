@@ -249,7 +249,7 @@
               "description": "The type of sensor to use.",
               "oneOf": [
                 {
-                  "title": "Motion",
+                  "title": "Motion (Default)",
                   "enum": ["motion"]
                 },
                 {
@@ -548,7 +548,7 @@
               "description": "The type of sensor to use.",
               "oneOf": [
                 {
-                  "title": "Motion",
+                  "title": "Motion (Default)",
                   "enum": ["motion"]
                 },
                 {
@@ -1282,7 +1282,7 @@
               "description": "Select the type of sensor you would like to expose this as.",
               "oneOf": [
                 {
-                  "title": "Motion",
+                  "title": "Motion (Default)",
                   "enum": ["motion"]
                 },
                 {
