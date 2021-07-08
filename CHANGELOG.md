@@ -6,7 +6,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Changes
 
-- Revert node version bump to v14.17.3
+- Revert node version bump to v14.17.3 (back to v14.17.2)
 
 ### 7.0.1 (2021-07-08)
 
