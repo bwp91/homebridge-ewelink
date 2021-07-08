@@ -308,7 +308,7 @@
               "minLength": 10,
               "maxLength": 10,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs));"
               }
             },
             "hideSensor": {
@@ -607,7 +607,7 @@
               "minLength": 10,
               "maxLength": 10,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
             "hideSensor": {
