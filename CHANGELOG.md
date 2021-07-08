@@ -2,11 +2,15 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
-### BETA
+### 7.0.1 (2021-07-08)
 
 ### Changes
 
 - Device model in configuration will be validated
+
+### Fixed
+
+- An issue preventing garage doors and locks with a defined sensor from initialising
 
 ## 7.0.0 (2021-07-08)
 
