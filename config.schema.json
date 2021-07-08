@@ -494,7 +494,7 @@
                   "enum": ["window"]
                 },
                 {
-                  "title": "1 Window Blind",
+                  "title": "1 Window Blind/Covering",
                   "enum": ["blind"]
                 }
               ],
@@ -508,7 +508,7 @@
               "description": "Select the accessory type to show in HomeKit.",
               "oneOf": [
                 {
-                  "title": "Window Covering (Default)",
+                  "title": "Window Blind/Covering (Default)",
                   "enum": ["blind"]
                 },
                 {
