@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+### BETA
+
+### Changes
+
+- Device model in configuration will be validated
+
 ## 7.0.0 (2021-07-08)
 
 ### Important Notes
