@@ -14,7 +14,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 ### Added
 
 - **LAN Mode (without eWeLink credentials)**
-  - The plugin now supports removing eWeLink credentials from the config when in LAN mode It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
+  - The plugin now supports removing eWeLink credentials from the config when in LAN mode. It is important to read about this feature before enabling it - [read more](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods#lan-mode-without-ewelink-credentials)
 - **Homebridge UI**
   - Device-specific settings will show and hide depending on the new 'Device Model' (`deviceModel`) option
   - This showing/hiding of options will hopefully be available in the HOOBS UI soon
