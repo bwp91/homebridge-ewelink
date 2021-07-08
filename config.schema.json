@@ -304,7 +304,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door or lock to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "minLength": 10,
               "maxLength": 10,
               "condition": {
@@ -603,7 +603,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door or lock to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "minLength": 10,
               "maxLength": 10,
               "condition": {
@@ -1482,7 +1482,7 @@
             "sensorId": {
               "type": "string",
               "title": "Sensor",
-              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
+              "description": "A DW2 or Zigbee contact sensor can be used for a single garage door or lock to determine the current state. Enter the 10 digit eWeLink Device ID (normally in the format 1000ab23cd). Otherwise leave blank.",
               "minLength": 10,
               "maxLength": 10,
               "condition": {
