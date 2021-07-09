@@ -167,7 +167,7 @@
                   "enum": ["king"]
                 },
                 {
-                  "title": "Zigbee Single Switch (BASICZBR3/ZBMINI/S31ZB)",
+                  "title": "Zigbee Single Channel (BASICZBR3/ZBMINI/S31ZB)",
                   "enum": ["zb"]
                 }
               ],
@@ -404,7 +404,7 @@
                   "enum": ["t"]
                 },
                 {
-                  "title": "Zigbee Multi Switch",
+                  "title": "Zigbee Multi Channel",
                   "enum": ["zb"]
                 }
               ],
