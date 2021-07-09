@@ -118,12 +118,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -172,15 +185,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && model.singleDevices[arrayIndices].deviceId.length === 10 && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "showAs": {
@@ -230,7 +235,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inUsePowerThreshold": {
@@ -240,7 +245,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -278,7 +283,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['sensor'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['sensor'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTime": {
@@ -288,7 +293,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs)));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTimeDown": {
@@ -298,7 +303,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorId": {
@@ -308,7 +313,7 @@
               "minLength": 10,
               "maxLength": 10,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideSensor": {
@@ -316,7 +321,7 @@
               "title": "Hide Sensor",
               "description": "Hide this contact sensor accessory from HomeKit.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].sensorId && model.singleDevices[arrayIndices].sensorId.length === 10);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].sensorId && model.singleDevices[arrayIndices].sensorId.length === 10 && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "obstructId": {
@@ -324,7 +329,7 @@
               "title": "Obstruction Switch",
               "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage'].includes(model.singleDevices[arrayIndices].showAs)));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -332,7 +337,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -358,7 +363,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -371,12 +376,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -409,15 +427,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && model.multiDevices[arrayIndices].deviceId.length === 10 && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "showAs": {
@@ -503,7 +513,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "showAsMotor": {
@@ -525,7 +535,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dualr3_motor'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dualr3_motor'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideChannels": {
@@ -533,7 +543,7 @@
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inUsePowerThreshold": {
@@ -543,7 +553,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -581,7 +591,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['sensor'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['sensor'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTime": {
@@ -591,7 +601,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTimeDown": {
@@ -601,7 +611,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorId": {
@@ -611,7 +621,7 @@
               "minLength": 10,
               "maxLength": 10,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'lock'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'lock'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideSensor": {
@@ -619,7 +629,7 @@
               "title": "Hide Sensor",
               "description": "Hide this contact sensor accessory from HomeKit.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].sensorId && model.multiDevices[arrayIndices].sensorId.length === 10);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].sensorId && model.multiDevices[arrayIndices].sensorId.length === 10 && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "obstructId": {
@@ -627,7 +637,7 @@
               "title": "Obstruction Switch",
               "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -635,7 +645,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.mode !== 'wan' && model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -661,7 +671,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -674,12 +684,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -728,15 +751,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10 && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "brightnessStep": {
@@ -746,7 +761,7 @@
               "placeholder": 1,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "adaptiveLightingShift": {
@@ -756,7 +771,7 @@
               "placeholder": 0,
               "minimum": -1,
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -764,7 +779,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1'].includes(model.lightDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -790,7 +805,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'b1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'b1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -803,12 +818,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -829,15 +857,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && model.thDevices[arrayIndices].deviceId && model.thDevices[arrayIndices].deviceId.length === 10 && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "showAs": {
@@ -867,7 +887,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideSwitch": {
@@ -875,7 +895,7 @@
               "title": "Hide Switch",
               "description": "If true, this accessory will hide the TH10/16 switch from HomeKit.",
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !['heater', 'cooler', 'humidifier', 'dehumidifier'].includes(model.thDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !['heater', 'cooler', 'humidifier', 'dehumidifier'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "offset": {
@@ -884,7 +904,7 @@
               "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "humidityOffset": {
@@ -893,7 +913,7 @@
               "description": "You can offset the humidity that the sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "minTarget": {
@@ -903,7 +923,7 @@
               "placeholder": 10,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "maxTarget": {
@@ -913,7 +933,7 @@
               "placeholder": 30,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -921,7 +941,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this Sonoff TH10/16 if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.mode !== 'wan' && model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -947,7 +967,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -960,12 +980,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && model.fanDevices[arrayIndices].deviceId && model.fanDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -978,15 +1011,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && model.fanDevices[arrayIndices].deviceId && model.fanDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && model.fanDevices[arrayIndices].deviceId && model.fanDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && model.fanDevices[arrayIndices].deviceId && model.fanDevices[arrayIndices].deviceId.length === 10 && !model.fanDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideLight": {
@@ -994,7 +1019,7 @@
               "title": "Hide Light Switch",
               "description": "If true, the light switch will be hidden from HomeKit.",
               "condition": {
-                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel) && !model.fanDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -1002,7 +1027,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel) && !model.fanDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -1028,7 +1053,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel) && !model.fanDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1041,12 +1066,25 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
               "description": "Enter the 10 digit eWeLink Device ID to begin.",
               "minLength": 10,
               "maxLength": 10
+            },
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
+              "condition": {
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10);"
+              }
             },
             "deviceModel": {
               "type": "string",
@@ -1079,15 +1117,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10);"
-              }
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && model.sensorDevices[arrayIndices].deviceId && model.sensorDevices[arrayIndices].deviceId.length === 10 && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "showAs": {
@@ -1105,7 +1135,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "lowBattThreshold": {
@@ -1115,7 +1145,7 @@
               "placeholder": 25,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "offset": {
@@ -1124,7 +1154,7 @@
               "description": "You can offset the temperature that the SNZB-02 sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0,
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "humidityOffset": {
@@ -1133,7 +1163,7 @@
               "description": "You can offset the humidity that the SNZB-02 sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideLongDouble": {
@@ -1141,7 +1171,7 @@
               "title": "Hide Long & Double Press",
               "description": "If true, double and long press options will be hidden for this Zigbee Button.",
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb01'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb01'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "scaleBattery": {
@@ -1149,7 +1179,7 @@
               "title": "Scale Battery",
               "description": "If true, the battery reading for this Zigbee Contact Sensor will be multiplied by 10.",
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb04'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb04'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorTimeDifference": {
@@ -1159,7 +1189,7 @@
               "placeholder": 60,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -1185,7 +1215,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1198,6 +1228,11 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "deviceId": {
               "type": "string",
               "title": "Device ID",
@@ -1205,10 +1240,10 @@
               "minLength": 10,
               "maxLength": 10
             },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
+            "ignoreDevice": {
+              "type": "boolean",
+              "title": "Hide From HomeKit",
+              "description": "If true, this accessory will be removed and ignored from HomeKit.",
               "condition": {
                 "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10);"
               }
@@ -1218,7 +1253,7 @@
               "type": "boolean",
               "description": "If true, the plugin will remove and re-add all subdevices when the plugin initialises. Useful if adding or removing subdevices via the eWeLink app.",
               "condition": {
-                "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10 && !model.rfDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -1226,7 +1261,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.mode !== 'wan' && model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10 && !model.rfDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -1252,7 +1287,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10);"
+                "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10 && !model.rfDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1265,20 +1300,17 @@
         "items": {
           "type": "object",
           "properties": {
+            "label": {
+              "title": "Label",
+              "type": "string",
+              "description": "This setting has no effect except to help identify this device."
+            },
             "fullDeviceId": {
               "type": "string",
               "title": "Sensor Device ID",
               "description": "Enter the Device ID of the sensor to begin (13 digits normally in the format 1000ab23cdSW2).",
               "minLength": 13,
               "maxLength": 15
-            },
-            "label": {
-              "title": "Label",
-              "type": "string",
-              "description": "This setting has no effect except to help identify this device.",
-              "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
-              }
             },
             "type": {
               "type": "string",
@@ -1593,9 +1625,10 @@
         {
           "type": "fieldset",
           "items": [
-            "singleDevices[].deviceId",
-            "singleDevices[].deviceModel",
             "singleDevices[].label",
+            "singleDevices[].deviceId",
+            "singleDevices[].ignoreDevice",
+            "singleDevices[].deviceModel",
             "singleDevices[].showAs",
             "singleDevices[].inUsePowerThreshold",
             "singleDevices[].operationTime",
@@ -1621,9 +1654,10 @@
         {
           "type": "fieldset",
           "items": [
-            "multiDevices[].deviceId",
-            "multiDevices[].deviceModel",
             "multiDevices[].label",
+            "multiDevices[].deviceId",
+            "multiDevices[].ignoreDevice",
+            "multiDevices[].deviceModel",
             "multiDevices[].showAs",
             "multiDevices[].showAsMotor",
             "multiDevices[].hideChannels",
@@ -1651,9 +1685,10 @@
         {
           "type": "fieldset",
           "items": [
-            "lightDevices[].deviceId",
-            "lightDevices[].deviceModel",
             "lightDevices[].label",
+            "lightDevices[].deviceId",
+            "lightDevices[].ignoreDevice",
+            "lightDevices[].deviceModel",
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
             "lightDevices[].ipAddress",
@@ -1673,9 +1708,10 @@
         {
           "type": "fieldset",
           "items": [
-            "thDevices[].deviceId",
-            "thDevices[].deviceModel",
             "thDevices[].label",
+            "thDevices[].deviceId",
+            "thDevices[].ignoreDevice",
+            "thDevices[].deviceModel",
             "thDevices[].showAs",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
@@ -1699,9 +1735,10 @@
         {
           "type": "fieldset",
           "items": [
-            "fanDevices[].deviceId",
-            "fanDevices[].deviceModel",
             "fanDevices[].label",
+            "fanDevices[].deviceId",
+            "fanDevices[].ignoreDevice",
+            "fanDevices[].deviceModel",
             "fanDevices[].hideLight",
             "fanDevices[].ipAddress",
             "fanDevices[].overrideLogging"
@@ -1720,9 +1757,10 @@
         {
           "type": "fieldset",
           "items": [
-            "sensorDevices[].deviceId",
-            "sensorDevices[].deviceModel",
             "sensorDevices[].label",
+            "sensorDevices[].deviceId",
+            "sensorDevices[].ignoreDevice",
+            "sensorDevices[].deviceModel",
             "sensorDevices[].showAs",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].offset",
@@ -1746,8 +1784,9 @@
         {
           "type": "fieldset",
           "items": [
-            "rfDevices[].deviceId",
             "rfDevices[].label",
+            "rfDevices[].deviceId",
+            "rfDevices[].ignoreDevice",
             "rfDevices[].resetOnStartup",
             "rfDevices[].ipAddress",
             "rfDevices[].overrideLogging"
@@ -1766,8 +1805,8 @@
         {
           "type": "fieldset",
           "items": [
-            "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].label",
+            "bridgeSensors[].fullDeviceId",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
             "bridgeSensors[].sensorTimeDifference",
