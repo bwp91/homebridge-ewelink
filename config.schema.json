@@ -402,6 +402,10 @@
                 {
                   "title": "Sonoff T1/T2/T3/TX-2C/3C/4C",
                   "enum": ["t"]
+                },
+                {
+                  "title": "Zigbee Multi Switch",
+                  "enum": ["zb"]
                 }
               ],
               "condition": {
@@ -499,7 +503,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             },
             "showAsMotor": {
@@ -529,7 +533,7 @@
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs));"
               }
             },
             "inUsePowerThreshold": {
@@ -657,7 +661,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel));"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel));"
               }
             }
           }
