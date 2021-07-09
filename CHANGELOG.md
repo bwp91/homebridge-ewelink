@@ -6,7 +6,14 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Support for Zigbee multi-channel devices
+- **New Devices**
+  - Support for Zigbee multi-channel devices
+
+### Changed
+
+- **Homebridge UI**
+  - `label` field now appears first in the device configuration sections
+  - A device can now be ignored/removed from Homebridge by the `ignoreDevice` setting in the device configuration sections
 
 ## 7.0.2 (2021-07-08)
 
