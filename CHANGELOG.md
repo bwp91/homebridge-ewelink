@@ -2,6 +2,12 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Support for Zigbee multi-channel devices
+
 ## 7.0.2 (2021-07-08)
 
 ### Changes
