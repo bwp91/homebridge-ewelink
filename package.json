@@ -15,7 +15,8 @@
     "siri",
     "ewelink",
     "sonoff",
-    "eachen"
+    "eachen",
+    "zigbee"
   ],
   "main": "lib/index.js",
   "engines": {
