@@ -908,7 +908,7 @@
               }
             },
             "humidityOffset": {
-              "type": "integer",
+              "type": "number",
               "title": "Humidity Offset",
               "description": "You can offset the humidity that the sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
@@ -1158,7 +1158,7 @@
               }
             },
             "humidityOffset": {
-              "type": "integer",
+              "type": "number",
               "title": "Humidity Offset",
               "description": "You can offset the humidity that the SNZB-02 sensor reads. An offset of 2 means 2% will be added to the recorded relative humidity. Can be positive or negative.",
               "placeholder": 0,
