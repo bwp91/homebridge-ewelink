@@ -2,6 +2,21 @@
 
 All notable changes to this homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Option to offset recorded temperature or humidity by a scale factor
+
+### Changed
+
+- Plugin will now reattempt initial HTTP connection on `ECONNABORTED` error
+- Plugin will now use HomeKit `Battery` service type instead of `BatteryService`
+
+### Fixed
+
+- Plugin will correctly update `StatusLowBattery` characteristic with `INT` instead of type `BOOL`
+
 ## 7.1.0 (2021-07-10)
 
 ### Added
