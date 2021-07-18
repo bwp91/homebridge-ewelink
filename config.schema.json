@@ -907,6 +907,14 @@
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "offsetFactor": {
+              "type": "boolean",
+              "title": "Temperature Offset Factor",
+              "description": "If true then the above value will be used as a factor, i.e. the recorded temperature will be multipled by this number instead.",
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].offset && !model.thDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "humidityOffset": {
               "type": "number",
               "title": "Humidity Offset",
@@ -914,6 +922,14 @@
               "placeholder": 0,
               "condition": {
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "humidityOffsetFactor": {
+              "type": "boolean",
+              "title": "Humidity Offset %",
+              "description": "If true then the above value will be used as a factor, i.e. the recorded humidity will be multipled by this number instead.",
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].humidityOffset && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "minTarget": {
@@ -1157,6 +1173,14 @@
                 "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "offsetFactor": {
+              "type": "boolean",
+              "title": "Temperature Offset Factor",
+              "description": "If true then the above value will be used as a factor, i.e. the recorded temperature will be multipled by this number instead.",
+              "condition": {
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && sensorDevices[arrayIndices].offset && !model.sensorDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "humidityOffset": {
               "type": "number",
               "title": "Humidity Offset",
@@ -1164,6 +1188,14 @@
               "placeholder": 0,
               "condition": {
                 "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "humidityOffsetFactor": {
+              "type": "boolean",
+              "title": "Humidity Offset %",
+              "description": "If true then the above value will be used as a factor, i.e. the recorded humidity will be multipled by this number instead.",
+              "condition": {
+                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb02'].includes(model.sensorDevices[arrayIndices].deviceModel) && sensorDevices[arrayIndices].humidityOffset && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
             },
             "hideLongDouble": {
@@ -1715,7 +1747,9 @@
             "thDevices[].showAs",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
+            "thDevices[].offsetFactor",
             "thDevices[].humidityOffset",
+            "thDevices[].humidityOffsetFactor",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
             "thDevices[].ipAddress",
@@ -1764,7 +1798,9 @@
             "sensorDevices[].showAs",
             "sensorDevices[].lowBattThreshold",
             "sensorDevices[].offset",
+            "sensorDevices[].offsetFactor",
             "sensorDevices[].humidityOffset",
+            "sensorDevices[].humidityOffsetFactor",
             "sensorDevices[].hideLongDouble",
             "sensorDevices[].scaleBattery",
             "sensorDevices[].sensorTimeDifference",
