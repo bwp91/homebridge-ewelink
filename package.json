@@ -13,10 +13,12 @@
     "hoobs-plugin",
     "homekit",
     "siri",
+    "zigbee",
+    "rf",
     "ewelink",
     "sonoff",
     "eachen",
-    "zigbee"
+    "smartwise"
   ],
   "main": "lib/index.js",
   "engines": {
