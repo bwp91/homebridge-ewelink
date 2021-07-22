@@ -17,6 +17,11 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 - Plugin will correctly update `StatusLowBattery` characteristic with `INT` instead of type `BOOL`
 
+### Removed
+
+- `ignoredDevices` configuration setting - now use the `ignoreDevice` option in the device type sections
+- `groups` configuration setting - now use the `showAs` option in the device type sections
+
 ## 7.1.0 (2021-07-10)
 
 ### Added
