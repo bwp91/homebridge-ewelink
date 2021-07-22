@@ -1450,6 +1450,7 @@
     {
       "type": "fieldset",
       "title": "Optional Settings",
+      "description": "Optional settings for the plugin, including account, API and global logging settings.",
       "expandable": true,
       "items": [
         "mode",
