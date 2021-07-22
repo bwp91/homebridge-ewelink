@@ -113,7 +113,7 @@
       },
       "singleDevices": {
         "title": "Single Channel Devices",
-        "description": "Applies to single-channel switch, outlet and light switch devices.",
+        "description": "Optional settings for single-channel switch, outlet and light switch devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -371,7 +371,7 @@
       },
       "multiDevices": {
         "title": "Multi Channel Devices",
-        "description": "Applies to multi-channel switch, outlet and light switch devices.",
+        "description": "Optional settings for multi-channel switch, outlet and light switch devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -679,7 +679,7 @@
       },
       "lightDevices": {
         "title": "Light Devices",
-        "description": "Applies to dimmer, bulb and LED strip devices.",
+        "description": "Optional settings for dimmer, bulb and LED strip devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -813,7 +813,7 @@
       },
       "thDevices": {
         "title": "Thermostat Devices",
-        "description": "Applies to thermostat devices and the TH10/16.",
+        "description": "Optional settings for thermostat devices and the TH10/16.",
         "type": "array",
         "items": {
           "type": "object",
@@ -991,7 +991,7 @@
       },
       "fanDevices": {
         "title": "Fan Devices",
-        "description": "Applies to iFan devices.",
+        "description": "Optional settings for iFan devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -1077,7 +1077,7 @@
       },
       "sensorDevices": {
         "title": "Sensor Devices",
-        "description": "Applies to the DW2 and Zigbee sensor devices.",
+        "description": "Optional settings for the DW2 and Zigbee sensor devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -1255,7 +1255,7 @@
       },
       "rfDevices": {
         "title": "RF Devices",
-        "description": "Applies to RF Bridge devices.",
+        "description": "Optional settings for RF Bridge devices.",
         "type": "array",
         "items": {
           "type": "object",
@@ -1327,7 +1327,7 @@
       },
       "bridgeSensors": {
         "title": "RF Sensor Devices",
-        "description": "Applies to RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
+        "description": "Optional settings for RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
         "type": "array",
         "items": {
           "type": "object",
@@ -1469,7 +1469,7 @@
     {
       "key": "singleDevices",
       "title": "Single Channel Devices",
-      "description": "Applies to single-channel switch, outlet and light switch devices.",
+      "description": "Optional settings for single-channel switch, outlet and light switch devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1498,7 +1498,7 @@
     {
       "key": "multiDevices",
       "title": "Multi Channel Devices",
-      "description": "Applies to multi-channel switch, outlet and light switch devices.",
+      "description": "Optional settings for multi-channel switch, outlet and light switch devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1529,7 +1529,7 @@
     {
       "key": "lightDevices",
       "title": "Light Devices",
-      "description": "Applies to dimmer, bulb and LED strip devices.",
+      "description": "Optional settings for dimmer, bulb and LED strip devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1552,7 +1552,7 @@
     {
       "key": "thDevices",
       "title": "Thermostat Devices",
-      "description": "Applies to thermostat devices and the TH10/16.",
+      "description": "Optional settings for thermostat devices and the TH10/16.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1581,7 +1581,7 @@
     {
       "key": "fanDevices",
       "title": "Fan Devices",
-      "description": "Applies to iFan devices.",
+      "description": "Optional settings for iFan devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1603,7 +1603,7 @@
     {
       "key": "sensorDevices",
       "title": "Sensor Devices",
-      "description": "Applies to the DW2 and Zigbee sensor devices.",
+      "description": "Optional settings for the DW2 and Zigbee sensor devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1632,7 +1632,7 @@
     {
       "key": "rfDevices",
       "title": "RF Bridge Devices",
-      "description": "Applies to RF Bridge devices.",
+      "description": "Optional settings for RF Bridge devices.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
@@ -1653,7 +1653,7 @@
     {
       "key": "bridgeSensors",
       "title": "RF Subdevices",
-      "description": "Applies to RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
+      "description": "Optional settings for RF Bridge subdevices to expose different sensor types (<a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/RF-Bridge-Sensors\" target=\"_blank\">more info</a>).",
       "expandable": true,
       "add": "Add Another Sensor",
       "type": "array",
