@@ -6,10 +6,12 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- `disableNoResponse` setting to disable marking cloud-offline devices as 'No Response' in HomeKit
 - Option to offset recorded temperature or humidity by a scale factor
 
 ### Changed
 
+- Plugin will now mark cloud-offline devices with 'No Response' by default
 - Plugin will now reattempt initial HTTP connection on `ECONNABORTED` error
 - Plugin will now use HomeKit `Battery` service type instead of `BatteryService`
 
@@ -19,6 +21,7 @@ All notable changes to this homebridge-ewelink will be documented in this file.
 
 ### Removed
 
+- `offlineAsNoResponse` configuration setting - is now default - can be disabled with new `disableNoResponse` setting
 - `ignoredDevices` configuration setting - now use the `ignoreDevice` option in the device type sections
 - `groups` configuration setting - now use the `showAs` option in the device type sections
 
