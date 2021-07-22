@@ -46,10 +46,10 @@
           }
         ]
       },
-      "offlineAsNoResponse": {
+      "disableNoResponse": {
         "type": "boolean",
-        "title": "Offline Accessories",
-        "description": "Whether to mark cloud-offline accessories as 'No Response' in HomeKit. This setting has no effect if the plugin is in LAN mode and does not apply to Zigbee devices nor the DW2 sensor."
+        "title": "Disable 'No Response'",
+        "description": "If true, devices marked as cloud-offline will not be shown as 'No Response' in HomeKit."
       },
       "countryCode": {
         "title": "Country Code",
@@ -1458,7 +1458,7 @@
           "type": "help",
           "helpvalue": "<label class=\"control-label text-warning\">⚠ Using LAN mode will remove any unsupported accessories from Homebridge.</label>"
         },
-        "offlineAsNoResponse",
+        "disableNoReponse",
         "countryCode",
         "httpHost",
         "apiPort",
