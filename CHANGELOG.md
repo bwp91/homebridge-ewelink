@@ -1,6 +1,6 @@
 # Change Log
 
-All notable changes to this homebridge-ewelink will be documented in this file.
+All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
