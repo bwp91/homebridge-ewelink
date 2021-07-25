@@ -530,6 +530,10 @@
                   "enum": ["door"]
                 },
                 {
+                  "title": "Garage Door",
+                  "enum": ["garage"]
+                },
+                {
                   "title": "Window",
                   "enum": ["window"]
                 }
