@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.0.0 (2021-07-29)
 
 ### Important Note
 
@@ -27,7 +27,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - ⚠️ **Platform Versions**
   - Recommended node version bumped to v14.17.4
   - Recommended homebridge version bumped to v1.3.4
-- **Accessories**
+- ⚠️ **Accessories**
   - Plugin will now mark cloud-offline devices with 'No Response' by default
   - Plugin will now use HomeKit `Battery` service type instead of `BatteryService`
 - **Backend**
