@@ -248,6 +248,14 @@
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "isInched": {
+              "type": "boolean",
+              "title": "Status By Inching",
+              "description": "If true, the plugin will show the on/off status based on inching mode.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "sensorType": {
               "type": "string",
               "title": "Sensor Type",
@@ -1488,6 +1496,7 @@
             "singleDevices[].deviceModel",
             "singleDevices[].showAs",
             "singleDevices[].inUsePowerThreshold",
+            "singleDevices[].isInched",
             "singleDevices[].operationTime",
             "singleDevices[].operationTimeDown",
             "singleDevices[].sensorId",
