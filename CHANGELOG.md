@@ -12,8 +12,8 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- **Single/Multi Channel Devices**
-  - Option to configure a single/multi channel device to set its status based on device inching
+- **Single Channel Devices**
+  - Option to configure a single channel device to set its status based on device inching
 - **DUALR3 Motor Mode**
   - Expose a DUALR3 in motor mode as a `GarageDoorOpener` accessory type
 - **Temperature/Humidity Sensor Devices**
