@@ -6,16 +6,26 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Expose a DUALR3 in motor mode as a `GarageDoorOpener` accessory type
-- `disableNoResponse` setting to disable marking cloud-offline devices as 'No Response' in HomeKit
-- Option to offset recorded temperature or humidity by a scale factor
-- Option to configure a single/multi channel device to set its status based on device inching
+- **Single/Multi Channel Devices**
+  - Option to configure a single/multi channel device to set its status based on device inching
+- **DUALR3 Motor Mode**
+  - Expose a DUALR3 in motor mode as a `GarageDoorOpener` accessory type
+- **Temperature/Humidity Sensor Devices**
+  - Option to offset recorded temperature or humidity by a scale factor
+- **Configuration**
+  - `disableNoResponse` setting to disable marking cloud-offline devices as 'No Response' in HomeKit
+  - Plugin will now check for duplicate device ID entries in the config and ignore them
 
 ### Changed
 
-- Plugin will now mark cloud-offline devices with 'No Response' by default
-- Plugin will now reattempt initial HTTP connection on `ECONNABORTED` error
-- Plugin will now use HomeKit `Battery` service type instead of `BatteryService`
+- ⚠️ **Platform Versions**
+  - Recommended node version bumped to v14.17.4
+  - Recommended homebridge version bumped to v1.3.4
+- **Accessories**
+  - Plugin will now mark cloud-offline devices with 'No Response' by default
+  - Plugin will now use HomeKit `Battery` service type instead of `BatteryService`
+- **Backend**
+  - Plugin will now reattempt initial HTTP connection on `ECONNABORTED` error
 
 ### Fixed
 
@@ -23,9 +33,9 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Removed
 
-- `offlineAsNoResponse` configuration setting - is now default - can be disabled with new `disableNoResponse` setting
-- `ignoredDevices` configuration setting - now use the `ignoreDevice` option in the device type sections
-- `groups` configuration setting - now use the `showAs` option in the device type sections
+- ⚠️ `offlineAsNoResponse` configuration setting - is now default - can be disabled with new `disableNoResponse` setting
+- ⚠️ `ignoredDevices` configuration setting - now use the `ignoreDevice` option in the device type sections
+- ⚠️ `groups` configuration setting - now use the `showAs` option in the device type sections
 
 ## 7.1.0 (2021-07-10)
 
