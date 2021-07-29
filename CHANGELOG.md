@@ -4,6 +4,12 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Important Note
+
+- Your Accessory Simulations will stop working with this update if you have not re-set them up in the appropriate device configuration sections.
+- **There is no longer a separate Accessory Simulations section**
+- It is recommended to re-setup your simulations **before** updating to this version
+
 ### Added
 
 - **Single/Multi Channel Devices**
