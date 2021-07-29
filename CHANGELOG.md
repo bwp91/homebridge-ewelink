@@ -9,6 +9,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - Expose a DUALR3 in motor mode as a `GarageDoorOpener` accessory type
 - `disableNoResponse` setting to disable marking cloud-offline devices as 'No Response' in HomeKit
 - Option to offset recorded temperature or humidity by a scale factor
+- Option to configure a single/multi channel device to set its status based on device inching
 
 ### Changed
 
