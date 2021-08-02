@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Improved battery calculations for DW2 sensors
+
 ## 8.0.0 (2021-07-29)
 
 ### Important Note
