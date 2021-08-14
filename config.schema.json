@@ -245,7 +245,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['default', outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "isInched": {
@@ -253,7 +253,7 @@
               "title": "Status By Inching",
               "description": "If true, the plugin will show the on/off status based on inching mode.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -565,7 +565,15 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['default', outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "isInched": {
+              "type": "boolean",
+              "title": "Status By Inching",
+              "description": "If true, the plugin will show the on/off status based on inching mode.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -1528,6 +1536,7 @@
             "multiDevices[].showAsMotor",
             "multiDevices[].hideChannels",
             "multiDevices[].inUsePowerThreshold",
+            "multiDevices[].isInched",
             "multiDevices[].sensorType",
             "multiDevices[].operationTime",
             "multiDevices[].operationTimeDown",
