@@ -26,6 +26,22 @@
         "required": true,
         "description": "Your eWeLink password, can also be a base64 encoded version of your password."
       },
+      "language": {
+        "type": "string",
+        "title": "Connection Mode",
+        "description": "Language to use for logging.",
+        "default": "en",
+        "oneOf": [
+          {
+            "title": "English",
+            "enum": ["en"]
+          },
+          {
+            "title": "French",
+            "enum": ["fr"]
+          }
+        ]
+      },
       "mode": {
         "type": "string",
         "title": "Connection Mode",
@@ -1473,6 +1489,7 @@
       "description": "Optional settings for the plugin, including account, API and global logging settings.",
       "expandable": true,
       "items": [
+        "language",
         "mode",
         {
           "type": "help",
