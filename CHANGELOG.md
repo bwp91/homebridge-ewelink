@@ -2,6 +2,13 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- `inchChannels` option for multi-channel switches and outlets (where the plugin will set on/off status based on inching)
+- `language` option to have the plugin log in French, thanks to @jp-lno
+
 ## 8.0.2 (2021-08-12)
 
 ### Changed
