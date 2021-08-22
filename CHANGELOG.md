@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.2.0 (2021-08-22)
+
+### Added
+
+- Support for UIIDs `138` `139` `140` `141`
+
 ## 8.1.0 (2021-08-17)
 
 ### Added
