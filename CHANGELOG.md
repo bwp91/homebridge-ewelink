@@ -2,11 +2,16 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.2.1 (2021-08-22)
 
 ### Changed
 
 - Bump `ws` to v8.2.0
+
+### Fixed
+
+- An issue preventing DUALR3 from initialising
+- Fix for uiid `112`
 
 ## 8.2.0 (2021-08-22)
 
