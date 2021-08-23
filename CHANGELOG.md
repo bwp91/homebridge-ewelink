@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Expose KingArt KING-Q4 device as a `Window` or `Door` HomeKit accessory type
+
 ## 8.2.1 (2021-08-22)
 
 ### Changed
