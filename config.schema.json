@@ -251,7 +251,29 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "showAsMotor": {
+              "type": "string",
+              "title": "KingArt KING-Q4 Accessory Type",
+              "description": "Select the accessory type to show in HomeKit.",
+              "oneOf": [
+                {
+                  "title": "Window Blind/Covering (Default)",
+                  "enum": ["blind"]
+                },
+                {
+                  "title": "Door",
+                  "enum": ["door"]
+                },
+                {
+                  "title": "Window",
+                  "enum": ["window"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['king'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inUsePowerThreshold": {
@@ -1520,6 +1542,7 @@
             "singleDevices[].ignoreDevice",
             "singleDevices[].deviceModel",
             "singleDevices[].showAs",
+            "singleDevices[].showAsMotor",
             "singleDevices[].inUsePowerThreshold",
             "singleDevices[].isInched",
             "singleDevices[].operationTime",
