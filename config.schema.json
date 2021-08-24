@@ -192,7 +192,7 @@
                   "enum": ["gddc5"]
                 },
                 {
-                  "title": "KingArt KING-Q4",
+                  "title": "KingArt KING-Q1/Q4",
                   "enum": ["king"]
                 },
                 {
@@ -256,7 +256,7 @@
             },
             "showAsMotor": {
               "type": "string",
-              "title": "KingArt KING-Q4 Accessory Type",
+              "title": "KingArt KING-Q1/Q4 Accessory Type",
               "description": "Select the accessory type to show in HomeKit.",
               "oneOf": [
                 {
@@ -266,6 +266,10 @@
                 {
                   "title": "Door",
                   "enum": ["door"]
+                },
+                {
+                  "title": "Garage Door",
+                  "enum": ["garage"]
                 },
                 {
                   "title": "Window",
