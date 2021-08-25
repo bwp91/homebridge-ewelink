@@ -8,7 +8,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - Support for KingArt KING-Q1 garage door device
 - Expose KingArt KING-Q4 device as a `Window` or `Door` HomeKit accessory type
-- Custom characteristic to invert status of inched switch without sending a command to device
+- Custom Eve characteristic to invert status of inched switch without sending a command to device
 
 ## 8.2.1 (2021-08-22)
 
