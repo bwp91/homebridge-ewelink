@@ -6,6 +6,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- Support for KingArt KING-Q1 garage door device
 - Expose KingArt KING-Q4 device as a `Window` or `Door` HomeKit accessory type
 
 ## 8.2.1 (2021-08-22)
