@@ -10,6 +10,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - Expose KingArt KING-Q4 device as a `Window` or `Door` HomeKit accessory type
 - Custom Eve characteristic to invert status of inched switch without sending a command to device
 
+### Changed
+
+- 'Status By Inching' switches will no longer revert to 'off' when Homebridge is restarted
+
 ## 8.2.1 (2021-08-22)
 
 ### Changed
