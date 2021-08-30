@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## UPCOMING
+
+### Changed
+
+- Bump `ws` to v8.2.1
+
 ## 8.3.0 (2021-08-26)
 
 ### Added
