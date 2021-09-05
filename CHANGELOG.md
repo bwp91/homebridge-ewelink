@@ -6,6 +6,8 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Changed
 
+- Recommended node version bumped to v14.17.6
+- Bump `axios` to v0.21.3
 - Bump `ws` to v8.2.1
 
 ## 8.3.0 (2021-08-26)
