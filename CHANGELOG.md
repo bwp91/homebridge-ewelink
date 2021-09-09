@@ -2,11 +2,13 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## UPCOMING
+## 8.3.2 (2021-09-09)
 
 ### Changed
 
+- `configureAccessory` function simplified to reduce chance of accessory cache retrieval failing
 - Bump `axios` to v0.21.4
+- Bump `ws` to v8.2.2
 
 ## 8.3.1 (2021-09-05)
 
