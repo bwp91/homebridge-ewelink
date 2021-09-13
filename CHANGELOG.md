@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+## Fixed
+
+- Fixed an issue where an irrigation valve simulation would not turn off after the set time
+
 ## 8.3.2 (2021-09-09)
 
 ### Changed
