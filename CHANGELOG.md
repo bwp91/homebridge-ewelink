@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.3.4 (2021-09-30)
+
+### Changed
+
+- Recommended node versions bumped to v14.18.0 or v16.10.0
+
 ## 8.3.3 (2021-09-14)
 
 ## Fixed
