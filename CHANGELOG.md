@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## 8.3.5
+## 8.3.5 (2021-10-01)
 
 ### Changed
 
