@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.3.5
+
+### Changed
+
+- Bump `axios` to v0.22.0
+
 ## 8.3.4 (2021-09-30)
 
 ### Changed
