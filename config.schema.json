@@ -65,7 +65,10 @@
       "disableNoResponse": {
         "type": "boolean",
         "title": "Disable 'No Response'",
-        "description": "If true, devices marked as cloud-offline will not be shown as 'No Response' in HomeKit."
+        "description": "If true, devices marked as cloud-offline will not be shown as 'No Response' in HomeKit.",
+        "condition": {
+          "functionBody": "return (model.mode !== 'lan');"
+        }
       },
       "countryCode": {
         "title": "Country Code",
