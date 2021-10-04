@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## UPCOMING
+
+### Changed
+
+- `disableNoResponse` will be set to `true` by the plugin when using in LAN mode
+
+### Fixed
+
+- An error when trying to unregister a hidden accessory from Homebridge
+
 ## 8.3.6 (2021-10-01)
 
 ### Changed
