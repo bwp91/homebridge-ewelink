@@ -2,11 +2,17 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## UPCOMING
+## BETA
+
+### Added
+
+- Expose a single or multi-channel device as a gate type (shown as garage door)
+  - If you use the Home app to open the door, it will then automatically close after a configured number of seconds
 
 ### Changed
 
 - `disableNoResponse` will be set to `true` by the plugin when using in LAN mode
+- Recommended Homebridge bumped to v1.3.5
 
 ### Fixed
 
