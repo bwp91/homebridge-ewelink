@@ -233,6 +233,10 @@
                   "enum": ["garage"]
                 },
                 {
+                  "title": "1 Gate (As Garage Door)",
+                  "enum": ["gate"]
+                },
+                {
                   "title": "1 Irrigation Valve",
                   "enum": ["valve"]
                 },
@@ -346,7 +350,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock', 'gate'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTimeDown": {
@@ -521,6 +525,10 @@
                   "enum": ["garage_four"]
                 },
                 {
+                  "title": "1 Gate (As Garage Door)",
+                  "enum": ["gate"]
+                },
+                {
                   "title": "1 Irrigation Valve",
                   "enum": ["valve"]
                 },
@@ -666,7 +674,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window', 'lock'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['garage', 'garage_two', 'garage_four', 'blind', 'door', 'window', 'lock', 'gate'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTimeDown": {
