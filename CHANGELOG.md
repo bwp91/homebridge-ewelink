@@ -12,6 +12,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Changed
 
 - `disableNoResponse` will be set to `true` by the plugin when using in LAN mode
+- Recommended node versions bumped to v14.18.0 or v16.11.0
 - Recommended Homebridge bumped to v1.3.5
 
 ### Fixed
