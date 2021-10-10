@@ -21,9 +21,10 @@ Homebridge plugin to integrate eWeLink devices into HomeKit
 ### Plugin Information
 
 - This plugin allows you to view and control your eWeLink devices within HomeKit. The plugin:
-  - requires your eWeLink credentials to function
-  - supports LAN control for certain devices
-  - uses a web socket for real-time device control and updates
+  - requires your eWeLink credentials to download a device list
+  - attempts to control your supported devices locally, reverting to cloud control if necessary
+  - listens for real-time device updates when controlled externally
+  - supports removing your eWeLink credentials from the configuration in certain situations, see [Connection Methods](https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods)
 
 ### Prerequisites
 
