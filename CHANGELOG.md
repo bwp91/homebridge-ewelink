@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Some small changes to Fakegato debug logging
+
 ## 8.4.0 (2021-10-16)
 
 ### Added
