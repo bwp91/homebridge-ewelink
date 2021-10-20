@@ -8,6 +8,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - Some small changes to Fakegato debug logging
 
+### Fixed
+
+- An Eve app 'no data' gap for garage and contact sensor devices when restarting the plugin
+
 ## 8.4.0 (2021-10-16)
 
 ### Added
