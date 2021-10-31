@@ -29,7 +29,7 @@ Homebridge plugin to integrate eWeLink devices into HomeKit
 ### Prerequisites
 
 - To use this plugin, you will need to already have [Homebridge](https://homebridge.io) (at least v1.3.5) or [HOOBS](https://hoobs.org) (at least v4) installed. Refer to the links for more information and installation instructions.
-- It is recommended to use [Node](https://nodejs.org/en/) v14, however v12 and v16 are also supported.
+- Whilst it is recommended to use [Node](https://nodejs.org/en/) v16, the plugin supports v12 and v14 as per the [Homebridge guidelines](https://github.com/homebridge/homebridge/wiki/How-To-Update-Node.js).
 
 ### Setup
 
