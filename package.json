@@ -2,7 +2,10 @@
   "name": "homebridge-ewelink",
   "alias": "eWeLink",
   "version": "8.4.2",
-  "author": "bwp91",
+  "author": {
+    "name": "bwp91",
+    "email": "bwp91@icloud.com"
+  },
   "description": "Homebridge plugin to integrate eWeLink devices into HomeKit.",
   "license": "MIT",
   "keywords": [
