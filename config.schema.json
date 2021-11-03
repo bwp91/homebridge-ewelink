@@ -1417,6 +1417,66 @@
               "minLength": 13,
               "maxLength": 15
             },
+            "deviceType": {
+              "type": "string",
+              "title": "Device Type",
+              "description": "Select the type of RF device this is.",
+              "oneOf": [
+                {
+                  "title": "Button(s) (Default)",
+                  "enum": ["button"]
+                },
+                {
+                  "title": "Curtain",
+                  "enum": ["curtain"]
+                },
+                {
+                  "title": "Sensor/Doorbell",
+                  "enum": ["sensor"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
+              }
+            },
+            "curtainType": {
+              "type": "string",
+              "title": "Curtain Type",
+              "description": "Select the type of accessory you would like to expose this as.",
+              "oneOf": [
+                {
+                  "title": "3 Buttons (Open, Close, Stop) (Default)",
+                  "enum": ["buttons"]
+                },
+                {
+                  "title": "Window Blind/Covering",
+                  "enum": ["blind"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain');"
+              }
+            },
+            "operationTime": {
+              "type": "integer",
+              "title": "Operation Time (Deciseconds)",
+              "description": "The time to open/close the device. This setting is in deciseconds - count the time in seconds and multiply by 10, for example 75 for 7.5 seconds. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
+              "condition": {
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && model.bridgeSensors[arrayIndices].curtainType === 'blind');"
+              }
+            },
+            "operationTimeDown": {
+              "type": "integer",
+              "title": "Operation Time Down (Deciseconds)",
+              "description": "If your device has a different operation time for up and down, use this setting to specify the operation time DOWN (in deciseconds) and the other setting to specify the operation time UP. Otherwise leave blank. Must be 20 or more.",
+              "placeholder": 100,
+              "minimum": 20,
+              "condition": {
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && model.bridgeSensors[arrayIndices].curtainType === 'blind');"
+              }
+            },
             "type": {
               "type": "string",
               "title": "Sensor Type",
@@ -1460,7 +1520,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'sensor');"
               }
             },
             "sensorTimeLength": {
@@ -1470,7 +1530,7 @@
               "placeholder": 60,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && model.bridgeSensors[arrayIndices].deviceType === 'sensor' && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
               }
             },
             "sensorTimeDifference": {
@@ -1480,7 +1540,7 @@
               "placeholder": 60,
               "minimum": 5,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && model.bridgeSensors[arrayIndices].deviceType === 'sensor' && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
               }
             },
             "overrideLogging": {
@@ -1741,6 +1801,10 @@
           "items": [
             "bridgeSensors[].label",
             "bridgeSensors[].fullDeviceId",
+            "bridgeSensors[].deviceType",
+            "bridgeSensors[].curtainType",
+            "bridgeSensors[].operationTime",
+            "bridgeSensors[].operationTimeDown",
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
             "bridgeSensors[].sensorTimeDifference",
