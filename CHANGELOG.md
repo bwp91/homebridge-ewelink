@@ -2,11 +2,11 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.5.0 (2021-11-03)
 
 ### Added
 
-- Ability to use contact sensor simulation to show the correct state of a garage door/lock simulation
+- Ability to use a contact sensor simulation to show the correct state of a garage door/lock simulation
 
 ## 8.4.2 (2021-10-31)
 
