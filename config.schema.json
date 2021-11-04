@@ -1451,6 +1451,14 @@
                 {
                   "title": "Window Blind/Covering",
                   "enum": ["blind"]
+                },
+                {
+                  "title": "Door",
+                  "enum": ["door"]
+                },
+                {
+                  "title": "Window",
+                  "enum": ["window"]
                 }
               ],
               "condition": {
@@ -1464,7 +1472,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && model.bridgeSensors[arrayIndices].curtainType === 'blind');"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && ['blind', 'door', 'window'].includes(model.bridgeSensors[arrayIndices].curtainType));"
               }
             },
             "operationTimeDown": {
@@ -1474,7 +1482,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && model.bridgeSensors[arrayIndices].curtainType === 'blind');"
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13 && model.bridgeSensors[arrayIndices].deviceType === 'curtain' && ['blind', 'door', 'window'].includes(model.bridgeSensors[arrayIndices].curtainType));"
               }
             },
             "type": {
