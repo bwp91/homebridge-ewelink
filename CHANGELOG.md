@@ -7,6 +7,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Added
 
 - The plugin will now retrieve devices from **all** your homes in your eWeLink account
+- Expose an RF Bridge `curtain` device type as a HomeKit `WindowCovering`, `Door` or `Window` accessory simulation
 
 ## 8.5.0 (2021-11-03)
 
