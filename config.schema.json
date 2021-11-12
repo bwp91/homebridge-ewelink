@@ -943,6 +943,10 @@
                   "enum": ["default"]
                 },
                 {
+                    "title": "1 Thermostat",
+                    "enum": ["thermostat"]
+                  },
+                {
                   "title": "1 Heater",
                   "enum": ["heater"]
                 },
@@ -968,7 +972,7 @@
               "title": "Hide Switch",
               "description": "If true, this accessory will hide the TH10/16 switch from HomeKit.",
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !['heater', 'cooler', 'humidifier', 'dehumidifier'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !['thermostat', 'heater', 'cooler', 'humidifier', 'dehumidifier'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "offset": {
@@ -1008,21 +1012,21 @@
             "minTarget": {
               "type": "integer",
               "title": "Minimum Target Temperature",
-              "description": "Minimum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 0 or more.",
+              "description": "Minimum target temperature for TH10/16 thermostat/heater/cooler simulation to show in HomeKit apps. Must be 0 or more.",
               "placeholder": 10,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['thermostat', 'heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "maxTarget": {
               "type": "integer",
               "title": "Maximum Target Temperature",
-              "description": "Maximum target temperature for TH10/16 heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
+              "description": "Maximum target temperature for TH10/16 thermostat/heater/cooler simulation to show in HomeKit apps. Must be 1 or more, and greater than the minimum value set above.",
               "placeholder": 30,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && ['thermostat', 'heater', 'cooler'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
