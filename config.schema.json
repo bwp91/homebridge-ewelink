@@ -943,9 +943,9 @@
                   "enum": ["default"]
                 },
                 {
-                    "title": "1 Thermostat",
-                    "enum": ["thermostat"]
-                  },
+                  "title": "1 Thermostat",
+                  "enum": ["thermostat"]
+                },
                 {
                   "title": "1 Heater",
                   "enum": ["heater"]
