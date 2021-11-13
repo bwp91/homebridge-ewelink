@@ -8,10 +8,15 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - The plugin will now retrieve devices from **all** your homes in your eWeLink account
 - Expose an RF Bridge `curtain` device type as a HomeKit `WindowCovering`, `Door` or `Window` accessory simulation
+- Expose a TH10/16 as a `Thermostat` device type
 
 ### Changed
 
 - Recommended Homebridge bumped to v1.3.6
+
+### Fixed
+
+- An issue initialising a 2-Garage-Door simulation
 
 ## 8.5.0 (2021-11-03)
 
