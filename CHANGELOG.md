@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Expose a single or multi-channel generic switch as a `Telvision` HomeKit accessory type
+
+### Changed
+
+- Recommended Homebridge bumped to v1.3.6
+
 ## 8.6.0 (2021-11-18)
 
 ### Added
