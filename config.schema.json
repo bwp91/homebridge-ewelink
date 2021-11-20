@@ -259,6 +259,14 @@
                 {
                   "title": "1 Audio Receiver (External Accessory)",
                   "enum": ["audio"]
+                },
+                {
+                  "title": "1 Set Top Box (External Accessory)",
+                  "enum": ["box"]
+                },
+                {
+                  "title": "1 Streaming Stick (External Accessory)",
+                  "enum": ["stick"]
                 }
               ],
               "condition": {
@@ -579,6 +587,14 @@
                 {
                   "title": "1 Audio Receiver (External Accessory)",
                   "enum": ["audio"]
+                },
+                {
+                  "title": "1 Set Top Box (External Accessory)",
+                  "enum": ["box"]
+                },
+                {
+                  "title": "1 Streaming Stick (External Accessory)",
+                  "enum": ["stick"]
                 }
               ],
               "condition": {
