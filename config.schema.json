@@ -257,8 +257,8 @@
                   "enum": ["tap"]
                 },
                 {
-                  "title": "1 Television",
-                  "enum": ["tv"]
+                  "title": "1 Audio Receiver (External Accessory)",
+                  "enum": ["audio"]
                 }
               ],
               "condition": {
@@ -569,16 +569,16 @@
                   "enum": ["tap_two"]
                 },
                 {
-                  "title": "1 Television",
-                  "enum": ["tv"]
-                },
-                {
                   "title": "1 Window",
                   "enum": ["window"]
                 },
                 {
                   "title": "1 Window Blind/Covering",
                   "enum": ["blind"]
+                },
+                {
+                  "title": "1 Audio Receiver (External Accessory)",
+                  "enum": ["audio"]
                 }
               ],
               "condition": {
