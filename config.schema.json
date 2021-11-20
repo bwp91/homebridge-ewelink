@@ -255,6 +255,10 @@
                 {
                   "title": "1 Tap/Faucet",
                   "enum": ["tap"]
+                },
+                {
+                  "title": "1 Television",
+                  "enum": ["tv"]
                 }
               ],
               "condition": {
@@ -563,6 +567,10 @@
                 {
                   "title": "2 Taps/Faucets",
                   "enum": ["tap_two"]
+                },
+                {
+                  "title": "1 Television",
+                  "enum": ["tv"]
                 },
                 {
                   "title": "1 Window",
