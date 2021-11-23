@@ -11,7 +11,8 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Changed
 
-- Recommended Homebridge bumped to v1.3.6
+- Recommended Homebridge bumped to v1.3.8
+- Bump `ws` to v8.3.0
 
 ## 8.6.0 (2021-11-18)
 
