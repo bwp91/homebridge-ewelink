@@ -14,6 +14,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - Recommended Homebridge bumped to v1.3.8
 - Bump `ws` to v8.3.0
 
+### Fixed
+
+- Potential uncaught errors updating subdevices of an RF bridge
+
 ## 8.6.0 (2021-11-18)
 
 ### Added
