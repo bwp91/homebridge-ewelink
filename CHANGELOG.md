@@ -6,6 +6,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- Support Sonoff L2
 - Expose a single or multi-channel generic switch as a `Audio Receiver`, `Set Top Box` or `Streaming Stick` HomeKit category types
   - The accessory will need to be published as an external accessory meaning it will need to be added separately to HomeKit
 
