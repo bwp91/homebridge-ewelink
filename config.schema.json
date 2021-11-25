@@ -815,7 +815,7 @@
                   "enum": ["b1"]
                 },
                 {
-                  "title": "Sonoff L1/Lite",
+                  "title": "Sonoff L1/L2/Lite",
                   "enum": ["l1"]
                 },
                 {
