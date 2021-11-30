@@ -299,6 +299,24 @@
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['king'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "showAsEachen": {
+              "type": "string",
+              "title": "Garage Device Accessory Type",
+              "description": "Select the accessory type to show in HomeKit.",
+              "oneOf": [
+                {
+                  "title": "Garage Door (Default)",
+                  "enum": ["garage"]
+                },
+                {
+                  "title": "Lock",
+                  "enum": ["lock"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "inUsePowerThreshold": {
               "type": "integer",
               "title": "Outlet 'In Use' Threshold",
@@ -314,7 +332,7 @@
               "title": "Status By Inching",
               "description": "If true, the plugin will show the on/off status based on inching mode.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !['king', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -362,7 +380,7 @@
               "placeholder": 100,
               "minimum": 20,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage', 'lock', 'gate'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ((model.singleDevices[arrayIndices].deviceModel === 'gddc5' && model.singleDevices[arrayIndices].showAsEachen !== 'lock') || ['garage', 'lock', 'gate'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "operationTimeDown": {
@@ -398,7 +416,7 @@
               "title": "Obstruction Switch",
               "description": "An optional switch that will trigger the Obstruction Detected feature depending on its value. Otherwise leave blank.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && (model.singleDevices[arrayIndices].deviceModel === 'gddc5' || ['garage'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ((model.singleDevices[arrayIndices].deviceModel === 'gddc5' && model.singleDevices[arrayIndices].showAsEachen !== 'lock') || ['garage'].includes(model.singleDevices[arrayIndices].showAs)) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -1654,6 +1672,7 @@
             "singleDevices[].deviceModel",
             "singleDevices[].showAs",
             "singleDevices[].showAsMotor",
+            "singleDevices[].showAsEachen",
             "singleDevices[].inUsePowerThreshold",
             "singleDevices[].isInched",
             "singleDevices[].operationTime",
