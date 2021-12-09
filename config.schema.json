@@ -324,7 +324,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "isInched": {
@@ -332,7 +332,7 @@
               "title": "Status By Inching",
               "description": "If true, the plugin will show the on/off status based on inching mode.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !['king', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !['king', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
@@ -650,7 +650,7 @@
               "title": "Hide Channels",
               "description": "A comma separated list of channels to hide for this device. For example '0' or '0,1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && [undefined, 'default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inUsePowerThreshold": {
@@ -660,7 +660,7 @@
               "placeholder": 0,
               "minimum": 0,
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && [undefined, 'default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inchChannels": {
@@ -668,7 +668,7 @@
               "title": "Status By Inching",
               "description": "A comma separated list of channels to show the on/off status based on inching mode. For example '1,2'.",
               "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && ['default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['dual_dualr2', 'dualr3_switch', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && [undefined, 'default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "sensorType": {
