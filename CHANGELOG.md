@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.7.1 (2021-12-09)
+
+### Fixed
+
+- Show 'Hide Channels' and 'Inched Channels' in config schema form even when no 'Show As' is selected
+
 ## 8.7.0 (2021-12-08)
 
 ### Added
