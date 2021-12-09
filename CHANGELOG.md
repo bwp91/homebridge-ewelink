@@ -2,12 +2,6 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
-
-### Added
-
-- Automatically re-authenticate credentials on `406` web socket error
-
 ## 8.7.1 (2021-12-09)
 
 ### Fixed
