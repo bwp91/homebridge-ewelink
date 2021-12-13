@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Expose eWeLink groups as HomeKit switches
+
 ## 8.7.1 (2021-12-09)
 
 ### Fixed
