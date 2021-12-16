@@ -225,6 +225,10 @@
                   "enum": ["purifier"]
                 },
                 {
+                  "title": "1 Heater",
+                  "enum": ["heater"]
+                },
+                {
                   "title": "1 Doorbell",
                   "enum": ["doorbell"]
                 },
@@ -325,6 +329,14 @@
               "minimum": 0,
               "condition": {
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "temperatureSource": {
+              "type": "string",
+              "title": "Temperature Sensor ID",
+              "description": "Device ID which provides current temperature.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['heater'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "isInched": {
@@ -1674,6 +1686,7 @@
             "singleDevices[].showAsMotor",
             "singleDevices[].showAsEachen",
             "singleDevices[].inUsePowerThreshold",
+            "singleDevices[].temperatureSource",
             "singleDevices[].isInched",
             "singleDevices[].operationTime",
             "singleDevices[].operationTimeDown",
