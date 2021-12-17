@@ -6,9 +6,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Expose a single-channel device as a `Heater` or `Cooler` accessory type, using the current temperature value from another eWeLink or Govee sensor
+- Expose a single-channel device as a `Heater` or `Cooler` accessory type, using the current temperature value from another eWeLink, Govee or Meross sensor
 - Initial support for Sonoff NSPanel
 - Expose eWeLink groups as HomeKit switches
+- Current temperature values from sensors will be cached in the homebridge storage directory to allow my other plugins to create `Heater` and `Cooler` accessories with the temperature values
 
 ### Changed
 
