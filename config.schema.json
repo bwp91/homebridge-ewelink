@@ -941,7 +941,7 @@
       },
       "thDevices": {
         "title": "Thermostat Devices",
-        "description": "Optional settings for thermostat devices and the TH10/16.",
+        "description": "Optional settings for thermostat devices, NSPanel and the TH10/16.",
         "type": "array",
         "items": {
           "type": "object",
@@ -974,6 +974,10 @@
                 {
                   "title": "Sonoff TH10/16",
                   "enum": ["th"]
+                },
+                {
+                  "title": "Sonoff NSPanel",
+                  "enum": ["panel"]
                 },
                 {
                   "title": "Sonoff SC",
@@ -1036,7 +1040,7 @@
               "description": "You can offset the temperature that the sensor reads. An offset of 2 means 2 degrees will be added to the recorded temperature. Can be positive or negative and can include a decimal point '.'.",
               "placeholder": 0,
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "offsetFactor": {
@@ -1044,7 +1048,7 @@
               "title": "Temperature Offset Factor",
               "description": "If true then the above value will be used as a factor, i.e. the recorded temperature will be multipled by this number instead.",
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].offset && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].offset && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "humidityOffset": {
@@ -1089,7 +1093,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this Sonoff TH10/16 if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.mode !== 'wan' && model.thDevices && model.thDevices[arrayIndices] && ['th', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -1115,7 +1119,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1752,7 +1756,7 @@
     {
       "key": "thDevices",
       "title": "Thermostat Devices",
-      "description": "Optional settings for thermostat devices and the TH10/16.",
+      "description": "Optional settings for thermostat devices, NSPanel and the TH10/16.",
       "expandable": true,
       "add": "Add Another Device",
       "type": "array",
