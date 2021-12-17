@@ -229,6 +229,10 @@
                   "enum": ["heater"]
                 },
                 {
+                  "title": "1 Cooler",
+                  "enum": ["cooler"]
+                },
+                {
                   "title": "1 Doorbell",
                   "enum": ["doorbell"]
                 },
@@ -336,7 +340,7 @@
               "title": "Temperature Sensor ID",
               "description": "Enter a eWeLink or Govee device ID which provides a current temperature reading.",
               "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['heater'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['heater', 'cooler'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
             "isInched": {
