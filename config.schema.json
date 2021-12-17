@@ -26,6 +26,41 @@
         "required": true,
         "description": "Your eWeLink password, can also be a base64 encoded version of your password."
       },
+      "mode": {
+        "type": "string",
+        "title": "Connection Mode",
+        "description": "This setting defines how the plugin communicates with your devices. For further guidance, please refer to <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods\" target=\"_blank\">this wiki article</a>.",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Hybrid (Recommended)",
+            "enum": ["auto"]
+          },
+          {
+            "title": "Cloud Only",
+            "enum": ["wan"]
+          },
+          {
+            "title": "LAN Only",
+            "enum": ["lan"]
+          }
+        ]
+      },
+      "debug": {
+        "title": "Debug Logging",
+        "type": "boolean",
+        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config."
+      },
+      "debugFakegato": {
+        "title": "Debug Fakegato",
+        "type": "boolean",
+        "description": "If true, the included Fakegato library will debug to the log."
+      },
+      "disablePlugin": {
+        "title": "Disable Plugin",
+        "type": "boolean",
+        "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
+      },
       "language": {
         "type": "string",
         "title": "Logging Language",
@@ -42,25 +77,10 @@
           }
         ]
       },
-      "mode": {
-        "type": "string",
-        "title": "Connection Mode",
-        "description": "This setting defines how the plugin communicates with your devices. For further guidance, please refer to <a href=\"https://github.com/bwp91/homebridge-ewelink/wiki/Connection-Methods\" target=\"_blank\">this wiki article</a>.",
-        "default": "auto",
-        "oneOf": [
-          {
-            "title": "Auto (Recommended)",
-            "enum": ["auto"]
-          },
-          {
-            "title": "Cloud Only",
-            "enum": ["wan"]
-          },
-          {
-            "title": "LAN Only",
-            "enum": ["lan"]
-          }
-        ]
+      "disableDeviceLogging": {
+        "type": "boolean",
+        "title": "Disable Device Logging",
+        "description": "Global logging setting for accessory status changes. If true then accessory status changes will not be logged. This can also be set per accessory later in the config."
       },
       "disableNoResponse": {
         "type": "boolean",
@@ -108,27 +128,7 @@
         "type": "integer",
         "title": "Internal API Port",
         "description": "Port to use for the internal HTTP API. Set to 0 to disable. Set to 1 to choose a randomly available port.",
-        "minimum": 1
-      },
-      "disableDeviceLogging": {
-        "type": "boolean",
-        "title": "Disable Device Logging",
-        "description": "Global logging setting for accessory status changes. If true then accessory status changes will not be logged. This can also be set per accessory later in the config."
-      },
-      "debug": {
-        "title": "Debug Logging",
-        "type": "boolean",
-        "description": "Global logging setting for the plugin. If true then debug information will be added to the log. This can also be set per accessory later in the config."
-      },
-      "debugFakegato": {
-        "title": "Debug Fakegato",
-        "type": "boolean",
-        "description": "If true, the included Fakegato library will debug to the log."
-      },
-      "disablePlugin": {
-        "title": "Disable Plugin",
-        "type": "boolean",
-        "description": "If true, the plugin will remove all accessories and not load the plugin on restart."
+        "minimum": 0
       },
       "singleDevices": {
         "title": "Single Channel Devices",
@@ -1648,27 +1648,20 @@
     {
       "type": "fieldset",
       "title": "Required Settings",
-      "items": ["username", "password"]
+      "items": ["username", "password", "mode", "debug", "disablePlugin"]
     },
     {
       "type": "fieldset",
-      "title": "Optional Settings",
-      "description": "Optional settings for the plugin, including account, API and global logging settings.",
+      "title": "Advanced Settings",
+      "description": "Advanced settings for the plugin, including account and API options.",
       "expandable": true,
       "items": [
         "language",
-        "mode",
-        {
-          "type": "help",
-          "helpvalue": "<label class=\"control-label text-warning\">⚠ Using LAN mode will remove any unsupported accessories from Homebridge.</label>"
-        },
+        "disableDeviceLogging",
         "disableNoResponse",
         "countryCode",
         "httpHost",
-        "apiPort",
-        "disableDeviceLogging",
-        "debug",
-        "disablePlugin"
+        "apiPort"
       ]
     },
     {

@@ -9,6 +9,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - Expose a single-channel device as a `Heater` or `Cooler` accessory type, using the current temperature value from another eWeLink or Govee sensor
 - Expose eWeLink groups as HomeKit switches
 
+### Changed
+
+- Some config options rearranged for easier access
+
 ## 8.7.1 (2021-12-09)
 
 ### Fixed
