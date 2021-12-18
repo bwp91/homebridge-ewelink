@@ -41,7 +41,7 @@
             "enum": ["wan"]
           },
           {
-            "title": "LAN Only",
+            "title": "LAN Only (will remove unsupported devices)",
             "enum": ["lan"]
           }
         ]
