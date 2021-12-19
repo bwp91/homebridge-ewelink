@@ -6,6 +6,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- Support for SwitchMan M5 (3 Gang)
 - Expose a single-channel device as a `Heater` or `Cooler` accessory type, using the current temperature value from another eWeLink, Govee or Meross sensor
 - Initial support for Sonoff NSPanel
 - Expose eWeLink groups as HomeKit switches
