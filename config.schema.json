@@ -164,7 +164,7 @@
                   "enum": ["single"]
                 },
                 {
-                  "title": "Sonoff T1/T2/T3/TX-1C",
+                  "title": "Sonoff T1/T2/T3/TX-1C/M5-1-Gang",
                   "enum": ["t"]
                 },
                 {
@@ -518,7 +518,7 @@
                   "enum": ["4ch"]
                 },
                 {
-                  "title": "Sonoff T1/T2/T3/TX-2C/3C/4C",
+                  "title": "Sonoff T1/T2/T3/TX-2C/3C/4C/M5-2/3-Gang",
                   "enum": ["t"]
                 },
                 {
