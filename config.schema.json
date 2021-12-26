@@ -1026,6 +1026,14 @@
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "showHeatCool": {
+              "type": "boolean",
+              "title": "Show Heat/Cool Modes",
+              "description": "If true, the 'Heat' and 'Cool' modes will be shown in HomeKit.",
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].showAs === 'thermostat' && !model.thDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "hideSwitch": {
               "type": "boolean",
               "title": "Hide Switch",
@@ -1769,6 +1777,7 @@
             "thDevices[].ignoreDevice",
             "thDevices[].deviceModel",
             "thDevices[].showAs",
+            "thDevices[].showHeatCool",
             "thDevices[].hideSwitch",
             "thDevices[].offset",
             "thDevices[].offsetFactor",
