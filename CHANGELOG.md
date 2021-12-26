@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Option to show both 'Heat' and 'Cool' modes for the TH10/16 thermostat simulation
+
 ## 8.8.0 (2021-12-21)
 
 ### Added
