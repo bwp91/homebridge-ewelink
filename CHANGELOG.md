@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Changed
+
+- Bump `homebridge` recommended version to v1.3.9
+
 ## 8.9.0 (2021-12-27)
 
 ### Added
