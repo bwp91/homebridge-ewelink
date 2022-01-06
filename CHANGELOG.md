@@ -6,7 +6,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Support for Mangotek RLD60C0E27 light (and all devices with UIID 33)
+- **New Devices**
+  - Support for Mangotek RLD60C0E27 light (devices with UIID 33)
+  - Support for Zigbee Smoke Sensors (devices with UIID 5026)
+  - TODO: UUID [3258](https://github.com/CoolKit-Technologies/eWeLink-API/blob/main/en/UIIDProtocol.md#uiid3258-zigbee-five-color-light)
 
 ### Fixed
 
