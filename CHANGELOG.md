@@ -4,6 +4,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+- Support for Mangotek RLD60C0E27 light (and all devices with UIID 33)
+
 ### Fixed
 
 - Plugin crash for older versions of Homebridge
