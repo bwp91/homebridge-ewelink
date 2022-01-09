@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Fixed
+
+- Minor colour temperature issue for Mangotek RLD60C0E27 (UIID 33)
+
 ## 8.10.0 (2022-01-07)
 
 ### Added
