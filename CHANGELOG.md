@@ -4,6 +4,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Changed
+
+- Bump `node` recommended versions to v14.18.3 or v16.13.2
+
 ### Fixed
 
 - Minor colour temperature issue for Mangotek RLD60C0E27 (UIID 33)
