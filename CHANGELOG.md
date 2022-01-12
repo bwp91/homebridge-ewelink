@@ -4,6 +4,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+- Option to ignore eWeLink homes by ID (IDs will be displayed in the log when plugin starts)
+
 ### Changed
 
 - Bump `node` recommended versions to v14.18.3 or v16.13.2

@@ -87,6 +87,12 @@
           "functionBody": "return (model.mode !== 'lan');"
         }
       },
+      "ignoredHomes": {
+        "title": "Ignored Homes",
+        "type": "string",
+        "description": "A list of comma-separated eWeLink home ids to ignore.",
+        "placeholder": ""
+      },
       "countryCode": {
         "title": "Country Code",
         "type": "string",
@@ -1668,6 +1674,7 @@
         "language",
         "disableDeviceLogging",
         "disableNoResponse",
+        "ignoredHomes",
         "countryCode",
         "httpHost",
         "apiPort"
