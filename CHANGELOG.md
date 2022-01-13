@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.11.0 (2022-01-13)
 
 ### Added
 
@@ -11,6 +11,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Changed
 
 - Bump `node` recommended versions to v14.18.3 or v16.13.2
+- Bump `ws` to v8.4.1
 
 ### Fixed
 
