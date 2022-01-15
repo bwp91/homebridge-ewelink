@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.11.1 (2022-01-15)
+
+### Changed
+
+- Bump `ws` to v8.4.2
+
+### Fixed
+
+- `undefined` log message on web socket error
+
 ## 8.11.0 (2022-01-13)
 
 ### Added
