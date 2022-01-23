@@ -10,7 +10,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Fixed
 
-- [Test] Fix LAN mode support for iFan04
+- Fix LAN mode support for iFan04
 
 ## 8.11.1 (2022-01-15)
 
