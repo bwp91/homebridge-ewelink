@@ -8,6 +8,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - Bump `axios` to v0.25.0
 
+### Fixed
+
+- [Test] Fix LAN mode support for iFan04
+
 ## 8.11.1 (2022-01-15)
 
 ### Changed
