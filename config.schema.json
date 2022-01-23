@@ -1172,7 +1172,7 @@
               "description": "This setting has no effect except showing the relevant options for this model below.",
               "oneOf": [
                 {
-                  "title": "Sonoff iFan/02/03",
+                  "title": "Sonoff iFan/02/03/04",
                   "enum": ["ifan"]
                 }
               ],
