@@ -338,6 +338,14 @@
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['pow', 'iw'].includes(model.singleDevices[arrayIndices].deviceModel) && [undefined, 'default', 'outlet'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "disableTimer": {
+              "type": "boolean",
+              "title": "Disable Valve Timer",
+              "description": "If true, the timer for the valve will be removed.",
+              "condition": {
+                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['valve'].includes(model.singleDevices[arrayIndices].showAs) && !model.singleDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "temperatureSource": {
               "type": "string",
               "title": "Temperature Sensor ID",
@@ -680,6 +688,14 @@
               "minimum": 0,
               "condition": {
                 "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && [undefined, 'default', 'outlet'].includes(model.multiDevices[arrayIndices].showAs) && ['dualr3_switch'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
+              }
+            },
+            "disableTimer": {
+              "type": "boolean",
+              "title": "Disable Valve Timer",
+              "description": "If true, the timer for the valve will be removed.",
+              "condition": {
+                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && ['valve', 'valve_two', 'valve_four'].includes(model.multiDevices[arrayIndices].showAs) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
             },
             "inchChannels": {
@@ -1699,6 +1715,7 @@
             "singleDevices[].showAsMotor",
             "singleDevices[].showAsEachen",
             "singleDevices[].inUsePowerThreshold",
+            "singleDevices[].disableTimer",
             "singleDevices[].temperatureSource",
             "singleDevices[].isInched",
             "singleDevices[].operationTime",
@@ -1732,6 +1749,7 @@
             "multiDevices[].showAsMotor",
             "multiDevices[].hideChannels",
             "multiDevices[].inUsePowerThreshold",
+            "multiDevices[].disableTimer",
             "multiDevices[].inchChannels",
             "multiDevices[].sensorType",
             "multiDevices[].operationTime",
