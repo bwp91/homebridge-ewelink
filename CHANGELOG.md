@@ -7,6 +7,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Added
 
 - Option to disable the timer for irrigation valve simulations
+- Power information to supported devices in internal API
 
 ### Changed
 
