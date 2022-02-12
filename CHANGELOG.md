@@ -8,6 +8,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - Option to disable the timer for irrigation valve simulations
 - Power information to supported devices in internal API
+- Target temperature threshold for TH-heater simulation, see #346
 
 ### Changed
 

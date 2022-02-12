@@ -1098,6 +1098,15 @@
                 "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc'].includes(model.thDevices[arrayIndices].deviceModel) && model.thDevices[arrayIndices].humidityOffset && !model.thDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "targetTempThreshold": {
+              "type": "number",
+              "title": "Target Temperature Threshold",
+              "description": "You can add a threshold so the device only switches on when the current temperature is at least the threshold away from the target temperature. This can be useful for devices that don't require an exact temperature and you want to reduce the on-off cycles. Must be positive and can include a decimal point.",
+              "placeholder": 0,
+              "condition": {
+                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && ['heater'].includes(model.thDevices[arrayIndices].showAs) && !model.thDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "minTarget": {
               "type": "integer",
               "title": "Minimum Target Temperature",
@@ -1808,6 +1817,7 @@
             "thDevices[].offsetFactor",
             "thDevices[].humidityOffset",
             "thDevices[].humidityOffsetFactor",
+            "thDevices[].targetTempThreshold",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
             "thDevices[].ipAddress",
