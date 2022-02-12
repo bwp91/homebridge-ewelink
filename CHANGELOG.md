@@ -2,7 +2,7 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.12.0
 
 ### Added
 
