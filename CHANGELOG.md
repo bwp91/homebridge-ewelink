@@ -4,6 +4,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+- Support DUALR3 Lite
+
 ### Changed
 
 - Bump `axios` to v0.26.0
