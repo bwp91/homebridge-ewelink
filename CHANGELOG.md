@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 8.13.2 (2022-04-03)
+
+### Changed
+
+- Updated dependencies
+
 ## 8.13.1 (2022-03-20)
 
 ### Changed
