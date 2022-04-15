@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Support RGB Five-Color Light UIID 136 device class
+
 ## 8.13.2 (2022-04-03)
 
 ### Changed
