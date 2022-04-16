@@ -876,16 +876,20 @@
                   "enum": ["bulbB02BA60"]
                 },
                 {
-                  "title": "Sonoff B05-B-A60",
-                  "enum": ["bulbB05BA60"]
-                },
-                {
                   "title": "Sonoff B02-F-A60",
                   "enum": ["bulbB02FA60"]
                 },
                 {
                   "title": "Sonoff B02-F-ST64",
                   "enum": ["bulbB02FST64"]
+                },
+                {
+                  "title": "Sonoff B05-B-A60",
+                  "enum": ["bulbB05BA60"]
+                },
+                {
+                  "title": "Sonoff B05-BL-A19",
+                  "enum": ["bulbB05BLA19"]
                 },
                 {
                   "title": "KingArt KING-M4",
@@ -911,7 +915,7 @@
               "placeholder": 1,
               "minimum": 1,
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'bulbB05BLA19', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "adaptiveLightingShift": {
@@ -921,7 +925,7 @@
               "placeholder": 0,
               "minimum": -1,
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'bulbB05BLA19', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "ipAddress": {
@@ -929,7 +933,7 @@
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'bulbB05BLA19'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
             "overrideLogging": {
@@ -955,7 +959,7 @@
                 }
               ],
               "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'b1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'b1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'bulbB05BLA19', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             }
           }

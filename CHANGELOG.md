@@ -6,7 +6,8 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
-- Support RGB Five-Color Light UIID 136 device class
+- Support Sonoff B05-BL-A19 (UIID 136 devices)
+- Support Sonoff S-Mate
 
 ## 8.13.2 (2022-04-03)
 
