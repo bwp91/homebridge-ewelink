@@ -2,13 +2,14 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 8.14.0 (2022-04-17)
 
 ### Added
 
-- Support Sonoff B05-BL-A19 (UIID 136 devices) (also supports LAN mode)
-- Support Sonoff MINIR3 (UIID 138 devices) (also supports LAN mode)
-- Support Sonoff S-Mate (UIID 177 devices) as a Stateless Programmable Sensor
+- **New Devices**
+  - Sonoff B05-BL-A19 bulbs (UIID 136 devices) (also supports LAN mode)
+  - Sonoff MINIR3 (UIID 138 devices) (also supports LAN mode)
+  - Sonoff S-Mate (UIID 177 devices) as a Stateless Programmable Sensor
 
 ## 8.13.2 (2022-04-03)
 
