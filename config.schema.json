@@ -928,6 +928,14 @@
                 "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'bulbB05BLA19', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "offlineAsOff": {
+              "type": "boolean",
+              "title": "Offline As Off",
+              "description": "If true, this accessory will show as off if reported offline.",
+              "condition": {
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10 && !model.lightDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "ipAddress": {
               "type": "string",
               "title": "IP Address",
@@ -1793,6 +1801,7 @@
             "lightDevices[].deviceModel",
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
+            "lightDevices[].offlineAsOff",
             "lightDevices[].ipAddress",
             "lightDevices[].overrideLogging"
           ]

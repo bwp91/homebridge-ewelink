@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- `offlineAsOff` option for light devices - enable to show offline devices as 'off' in Homebridge/HomeKit
+
 ## 8.14.0 (2022-04-17)
 
 ### Added
