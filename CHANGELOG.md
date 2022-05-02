@@ -5,11 +5,11 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ## 8.15.0 (2022-05-02)
 
 ### Added
+
 - **New Devices**
   - Sonoff S40
 - **New Log Languages**
   - Thai (thanks [@tomzt](https://github.com/bwp91/homebridge-ewelink/pull/367))
-
 - **Configuration**
   - `offlineAsOff` option for light devices - enable to show offline devices as 'off' in Homebridge/HomeKit
 
