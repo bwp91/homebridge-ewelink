@@ -71,6 +71,10 @@
           {
             "title": "French",
             "enum": ["fr"]
+          },
+          {
+            "title": "Thai",
+            "enum": ["th"]
           }
         ]
       },
