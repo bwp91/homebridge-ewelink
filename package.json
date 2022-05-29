@@ -7,6 +7,7 @@
     "email": "bwp91@icloud.com"
   },
   "description": "Homebridge plugin to integrate eWeLink devices into HomeKit.",
+  "type": "module",
   "license": "MIT",
   "keywords": [
     "homebridge",
@@ -24,6 +25,10 @@
     "smartwise"
   ],
   "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "rebuild": "rm -rf package-lock.json && rm -rf node_modules && npm install"
+  },
   "engines": {
     "homebridge": "^1.4.0",
     "node": "^14.19.3 || ^16.15.0"
@@ -57,16 +62,14 @@
     "@homebridge/plugin-ui-utils": "^0.0.19",
     "axios": "^0.27.2",
     "node-persist": "^3.1.0",
-    "p-queue": "^6.6.2",
+    "p-queue": "^7.2.0",
     "websocket-as-promised": "^2.0.1",
     "ws": "^8.7.0"
   },
-  "prettier": {
-    "printWidth": 100
-  },
-  "standard": {
-    "ignore": [
-      "/lib/node-dns-sd/"
-    ]
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-sort-exports": "^0.6.0"
   }
 }
