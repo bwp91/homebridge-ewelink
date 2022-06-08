@@ -2,6 +2,16 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 9.0.1 (2022-06-08)
+
+### Changed
+
+- Bump `node` recommended versions to v14.19.3 or v16.15.1
+
+### Fixed
+
+- A potential issue showing errors in the logs
+
 ## 9.0.0 (2022-05-29)
 
 ### Potentially Breaking Changes
