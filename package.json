@@ -64,11 +64,11 @@
     "node-persist": "^3.1.0",
     "p-queue": "^7.2.0",
     "websocket-as-promised": "^2.0.1",
-    "ws": "^8.7.0"
+    "ws": "^8.8.0"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
-    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-sort-exports": "^0.6.0"
   }
