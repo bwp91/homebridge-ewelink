@@ -1669,6 +1669,15 @@
                 "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && model.bridgeSensors[arrayIndices].deviceType === 'sensor' && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact'].includes(model.bridgeSensors[arrayIndices].type));"
               }
             },
+            "sensorWebHook": {
+              "type": "string",
+              "title": "Sensor Web Hook",
+              "description": "A URL for the plugin to ping when the sensor is activated.",
+              "placeholder": "http://192.168.1.1/endpoint",
+              "condition": {
+                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && model.bridgeSensors[arrayIndices].deviceType === 'sensor' && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact', 'p_button', 'doorbell'].includes(model.bridgeSensors[arrayIndices].type));"
+              }
+            },
             "overrideLogging": {
               "type": "string",
               "title": "Override Logging Setting",
@@ -1935,11 +1944,8 @@
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
             "bridgeSensors[].sensorTimeDifference",
-            "bridgeSensors[].overrideLogging",
-            {
-              "type": "help",
-              "helpvalue": "<label class=\"control-label text-warning\">⚠ Any changes you make to a sensor will reset its connected RF Bridge, resetting all its devices' HomeKit names, room associations and automations.</label>"
-            }
+            "bridgeSensors[].sensorWebHook",
+            "bridgeSensors[].overrideLogging"
           ]
         }
       ]
