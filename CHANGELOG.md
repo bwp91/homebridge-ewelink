@@ -2,12 +2,19 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 9.1.0 (2022-07-07)
+
+⚠️ This update may remove some devices from your Homebridge instance. Unfortunately this is out my control. See [this link](https://github.com/bwp91/homebridge-ewelink/issues/385#issuecomment-1176457283).
+
+### Added
+
+- Support for Sonoff TH Elite
 
 ### Changed
 
 - Bump `ws` to v8.8.0
-- 
+- Updated dev dependencies
+
 ## 9.0.1 (2022-06-08)
 
 ### Changed
