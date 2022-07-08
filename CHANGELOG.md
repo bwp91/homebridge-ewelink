@@ -11,6 +11,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
     - Creating a new eWeLink account, and sharing your devices to this new account
     - **Most importantly**, you should use your **main** account with the plugin, and login to the eWeLink app with your shared account
 
+### Added
+
+- Use a custom eWeLink APPID and APPSECRET if needed
+
 ### Changed
 
 - Bump `node` recommended versions to v14.20.0 or v16.16.0
