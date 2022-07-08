@@ -112,8 +112,7 @@
         "title": "App Secret",
         "type": "string",
         "description": "Available if you want to override the eWeLink App Secret"
-      }
-    },
+      },
       "httpHost": {
         "title": "HTTP Host",
         "type": "string",
