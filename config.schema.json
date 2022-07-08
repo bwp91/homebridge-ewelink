@@ -106,17 +106,17 @@
       "appId": {
         "title": "App ID",
         "type": "string",
-        "description": "Available if you want to override the eWeLink App ID"
+        "description": "Available if you want to override the eWeLink App ID."
       },
       "appSecret": {
         "title": "App Secret",
         "type": "string",
-        "description": "Available if you want to override the eWeLink App Secret"
+        "description": "Available if you want to override the eWeLink App Secret."
       },
       "httpHost": {
         "title": "HTTP Host",
         "type": "string",
-        "description": "Override the default API host, may help with login issues for users in other regions.",
+        "description": "Available if you want to override the API host.",
         "placeholder": "eu-apia.coolkit.cc",
         "oneOf": [
           {
