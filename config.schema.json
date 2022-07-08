@@ -103,6 +103,17 @@
         "description": "Override the default country code, may help with login issues for users in other regions.",
         "placeholder": "+44"
       },
+      "appId": {
+        "title": "App ID",
+        "type": "string",
+        "description": "Available if you want to override the eWeLink App ID"
+      },
+      "appSecret": {
+        "title": "App Secret",
+        "type": "string",
+        "description": "Available if you want to override the eWeLink App Secret"
+      }
+    },
       "httpHost": {
         "title": "HTTP Host",
         "type": "string",
@@ -1727,6 +1738,8 @@
         "ignoredHomes",
         "countryCode",
         "httpHost",
+        "appId",
+        "appSecret",
         "apiPort"
       ]
     },
