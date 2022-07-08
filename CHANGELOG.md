@@ -4,6 +4,8 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## 10.0.0 (2022-07-08)
 
+*On a personal level, this is not the kind of release I like to make. But circumstances have changed and so modifications to the plugin have needed to be made*
+
 ⚠️ After updating to this version:
   - Each time you start the plugin, you will be logged out the eWeLink app, and so I would recommend:
     - Creating a new eWeLink account, and sharing your devices to this new account
