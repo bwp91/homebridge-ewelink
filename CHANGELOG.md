@@ -2,6 +2,12 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## BETA
+
+### Added
+
+- Support Sonoff DW2-Wifi-L
+
 ## 10.0.0 (2022-07-08)
 
 *On a personal level, this is not the kind of release I like to make. But circumstances have changed and so modifications to the plugin have needed to be made:*
