@@ -989,7 +989,7 @@
       },
       "thDevices": {
         "title": "Thermostat Devices",
-        "description": "Optional settings for thermostat devices, NSPanel and the TH10/16.",
+        "description": "Optional settings for thermostat devices, NSPanel, TH10/16 and THR316/320.",
         "type": "array",
         "items": {
           "type": "object",
@@ -1020,7 +1020,7 @@
               "description": "This setting has no effect except showing the relevant options for this model below.",
               "oneOf": [
                 {
-                  "title": "Sonoff TH10/16",
+                  "title": "Sonoff TH10/16 and THR316/320",
                   "enum": ["th"]
                 },
                 {
