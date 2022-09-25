@@ -31,7 +31,7 @@
   },
   "engines": {
     "homebridge": "^1.5.0",
-    "node": "^14.20.0 || ^16.17.0"
+    "node": "^14.20.1 || ^16.17.1"
   },
   "repository": {
     "type": "git",
@@ -64,13 +64,13 @@
     "node-persist": "^3.1.0",
     "p-queue": "^7.3.0",
     "websocket-as-promised": "^2.0.1",
-    "ws": "^8.8.1"
+    "ws": "^8.9.0"
   },
   "devDependencies": {
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-import-newlines": "^1.2.3",
     "eslint-plugin-sort-exports": "^0.7.0",
-    "eslint": "^8.23.0"
+    "eslint": "^8.24.0"
   }
 }

@@ -2,15 +2,29 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+## 10.1.0 (2022-09-25)
 
 ### Added
 
-- Support Sonoff DW2-Wifi-L
+- Support devices with UUID 128 (SPM Main Unit)
+- Support devices with UUID 154 (DW2-Wifi-L)
+- Support devices with UUID 168 (Zigbee Bridge Pro)
+- Support devices with UUID 190 (POWR316/POWR316D/POWR320D)
+- Work-in-progress for devices with UUIDs:
+  - 130 (SPM sub-unit)
+  - 160/161/162/174 (SwitchMan devices)
+  - 173 (Sonoff L3)
+  - 1514 (Zigbee motor controller)
+  - 3258 (Zigbee RGB light)
+
+### Changed
+
+- Correct parameters for `updatePlatformAccessories()`
+- Bump `node` recommended versions to v14.20.1 or v16.17.1
+- Bump `ws` to v8.9.0
+- Updated dev dependencies
 
 ## 10.0.0 (2022-07-08)
-
-*On a personal level, this is not the kind of release I like to make. But circumstances have changed and so modifications to the plugin have needed to be made:*
 
 ⚠️ After updating to this version:
   - Each time you start the plugin, you will be logged out the eWeLink app, and so I would recommend:
