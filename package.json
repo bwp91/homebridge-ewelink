@@ -60,7 +60,7 @@
   ],
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^0.0.19",
-    "axios": "^0.27.2",
+    "axios": "^1.0.0",
     "node-persist": "^3.1.0",
     "p-queue": "^7.3.0",
     "websocket-as-promised": "^2.0.1",
