@@ -2,6 +2,26 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+## 10.2.0 (2022-10-09)
+
+### Added
+
+- Support devices with UIID 173 (Sonoff L3)
+- Support devices with UIID 3258 (Zigbee RGBW light)
+- Work-in-progress for devices with UUIDs:
+  - 130 (SPM sub-unit)
+  - 174 (SwitchMan devices)
+  - 1514 (Zigbee motor controller)
+
+### Changed
+
+- Allow for node v18.10.0
+- Update axios to `v1.1.2`
+
+### Fixed
+
+- Incorrectly exposing Sonoff M5 devices as programmable switches
+
 ## 10.1.0 (2022-09-25)
 
 ### Added
@@ -12,10 +32,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 - Support devices with UUID 190 (POWR316/POWR316D/POWR320D)
 - Work-in-progress for devices with UUIDs:
   - 130 (SPM sub-unit)
-  - 160/161/162/174 (SwitchMan devices)
+  - 174 (SwitchMan devices)
   - 173 (Sonoff L3)
   - 1514 (Zigbee motor controller)
-  - 3258 (Zigbee RGB light)
+  - 3258 (Zigbee RGBW light)
 
 ### Changed
 
