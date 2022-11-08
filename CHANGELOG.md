@@ -2,6 +2,15 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
+⚠️ Note that Node 14 will no longer be supported after April 2023
+
+## BETA
+
+### Changed
+
+- Bump `node` recommended versions to v14.21.1 or v16.18.1 or v18.12.1
+- Bump `ws` to v8.11.0
+
 ## 10.2.0 (2022-10-09)
 
 ### Added
