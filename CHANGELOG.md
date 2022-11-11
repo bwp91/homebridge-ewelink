@@ -4,11 +4,11 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ⚠️ Note that Node 14 will no longer be supported after April 2023
 
-## BETA
+## 10.3.0 (2022-11-11)
 
 ### Added
 
-- Support NSPanel Pro [UIID 195]
+- Support NSPanel Pro (as a temperature sensor) [UIID 195]
 
 ### Changed
 
