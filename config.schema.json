@@ -922,6 +922,24 @@
                 "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && model.lightDevices[arrayIndices].deviceId && model.lightDevices[arrayIndices].deviceId.length === 10 && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             },
+            "showAs": {
+              "type": "string",
+              "title": "Show As (Simulation)",
+              "description": "Expose this device as a different HomeKit accessory type.",
+              "oneOf": [
+                {
+                  "title": "1 Light (Default)",
+                  "enum": ["default"]
+                },
+                {
+                  "title": "1 Fan",
+                  "enum": ["fan"]
+                }
+              ],
+              "condition": {
+                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'king'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
+              }
+            },
             "brightnessStep": {
               "title": "Brightness Step",
               "type": "integer",
@@ -1824,6 +1842,7 @@
             "lightDevices[].deviceId",
             "lightDevices[].ignoreDevice",
             "lightDevices[].deviceModel",
+            "lightDevices[].showAs",
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
             "lightDevices[].offlineAsOff",

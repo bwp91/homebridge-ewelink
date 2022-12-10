@@ -4,6 +4,17 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ⚠️ Note that Node 14 will no longer be supported after April 2023
 
+## BETA
+
+### Added
+
+- Expose a Sonoff D1 or KING-M4 as a fan accessory type
+- Improved support for SwitchMan devices (Sonoff R5)
+
+### Fixed
+
+- Power readings for POWR320 now show correctly
+
 ## 10.3.0 (2022-11-11)
 
 ### Added
