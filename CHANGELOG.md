@@ -4,12 +4,18 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ⚠️ Note that Node 14 will no longer be supported after April 2023
 
-## BETA
+## 10.4.0 (2023-01-07)
 
 ### Added
 
 - Expose a Sonoff D1 or KING-M4 as a fan accessory type
 - Improved support for SwitchMan devices (Sonoff R5)
+
+### Changed
+
+- Bump `axios` to v1.2.2
+- Bump `homebridge` recommended version to v1.6.0 or v2.0.0-beta
+- Bump `node` recommended versions to v14.21.2 or v16.19.0 or v18.13.0
 
 ### Fixed
 

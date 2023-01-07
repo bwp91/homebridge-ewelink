@@ -30,8 +30,8 @@
     "rebuild": "rm -rf package-lock.json && rm -rf node_modules && npm install"
   },
   "engines": {
-    "homebridge": "^1.5.0 || 2.0.0-beta.0",
-    "node": "^14.21.2 || ^16.19.0 || ^18.12.1"
+    "homebridge": "^1.6.0 || 2.0.0-beta.0",
+    "node": "^14.21.2 || ^16.19.0 || ^18.13.0"
   },
   "repository": {
     "type": "git",
