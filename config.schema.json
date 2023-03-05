@@ -46,18 +46,6 @@
           }
         ]
       },
-      "debug": {
-        "title": "Debug Logging",
-        "type": "boolean"
-      },
-      "debugFakegato": {
-        "title": "Debug Fakegato",
-        "type": "boolean"
-      },
-      "disablePlugin": {
-        "title": "Disable Plugin",
-        "type": "boolean"
-      },
       "language": {
         "type": "string",
         "title": "Logging Language",
@@ -467,32 +455,6 @@
               "condition": {
                 "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.singleDevices && model.singleDevices[arrayIndices] && model.singleDevices[arrayIndices].deviceId && ['single', 't', 'pow', 'iw', 's', 'micro', 'slampher', 'gddc5', 'king', 'zb'].includes(model.singleDevices[arrayIndices].deviceModel) && !model.singleDevices[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -811,32 +773,6 @@
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.multiDevices && model.multiDevices[arrayIndices] && model.multiDevices[arrayIndices].deviceId && ['dual_dualr2', 'dualr3_switch', 'dualr3_motor', '4ch', 't', 'zb'].includes(model.multiDevices[arrayIndices].deviceModel) && !model.multiDevices[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -974,32 +910,6 @@
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'bulbB05BLA19'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
-              }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.lightDevices && model.lightDevices[arrayIndices] && ['d1', 'b1', 'l1', 'bulbB02BA60', 'bulbB05BA60', 'bulbB02FA60', 'bulbB02FST64', 'bulbB05BLA19', 'king', 'zl_d', 'zl_dc'].includes(model.lightDevices[arrayIndices].deviceModel) && !model.lightDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1178,32 +1088,6 @@
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.thDevices && model.thDevices[arrayIndices] && ['th', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.thDevices && model.thDevices[arrayIndices] && ['th', 'sc', 'hc', 'panel'].includes(model.thDevices[arrayIndices].deviceModel) && !model.thDevices[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -1261,32 +1145,6 @@
               "type": "string",
               "title": "IP Address",
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
-              "condition": {
-                "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel) && !model.fanDevices[arrayIndices].ignoreDevice);"
-              }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.fanDevices && model.fanDevices[arrayIndices] && ['ifan'].includes(model.fanDevices[arrayIndices].deviceModel) && !model.fanDevices[arrayIndices].ignoreDevice);"
               }
@@ -1442,32 +1300,6 @@
               "condition": {
                 "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['snzb01', 'snzb03', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.sensorDevices && model.sensorDevices[arrayIndices] && ['dw', 'snzb01', 'snzb02', 'snzb03', 'snzb04', 'leak'].includes(model.sensorDevices[arrayIndices].deviceModel) && !model.sensorDevices[arrayIndices].ignoreDevice);"
-              }
             }
           }
         }
@@ -1513,32 +1345,6 @@
               "description": "You can manually set the IP address for this device if it cannot be discovered by the plugin.",
               "condition": {
                 "functionBody": "return (model.mode !== 'wan' && model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10 && !model.rfDevices[arrayIndices].ignoreDevice);"
-              }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.rfDevices && model.rfDevices[arrayIndices] && model.rfDevices[arrayIndices].deviceId && model.rfDevices[arrayIndices].deviceId.length === 10 && !model.rfDevices[arrayIndices].ignoreDevice);"
               }
             }
           }
@@ -1705,32 +1511,6 @@
               "condition": {
                 "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].type && model.bridgeSensors[arrayIndices].deviceType === 'sensor' && ['motion', 'smoke', 'water', 'co', 'co2', 'occupancy', 'contact', 'p_button', 'doorbell'].includes(model.bridgeSensors[arrayIndices].type));"
               }
-            },
-            "overrideLogging": {
-              "type": "string",
-              "title": "Override Logging Setting",
-              "description": "Override global logging setting for this device.",
-              "oneOf": [
-                {
-                  "title": "Default (Use Global Setting)",
-                  "enum": ["default"]
-                },
-                {
-                  "title": "Enable Standard Logging",
-                  "enum": ["standard"]
-                },
-                {
-                  "title": "Enable Debug Logging",
-                  "enum": ["debug"]
-                },
-                {
-                  "title": "Disable All Logging",
-                  "enum": ["disable"]
-                }
-              ],
-              "condition": {
-                "functionBody": "return (model.bridgeSensors && model.bridgeSensors[arrayIndices] && model.bridgeSensors[arrayIndices].fullDeviceId && model.bridgeSensors[arrayIndices].fullDeviceId.length >= 13);"
-              }
             }
           }
         }
@@ -1741,7 +1521,7 @@
     {
       "type": "fieldset",
       "title": "Required Settings",
-      "items": ["username", "password", "mode", "debug", "disablePlugin"]
+      "items": ["username", "password", "mode"]
     },
     {
       "type": "fieldset",
@@ -1788,8 +1568,7 @@
             "singleDevices[].hideSensor",
             "singleDevices[].obstructId",
             "singleDevices[].sensorType",
-            "singleDevices[].ipAddress",
-            "singleDevices[].overrideLogging"
+            "singleDevices[].ipAddress"
           ]
         }
       ]
@@ -1821,8 +1600,7 @@
             "multiDevices[].sensorId",
             "multiDevices[].hideSensor",
             "multiDevices[].obstructId",
-            "multiDevices[].ipAddress",
-            "multiDevices[].overrideLogging"
+            "multiDevices[].ipAddress"
           ]
         }
       ]
@@ -1846,8 +1624,7 @@
             "lightDevices[].brightnessStep",
             "lightDevices[].adaptiveLightingShift",
             "lightDevices[].offlineAsOff",
-            "lightDevices[].ipAddress",
-            "lightDevices[].overrideLogging"
+            "lightDevices[].ipAddress"
           ]
         }
       ]
@@ -1877,8 +1654,7 @@
             "thDevices[].targetTempThreshold",
             "thDevices[].minTarget",
             "thDevices[].maxTarget",
-            "thDevices[].ipAddress",
-            "thDevices[].overrideLogging"
+            "thDevices[].ipAddress"
           ]
         }
       ]
@@ -1899,8 +1675,7 @@
             "fanDevices[].ignoreDevice",
             "fanDevices[].deviceModel",
             "fanDevices[].hideLight",
-            "fanDevices[].ipAddress",
-            "fanDevices[].overrideLogging"
+            "fanDevices[].ipAddress"
           ]
         }
       ]
@@ -1928,8 +1703,7 @@
             "sensorDevices[].humidityOffsetFactor",
             "sensorDevices[].hideLongDouble",
             "sensorDevices[].scaleBattery",
-            "sensorDevices[].sensorTimeDifference",
-            "sensorDevices[].overrideLogging"
+            "sensorDevices[].sensorTimeDifference"
           ]
         }
       ]
@@ -1949,8 +1723,7 @@
             "rfDevices[].deviceId",
             "rfDevices[].ignoreDevice",
             "rfDevices[].resetOnStartup",
-            "rfDevices[].ipAddress",
-            "rfDevices[].overrideLogging"
+            "rfDevices[].ipAddress"
           ]
         }
       ]
@@ -1975,8 +1748,7 @@
             "bridgeSensors[].type",
             "bridgeSensors[].sensorTimeLength",
             "bridgeSensors[].sensorTimeDifference",
-            "bridgeSensors[].sensorWebHook",
-            "bridgeSensors[].overrideLogging"
+            "bridgeSensors[].sensorWebHook"
           ]
         }
       ]
