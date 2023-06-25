@@ -4,6 +4,10 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ## BETA
 
+### Added
+
+- Support for `SONOFF SNZB-02D`
+
 ### Breaking
 
 - Remove official support for Node 14
@@ -14,7 +18,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Changed
 
 - Bump `homebridge` recommended version to v1.6.0 or v2.0.0-beta
-- Bump `node` recommended versions to v16.20.0 or v18.15.0
+- Bump `node` recommended versions to v16.20.1 or v18.16.1 or v20.3.1
 - Updated dependencies
 
 ## 10.4.0 (2023-01-07)
