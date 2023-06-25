@@ -6,6 +6,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 ### Added
 
+- Support for `B02-BL`
 - Support for `SONOFF SNZB-02D`
 
 ### Breaking
