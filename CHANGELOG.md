@@ -8,6 +8,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 
 - Support for `B02-BL`
 - Support for `SONOFF SNZB-02D`
+- Support for devices with UIID `191`
 - Support for devices with UIID `7014`
 
 ### Breaking
