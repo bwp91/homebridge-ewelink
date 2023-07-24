@@ -2,7 +2,13 @@
 
 All notable changes to homebridge-ewelink will be documented in this file.
 
-## BETA
+This project tries to adhere to [Semantic Versioning](http://semver.org/). In practice, this means that the version number will be incremented based on the following:
+
+- `MAJOR` version when a minimum supported version of `homebridge` or `node` is increased to a new major version, or when a breaking change is made to the plugin config
+- `MINOR` version when a new device type is added, or when a new feature is added that is backwards-compatible
+- `PATCH` version when backwards-compatible bug fixes are implemented
+
+## 11.0.0 (2023-07-24)
 
 ### Added
 
@@ -21,7 +27,7 @@ All notable changes to homebridge-ewelink will be documented in this file.
 ### Changed
 
 - Bump `homebridge` recommended version to v1.6.0 or v2.0.0-beta
-- Bump `node` recommended versions to v16.20.1 or v18.16.1 or v20.3.1
+- Bump `node` recommended versions to v16.20.1 or v18.17.0 or v20.5.0
 - Updated dependencies
 
 ## 10.4.0 (2023-01-07)
