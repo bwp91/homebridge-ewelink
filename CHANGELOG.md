@@ -8,6 +8,13 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 - `MINOR` version when a new device type is added, or when a new feature is added that is backwards-compatible
 - `PATCH` version when backwards-compatible bug fixes are implemented
 
+## 11.0.1 (2023-08-19)
+
+### Changed
+
+- Bump `node` recommended versions to v16.20.2 or v18.17.1 or v20.5.1
+- Some code refactoring
+
 ## 11.0.0 (2023-07-24)
 
 ### Added
