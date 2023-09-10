@@ -13,6 +13,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 ### Added
 
 - Support for ZigBee motor device with UIID `7006`
+- Brightness and colour support for light device with UIID `173`
 
 ## 11.0.2 (2023-08-28)
 
