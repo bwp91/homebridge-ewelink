@@ -8,12 +8,21 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 - `MINOR` version when a new device type is added, or when a new feature is added that is backwards-compatible
 - `PATCH` version when backwards-compatible bug fixes are implemented
 
-## BETA
+## 12.0.0 (2023-10-24)
 
 ### Added
 
 - Support for ZigBee motor device with UIID `7006`
 - Brightness and colour support for light device with UIID `173`
+
+### Changed
+
+- Updated dependencies
+- Bump `node` supported versions to v18.18.2 or v20.8.1
+
+### Removed
+
+- Support for node 16
 
 ## 11.0.2 (2023-08-28)
 
