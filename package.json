@@ -31,7 +31,7 @@
   },
   "engines": {
     "homebridge": "^1.6.0",
-    "node": "^18.18.2 || ^20.8.1"
+    "node": "^18.18.2 || ^20.9.0"
   },
   "repository": {
     "type": "git",
