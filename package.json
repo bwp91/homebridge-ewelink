@@ -1,7 +1,7 @@
 {
   "name": "homebridge-ewelink",
   "alias": "eWeLink",
-  "version": "12.0.0",
+  "version": "12.0.1-beta.0",
   "author": {
     "name": "bwp91",
     "email": "bwp91@icloud.com"
