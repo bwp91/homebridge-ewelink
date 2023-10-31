@@ -12,7 +12,8 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 
 ### Changed
 
-- 
+- Added plugin display name
+- Don't overwrite the IP of a LAN device if it reports a different IP
 
 ## 12.0.0 (2023-10-24)
 

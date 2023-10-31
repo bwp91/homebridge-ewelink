@@ -1,5 +1,6 @@
 {
   "name": "homebridge-ewelink",
+  "displayName": "Homebridge eWeLink",
   "alias": "eWeLink",
   "version": "12.0.1-beta.1",
   "author": {
