@@ -10,6 +10,10 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 
 ## BETA
 
+### Added
+
+- Support for ZigBee button with UIID `7000`
+
 ### Changed
 
 - Added plugin display name
