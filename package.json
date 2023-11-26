@@ -7,6 +7,7 @@
     "name": "bwp91",
     "email": "bwp91@icloud.com"
   },
+  "icon": "https://raw.githubusercontent.com/bwp91/homebridge-ewelink/latest/icon.png",
   "description": "Homebridge plugin to integrate eWeLink devices into HomeKit.",
   "type": "module",
   "license": "MIT",
