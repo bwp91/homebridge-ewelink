@@ -8,16 +8,19 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 - `MINOR` version when a new device type is added, or when a new feature is added that is backwards-compatible
 - `PATCH` version when backwards-compatible bug fixes are implemented
 
-## BETA
+## 12.1.0 (2023-12-16)
 
 ### Added
 
 - Support for ZigBee button with UIID `7000`
+- Support for ZigBee switch with UIID `7005`
 
 ### Changed
 
 - Added plugin display name
 - Don't overwrite the IP of a LAN device if it reports a different IP
+- Bump `node` recommended versions to v18.19.0 or v20.10.0
+- Updated dependencies
 
 ## 12.0.0 (2023-10-24)
 
