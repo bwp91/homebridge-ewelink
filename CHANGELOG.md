@@ -13,6 +13,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 ### Added 
 
 - Support for ZigBee occupancy sensor with UIID `7016`
+- Support for ZigBee thermostat with UIID `7017`
 
 ## 12.1.0 (2023-12-16)
 
