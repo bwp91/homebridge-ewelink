@@ -61,11 +61,11 @@
   ],
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^1.0.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "node-persist": "^4.0.1",
     "p-queue": "^8.0.1",
     "websocket-as-promised": "^2.0.1",
-    "ws": "^8.15.1"
+    "ws": "^8.16.0"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
