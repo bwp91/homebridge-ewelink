@@ -18,6 +18,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 ### Changed
 
 - Changed Rotation Speed characteristic for Fans from percentage to levels (#534) (@vadimpronin)
+- Bump `node` recommended versions to v18.19.1 or v20.11.1
 - Updated dependencies
 
 ## 12.1.0 (2023-12-16)
