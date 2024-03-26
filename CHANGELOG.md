@@ -21,6 +21,10 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 - Bump `node` recommended versions to v18.19.1 or v20.11.1
 - Updated dependencies
 
+### Fixed
+
+- Fix UIID 182/190 power readings
+
 ## 12.1.0 (2023-12-16)
 
 ### Added
