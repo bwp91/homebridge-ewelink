@@ -8,9 +8,9 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 - `MINOR` version when a new device type is added, or when a new feature is added that is backwards-compatible
 - `PATCH` version when backwards-compatible bug fixes are implemented
 
-## BETA
+## 12.2.0 (2024-03-27)
 
-### Added 
+### Added
 
 - Support for ZigBee occupancy sensor with UIID `7016`
 - Support for ZigBee thermostat with UIID `7017`
@@ -18,7 +18,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 ### Changed
 
 - Changed Rotation Speed characteristic for Fans from percentage to levels (#534) (@vadimpronin)
-- Bump `node` recommended versions to v18.19.1 or v20.11.1
+- Bump `node` recommended versions to v18.20.0 or v20.12.0
 - Updated dependencies
 
 ### Fixed
