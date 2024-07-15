@@ -14,6 +14,10 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/). In pr
 
 - Updated `eslint` and use new code style
 
+### Fixed
+
+- fix `hap-nodejs` api refs
+
 ## 12.3.0 (2024-07-13)
 
 ### Added
