@@ -6,28 +6,16 @@
 
 ### What issue do you have? Please be as thorough and explicit as possible.
 
-
-
 ### Details of your setup.
-* Do you use Homebridge (with config-ui?) or HOOBS? 
-
-
+* Do you use Homebridge (with config-ui?) or HOOBS?
 
 * Which version of Homebridge/HOOBS do you have?
 
-
-
 * Which version of this plugin (homebridge-ewelink) do you have? Has the issue started since upgrading from a previous version?
-
-
 
 * Which eWeLink devices do you have that are causing issues? Please include product models if applicable.
 
-
-
 * Do you use your main eWeLink credentials or do you use a secondary eWeLink account for Homebridge?
-
-
 
 ### Please paste any relevant logs below.
 <!-- ABOUT LOGS

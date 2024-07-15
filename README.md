@@ -2,15 +2,17 @@
    <a href="https://github.com/bwp91/homebridge-ewelink"><img alt="Homebridge Verified" src="https://user-images.githubusercontent.com/43026681/101325266-63126600-3863-11eb-9382-4a2924f0e540.png" width="600px"></a>
 </p>
 <span align="center">
-  
+
 # homebridge-ewelink
 
 Homebridge plugin to integrate eWeLink devices into HomeKit
 
 [![npm](https://img.shields.io/npm/v/homebridge-ewelink/latest?label=latest)](https://www.npmjs.com/package/homebridge-ewelink)
-[![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)  
+[![npm](https://img.shields.io/npm/v/homebridge-ewelink/beta?label=beta)](https://github.com/bwp91/homebridge-ewelink/wiki/Beta-Version)
+
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
-[![hoobs-certified](https://badgen.net/badge/HOOBS/certified/yellow?label=hoobs)](https://plugins.hoobs.org/plugin/homebridge-ewelink)  
+[![hoobs-certified](https://badgen.net/badge/HOOBS/certified/yellow?label=hoobs)](https://plugins.hoobs.org/plugin/homebridge-ewelink)
+
 [![npm](https://img.shields.io/npm/dt/homebridge-ewelink)](https://www.npmjs.com/package/homebridge-ewelink)
 [![Discord](https://img.shields.io/discord/432663330281226270?color=728ED5&logo=discord&label=hb-discord)](https://discord.com/channels/432663330281226270/742733745743855627)
 
