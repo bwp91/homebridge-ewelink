@@ -180,6 +180,7 @@ The sample code above will output the result as follows:
 
 The object above is a [`DnsSdPacket`](#DnsSdPacket-object) object which represents a mDNS/DNS-SD response packet.
 
+
 ---------------------------------------
 ## <a id="DnsSd-object">`DnsSd` object</a>
 
@@ -214,11 +215,11 @@ mDnsSd.discover({
   name: '_services._dns-sd._udp.local',
   type: 'PTR',
   key: 'fqdn'
-}).then((device_list) => {
-  console.log(JSON.stringify(device_list, null, '  '))
+}).then((device_list) =>{
+  console.log(JSON.stringify(device_list, null, '  '));
 }).catch((error) => {
-  console.error(error)
-})
+  console.error(error);
+});
 ```
 
 The `type` property indicates the query type, such as `"PTR"`. This value must be a (Q)TYPE value defined in the [RFC 1035](https://tools.ietf.org/html/rfc1035) and [RFC 2782](https://tools.ietf.org/html/rfc2782). If this property is not specified, the wildcard `"*"` will be applied.
@@ -279,11 +280,11 @@ mDnsSd.discover({
   name: '_googlecast._tcp.local',
   filter: 'Google Home',
   quick: true
-}).then((device_list) => {
-  console.log(JSON.stringify(device_list, null, '  '))
+}).then((device_list) =>{
+  console.log(JSON.stringify(device_list, null, '  '));
 }).catch((error) => {
-  console.error(error)
-})
+  console.error(error);
+});
 ```
 
 A function is set to the `filter` parameter, this method limits to devices for which the function returns `true`. The function must return `true` or `false`.
@@ -292,14 +293,14 @@ A function is set to the `filter` parameter, this method limits to devices for w
 mDnsSd.discover({
   name: '_googlecast._tcp.local',
   filter: (devcie) => {
-    return (device.modelName === 'Google Home' && /Living room/.test(device.familyName))
+    return (device['modelName'] === 'Google Home' && /Living room/.test(device['familyName']));
   },
   quick: true
-}).then((device_list) => {
-  console.log(JSON.stringify(device_list, null, '  '))
+}).then((device_list) =>{
+  console.log(JSON.stringify(device_list, null, '  '));
 }).catch((error) => {
-  console.error(error)
-})
+  console.error(error);
+});
 ```
 
 As you can see from the code above, an object representing a found device is passed to the function. You can evaluate the device information and limit to devices you want.
