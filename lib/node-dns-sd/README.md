@@ -291,7 +291,7 @@ A function is set to the `filter` parameter, this method limits to devices for w
 ```javascript
 mDnsSd.discover({
   name: '_googlecast._tcp.local',
-  filter: (devcie) => {
+  filter: (device) => {
     return (device.modelName === 'Google Home' && /Living room/.test(device.familyName))
   },
   quick: true
