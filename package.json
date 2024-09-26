@@ -64,7 +64,7 @@
     "axios": "^1.7.3",
     "node-persist": "^4.0.3",
     "p-queue": "^8.0.1",
-    "websocket-as-promised": "^2.1.0",
+    "websocket-as-promised": "^3.0.0",
     "ws": "^8.18.0"
   },
   "devDependencies": {
