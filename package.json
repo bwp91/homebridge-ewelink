@@ -9,7 +9,6 @@
     "name": "bwp91",
     "email": "bwp91@icloud.com"
   },
-  "homepage": "https://github.com/bwp91/homebridge-ewelink",
   "license": "MIT",
   "funding": [
     {
@@ -29,6 +28,7 @@
       "url": "https://www.paypal.me/BenPotter"
     }
   ],
+  "homepage": "https://github.com/bwp91/homebridge-ewelink",
   "repository": {
     "type": "git",
     "url": "https://github.com/bwp91/homebridge-ewelink.git"
