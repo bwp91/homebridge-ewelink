@@ -61,14 +61,14 @@
   },
   "dependencies": {
     "@homebridge/plugin-ui-utils": "^1.0.3",
-    "axios": "^1.7.3",
+    "axios": "^1.7.7",
     "node-persist": "^4.0.3",
     "p-queue": "^8.0.1",
-    "websocket-as-promised": "^2.1.0",
+    "websocket-as-promised": "^3.0.0",
     "ws": "^8.18.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.24.1",
-    "eslint": "^9.8.0"
+    "eslint": "^9.12.0"
   }
 }
